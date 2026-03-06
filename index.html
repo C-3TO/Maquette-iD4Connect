@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iD4Connect — Intelligence Data. Souveraine. Temps réel.</title>
+  <meta name="description" content="iD4Connect traite vos données en transit, sans les stocker ni les dupliquer. Architecture stateless Deep Tech, souveraineté européenne garantie.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══════════════════════════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════════════════════════ */
+    :root {
+      --orange:       #FF6B35;
+      --orange-light: #FF8C5A;
+      --orange-dim:   rgba(255, 107, 53, 0.12);
+      --orange-glow:  rgba(255, 107, 53, 0.06);
+      --font:         'Montserrat', sans-serif;
+      --radius:       16px;
+      --tr:           0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg:           #0A0E1A;
+      --bg2:          #0F172A;
+      --bg3:          #1E293B;
+      --border:       rgba(255,107,53,0.12);
+      --border2:      rgba(255,255,255,0.06);
+      --text:         #F8FAFC;
+      --text2:        #94A3B8;
+      --text3:        #475569;
+      --card-bg:      rgba(15, 23, 42, 0.8);
+      --card-border:  rgba(255,107,53,0.15);
+      --glow-color:   rgba(255,107,53,0.08);
+    }
+
+    [data-theme="light"] {
+      --bg:           #F8FAFC;
+      --bg2:          #FFFFFF;
+      --bg3:          #F1F5F9;
+      --border:       rgba(0,0,0,0.08);
+      --border2:      rgba(0,0,0,0.05);
+      --text:         #0F172A;
+      --text2:        #475569;
+      --text3:        #94A3B8;
+      --card-bg:      rgba(255, 255, 255, 0.9);
+      --card-border:  rgba(255,107,53,0.2);
+      --glow-color:   rgba(255,107,53,0.04);
+    }
+
+    /* ── RESET & BASE ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      transition: background var(--tr), color var(--tr);
+      overflow-x: hidden;
+    }
+
+    /* Offset pour le header fixe */
+    body { padding-top: 72px; }
+
+    section { position: relative; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── TYPOGRAPHY ───────────────────────────────────────── */
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+
+    .label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--orange);
+      border-radius: 2px;
+    }
+
+    h1, h2, h3 { font-weight: 800; line-height: 1.1; letter-spacing: -0.5px; }
+
+    h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+    h3 { font-size: 1.3rem; }
+
+    .accent { color: var(--orange); }
+
+    .glossary {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--text3);
+      margin-top: 12px;
+      padding: 5px 10px;
+      background: var(--orange-dim);
+      border-radius: 6px;
+      border-left: 2px solid var(--orange);
+    }
+
+    /* ── BUTTONS ──────────────────────────────────────────── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--orange);
+      color: white;
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all var(--tr);
+      box-shadow: 0 4px 20px rgba(255,107,53,0.35);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255,107,53,0.45);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      border: 1px solid var(--border2);
+      transition: all var(--tr);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      background: var(--orange-dim);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION 0 — HERO
+    ══════════════════════════════════════════════════════════ */
+    #hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Fond animé deep tech */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-bg .grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,107,53,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,107,53,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    [data-theme="light"] .hero-bg .grid-lines {
+      background-image:
+        linear-gradient(rgba(255,107,53,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,107,53,0.06) 1px, transparent 1px);
+    }
+
+    .hero-bg .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+
+    .hero-bg .orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,107,53,0.12), transparent 70%);
+      top: -100px; right: -100px;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero-bg .orb-2 {
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(255,107,53,0.06), transparent 70%);
+      bottom: 0; left: -50px;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(20px, -30px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--orange-dim);
+      border: 1px solid rgba(255,107,53,0.3);
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 28px;
+      animation: fadeSlideUp 0.6s ease both;
+    }
+
+    .hero-badge .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    #hero h1 {
+      animation: fadeSlideUp 0.7s 0.1s ease both;
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text2);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 600px;
+      animation: fadeSlideUp 0.7s 0.2s ease both;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeSlideUp 0.7s 0.3s ease both;
+      margin-bottom: 60px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      animation: fadeSlideUp 0.7s 0.4s ease both;
+      padding-top: 40px;
+      border-top: 1px solid var(--border2);
+      flex-wrap: wrap;
+    }
+
+    .stat-item .stat-value {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--orange);
+      letter-spacing: -1px;
+    }
+
+    .stat-item .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text3);
+      margin-top: 2px;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── HERO VISUAL (droite) ─────────────────────────────── */
+    .hero-visual {
+      position: absolute;
+      right: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 440px;
+      animation: fadeSlideUp 0.8s 0.3s ease both;
+    }
+
+    .hero-visual-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 28px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px var(--card-border);
+    }
+
+    .hero-visual-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: #10B981;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Mini flow animé */
+    .flow-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .flow-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flow-node {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .flow-node.source { background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3); color: #60A5FA; }
+    .flow-node.datacell { background: rgba(255,107,53,0.15); border: 1px solid rgba(255,107,53,0.4); color: var(--orange); }
+    .flow-node.dest { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #10B981; }
+    .flow-node.grey { background: var(--bg3); border: 1px solid var(--border2); color: var(--text3); }
+
+    .flow-arrow {
+      font-size: 14px;
+      color: var(--text3);
+      animation: arrowPulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes arrowPulse {
+      0%,100% { opacity: 0.4; transform: translateX(0); }
+      50%      { opacity: 1; transform: translateX(3px); }
+    }
+
+    .flow-badge-no-storage {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 14px;
+      padding: 6px 12px;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.25);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #10B981;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-visual { display: none; }
+      .hero-content { max-width: 100%; }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION 1 — SOUVERAINETÉ
+    ══════════════════════════════════════════════════════════ */
+    #sovereignty {
+      padding: 120px 0;
+      background: var(--bg2);
+    }
+
+    .sovereignty-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .sovereignty-alert {
+      background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.03));
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .sovereignty-alert .alert-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #F87171;
+      margin-bottom: 10px;
+    }
+
+    .sovereignty-alert p {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.7;
+    }
+
+    .sovereignty-alert strong { color: #F87171; }
+
+    .sovereignty-features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sov-feature {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .sov-feature .icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--orange-dim);
+      border: 1px solid rgba(255,107,53,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .sov-feature h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .sov-feature p {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    /* Visual droite souveraineté */
+    .sovereignty-visual {
+      position: relative;
+    }
+
+    .sov-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px;
+      backdrop-filter: blur(12px);
+    }
+
+    .sov-map-placeholder {
+      height: 200px;
+      background: linear-gradient(135deg, rgba(255,107,53,0.05), rgba(255,107,53,0.02));
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sov-map-placeholder .eu-flag {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .sov-map-placeholder .map-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Croisé rouge Cloud Act */
+    .cloudact-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      background: rgba(239,68,68,0.07);
+      border-radius: 10px;
+      border: 1px solid rgba(239,68,68,0.15);
+      margin-bottom: 12px;
+    }
+
+    .cloudact-block .cloud-logo { font-size: 20px; }
+
+    .cloudact-block .text {
+      font-size: 12px;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+
+    .cloudact-block .text strong { color: #F87171; font-size: 11px; }
+
+    .id4c-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      background: rgba(16,185,129,0.07);
+      border-radius: 10px;
+      border: 1px solid rgba(16,185,129,0.2);
+    }
+
+    .id4c-block .text { font-size: 12px; color: var(--text2); line-height: 1.5; }
+    .id4c-block .text strong { color: #10B981; font-size: 11px; }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION 2 — AGNOSTIQUE / HYBRIDE
+    ══════════════════════════════════════════════════════════ */
+    #agnostic {
+      padding: 120px 0;
+      background: var(--bg);
+    }
+
+    .agnostic-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 64px;
+    }
+
+    .deploy-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .deploy-tab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      border: 1px solid var(--border2);
+      background: var(--card-bg);
+      color: var(--text2);
+      transition: all var(--tr);
+    }
+
+    .deploy-tab.active, .deploy-tab:hover {
+      background: var(--orange-dim);
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    .deploy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .deploy-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: all var(--tr);
+    }
+
+    .deploy-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(255,107,53,0.12);
+      border-color: var(--orange);
+    }
+
+    .deploy-card .card-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .deploy-card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .deploy-card p {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .deploy-card .features {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .deploy-card .feat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text2);
+    }
+
+    .deploy-card .feat::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION 3 — TEMPS RÉEL
+    ══════════════════════════════════════════════════════════ */
+    #realtime {
+      padding: 120px 0;
+      background: var(--bg2);
+    }
+
+    .realtime-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    /* Timeline visuelle */
+    .timeline-compare {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .timeline-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .timeline-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text3);
+    }
+
+    .timeline-bar-wrap {
+      position: relative;
+      height: 44px;
+      background: var(--bg3);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+    }
+
+    .timeline-bar {
+      height: 100%;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .timeline-bar.classic {
+      background: linear-gradient(90deg, rgba(100,116,139,0.4), rgba(100,116,139,0.15));
+      color: var(--text2);
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .timeline-bar.id4c {
+      background: linear-gradient(90deg, rgba(255,107,53,0.5), rgba(255,107,53,0.2));
+      color: var(--orange);
+      width: 30%;
+    }
+
+    .timeline-steps {
+      display: flex;
+      gap: 6px;
+      font-size: 10px;
+      color: var(--text3);
+    }
+
+    .timeline-step {
+      padding: 3px 8px;
+      background: var(--bg3);
+      border-radius: 4px;
+    }
+
+    .timeline-step.orange {
+      background: rgba(255,107,53,0.1);
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .realtime-content h2 { margin-bottom: 20px; }
+    .realtime-content p { color: var(--text2); line-height: 1.7; margin-bottom: 24px; font-size: 15px; }
+
+    .realtime-kpis {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .kpi-chip {
+      background: var(--orange-dim);
+      border: 1px solid rgba(255,107,53,0.2);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .kpi-chip .value { font-size: 20px; font-weight: 900; color: var(--orange); }
+    .kpi-chip .desc  { font-size: 11px; color: var(--text2); margin-top: 2px; }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION 4 — COMPARATIF ARCHITECTURE
+    ══════════════════════════════════════════════════════════ */
+    #architecture-compare {
+      padding: 120px 0;
+      background: var(--bg);
+    }
+
+    .archi-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 64px;
+    }
+
+    .archi-diagram {
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 48px 40px;
+      backdrop-filter: blur(12px);
+    }
+
+    /* Étiquette "Classique" et "iD4Connect" */
+    .archi-vs {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .archi-side-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .archi-side-title.classic {
+      color: var(--text3);
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+    }
+
+    .archi-side-title.id4c {
+      color: var(--orange);
+      background: var(--orange-dim);
+      border: 1px solid rgba(255,107,53,0.25);
+    }
+
+    .archi-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .archi-box {
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      border: 1px solid;
+      position: relative;
+    }
+
+    .archi-box.source-box {
+      background: rgba(59,130,246,0.1);
+      border-color: rgba(59,130,246,0.3);
+      color: #60A5FA;
+    }
+
+    .archi-box.etl-box {
+      background: rgba(100,116,139,0.1);
+      border-color: rgba(100,116,139,0.25);
+      color: var(--text2);
+    }
+
+    .archi-box.ods-box {
+      background: rgba(100,116,139,0.1);
+      border-color: rgba(100,116,139,0.25);
+      color: var(--text2);
+    }
+
+    .archi-box.dw-box {
+      background: rgba(100,116,139,0.1);
+      border-color: rgba(100,116,139,0.25);
+      color: var(--text2);
+    }
+
+    .archi-box.kpi-box {
+      background: rgba(16,185,129,0.1);
+      border-color: rgba(16,185,129,0.3);
+      color: #10B981;
+    }
+
+    .archi-box.datacell-box {
+      background: rgba(255,107,53,0.15);
+      border-color: rgba(255,107,53,0.5);
+      color: var(--orange);
+      box-shadow: 0 0 20px rgba(255,107,53,0.1);
+    }
+
+    .archi-box.covered {
+      opacity: 0.4;
+      position: relative;
+    }
+
+    .archi-box.covered::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border: 2px dashed rgba(255,107,53,0.5);
+      border-radius: 11px;
+      pointer-events: none;
+    }
+
+    .covered-label {
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--orange);
+      opacity: 0.8;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 4px 0;
+    }
+
+    .archi-arrow {
+      text-align: center;
+      font-size: 16px;
+      color: var(--text3);
+      line-height: 1;
+    }
+
+    .archi-vs-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 40px;
+    }
+
+    .vs-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--orange-dim);
+      border: 2px solid var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--orange);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION 5 — DEEP TECH
+    ══════════════════════════════════════════════════════════ */
+    #deeptech {
+      padding: 120px 0;
+      background: var(--bg2);
+      position: relative;
+    }
+
+    #deeptech::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 800px 400px at 50% 0%, rgba(255,107,53,0.04), transparent);
+      pointer-events: none;
+    }
+
+    .deeptech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .trl-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 28px;
+      background: var(--orange-dim);
+      border: 1px solid rgba(255,107,53,0.3);
+      border-radius: var(--radius);
+      margin-bottom: 32px;
+    }
+
+    .trl-badge .trl-number {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .trl-badge .trl-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text2);
+      text-transform: uppercase;
+    }
+
+    .deeptech-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .pillar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all var(--tr);
+    }
+
+    .pillar-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-2px);
+    }
+
+    .pillar-card .pillar-icon { font-size: 24px; margin-bottom: 10px; }
+    .pillar-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+    .pillar-card p  { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+    /* Timeline R&D */
+    .rd-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .rd-timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--orange), rgba(255,107,53,0.1));
+    }
+
+    .rd-item {
+      position: relative;
+      padding: 0 0 24px 20px;
+    }
+
+    .rd-item::before {
+      content: '';
+      position: absolute;
+      left: -23px; top: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--orange);
+      border: 2px solid var(--bg2);
+    }
+
+    .rd-item .year {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+
+    .rd-item .desc {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION 6 — PARTENAIRES
+    ══════════════════════════════════════════════════════════ */
+    #partners {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+
+    .partners-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .partners-header h2 { font-size: 1.5rem; margin-bottom: 8px; }
+    .partners-header p  { font-size: 14px; color: var(--text3); }
+
+    .partners-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .partner-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all var(--tr);
+      text-decoration: none;
+    }
+
+    .partner-card:hover {
+      border-color: var(--orange);
+      background: var(--orange-dim);
+      transform: translateY(-2px);
+    }
+
+    .partner-card .p-icon { font-size: 24px; }
+
+    .partner-card .p-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .partner-card .p-tag {
+      font-size: 10px;
+      color: var(--text3);
+      margin-top: 1px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       CTA FINAL
+    ══════════════════════════════════════════════════════════ */
+    #cta-final {
+      padding: 100px 0;
+      background: var(--bg2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 600px 300px at 50% 50%, rgba(255,107,53,0.08), transparent);
+    }
+
+    #cta-final .container { position: relative; z-index: 1; }
+
+    #cta-final h2 { margin-bottom: 16px; font-size: clamp(1.8rem, 3vw, 2.4rem); }
+    #cta-final p  { color: var(--text2); font-size: 16px; margin-bottom: 36px; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .sovereignty-grid, .realtime-grid, .deeptech-grid { grid-template-columns: 1fr; }
+      .deploy-grid { grid-template-columns: 1fr; }
+      .archi-vs { grid-template-columns: 1fr; }
+      .archi-vs-divider { display: none; }
+      .realtime-kpis { grid-template-columns: 1fr 1fr; }
+      .deeptech-pillars { grid-template-columns: 1fr 1fr; }
+      .container { padding: 0 20px; }
+      section { padding-top: 80px !important; padding-bottom: 80px !important; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-stats { gap: 24px; }
+      .deploy-grid { grid-template-columns: 1fr; }
+      .deeptech-pillars { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+
+  <!-- ░░ HEADER ░░ -->
+  <div id="header-placeholder"></div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="grid-lines"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse"></span>
+          <span data-i18n="hero.badge">Deep Tech Européen · TRL 9 · Stateless by Design</span>
+        </div>
+
+        <h1>
+          <span data-i18n="hero.h1a">Vos données restent</span><br>
+          <span class="accent" data-i18n="hero.h1b">où elles sont.</span><br>
+          <span data-i18n="hero.h1c">L'intelligence, non.</span>
+        </h1>
+
+        <p class="hero-desc" data-i18n="hero.desc">
+          iD4Connect traite vos données pendant leur transit — sans les stocker, sans les dupliquer. Insights en temps réel, souveraineté garantie, conformité by design.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn-primary" data-i18n="nav.cta">Demander une démo →</a>
+          <a href="architecture.html" class="btn-ghost" data-i18n="hero.cta2">Voir l'architecture</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-value">0</div>
+            <div class="stat-label" data-i18n="hero.stat1">Donnée stockée ou dupliquée</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">&lt;5ms</div>
+            <div class="stat-label" data-i18n="hero.stat2">Latence de traitement</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">15+</div>
+            <div class="stat-label" data-i18n="hero.stat3">Années de R&D européenne</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">5×</div>
+            <div class="stat-label" data-i18n="hero.stat4">Moins cher qu'un ETL classique</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual flottant droite -->
+      <div class="hero-visual">
+        <div class="hero-visual-card">
+          <div class="hero-visual-title">
+            <div class="live-dot"></div>
+            <span data-i18n="hero.flow_label">Flux de données en direct</span>
+          </div>
+          <div class="flow-diagram">
+            <div class="flow-row">
+              <div class="flow-node source">📊 ERP SAP</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node datacell">⚡ DataCell</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node dest">✓ KPI Métier</div>
+            </div>
+            <div class="flow-row">
+              <div class="flow-node source">🏭 IoT Capteurs</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node datacell">⚡ DataCell</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node dest">✓ Alerte Temps Réel</div>
+            </div>
+            <div class="flow-row">
+              <div class="flow-node source">☁️ API SaaS</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node datacell">⚡ DataCell</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node dest">✓ Dashboard Live</div>
+            </div>
+            <div class="flow-badge-no-storage">
+              ✓ <span data-i18n="hero.no_storage">Aucune donnée stockée au passage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 1 — SOUVERAINETÉ & GOUVERNANCE
+  ══════════════════════════════════════════════════════════ -->
+  <section id="sovereignty">
+    <div class="container">
+      <div class="sovereignty-grid">
+
+        <!-- Contenu gauche -->
+        <div>
+          <div class="label" data-i18n="sov.label">Souveraineté & Gouvernance</div>
+          <h2 style="margin-bottom:20px" data-i18n="sov.title">Vos données ne quittent jamais votre infrastructure.</h2>
+          <p style="color:var(--text2); font-size:15px; line-height:1.7; margin-bottom:28px" data-i18n="sov.desc">
+            Dans un monde où les grandes plateformes cloud américaines sont soumises au Cloud Act et FISA 702, héberger vos données sur AWS, Azure ou GCP crée un risque juridique réel. iD4Connect élimine ce risque à la racine.
+          </p>
+
+          <!-- Alerte Cloud Act -->
+          <div class="sovereignty-alert">
+            <div class="alert-title">⚠️ <span data-i18n="sov.alert_title">Le risque Cloud Act</span></div>
+            <p data-i18n="sov.alert_desc">
+              Toute donnée hébergée chez un acteur américain (AWS, Azure, GCP, Snowflake, Databricks…) est <strong>juridiquement accessible par les autorités américaines</strong>, même si les serveurs sont en Europe. Le Cloud Act (2018) et FISA 702 l'autorisent sans notification.
+            </p>
+          </div>
+
+          <div class="sovereignty-features">
+            <div class="sov-feature">
+              <div class="icon-wrap">🏠</div>
+              <div>
+                <h4 data-i18n="sov.f1_title">Données à la source</h4>
+                <p data-i18n="sov.f1_desc">iD4Connect déploie ses DataCell directement sur votre infrastructure. Vos données ne transitent que dans votre périmètre.</p>
+              </div>
+            </div>
+            <div class="sov-feature">
+              <div class="icon-wrap">🔒</div>
+              <div>
+                <h4 data-i18n="sov.f2_title">RGPD by design</h4>
+                <p data-i18n="sov.f2_desc">Aucune copie, aucun stockage intermédiaire. La conformité n'est pas une option ajoutée — c'est l'architecture elle-même.</p>
+              </div>
+            </div>
+            <div class="sov-feature">
+              <div class="icon-wrap">🇪🇺</div>
+              <div>
+                <h4 data-i18n="sov.f3_title">Alternative européenne souveraine</h4>
+                <p data-i18n="sov.f3_desc">Technologie issue du CETIC (centre de R&D belge). Gouvernance 100% européenne. NIS2, DORA, HDS natifs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glossary">📖 <span data-i18n="sov.glossary">Cloud Act : loi américaine de 2018 obligeant les entreprises US à fournir des données à la demande des autorités, indépendamment du lieu de stockage.</span></div>
+        </div>
+
+        <!-- Visual droite -->
+        <div class="sovereignty-visual">
+          <div class="sov-card">
+            <div class="sov-map-placeholder">
+              <div class="eu-flag">🇪🇺</div>
+              <div class="map-label" data-i18n="sov.map_label">Données — Périmètre Européen</div>
+            </div>
+
+            <div class="cloudact-block">
+              <div class="cloud-logo">☁️🇺🇸</div>
+              <div class="text">
+                <strong>⚠️ CLOUD ACT / FISA 702</strong><br>
+                <span data-i18n="sov.cloudact_risk">AWS, Azure, GCP, Snowflake → Données accessibles par autorités US</span>
+              </div>
+            </div>
+
+            <div style="text-align:center; font-size:18px; padding:8px; color:var(--text3)">↕</div>
+
+            <div class="id4c-block">
+              <div style="font-size:20px">⚡</div>
+              <div class="text">
+                <strong>✓ iD4Connect — Zéro Cloud Act</strong><br>
+                <span data-i18n="sov.id4c_safe">Déploiement on-premise, traitement en transit, aucune donnée exposée</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 2 — AGNOSTIQUE / HYBRIDE
+  ══════════════════════════════════════════════════════════ -->
+  <section id="agnostic">
+    <div class="container">
+      <div class="agnostic-header">
+        <div class="label" data-i18n="agn.label">Déploiement Agnostique</div>
+        <h2 data-i18n="agn.title">Installez-le là où vous êtes déjà.</h2>
+        <p style="color:var(--text2); font-size:15px; line-height:1.7; margin-top:16px" data-i18n="agn.desc">
+          On-premise, cloud privé ou multi-cloud — iD4Connect s'adapte à votre infrastructure existante. Zéro migration, zéro refonte.
+        </p>
+      </div>
+
+      <div class="deploy-grid">
+        <div class="deploy-card">
+          <div class="card-icon">🏢</div>
+          <h3 data-i18n="agn.onprem_title">On-Premise</h3>
+          <p data-i18n="agn.onprem_desc">Déploiement complet dans vos datacenters. Données 100% sous votre contrôle, jamais exposées à l'extérieur.</p>
+          <div class="features">
+            <div class="feat" data-i18n="agn.onprem_f1">Isolation réseau totale</div>
+            <div class="feat" data-i18n="agn.onprem_f2">Conformité SecNumCloud, HDS</div>
+            <div class="feat" data-i18n="agn.onprem_f3">Idéal secteur public & santé</div>
+          </div>
+          <div class="glossary" style="margin-top:14px">📖 <span data-i18n="agn.gloss_onprem">On-Premise : infrastructure hébergée physiquement dans vos locaux ou datacenter privé.</span></div>
+        </div>
+
+        <div class="deploy-card" style="border-color:var(--orange);">
+          <div class="card-icon">☁️</div>
+          <h3 data-i18n="agn.cloud_title">Cloud Privé / Hybride</h3>
+          <p data-i18n="agn.cloud_desc">Compatible AWS, Azure, GCP — mais en mode souverain. Vos DataCells tournent dans votre tenant, jamais chez nous.</p>
+          <div class="features">
+            <div class="feat" data-i18n="agn.cloud_f1">Multi-cloud natif</div>
+            <div class="feat" data-i18n="agn.cloud_f2">Pas de vendor lock-in</div>
+            <div class="feat" data-i18n="agn.cloud_f3">Scalabilité instantanée</div>
+          </div>
+          <div class="glossary" style="margin-top:14px">📖 <span data-i18n="agn.gloss_cloud">Vendor lock-in : dépendance technique et contractuelle à un seul fournisseur cloud.</span></div>
+        </div>
+
+        <div class="deploy-card">
+          <div class="card-icon">🔀</div>
+          <h3 data-i18n="agn.hybrid_title">Architecture Hybride</h3>
+          <p data-i18n="agn.hybrid_desc">Combinez on-premise et cloud selon la sensibilité de vos données. Une seule orchestration, plusieurs environnements.</p>
+          <div class="features">
+            <div class="feat" data-i18n="agn.hybrid_f1">DataGraph unifié sur tous les envs</div>
+            <div class="feat" data-i18n="agn.hybrid_f2">Politique de données granulaire</div>
+            <div class="feat" data-i18n="agn.hybrid_f3">Migration progressive possible</div>
+          </div>
+          <div class="glossary" style="margin-top:14px">📖 <span data-i18n="agn.gloss_hybrid">DataGraph : couche d'orchestration iD4Connect qui coordonne toutes les DataCells, quel que soit l'environnement.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 3 — TEMPS RÉEL
+  ══════════════════════════════════════════════════════════ -->
+  <section id="realtime">
+    <div class="container">
+      <div class="realtime-grid">
+
+        <!-- Visual gauche -->
+        <div>
+          <div class="timeline-compare">
+            <div class="timeline-row">
+              <div class="timeline-label" data-i18n="rt.classic_label">⏳ Architecture classique (batch)</div>
+              <div class="timeline-bar-wrap">
+                <div class="timeline-bar classic">
+                  <span data-i18n="rt.classic_from">Extraction</span>
+                  <span>→ ETL → ODS → DWH →</span>
+                  <span data-i18n="rt.classic_to">Rapport (H+2 à H+24)</span>
+                </div>
+              </div>
+              <div class="timeline-steps">
+                <span class="timeline-step">Extraction</span>
+                <span class="timeline-step">Transformation</span>
+                <span class="timeline-step">Chargement</span>
+                <span class="timeline-step">Requête</span>
+                <span class="timeline-step">Rapport</span>
+              </div>
+            </div>
+
+            <div class="timeline-row" style="margin-top:8px">
+              <div class="timeline-label" data-i18n="rt.id4c_label">⚡ iD4Connect (stream)</div>
+              <div class="timeline-bar-wrap">
+                <div class="timeline-bar id4c">
+                  <span data-i18n="rt.id4c_flow">Source → DataCell → KPI &lt;5ms</span>
+                </div>
+              </div>
+              <div class="timeline-steps">
+                <span class="timeline-step orange" data-i18n="rt.step_transit">En transit</span>
+                <span class="timeline-step orange" data-i18n="rt.step_insight">Insight immédiat</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenu droite -->
+        <div class="realtime-content">
+          <div class="label" data-i18n="rt.label">Temps Réel</div>
+          <h2 data-i18n="rt.title">Pas de batch. Pas de latence. L'insight pendant le transit.</h2>
+          <p data-i18n="rt.desc">
+            Les architectures traditionnelles extraient, stockent, transforment, puis restituent. iD4Connect produit l'insight <em>pendant que la donnée transite</em> — sans escale intermédiaire. Ce n'est pas de l'optimisation, c'est une rupture architecturale.
+          </p>
+
+          <div class="realtime-kpis">
+            <div class="kpi-chip">
+              <div class="value">&lt;5ms</div>
+              <div class="desc" data-i18n="rt.kpi1">Latence de traitement</div>
+            </div>
+            <div class="kpi-chip">
+              <div class="value">0</div>
+              <div class="desc" data-i18n="rt.kpi2">Stockage intermédiaire</div>
+            </div>
+            <div class="kpi-chip">
+              <div class="value">24/7</div>
+              <div class="desc" data-i18n="rt.kpi3">Streaming continu</div>
+            </div>
+            <div class="kpi-chip">
+              <div class="value">×5</div>
+              <div class="desc" data-i18n="rt.kpi4">Réduction coût TCO</div>
+            </div>
+          </div>
+
+          <div class="glossary" style="margin-top:20px">📖 <span data-i18n="rt.glossary">Batch : traitement par lots, déclenché à intervalles réguliers. S'oppose au streaming (traitement continu en temps réel).</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 4 — COMPARATIF ARCHITECTURE
+  ══════════════════════════════════════════════════════════ -->
+  <section id="architecture-compare">
+    <div class="container">
+      <div class="archi-header">
+        <div class="label" data-i18n="archi.label">Architecture Comparée</div>
+        <h2 data-i18n="archi.title">DataCell vs Pipeline Classique</h2>
+        <p style="color:var(--text2); font-size:15px; margin-top:16px; line-height:1.7" data-i18n="archi.desc">
+          Un pipeline ETL classique enchaîne 5 à 7 étapes avant de produire un KPI. iD4Connect réduit ce chemin à une seule unité de traitement autonome.
+        </p>
+      </div>
+
+      <div class="archi-diagram">
+        <div class="archi-vs">
+
+          <!-- CLASSIQUE -->
+          <div>
+            <span class="archi-side-title classic" data-i18n="archi.classic">Architecture Classique</span>
+            <div class="archi-flow">
+              <div class="archi-box source-box">📊 <span data-i18n="archi.source">Source de données</span></div>
+              <div class="archi-arrow">↓</div>
+              <div style="border: 2px dashed rgba(255,107,53,0.4); border-radius:12px; padding:8px; background:rgba(255,107,53,0.03);">
+                <div style="text-align:center; font-size:10px; font-weight:700; color:var(--orange); margin-bottom:8px; letter-spacing:1px; text-transform:uppercase;" data-i18n="archi.datacell_zone">⚡ Zone gérée par DataCell</div>
+                <div class="archi-box etl-box archi-box covered">🔄 ETL <span data-i18n="archi.etl_sub">(Extract, Transform, Load)</span></div>
+                <div class="archi-arrow">↓</div>
+                <div class="archi-box ods-box archi-box covered">🗄️ ODS <span data-i18n="archi.ods_sub">(Operational Data Store)</span></div>
+                <div class="archi-arrow">↓</div>
+                <div class="archi-box dw-box archi-box covered">🏛️ <span data-i18n="archi.datalake">Datalake / DataWarehouse</span></div>
+              </div>
+              <div class="archi-arrow">↓</div>
+              <div class="archi-box kpi-box">📈 <span data-i18n="archi.kpi">KPI Métier</span></div>
+            </div>
+          </div>
+
+          <!-- VS -->
+          <div class="archi-vs-divider">
+            <div class="vs-badge">VS</div>
+          </div>
+
+          <!-- ID4CONNECT -->
+          <div>
+            <span class="archi-side-title id4c">iD4Connect</span>
+            <div class="archi-flow">
+              <div class="archi-box source-box">📊 <span data-i18n="archi.source">Source de données</span></div>
+              <div class="archi-arrow">↓</div>
+              <div class="archi-box datacell-box" style="padding:20px;">
+                <div style="font-size:24px;margin-bottom:8px;">⚡</div>
+                <div style="font-weight:800;margin-bottom:4px;">DataCell</div>
+                <div style="font-size:11px; opacity:0.8;" data-i18n="archi.datacell_desc">Traitement autonome en transit</div>
+              </div>
+              <div class="archi-arrow">↓</div>
+              <div class="archi-box kpi-box">📈 <span data-i18n="archi.kpi">KPI Métier</span></div>
+            </div>
+
+            <div style="margin-top:20px; display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; gap:8px; align-items:center; font-size:12px; color:var(--text2)">
+                <span style="color:#10B981; font-weight:700">✓</span>
+                <span data-i18n="archi.benefit1">Aucun stockage intermédiaire</span>
+              </div>
+              <div style="display:flex; gap:8px; align-items:center; font-size:12px; color:var(--text2)">
+                <span style="color:#10B981; font-weight:700">✓</span>
+                <span data-i18n="archi.benefit2">Latence &lt;5ms vs H+2 en batch</span>
+              </div>
+              <div style="display:flex; gap:8px; align-items:center; font-size:12px; color:var(--text2)">
+                <span style="color:#10B981; font-weight:700">✓</span>
+                <span data-i18n="archi.benefit3">5× moins cher en TCO</span>
+              </div>
+              <div style="display:flex; gap:8px; align-items:center; font-size:12px; color:var(--text2)">
+                <span style="color:#10B981; font-weight:700">✓</span>
+                <span data-i18n="archi.benefit4">RGPD by design</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="glossary" style="margin-top:28px;">📖 <span data-i18n="archi.glossary">ETL : Extract, Transform, Load — processus classique de déplacement de données. ODS : couche de données opérationnelles temporaires. DataWarehouse : entrepôt de données historisées. TCO : Total Cost of Ownership.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 5 — DEEP TECH
+  ══════════════════════════════════════════════════════════ -->
+  <section id="deeptech">
+    <div class="container">
+      <div class="deeptech-grid">
+
+        <!-- Gauche -->
+        <div>
+          <div class="label" data-i18n="dt.label">Deep Tech · R&D Européenne</div>
+          <h2 style="margin-bottom:20px" data-i18n="dt.title">15 ans de recherche. Une architecture sans précédent.</h2>
+          <p style="color:var(--text2); font-size:15px; line-height:1.7; margin-bottom:32px" data-i18n="dt.desc">
+            La technologie iD4Connect est issue du CETIC — centre de recherche belge — et portée au niveau de maturité industrielle TRL 9. Son architecture stateless est impossible à reproduire avec les paradigmes classiques.
+          </p>
+
+          <div class="trl-badge">
+            <div class="trl-number">9</div>
+            <div class="trl-label" data-i18n="dt.trl">Technology Readiness Level</div>
+          </div>
+
+          <div class="deeptech-pillars">
+            <div class="pillar-card">
+              <div class="pillar-icon">⚡</div>
+              <h4 data-i18n="dt.p1_title">Stateless</h4>
+              <p data-i18n="dt.p1_desc">Aucun état persistant. Chaque DataCell traite et oublie. Zéro surface d'attaque.</p>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">🔬</div>
+              <h4 data-i18n="dt.p2_title">Disruptive</h4>
+              <p data-i18n="dt.p2_desc">Rupture technologique, économique, réglementaire et environnementale simultanée.</p>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">🏗️</div>
+              <h4 data-i18n="dt.p3_title">Modulaire</h4>
+              <p data-i18n="dt.p3_desc">DataCells déployables unitairement. Scaling horizontal natif. Zéro monolithe.</p>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">🛡️</div>
+              <h4 data-i18n="dt.p4_title">Zéro Trust Data</h4>
+              <p data-i18n="dt.p4_desc">Chaque flux est vérifié, tracé, chiffré. Audit natif, conformité automatique.</p>
+            </div>
+          </div>
+
+          <div class="glossary" style="margin-top:20px">📖 <span data-i18n="dt.glossary">TRL 9 : niveau de maturité technologique maximal — système opérationnel et commercialisé. Stateless : architecture sans état stocké entre deux traitements.</span></div>
+        </div>
+
+        <!-- Droite — Timeline R&D -->
+        <div>
+          <div style="margin-bottom:24px">
+            <div class="label" data-i18n="dt.timeline_label">Chronologie R&D</div>
+          </div>
+          <div class="rd-timeline">
+            <div class="rd-item">
+              <div class="year">2008 — 2015</div>
+              <div class="desc" data-i18n="dt.rd1">Recherches fondamentales au CETIC sur le traitement en-flux de données hétérogènes. Première modélisation de l'architecture stateless.</div>
+            </div>
+            <div class="rd-item">
+              <div class="year">2016 — 2019</div>
+              <div class="desc" data-i18n="dt.rd2">Développement des premiers prototypes DataCell. Validation du concept sur données industrielles réelles. TRL 4 → 6.</div>
+            </div>
+            <div class="rd-item">
+              <div class="year">2020 — 2022</div>
+              <div class="desc" data-i18n="dt.rd3">Industrialisation. Premiers déploiements pilotes en conditions réelles. Développement du DataGraph. TRL 7 → 8.</div>
+            </div>
+            <div class="rd-item">
+              <div class="year">2023</div>
+              <div class="desc" data-i18n="dt.rd4">Création d'iD4Connect France SAS. Commercialisation. TRL 9 atteint. Premiers partenaires stratégiques.</div>
+            </div>
+            <div class="rd-item">
+              <div class="year" data-i18n="dt.rd5_year">2024 — Aujourd'hui</div>
+              <div class="desc" data-i18n="dt.rd5">Expansion Europe & Moyen-Orient. Feuille de route IA : agents IA data-modèles, IoT multi-protocoles, Chat pilotage agents.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 6 — PARTENAIRES
+  ══════════════════════════════════════════════════════════ -->
+  <section id="partners">
+    <div class="container">
+      <div class="partners-header">
+        <div class="label" data-i18n="part.label">Écosystème Partenaires</div>
+        <h2 data-i18n="part.title">Ils nous font confiance</h2>
+        <p data-i18n="part.desc">iD4Connect se déploie via ses partenaires intégrateurs et revendeurs certifiés.</p>
+      </div>
+
+      <div class="partners-grid">
+        <div class="partner-card">
+          <div class="p-icon">🛡️</div>
+          <div>
+            <div class="p-name">HELIAQ</div>
+            <div class="p-tag">Cybersécurité · SIEM + EDR</div>
+          </div>
+        </div>
+        <div class="partner-card">
+          <div class="p-icon">🏢</div>
+          <div>
+            <div class="p-name">NRB</div>
+            <div class="p-tag">Intégrateur IT · Belgique</div>
+          </div>
+        </div>
+        <div class="partner-card">
+          <div class="p-icon">🔒</div>
+          <div>
+            <div class="p-name">RevBits</div>
+            <div class="p-tag">Cybersécurité · PAM/EDR</div>
+          </div>
+        </div>
+        <div class="partner-card">
+          <div class="p-icon">🔬</div>
+          <div>
+            <div class="p-name">CETIC</div>
+            <div class="p-tag">R&D · Origine technologique</div>
+          </div>
+        </div>
+        <div class="partner-card">
+          <div class="p-icon">🛡️</div>
+          <div>
+            <div class="p-name">Seclab Security</div>
+            <div class="p-tag">Hardware Security · OT/IT</div>
+          </div>
+        </div>
+        <div class="partner-card" style="border-style:dashed; opacity:0.6; cursor:default;">
+          <div class="p-icon">➕</div>
+          <div>
+            <div class="p-name" data-i18n="part.become">Devenir partenaire</div>
+            <div class="p-tag" data-i18n="part.become_tag">Programme partenaires ouvert</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       CTA FINAL
+  ══════════════════════════════════════════════════════════ -->
+  <section id="cta-final">
+    <div class="container">
+      <h2 data-i18n="cta.title">Prêt à reprendre le contrôle de vos données ?</h2>
+      <p data-i18n="cta.desc">Découvrez comment iD4Connect s'intègre à votre infrastructure en 30 minutes de démo.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn-primary" data-i18n="nav.cta">Demander une démo →</a>
+        <a href="architecture.html" class="btn-ghost" data-i18n="cta.btn2">Explorer l'architecture</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <div id="footer-placeholder"></div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCRIPTS : chargement header / footer + i18n page
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    /* ── Chargement header & footer ──────────────────────── */
+    async function loadComponent(id, file) {
+      try {
+        const r = await fetch(file);
+        const html = await r.text();
+        document.getElementById(id).innerHTML = html;
+
+        // Exécuter les scripts injectés
+        document.getElementById(id).querySelectorAll('script').forEach(s => {
+          const ns = document.createElement('script');
+          ns.textContent = s.textContent;
+          document.head.appendChild(ns);
+        });
+      } catch(e) {
+        console.warn('Composant non trouvé (normal en local sans serveur) :', file);
+      }
+    }
+
+    /* ── i18n données page ───────────────────────────────── */
+    const pageI18n = {
+      fr: {
+        'hero.badge': 'Deep Tech Européen · TRL 9 · Stateless by Design',
+        'hero.h1a': 'Vos données restent', 'hero.h1b': 'où elles sont.', 'hero.h1c': "L'intelligence, non.",
+        'hero.desc': "iD4Connect traite vos données pendant leur transit — sans les stocker, sans les dupliquer. Insights en temps réel, souveraineté garantie, conformité by design.",
+        'hero.cta2': "Voir l'architecture",
+        'hero.stat1': 'Donnée stockée ou dupliquée', 'hero.stat2': 'Latence de traitement',
+        'hero.stat3': 'Années de R&D européenne', 'hero.stat4': "Moins cher qu'un ETL classique",
+        'hero.flow_label': 'Flux de données en direct', 'hero.no_storage': 'Aucune donnée stockée au passage',
+        'sov.label': 'Souveraineté & Gouvernance',
+        'sov.title': 'Vos données ne quittent jamais votre infrastructure.',
+        'sov.desc': "Dans un monde où les grandes plateformes cloud américaines sont soumises au Cloud Act et FISA 702, héberger vos données sur AWS, Azure ou GCP crée un risque juridique réel. iD4Connect élimine ce risque à la racine.",
+        'sov.alert_title': 'Le risque Cloud Act',
+        'sov.alert_desc': "Toute donnée hébergée chez un acteur américain (AWS, Azure, GCP, Snowflake, Databricks…) est juridiquement accessible par les autorités américaines, même si les serveurs sont en Europe.",
+        'sov.f1_title': 'Données à la source', 'sov.f1_desc': "iD4Connect déploie ses DataCell directement sur votre infrastructure. Vos données ne transitent que dans votre périmètre.",
+        'sov.f2_title': 'RGPD by design', 'sov.f2_desc': "Aucune copie, aucun stockage intermédiaire. La conformité n'est pas une option ajoutée — c'est l'architecture elle-même.",
+        'sov.f3_title': 'Alternative européenne souveraine', 'sov.f3_desc': "Technologie issue du CETIC (centre de R&D belge). Gouvernance 100% européenne. NIS2, DORA, HDS natifs.",
+        'sov.glossary': "Cloud Act : loi américaine de 2018 obligeant les entreprises US à fournir des données à la demande des autorités, indépendamment du lieu de stockage.",
+        'sov.map_label': 'Données — Périmètre Européen',
+        'sov.cloudact_risk': 'AWS, Azure, GCP, Snowflake → Données accessibles par autorités US',
+        'sov.id4c_safe': 'Déploiement on-premise, traitement en transit, aucune donnée exposée',
+        'agn.label': 'Déploiement Agnostique', 'agn.title': 'Installez-le là où vous êtes déjà.',
+        'agn.desc': "On-premise, cloud privé ou multi-cloud — iD4Connect s'adapte à votre infrastructure existante. Zéro migration, zéro refonte.",
+        'agn.onprem_title': 'On-Premise', 'agn.onprem_desc': "Déploiement complet dans vos datacenters. Données 100% sous votre contrôle, jamais exposées à l'extérieur.",
+        'agn.onprem_f1': 'Isolation réseau totale', 'agn.onprem_f2': 'Conformité SecNumCloud, HDS', 'agn.onprem_f3': 'Idéal secteur public & santé',
+        'agn.gloss_onprem': "On-Premise : infrastructure hébergée physiquement dans vos locaux ou datacenter privé.",
+        'agn.cloud_title': 'Cloud Privé / Hybride', 'agn.cloud_desc': "Compatible AWS, Azure, GCP — mais en mode souverain. Vos DataCells tournent dans votre tenant, jamais chez nous.",
+        'agn.cloud_f1': 'Multi-cloud natif', 'agn.cloud_f2': 'Pas de vendor lock-in', 'agn.cloud_f3': 'Scalabilité instantanée',
+        'agn.gloss_cloud': "Vendor lock-in : dépendance technique et contractuelle à un seul fournisseur cloud.",
+        'agn.hybrid_title': 'Architecture Hybride', 'agn.hybrid_desc': "Combinez on-premise et cloud selon la sensibilité de vos données. Une seule orchestration, plusieurs environnements.",
+        'agn.hybrid_f1': 'DataGraph unifié sur tous les envs', 'agn.hybrid_f2': 'Politique de données granulaire', 'agn.hybrid_f3': 'Migration progressive possible',
+        'agn.gloss_hybrid': "DataGraph : couche d'orchestration iD4Connect qui coordonne toutes les DataCells, quel que soit l'environnement.",
+        'rt.label': 'Temps Réel', 'rt.title': "Pas de batch. Pas de latence. L'insight pendant le transit.",
+        'rt.desc': "Les architectures traditionnelles extraient, stockent, transforment, puis restituent. iD4Connect produit l'insight pendant que la donnée transite — sans escale intermédiaire.",
+        'rt.classic_label': '⏳ Architecture classique (batch)', 'rt.classic_from': 'Extraction', 'rt.classic_to': 'Rapport (H+2 à H+24)',
+        'rt.id4c_label': '⚡ iD4Connect (stream)', 'rt.id4c_flow': 'Source → DataCell → KPI <5ms',
+        'rt.step_transit': 'En transit', 'rt.step_insight': 'Insight immédiat',
+        'rt.kpi1': 'Latence de traitement', 'rt.kpi2': 'Stockage intermédiaire', 'rt.kpi3': 'Streaming continu', 'rt.kpi4': 'Réduction coût TCO',
+        'rt.glossary': "Batch : traitement par lots, déclenché à intervalles réguliers. S'oppose au streaming (traitement continu en temps réel).",
+        'archi.label': 'Architecture Comparée', 'archi.title': 'DataCell vs Pipeline Classique',
+        'archi.desc': "Un pipeline ETL classique enchaîne 5 à 7 étapes avant de produire un KPI. iD4Connect réduit ce chemin à une seule unité de traitement autonome.",
+        'archi.classic': 'Architecture Classique', 'archi.source': 'Source de données',
+        'archi.etl_sub': '(Extract, Transform, Load)', 'archi.ods_sub': '(Operational Data Store)',
+        'archi.datalake': 'Datalake / DataWarehouse', 'archi.kpi': 'KPI Métier',
+        'archi.datacell_zone': '⚡ Zone gérée par DataCell',
+        'archi.datacell_desc': 'Traitement autonome en transit',
+        'archi.benefit1': 'Aucun stockage intermédiaire', 'archi.benefit2': 'Latence <5ms vs H+2 en batch',
+        'archi.benefit3': '5× moins cher en TCO', 'archi.benefit4': 'RGPD by design',
+        'archi.glossary': "ETL : Extract, Transform, Load. ODS : couche de données opérationnelles temporaires. DataWarehouse : entrepôt de données historisées. TCO : Total Cost of Ownership.",
+        'dt.label': 'Deep Tech · R&D Européenne', 'dt.title': '15 ans de recherche. Une architecture sans précédent.',
+        'dt.desc': "La technologie iD4Connect est issue du CETIC — centre de recherche belge — et portée au niveau de maturité industrielle TRL 9.",
+        'dt.trl': 'Technology Readiness Level',
+        'dt.p1_title': 'Stateless', 'dt.p1_desc': "Aucun état persistant. Chaque DataCell traite et oublie. Zéro surface d'attaque.",
+        'dt.p2_title': 'Disruptive', 'dt.p2_desc': "Rupture technologique, économique, réglementaire et environnementale simultanée.",
+        'dt.p3_title': 'Modulaire', 'dt.p3_desc': "DataCells déployables unitairement. Scaling horizontal natif. Zéro monolithe.",
+        'dt.p4_title': 'Zéro Trust Data', 'dt.p4_desc': "Chaque flux est vérifié, tracé, chiffré. Audit natif, conformité automatique.",
+        'dt.glossary': "TRL 9 : niveau de maturité technologique maximal — système opérationnel et commercialisé. Stateless : architecture sans état stocké entre deux traitements.",
+        'dt.timeline_label': 'Chronologie R&D',
+        'dt.rd1': "Recherches fondamentales au CETIC sur le traitement en-flux de données hétérogènes. Première modélisation de l'architecture stateless.",
+        'dt.rd2': "Développement des premiers prototypes DataCell. Validation du concept sur données industrielles réelles. TRL 4 → 6.",
+        'dt.rd3': "Industrialisation. Premiers déploiements pilotes en conditions réelles. Développement du DataGraph. TRL 7 → 8.",
+        'dt.rd4': "Création d'iD4Connect France SAS. Commercialisation. TRL 9 atteint. Premiers partenaires stratégiques.",
+        'dt.rd5_year': '2024 — Aujourd\'hui', 'dt.rd5': "Expansion Europe & Moyen-Orient. Feuille de route IA : agents IA data-modèles, IoT multi-protocoles, Chat pilotage agents.",
+        'part.label': 'Écosystème Partenaires', 'part.title': 'Ils nous font confiance',
+        'part.desc': "iD4Connect se déploie via ses partenaires intégrateurs et revendeurs certifiés.",
+        'part.become': 'Devenir partenaire', 'part.become_tag': 'Programme partenaires ouvert',
+        'cta.title': 'Prêt à reprendre le contrôle de vos données ?',
+        'cta.desc': "Découvrez comment iD4Connect s'intègre à votre infrastructure en 30 minutes de démo.",
+        'cta.btn2': "Explorer l'architecture",
+      },
+      en: {
+        'hero.badge': 'European Deep Tech · TRL 9 · Stateless by Design',
+        'hero.h1a': 'Your data stays', 'hero.h1b': 'where it is.', 'hero.h1c': 'The intelligence does not.',
+        'hero.desc': "iD4Connect processes your data during transit — without storing or duplicating it. Real-time insights, guaranteed sovereignty, compliance by design.",
+        'hero.cta2': 'See the architecture',
+        'hero.stat1': 'Data stored or duplicated', 'hero.stat2': 'Processing latency',
+        'hero.stat3': 'Years of European R&D', 'hero.stat4': 'Cheaper than classic ETL',
+        'hero.flow_label': 'Live data stream', 'hero.no_storage': 'No data stored in transit',
+        'sov.label': 'Sovereignty & Governance', 'sov.title': 'Your data never leaves your infrastructure.',
+        'sov.desc': "In a world where US cloud platforms are subject to the Cloud Act and FISA 702, hosting your data on AWS, Azure or GCP creates real legal risk. iD4Connect eliminates this risk at the root.",
+        'sov.alert_title': 'The Cloud Act risk',
+        'sov.alert_desc': "Any data hosted by a US provider (AWS, Azure, GCP, Snowflake, Databricks…) is legally accessible by US authorities, even if servers are in Europe.",
+        'sov.f1_title': 'Data at the source', 'sov.f1_desc': "iD4Connect deploys DataCells directly on your infrastructure. Your data only transits within your perimeter.",
+        'sov.f2_title': 'GDPR by design', 'sov.f2_desc': "No copy, no intermediate storage. Compliance is not an added option — it is the architecture itself.",
+        'sov.f3_title': 'Sovereign European alternative', 'sov.f3_desc': "Technology from CETIC (Belgian R&D center). 100% European governance. NIS2, DORA, HDS native.",
+        'sov.glossary': "Cloud Act: US law (2018) requiring US companies to provide data to authorities on demand, regardless of storage location.",
+        'sov.map_label': 'Data — European Perimeter',
+        'sov.cloudact_risk': 'AWS, Azure, GCP, Snowflake → Data accessible by US authorities',
+        'sov.id4c_safe': 'On-premise deployment, in-transit processing, no data exposed',
+        'agn.label': 'Agnostic Deployment', 'agn.title': 'Install it where you already are.',
+        'agn.desc': "On-premise, private cloud or multi-cloud — iD4Connect adapts to your existing infrastructure. Zero migration, zero redesign.",
+        'agn.onprem_title': 'On-Premise', 'agn.onprem_desc': "Full deployment in your datacenters. Data 100% under your control, never exposed externally.",
+        'agn.onprem_f1': 'Total network isolation', 'agn.onprem_f2': 'SecNumCloud, HDS compliance', 'agn.onprem_f3': 'Ideal for public sector & healthcare',
+        'agn.gloss_onprem': "On-Premise: infrastructure physically hosted in your premises or private datacenter.",
+        'agn.cloud_title': 'Private / Hybrid Cloud', 'agn.cloud_desc': "Compatible with AWS, Azure, GCP — but in sovereign mode. Your DataCells run in your tenant, never ours.",
+        'agn.cloud_f1': 'Native multi-cloud', 'agn.cloud_f2': 'No vendor lock-in', 'agn.cloud_f3': 'Instant scalability',
+        'agn.gloss_cloud': "Vendor lock-in: technical and contractual dependency on a single cloud provider.",
+        'agn.hybrid_title': 'Hybrid Architecture', 'agn.hybrid_desc': "Combine on-premise and cloud based on data sensitivity. Single orchestration, multiple environments.",
+        'agn.hybrid_f1': 'Unified DataGraph across all envs', 'agn.hybrid_f2': 'Granular data policy', 'agn.hybrid_f3': 'Progressive migration possible',
+        'agn.gloss_hybrid': "DataGraph: iD4Connect orchestration layer coordinating all DataCells, regardless of environment.",
+        'rt.label': 'Real-Time', 'rt.title': 'No batch. No latency. Insight during transit.',
+        'rt.desc': "Traditional architectures extract, store, transform, then restitute. iD4Connect produces insight while data transits — with no intermediate stop.",
+        'rt.classic_label': '⏳ Classic architecture (batch)', 'rt.classic_from': 'Extraction', 'rt.classic_to': 'Report (H+2 to H+24)',
+        'rt.id4c_label': '⚡ iD4Connect (stream)', 'rt.id4c_flow': 'Source → DataCell → KPI <5ms',
+        'rt.step_transit': 'In transit', 'rt.step_insight': 'Immediate insight',
+        'rt.kpi1': 'Processing latency', 'rt.kpi2': 'Intermediate storage', 'rt.kpi3': 'Continuous streaming', 'rt.kpi4': 'TCO cost reduction',
+        'rt.glossary': "Batch: bulk processing triggered at regular intervals. Opposed to streaming (continuous real-time processing).",
+        'archi.label': 'Compared Architecture', 'archi.title': 'DataCell vs Classic Pipeline',
+        'archi.desc': "A classic ETL pipeline chains 5 to 7 steps before producing a KPI. iD4Connect reduces this to a single autonomous processing unit.",
+        'archi.classic': 'Classic Architecture', 'archi.source': 'Data source',
+        'archi.etl_sub': '(Extract, Transform, Load)', 'archi.ods_sub': '(Operational Data Store)',
+        'archi.datalake': 'Datalake / DataWarehouse', 'archi.kpi': 'Business KPI',
+        'archi.datacell_zone': '⚡ Zone handled by DataCell',
+        'archi.datacell_desc': 'Autonomous in-transit processing',
+        'archi.benefit1': 'No intermediate storage', 'archi.benefit2': 'Latency <5ms vs H+2 in batch',
+        'archi.benefit3': '5× cheaper in TCO', 'archi.benefit4': 'GDPR by design',
+        'archi.glossary': "ETL: Extract, Transform, Load. ODS: Operational Data Store. DataWarehouse: historical data warehouse. TCO: Total Cost of Ownership.",
+        'dt.label': 'Deep Tech · European R&D', 'dt.title': '15 years of research. An unprecedented architecture.',
+        'dt.desc': "iD4Connect technology comes from CETIC — Belgian research center — and has reached industrial maturity level TRL 9.",
+        'dt.trl': 'Technology Readiness Level',
+        'dt.p1_title': 'Stateless', 'dt.p1_desc': "No persistent state. Each DataCell processes and forgets. Zero attack surface.",
+        'dt.p2_title': 'Disruptive', 'dt.p2_desc': "Simultaneous technological, economic, regulatory and environmental disruption.",
+        'dt.p3_title': 'Modular', 'dt.p3_desc': "DataCells deployable individually. Native horizontal scaling. Zero monolith.",
+        'dt.p4_title': 'Zero Trust Data', 'dt.p4_desc': "Every flow is verified, traced, encrypted. Native audit, automatic compliance.",
+        'dt.glossary': "TRL 9: maximum technology readiness level — operational and commercialized system. Stateless: architecture with no state stored between two processes.",
+        'dt.timeline_label': 'R&D Timeline',
+        'dt.rd1': "Fundamental research at CETIC on in-stream processing of heterogeneous data. First modeling of stateless architecture.",
+        'dt.rd2': "Development of first DataCell prototypes. Concept validation on real industrial data. TRL 4 → 6.",
+        'dt.rd3': "Industrialization. First pilot deployments in real conditions. DataGraph development. TRL 7 → 8.",
+        'dt.rd4': "Creation of iD4Connect France SAS. Commercialization. TRL 9 reached. First strategic partners.",
+        'dt.rd5_year': '2024 — Present', 'dt.rd5': "Europe & Middle East expansion. AI roadmap: AI data-model agents, multi-protocol IoT, agent steering chat.",
+        'part.label': 'Partner Ecosystem', 'part.title': 'They trust us',
+        'part.desc': "iD4Connect is deployed through its certified integrator and reseller partners.",
+        'part.become': 'Become a partner', 'part.become_tag': 'Open partner program',
+        'cta.title': 'Ready to take back control of your data?',
+        'cta.desc': "Discover how iD4Connect integrates with your infrastructure in a 30-minute demo.",
+        'cta.btn2': 'Explore the architecture',
+      },
+      es: {
+        'hero.badge': 'Deep Tech Europeo · TRL 9 · Stateless by Design',
+        'hero.h1a': 'Sus datos permanecen', 'hero.h1b': 'donde están.', 'hero.h1c': 'La inteligencia, no.',
+        'hero.desc': "iD4Connect procesa sus datos durante el tránsito — sin almacenarlos ni duplicarlos. Insights en tiempo real, soberanía garantizada, cumplimiento by design.",
+        'hero.cta2': 'Ver la arquitectura',
+        'hero.stat1': 'Dato almacenado o duplicado', 'hero.stat2': 'Latencia de procesamiento',
+        'hero.stat3': 'Años de I+D europea', 'hero.stat4': 'Más barato que ETL clásico',
+        'hero.flow_label': 'Flujo de datos en directo', 'hero.no_storage': 'Ningún dato almacenado en tránsito',
+        'sov.label': 'Soberanía & Gobernanza', 'sov.title': 'Sus datos nunca abandonan su infraestructura.',
+        'sov.alert_title': 'El riesgo Cloud Act',
+        'sov.alert_desc': "Cualquier dato alojado en un proveedor estadounidense (AWS, Azure, GCP, Snowflake…) es legalmente accesible por las autoridades de EE.UU., aunque los servidores estén en Europa.",
+        'sov.f1_title': 'Datos en la fuente', 'sov.f2_title': 'RGPD by design', 'sov.f3_title': 'Alternativa europea soberana',
+        'agn.label': 'Despliegue Agnóstico', 'agn.title': 'Instálelo donde ya está.',
+        'agn.onprem_title': 'On-Premise', 'agn.cloud_title': 'Cloud Privado / Híbrido', 'agn.hybrid_title': 'Arquitectura Híbrida',
+        'rt.label': 'Tiempo Real', 'rt.title': 'Sin batch. Sin latencia. El insight durante el tránsito.',
+        'archi.label': 'Arquitectura Comparada', 'archi.title': 'DataCell vs Pipeline Clásico',
+        'dt.label': 'Deep Tech · I+D Europea', 'dt.title': '15 años de investigación. Una arquitectura sin precedentes.',
+        'dt.trl': 'Nivel de Madurez Tecnológica',
+        'part.label': 'Ecosistema de Socios', 'part.title': 'Confían en nosotros',
+        'part.become': 'Convertirse en socio',
+        'cta.title': '¿Listo para recuperar el control de sus datos?',
+        'cta.btn2': 'Explorar la arquitectura',
+      }
+    };
+
+    /* ── Appliquer traductions ─────────────────────────── */
+    function applyPageLang(lang) {
+      const dict = pageI18n[lang] || pageI18n['fr'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (dict[k]) el.innerHTML = dict[k];
+      });
+    }
+
+    /* ── Écouter les changements du header ───────────────── */
+    document.addEventListener('langChange', e => applyPageLang(e.detail));
+    document.addEventListener('themeChange', e => {
+      document.body.setAttribute('data-theme', e.detail);
+      document.documentElement.setAttribute('data-theme', e.detail);
+    });
+
+    /* ── Init ────────────────────────────────────────────── */
+    window.addEventListener('load', async () => {
+      await loadComponent('header-placeholder', 'header.html');
+      await loadComponent('footer-placeholder', 'footer.html');
+
+      // Appliquer la lang et le thème sauvegardés
+      const savedLang = localStorage.getItem('id4-lang') || 'fr';
+      const savedTheme = localStorage.getItem('id4-theme') || 'dark';
+      applyPageLang(savedLang);
+      document.body.setAttribute('data-theme', savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+
+      // Scroll reveal léger
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('section').forEach(s => {
+        s.style.opacity = '0';
+        s.style.transform = 'translateY(20px)';
+        s.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(s);
+      });
+
+      // Forcer hero visible immédiatement
+      document.getElementById('hero').style.opacity = '1';
+      document.getElementById('hero').style.transform = 'none';
+    });
+  </script>
+
+</body>
+</html>
