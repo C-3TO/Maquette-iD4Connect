@@ -198,7 +198,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
     <div class="art-inner">
 
       <!-- CONTENU -->
-      <main class="art-content">
+      <main class="art-content reveal">
         <div class="art-cover">
           <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
             <rect width="800" height="320" fill="#EFF6FF"/>
@@ -305,7 +305,7 @@ DataCell iD4C  :  Source → [Transform in transit] → Destination</div>
       </main>
 
       <!-- SIDEBAR -->
-      <aside class="art-sidebar">
+      <aside class="art-sidebar reveal">
 
         <!-- Articles suggérés -->
         <div class="sidebar-card">
@@ -380,35 +380,11 @@ DataCell iD4C  :  Source → [Transform in transit] → Destination</div>
 <div id="ftr-ph"></div>
 
 <script>
-async function loadComp(id, file) {
-  try {
-    const r = await fetch(file);
-    const html = await r.text();
-    const el = document.getElementById(id);
-    el.innerHTML = html;
-    el.querySelectorAll('script').forEach(s => {
-      const ns = document.createElement('script');
-      ns.textContent = s.textContent;
-      document.head.appendChild(ns);
-    });
-    if (typeof initHeader === 'function') initHeader();
-  } catch(e) { console.error('loadComp:', file, e); }
-}
-window.addEventListener('load', async () => {
+async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});if(typeof initHeader==='function')initHeader();}catch(e){}}
+window.addEventListener('load',async()=>{
   await loadComp('hdr-ph','header.html');
   await loadComp('ftr-ph','footer.html');
-  const t = localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-  document.documentElement.setAttribute('data-theme',t);
-  document.body.setAttribute('data-theme',t);
-  document.addEventListener('themeChange', e => {
-    document.documentElement.setAttribute('data-theme',e.detail);
-    document.body.setAttribute('data-theme',e.detail);
-  });
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
-  },{threshold:.06});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-});
+  document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
   const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 });
