@@ -176,6 +176,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 </style>
 </head>
 <body>
+<script>(function(){var t=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.body&&document.body.setAttribute('data-theme',t);})();</script>
 <div id="hdr-ph"></div>
 
 <section id="arch-hero">
@@ -739,13 +740,15 @@ window.addEventListener("load", async function() {
   await loadComp("hdr-ph", "header.html");
   await loadComp("ftr-ph", "footer.html");
 
-  const lang = localStorage.getItem("id4-lang") || "fr";
-  applyLang(lang);
-
+  /* Écouter les changements de thème déclenchés par le bouton du header */
   document.addEventListener("themeChange", function(e) {
     document.documentElement.setAttribute("data-theme", e.detail);
     document.body.setAttribute("data-theme", e.detail);
   });
+
+  /* Appliquer la langue initiale, puis écouter les changements */
+  const lang = localStorage.getItem("id4-lang") || "fr";
+  applyLang(lang);
   document.addEventListener("langChange", function(e) { applyLang(e.detail); });
 
   const io = new IntersectionObserver(function(entries) {
