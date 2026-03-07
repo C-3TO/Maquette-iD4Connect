@@ -99,7 +99,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
-<section class="s-uc reveal">
+<section class="s-uc">
   <div class="wrap">
     <div class="section-head">
       <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>Cas d'usage</div>
@@ -110,7 +110,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
-<section class="s-bloc reveal">
+<section class="s-bloc">
   <div class="wrap">
     <div class="section-head">
       <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>Avantages clés</div>
@@ -136,7 +136,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
-<section class="s-cta reveal">
+<section class="s-cta">
   <div class="wrap">
     <div class="cta-box">
       <div>
@@ -154,10 +154,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <div id="ftr-ph"></div>
 <script>
 
-const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-document.documentElement.setAttribute('data-theme',t0);
-document.body.setAttribute('data-theme',t0);
-async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
+async function loadComp(id, file) {
+  try {
+    const r = await fetch(file);
+    const html = await r.text();
+    const el = document.getElementById(id);
+    el.innerHTML = html;
+    el.querySelectorAll('script').forEach(s => {
+      const ns = document.createElement('script');
+      ns.textContent = s.textContent;
+      document.head.appendChild(ns);
+    });
+    if (typeof initHeader === 'function') initHeader();
+  } catch(e) { console.error('loadComp:', file, e); }
+}
 function initPage(DATA){
   let active=null;
   function render(){
@@ -183,10 +193,21 @@ function initPage(DATA){
   }
   window.toggleUC=function(id){active=active===id?null:id;render();};
   render();
-  window.addEventListener('load',async()=>{
-    await loadComp('hdr-ph','header.html');
-    await loadComp('ftr-ph','footer.html');
-    document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
+  window.addEventListener('load', async () => {
+  await loadComp('hdr-ph','header.html');
+  await loadComp('ftr-ph','footer.html');
+  const t = localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  document.documentElement.setAttribute('data-theme',t);
+  document.body.setAttribute('data-theme',t);
+  document.addEventListener('themeChange', e => {
+    document.documentElement.setAttribute('data-theme',e.detail);
+    document.body.setAttribute('data-theme',e.detail);
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+});
     const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   });
