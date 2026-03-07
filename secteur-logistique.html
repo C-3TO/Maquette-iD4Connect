@@ -214,7 +214,7 @@ initPage([
      {n:'Détection goulot',d:'Identification des ralentissements sur la chaîne',c:'#EF4444'},
      {n:'Traçabilité',d:'Historique complet de chaque colis à chaque étape',c:'#10B981'},
    ],
-   out:'Entrepôt sans goulot d'étranglement',oc:'#F59E0B'},
+   out:"Entrepôt sans goulot d'étranglement",oc:'#F59E0B'},
 ]);
 
 async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});if(typeof initHeader==='function')initHeader();}catch(e){}}
