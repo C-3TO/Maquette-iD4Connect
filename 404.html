@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 — Page introuvable — iD4Connect</title>
+<title data-i18n-attr="title" data-i18n="404.meta.title">404 — Page introuvable — iD4Connect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -13,53 +13,31 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;}
 body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
-
-/* ── SCENE ── */
 .scene{min-height:calc(100vh - var(--hh));display:flex;align-items:center;justify-content:center;padding:48px 32px;position:relative;overflow:hidden;}
-
-/* Grille de fond */
 .scene::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
-
-/* Particules orbitales en SVG animé */
 .orbit-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.12;}
 [data-theme="dark"] .orbit-bg{opacity:.18;}
 .orbit-bg svg{width:min(700px,90vw);height:min(700px,90vw);}
-
-/* ── CONTENU ── */
 .content{position:relative;z-index:1;text-align:center;max-width:560px;}
-
-/* Illustration DataCell perdue */
 .lost-cell{margin:0 auto 40px;width:180px;height:180px;position:relative;}
 .lost-cell svg{width:100%;height:100%;}
-
-/* 404 */
 .four-o-four{font-size:clamp(6rem,18vw,10rem);font-weight:900;line-height:1;letter-spacing:-6px;color:transparent;background:linear-gradient(135deg,var(--orange) 0%,#FB923C 50%,var(--orange-d) 100%);-webkit-background-clip:text;background-clip:text;margin-bottom:8px;position:relative;}
 .four-o-four::after{content:'404';position:absolute;inset:0;color:var(--border);-webkit-background-clip:unset;background-clip:unset;background:none;z-index:-1;transform:translate(3px,3px);}
-
 .error-label{display:inline-flex;align-items:center;gap:7px;padding:4px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
 .error-label svg{width:11px;height:11px;}
-
 .content h1{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:12px;letter-spacing:-.4px;}
 .content p{font-size:15px;color:var(--t5);line-height:1.75;max-width:420px;margin:0 auto 36px;}
 .content p strong{color:var(--orange);font-weight:700;}
-
-/* Liens rapides */
 .quick-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:36px;}
 .ql{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-weight:600;color:var(--t7);text-decoration:none;transition:all var(--tr);}
 .ql:hover{border-color:var(--orange-border);color:var(--orange);background:var(--orange-pale);transform:translateY(-1px);}
 .ql svg{width:13px;height:13px;flex-shrink:0;}
-
-/* CTA principal */
 .btn-home{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--orange);color:white;font-size:14px;font-weight:700;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
 .btn-home:hover{background:var(--orange-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.3);}
-
-/* Animations */
 @keyframes float{0%,100%{transform:translateY(0) rotate(0deg);}33%{transform:translateY(-12px) rotate(2deg);}66%{transform:translateY(-6px) rotate(-1.5deg);}}
-@keyframes pulse-ring{0%,100%{opacity:.3;transform:scale(1);}50%{opacity:.6;transform:scale(1.06);}}
 @keyframes spin-slow{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 @keyframes spin-rev{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
-
 .lost-cell{animation:float 4s ease-in-out infinite;}
 .ring1{transform-origin:90px 90px;animation:spin-slow 12s linear infinite;}
 .ring2{transform-origin:90px 90px;animation:spin-rev 8s linear infinite;}
@@ -69,7 +47,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .orbit-ring1{transform-origin:350px 350px;animation:spin-slow 30s linear infinite;}
 .orbit-ring2{transform-origin:350px 350px;animation:spin-rev 20s linear infinite;}
 .orbit-ring3{transform-origin:350px 350px;animation:spin-slow 45s linear infinite;}
-
 @media(max-width:600px){.four-o-four{letter-spacing:-2px;}.quick-links{gap:8px;}.ql{padding:8px 14px;font-size:12px;}}
 </style>
 </head>
@@ -77,8 +54,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <div id="hdr-ph"></div>
 
 <div class="scene">
-
-  <!-- Orbites de fond -->
   <div class="orbit-bg">
     <svg viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g class="orbit-ring1">
@@ -96,17 +71,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <g class="orbit-ring3">
         <circle cx="350" cy="350" r="320" stroke="#F97316" stroke-width=".5" stroke-dasharray="2 18" opacity=".5"/>
       </g>
-      <!-- Centre -->
       <circle cx="350" cy="350" r="5" fill="#F97316" opacity=".4"/>
     </svg>
   </div>
 
   <div class="content">
-
-    <!-- DataCell perdue -->
     <div class="lost-cell">
       <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Orbites internes -->
         <g class="ring1">
           <circle cx="90" cy="90" r="72" stroke="#F97316" stroke-width="1.5" stroke-dasharray="6 10" opacity=".35"/>
           <circle cx="90" cy="18" r="7" fill="#F97316" opacity=".6"/>
@@ -117,12 +88,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
           <circle cx="90" cy="90" r="48" stroke="#F97316" stroke-width="1" stroke-dasharray="4 7" opacity=".25"/>
           <circle class="dot-pulse3" cx="90" cy="42" r="4" fill="#F97316" opacity=".4"/>
         </g>
-        <!-- Hexagone central — DataCell -->
         <polygon points="90,52 122,71 122,109 90,128 58,109 58,71" fill="var(--orange-pale)" stroke="#F97316" stroke-width="2"/>
-        <!-- Croix "not found" -->
         <line x1="78" y1="78" x2="102" y2="102" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"/>
         <line x1="102" y1="78" x2="78" y2="102" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"/>
-        <!-- Point d'interrogation -->
         <circle cx="90" cy="148" r="6" fill="none" stroke="#F97316" stroke-width="1.5" opacity=".4"/>
         <line x1="90" y1="128" x2="90" y2="140" stroke="#F97316" stroke-width="1.5" stroke-dasharray="3 3" opacity=".4"/>
       </svg>
@@ -132,16 +100,16 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
     <div class="error-label">
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>
-      DataCell introuvable
+      <span data-i18n="404.label">DataCell introuvable</span>
     </div>
 
-    <h1>Cette page n'est pas<br>dans le flux de données.</h1>
-    <p>La donnée que vous cherchez a peut-être changé d'adresse, ou n'a jamais existé. <strong>Pas de panique</strong> — contrairement à un ETL, rien n'a été perdu en route.</p>
+    <h1 data-i18n="404.h1">Cette page n'est pas<br>dans le flux de données.</h1>
+    <p data-i18n="404.p">La donnée que vous cherchez a peut-être changé d'adresse, ou n'a jamais existé. <strong>Pas de panique</strong> — contrairement à un ETL, rien n'a été perdu en route.</p>
 
     <div class="quick-links">
       <a href="index.html" class="ql">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8L8 2l6 6"/><path d="M4 6v7h3v-4h2v4h3V6"/></svg>
-        Accueil
+        <span data-i18n="404.nav.home">Accueil</span>
       </a>
       <a href="datacell.html" class="ql">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/></svg>
@@ -157,21 +125,60 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       </a>
       <a href="contact.html" class="ql">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 3h11a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M2 4l6 5 6-5"/></svg>
-        Contact
+        <span data-i18n="404.nav.contact">Contact</span>
       </a>
     </div>
 
     <a href="index.html" class="btn-home">
       <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 12L6 8l4-4"/></svg>
-      Retour à l'accueil
+      <span data-i18n="404.cta">Retour à l'accueil</span>
     </a>
-
   </div>
 </div>
 
 <div id="ftr-ph"></div>
 
 <script>
+const I18N_404 = {
+  fr: {
+    'meta.title':   '404 — Page introuvable — iD4Connect',
+    'label':        'DataCell introuvable',
+    'h1':           "Cette page n'est pas<br>dans le flux de données.",
+    'p':            "La donnée que vous cherchez a peut-être changé d'adresse, ou n'a jamais existé. <strong>Pas de panique</strong> — contrairement à un ETL, rien n'a été perdu en route.",
+    'nav.home':     'Accueil',
+    'nav.contact':  'Contact',
+    'cta':          "Retour à l'accueil",
+  },
+  en: {
+    'meta.title':   '404 — Page not found — iD4Connect',
+    'label':        'DataCell not found',
+    'h1':           "This page isn't<br>in the data stream.",
+    'p':            "The data you're looking for may have moved, or never existed. <strong>Don't worry</strong> — unlike an ETL, nothing was lost along the way.",
+    'nav.home':     'Home',
+    'nav.contact':  'Contact',
+    'cta':          'Back to home',
+  },
+  es: {
+    'meta.title':   '404 — Página no encontrada — iD4Connect',
+    'label':        'DataCell no encontrada',
+    'h1':           'Esta página no está<br>en el flujo de datos.',
+    'p':            'Los datos que buscas quizás cambiaron de dirección, o nunca existieron. <strong>Sin pánico</strong> — a diferencia de un ETL, nada se perdió en el camino.',
+    'nav.home':     'Inicio',
+    'nav.contact':  'Contacto',
+    'cta':          'Volver al inicio',
+  },
+};
+
+function applyLang(lang) {
+  const t = I18N_404[lang] || I18N_404.fr;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n').replace('404.', '');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  if (t['meta.title']) document.title = t['meta.title'];
+  document.documentElement.lang = lang;
+}
+
 async function loadComp(id, file) {
   try {
     const r = await fetch(file);
@@ -186,13 +193,20 @@ async function loadComp(id, file) {
     if (typeof initHeader === 'function') initHeader();
   } catch(e) { console.error('loadComp:', file, e); }
 }
+
 window.addEventListener('load', async () => {
   await loadComp('hdr-ph', 'header.html');
   await loadComp('ftr-ph', 'footer.html');
+
+  // Appliquer la langue sauvegardée
+  const lang = localStorage.getItem('id4-lang') || 'fr';
+  applyLang(lang);
+
   document.addEventListener('themeChange', e => {
     document.documentElement.setAttribute('data-theme', e.detail);
     document.body.setAttribute('data-theme', e.detail);
   });
+  document.addEventListener('langChange', e => applyLang(e.detail));
 });
 </script>
 </body>
