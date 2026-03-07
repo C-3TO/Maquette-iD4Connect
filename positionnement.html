@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Positionnement — iD4Connect</title>
-<meta name="description" content="iD4Connect vs ETL, DWH, Data Lake, ESB, BI — une architecture pensée différemment. Comparez et découvrez ce que ça change concrètement.">
+<meta name="description" content="iD4Connect vs ETL, DWH, Data Lake, ESB, BI — une architecture pensée différemment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -19,9 +19,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
 
-/* ══════════════════════════════════════
-   HERO
-══════════════════════════════════════ */
+/* HERO */
 #pos-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;}
 #pos-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
 .hero-text{position:relative;z-index:1;text-align:center;max-width:700px;margin:0 auto;}
@@ -29,30 +27,22 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .hero-text h1 .o{color:var(--orange);}
 .hero-text p{font-size:15px;color:var(--t5);line-height:1.75;max-width:540px;margin:0 auto;}
 
-/* ══════════════════════════════════════
-   BLOC 1 — COMPARATIF
-══════════════════════════════════════ */
+/* BLOC 1 — COMPARATIF */
 #comparatif{padding:0 0 96px;background:var(--bg);}
 .cmp-outer{max-width:1000px;margin:0 auto;padding:0 32px;}
-
-/* Tabs */
 .cmp-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:40px;flex-wrap:wrap;}
-.cmp-tab{display:flex;align-items:center;gap:6px;padding:8px 18px;font-size:13px;font-weight:600;font-family:var(--font);border-radius:var(--r-pill);border:1.5px solid var(--border);background:var(--card);color:var(--t5);cursor:pointer;transition:all var(--tr);}
+.cmp-tab{display:flex;align-items:center;gap:7px;padding:8px 18px;font-size:13px;font-weight:600;font-family:var(--font);border-radius:var(--r-pill);border:1.5px solid var(--border);background:var(--card);color:var(--t5);cursor:pointer;transition:all var(--tr);}
+.cmp-tab svg{width:14px;height:14px;flex-shrink:0;}
 .cmp-tab:hover{border-color:var(--orange-border);color:var(--t7);}
 .cmp-tab.active{background:var(--orange);color:white;border-color:var(--orange);box-shadow:0 4px 14px rgba(249,115,22,.3);}
-.cmp-tab .ti{font-size:14px;}
-
-/* Card comparatif */
+.cmp-tab.active svg{color:white;}
 .cmp-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);animation:cmpFade .22s ease;}
 @keyframes cmpFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
-
-/* En-tête catégorie */
-.cmp-cat-head{padding:28px 32px 20px;text-align:center;border-bottom:1px solid var(--border);}
-.cmp-cat-icon{font-size:28px;margin-bottom:6px;}
-.cmp-cat-name{font-size:19px;font-weight:800;color:var(--t9);margin-bottom:3px;}
+.cmp-cat-head{padding:28px 32px 20px;text-align:center;border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:center;gap:8px;}
+.cmp-cat-ico{width:40px;height:40px;border-radius:var(--r);background:var(--section);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;}
+.cmp-cat-ico svg{width:20px;height:20px;color:var(--t7);}
+.cmp-cat-name{font-size:18px;font-weight:800;color:var(--t9);}
 .cmp-cat-tag{font-size:12.5px;color:var(--t4);font-style:italic;}
-
-/* Grille 3 colonnes : eux | séparateur | nous */
 .cmp-grid{display:grid;grid-template-columns:1fr 80px 1fr;}
 .cmp-col{padding:24px 28px;}
 .cmp-col.us{background:rgba(249,115,22,.03);}
@@ -60,32 +50,24 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .cmp-col-lbl{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;}
 .cmp-col-lbl.them{color:var(--t4);}
 .cmp-col-lbl.us{color:var(--orange);}
-
-/* Items */
 .cmp-item{display:flex;align-items:flex-start;gap:9px;padding:8px 11px;border-radius:var(--r-sm);margin-bottom:6px;}
 .cmp-item.bad{background:var(--red-pale);border:1px solid var(--red-border);}
 .cmp-item.good{background:var(--green-pale);border:1px solid var(--green-border);}
 .cmp-item.neutral{background:var(--section);border:1px solid var(--border);}
-.cmp-item-icon{font-size:11px;font-weight:800;flex-shrink:0;margin-top:1px;}
-.cmp-item.bad .cmp-item-icon{color:var(--red);}
-.cmp-item.good .cmp-item-icon{color:var(--green-em);}
-.cmp-item.neutral .cmp-item-icon{color:var(--t4);}
+.cmp-item svg{width:11px;height:11px;flex-shrink:0;margin-top:2px;}
+.cmp-item.bad svg{color:var(--red);}
+.cmp-item.good svg{color:var(--green-em);}
+.cmp-item.neutral svg{color:var(--t4);}
 .cmp-item-text{font-size:12.5px;color:var(--t7);line-height:1.45;}
-
-/* Séparateur central */
 .cmp-sep{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border-left:1px solid var(--border);border-right:1px solid var(--border);padding:16px 8px;}
-.cmp-sep-badge{background:var(--orange);color:white;font-size:10.5px;font-weight:800;padding:6px 12px;border-radius:var(--r-pill);letter-spacing:.5px;white-space:nowrap;writing-mode:initial;box-shadow:0 4px 12px rgba(249,115,22,.3);}
+.cmp-sep-badge{background:var(--orange);color:white;font-size:10px;font-weight:800;padding:6px 10px;border-radius:var(--r-pill);letter-spacing:.5px;white-space:nowrap;box-shadow:0 4px 12px rgba(249,115,22,.3);}
 .cmp-sep-line{flex:1;width:1px;background:repeating-linear-gradient(to bottom,var(--border) 0px,var(--border) 4px,transparent 4px,transparent 9px);}
-.cmp-sep-neq{font-size:20px;color:var(--t4);font-weight:300;}
-
-/* Verdict */
-.cmp-verdict{margin:0 24px 24px;padding:14px 18px;background:var(--orange-pale);border:1.5px solid var(--orange-border);border-radius:var(--r);display:flex;align-items:center;gap:12px;}
-.cmp-verdict-icon{font-size:16px;flex-shrink:0;}
+.cmp-sep-neq{font-size:18px;color:var(--t4);font-weight:300;}
+.cmp-verdict{margin:0 24px 24px;padding:14px 18px;background:var(--orange-pale);border:1.5px solid var(--orange-border);border-radius:var(--r);display:flex;align-items:flex-start;gap:12px;}
+.cmp-verdict-ico{width:16px;height:16px;flex-shrink:0;margin-top:1px;color:var(--orange);}
 .cmp-verdict-text{font-size:13px;font-weight:600;color:#92400E;line-height:1.5;}
 [data-theme="dark"] .cmp-verdict-text{color:var(--orange-border);}
-
-/* Strip */
-.cmp-strip{display:flex;justify-content:center;margin-top:28px;}
+.strip-wrap{display:flex;justify-content:center;margin-top:28px;}
 .strip{display:flex;overflow:hidden;border-radius:var(--r-pill);border:1.5px solid var(--border);box-shadow:var(--sh-sm);}
 .sp{padding:10px 22px;font-size:11px;font-weight:700;border-right:1.5px solid var(--border);}
 .sp:last-child{border-right:none;}
@@ -93,90 +75,68 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .sp.g{background:var(--green-pale);color:var(--green);}
 .sp.o{background:var(--orange-pale);color:var(--orange);}
 
-/* ══════════════════════════════════════
-   BLOC 2 — COMPLÉMENTARITÉ
-══════════════════════════════════════ */
+/* BLOC 2 — COMPLÉMENTARITÉ */
 #complementarite{padding:96px 0;background:var(--card);}
 .comp-head{text-align:center;margin-bottom:56px;}
 .comp-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;line-height:1.1;letter-spacing:-.5px;color:var(--t9);margin-bottom:12px;}
 .comp-head h2 .o{color:var(--orange);}
-.comp-head p{font-size:15px;color:var(--t5);max-width:580px;margin:0 auto;line-height:1.7;}
+.comp-head p{font-size:15px;color:var(--t5);max-width:560px;margin:0 auto;line-height:1.7;}
+.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:28px;}
 
-/* Grille 4 cards */
-.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:32px;}
-.comp-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:box-shadow .2s,border-color .2s,transform .2s;}
+/* Cards blanches avec bordures */
+.comp-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:box-shadow .2s,border-color .2s,transform .2s;}
 .comp-card:hover{border-color:var(--orange-border);box-shadow:0 8px 28px rgba(249,115,22,.1);transform:translateY(-3px);}
-
 .comp-card-top{padding:20px 18px 0;}
-.comp-card-meta{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:10px;}
-.comp-card-tool{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-.comp-card-tool-icon{font-size:20px;flex-shrink:0;}
-.comp-card-tool-name{font-size:14px;font-weight:800;color:var(--t9);}
-.comp-card-tool-sub{font-size:11.5px;color:var(--t5);margin-top:1px;}
-
-/* Séparateur "+ iD4Connect" */
-.comp-plus{display:flex;align-items:center;gap:8px;padding:10px 18px;background:var(--orange-pale);border-top:1px solid var(--orange-border);border-bottom:1px solid var(--orange-border);margin-top:14px;}
-.comp-plus-arrow{color:var(--orange);font-size:12px;}
+.comp-card-meta{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:12px;}
+.comp-card-tool{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px;}
+.comp-tool-ico{width:36px;height:36px;border-radius:var(--r-sm);border:1px solid var(--border);background:var(--section);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.comp-tool-ico svg{width:17px;height:17px;color:var(--t5);}
+.comp-card-tool-name{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:2px;}
+.comp-card-tool-sub{font-size:11px;color:var(--t4);line-height:1.4;}
+.comp-plus{display:flex;align-items:center;gap:8px;padding:10px 18px;background:var(--orange-pale);border-top:1px solid var(--orange-border);border-bottom:1px solid var(--orange-border);margin-top:16px;}
+.comp-plus svg{width:12px;height:12px;color:var(--orange);}
 .comp-plus-lbl{font-size:11.5px;font-weight:700;color:var(--orange);}
-
-/* Résultat */
-.comp-card-result{padding:14px 18px 18px;}
+.comp-card-result{padding:14px 18px 20px;}
 .comp-result-lbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
-.comp-result-title{font-size:15px;font-weight:800;color:var(--t9);margin-bottom:4px;}
-.comp-result-sub{font-size:12px;color:var(--t5);line-height:1.5;}
-
-/* Couleur accent par card */
 .comp-card:nth-child(1) .comp-result-lbl{color:var(--blue);}
 .comp-card:nth-child(2) .comp-result-lbl{color:var(--red);}
 .comp-card:nth-child(3) .comp-result-lbl{color:var(--green-em);}
 .comp-card:nth-child(4) .comp-result-lbl{color:var(--purple);}
-
-/* Bandeau bas */
+.comp-result-title{font-size:15px;font-weight:800;color:var(--t9);margin-bottom:4px;}
+.comp-result-sub{font-size:12px;color:var(--t5);line-height:1.5;}
 .comp-banner{background:var(--section);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:20px 28px;text-align:center;}
 .comp-banner p{font-size:14px;color:var(--t5);line-height:1.6;}
 .comp-banner strong{color:var(--t9);}
 
-/* ══════════════════════════════════════
-   BLOC 3 — CE QUE ÇA CHANGE
-══════════════════════════════════════ */
+/* BLOC 3 — RÉSULTATS */
 #resultats{padding:96px 0;background:var(--bg);}
 .res-head{text-align:center;margin-bottom:56px;}
 .res-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;line-height:1.1;letter-spacing:-.5px;color:var(--t9);margin-bottom:10px;}
 .res-head h2 .o{color:var(--orange);}
 .res-head p{font-size:15px;color:var(--t5);}
-
-/* Grille métriques */
 .res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:32px;}
 .res-card{border-radius:var(--r-xl);padding:36px 28px 28px;position:relative;overflow:hidden;}
-.res-card::before{content:'';position:absolute;inset:0;opacity:.06;pointer-events:none;}
 .res-card.green{background:var(--green-pale);border:1.5px solid var(--green-border);}
 .res-card.cyan{background:#ECFEFF;border:1.5px solid #A5F3FC;}
 [data-theme="dark"] .res-card.cyan{background:rgba(6,182,212,.08);border-color:rgba(6,182,212,.22);}
 .res-card.orange{background:var(--orange-pale);border:1.5px solid var(--orange-border);}
 .res-card.purple{background:var(--purple-pale);border:1.5px solid rgba(139,92,246,.22);}
-
 .res-metric{font-size:clamp(2.6rem,5vw,3.8rem);font-weight:900;line-height:1;letter-spacing:-2px;margin-bottom:10px;}
 .res-card.green  .res-metric{color:var(--green-em);}
 .res-card.cyan   .res-metric{color:#06B6D4;}
 .res-card.orange .res-metric{color:var(--orange);}
 .res-card.purple .res-metric{color:var(--purple);}
-
 .res-label{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:6px;}
 .res-sub{font-size:12.5px;color:var(--t5);line-height:1.55;}
 
-/* Strip bas */
-.res-strip{display:flex;justify-content:center;}
-
-/* ══════════════════════════════════════
-   CTA FINAL
-══════════════════════════════════════ */
+/* CTA */
 #pos-cta{padding:96px 0;background:var(--card);text-align:center;}
 .pos-cta-inner{max-width:600px;margin:0 auto;}
 .pos-cta-inner h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;letter-spacing:-.5px;line-height:1.15;margin-bottom:16px;}
 .pos-cta-inner h2 .o{color:var(--orange);}
 .pos-cta-inner p{font-size:15px;color:var(--t5);line-height:1.7;margin-bottom:32px;}
 .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--orange);color:white;font-size:14px;font-weight:700;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;transition:all var(--tr);border:none;cursor:pointer;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--orange);color:white;font-size:14px;font-weight:700;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;transition:all var(--tr);}
 .btn-primary:hover{background:var(--orange-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.3);}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;color:var(--t7);font-size:14px;font-weight:600;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;border:1.5px solid var(--border);transition:all var(--tr);}
 .btn-secondary:hover{border-color:var(--border-s);color:var(--t9);}
@@ -188,9 +148,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <body>
 <div id="hdr-ph"></div>
 
-<!-- ══════════════════════════════
-     HERO
-══════════════════════════════ -->
+<!-- HERO -->
 <section id="pos-hero">
   <div class="wrap">
     <div class="hero-text">
@@ -201,36 +159,45 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
-<!-- ══════════════════════════════
-     BLOC 1 — COMPARATIF
-══════════════════════════════ -->
+<!-- BLOC 1 — COMPARATIF -->
 <section id="comparatif">
   <div class="cmp-outer">
-
     <div class="cmp-tabs">
-      <button class="cmp-tab active" data-cat="etl"><span class="ti">⚙️</span> ETL classique</button>
-      <button class="cmp-tab" data-cat="dwh"><span class="ti">🏛️</span> Data Warehouse</button>
-      <button class="cmp-tab" data-cat="lake"><span class="ti">🌊</span> Data Lake</button>
-      <button class="cmp-tab" data-cat="esb"><span class="ti">🔀</span> ESB / Middleware</button>
-      <button class="cmp-tab" data-cat="bi"><span class="ti">📊</span> Outils BI</button>
+      <button class="cmp-tab active" data-cat="etl">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h3v8H2zM7 2h3v12H7zM12 6h2v6h-2z"/></svg>
+        ETL classique
+      </button>
+      <button class="cmp-tab" data-cat="dwh">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="8" cy="4" rx="5" ry="1.8"/><path d="M3 4v3c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V4"/><path d="M3 7v3c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V7"/><path d="M3 10v2c0 1 2.2 1.8 5 1.8s5-.8 5-1.8v-2"/></svg>
+        Data Warehouse
+      </button>
+      <button class="cmp-tab" data-cat="lake">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c1-2 2.5-3 4-2.5s3 1.5 4 .5 2-2.5 4-2"/><path d="M2 13.5c1-2 2.5-3 4-2.5s3 1.5 4 .5 2-2.5 4-2"/><path d="M8 3v5M6 4.5l2-1.5 2 1.5"/></svg>
+        Data Lake
+      </button>
+      <button class="cmp-tab" data-cat="esb">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="6" width="4" height="4" rx="1"/><rect x="11" y="6" width="4" height="4" rx="1"/><rect x="6" y="3" width="4" height="4" rx="1"/><rect x="6" y="9" width="4" height="4" rx="1"/><path d="M5 8h1M10 8h1M8 7V5M8 9v2"/></svg>
+        ESB / Middleware
+      </button>
+      <button class="cmp-tab" data-cat="bi">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/><path d="M2 9L6 6l4 1 4-4"/></svg>
+        Outils BI
+      </button>
     </div>
 
     <div id="cmp-panel"></div>
 
-    <div class="cmp-strip reveal">
+    <div class="strip-wrap reveal">
       <div class="strip">
         <div class="sp r">✕ Zéro copie de données</div>
         <div class="sp g">✓ Temps réel natif</div>
         <div class="sp o">✓ Souveraineté by design</div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ══════════════════════════════
-     BLOC 2 — COMPLÉMENTARITÉ
-══════════════════════════════ -->
+<!-- BLOC 2 — COMPLÉMENTARITÉ -->
 <section id="complementarite" class="reveal">
   <div class="wrap">
     <div class="comp-head">
@@ -245,7 +212,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         <div class="comp-card-top">
           <div class="comp-card-meta">Vous avez</div>
           <div class="comp-card-tool">
-            <span class="comp-card-tool-icon">📊</span>
+            <div class="comp-tool-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/><path d="M2 9L6 6l4 1 4-4"/></svg>
+            </div>
             <div>
               <div class="comp-card-tool-name">Votre outil BI</div>
               <div class="comp-card-tool-sub">Données en batch, DWH requis</div>
@@ -253,8 +222,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
           </div>
         </div>
         <div class="comp-plus">
-          <span class="comp-plus-arrow">▼</span>
-          <span class="comp-plus-lbl">+ iD4Connect</span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
+          <span class="comp-plus-lbl">iD4Connect</span>
         </div>
         <div class="comp-card-result">
           <div class="comp-result-lbl">Résultat</div>
@@ -267,7 +236,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         <div class="comp-card-top">
           <div class="comp-card-meta">Vous avez</div>
           <div class="comp-card-tool">
-            <span class="comp-card-tool-icon">🛡️</span>
+            <div class="comp-tool-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/><path d="M5.5 8l2 2 3-3"/></svg>
+            </div>
             <div>
               <div class="comp-card-tool-name">Votre SIEM</div>
               <div class="comp-card-tool-sub">Logs bruts, corrélation limitée</div>
@@ -275,8 +246,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
           </div>
         </div>
         <div class="comp-plus">
-          <span class="comp-plus-arrow">▼</span>
-          <span class="comp-plus-lbl">+ iD4Connect</span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
+          <span class="comp-plus-lbl">iD4Connect</span>
         </div>
         <div class="comp-card-result">
           <div class="comp-result-lbl">Résultat</div>
@@ -289,7 +260,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         <div class="comp-card-top">
           <div class="comp-card-meta">Vous avez</div>
           <div class="comp-card-tool">
-            <span class="comp-card-tool-icon">⚙️</span>
+            <div class="comp-tool-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h3v8H2zM7 2h3v12H7zM12 6h2v6h-2z"/></svg>
+            </div>
             <div>
               <div class="comp-card-tool-name">Votre ETL</div>
               <div class="comp-card-tool-sub">Traitements batch, zone de staging</div>
@@ -297,8 +270,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
           </div>
         </div>
         <div class="comp-plus">
-          <span class="comp-plus-arrow">▼</span>
-          <span class="comp-plus-lbl">+ iD4Connect</span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
+          <span class="comp-plus-lbl">iD4Connect</span>
         </div>
         <div class="comp-card-result">
           <div class="comp-result-lbl">Résultat</div>
@@ -311,7 +284,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         <div class="comp-card-top">
           <div class="comp-card-meta">Vous avez</div>
           <div class="comp-card-tool">
-            <span class="comp-card-tool-icon">🏢</span>
+            <div class="comp-tool-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="5" height="4" rx="1"/><rect x="9" y="3" width="5" height="4" rx="1"/><rect x="2" y="9" width="5" height="4" rx="1"/><rect x="9" y="9" width="5" height="4" rx="1"/><path d="M4.5 7v2M11.5 7v2M7 5h2M7 11h2"/></svg>
+            </div>
             <div>
               <div class="comp-card-tool-name">Votre CRM / ERP</div>
               <div class="comp-card-tool-sub">Données isolées, non croisées</div>
@@ -319,8 +294,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
           </div>
         </div>
         <div class="comp-plus">
-          <span class="comp-plus-arrow">▼</span>
-          <span class="comp-plus-lbl">+ iD4Connect</span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
+          <span class="comp-plus-lbl">iD4Connect</span>
         </div>
         <div class="comp-card-result">
           <div class="comp-result-lbl">Résultat</div>
@@ -337,9 +312,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
-<!-- ══════════════════════════════
-     BLOC 3 — CE QUE ÇA CHANGE
-══════════════════════════════ -->
+<!-- BLOC 3 — CE QUE ÇA CHANGE -->
 <section id="resultats" class="reveal">
   <div class="wrap">
     <div class="res-head">
@@ -349,34 +322,29 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
     </div>
 
     <div class="res-grid">
-
       <div class="res-card green reveal">
         <div class="res-metric">5×</div>
         <div class="res-label">moins cher</div>
         <div class="res-sub">que les architectures ETL / DWH traditionnelles, coût total d'exploitation inclus</div>
       </div>
-
       <div class="res-card cyan reveal">
         <div class="res-metric">0</div>
         <div class="res-label">donnée stockée</div>
         <div class="res-sub">zéro risque de fuite, conformité RGPD native — pas à certifier après coup</div>
       </div>
-
       <div class="res-card orange reveal">
         <div class="res-metric">200+</div>
         <div class="res-label">connecteurs natifs</div>
         <div class="res-sub">prêts à l'emploi, sans développement custom, compatibles avec votre stack</div>
       </div>
-
       <div class="res-card purple reveal">
         <div class="res-metric">J+1</div>
         <div class="res-label">time-to-value</div>
         <div class="res-sub">premiers insights en jours, pas en mois — déploiement progressif sans migration</div>
       </div>
-
     </div>
 
-    <div class="res-strip reveal">
+    <div class="strip-wrap reveal">
       <div class="strip">
         <div class="sp r">✕ Aucun stockage intermédiaire</div>
         <div class="sp g">✓ Souveraineté des données</div>
@@ -386,9 +354,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
-<!-- ══════════════════════════════
-     CTA FINAL
-══════════════════════════════ -->
+<!-- CTA FINAL -->
 <section id="pos-cta" class="reveal">
   <div class="pos-cta-inner">
     <div class="pill">Passez à l'action</div>
@@ -404,63 +370,70 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <div id="ftr-ph"></div>
 
 <script>
-/* ── Thème initial ── */
 const t0 = localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
 document.documentElement.setAttribute('data-theme',t0);
 document.body.setAttribute('data-theme',t0);
 
-/* ── Données comparatif ── */
+/* SVG icons par catégorie */
+const CAT_ICONS = {
+  etl: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h4v12H3zM10 3h4v18h-4zM18 9h3v9h-3z"/></svg>`,
+  dwh: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="8" ry="2.5"/><path d="M4 5v5c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5V5"/><path d="M4 10v5c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-5"/><path d="M4 15v4c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-4"/></svg>`,
+  lake: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 16c2-3 4-4.5 6-4s5 2.5 6 1 3-4 6-3M2 20c2-3 4-4.5 6-4s5 2.5 6 1 3-4 6-3M12 4v8M9 7l3-3 3 3"/></svg>`,
+  esb: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="17" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="4" width="6" height="6" rx="1.5"/><rect x="9" y="14" width="6" height="6" rx="1.5"/><path d="M7 12h2M15 12h2M12 10V7M12 14v3"/></svg>`,
+  bi:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="13" width="4" height="8" rx=".5"/><rect x="10" y="8" width="4" height="13" rx=".5"/><rect x="17" y="3" width="4" height="18" rx=".5"/><path d="M3 13L9 9l5 2 7-6"/></svg>`,
+};
+
 const CATS = {
-  etl: {
-    icon:'⚙️', label:'ETL classique', tag:'Copie, transforme, charge — en batch',
+  etl:{
+    label:'ETL classique', tag:'Copie, transforme, charge — en batch',
     them:[
-      {type:'bad',  text:'Données copiées et déplacées à chaque traitement'},
-      {type:'bad',  text:'Traitement en batch, latence élevée'},
-      {type:'bad',  text:'Zone de staging obligatoire, coût croissant'},
-      {type:'bad',  text:'Scripts à maintenir manuellement'},
+      {type:'bad',   text:'Données copiées et déplacées à chaque traitement'},
+      {type:'bad',   text:'Traitement en batch, latence élevée'},
+      {type:'bad',   text:'Zone de staging obligatoire, coût croissant'},
+      {type:'bad',   text:'Scripts à maintenir manuellement'},
     ],
     us:[
-      {type:'good', text:'Données traitées en transit, jamais copiées'},
-      {type:'good', text:'Temps réel natif, zéro latence de batch'},
-      {type:'good', text:'Aucune zone intermédiaire requise'},
-      {type:'good', text:'Configuration métier visuelle, no-code'},
+      {type:'good',  text:'Données traitées en transit, jamais copiées'},
+      {type:'good',  text:'Temps réel natif, zéro latence de batch'},
+      {type:'good',  text:'Aucune zone intermédiaire requise'},
+      {type:'good',  text:'Configuration métier visuelle, no-code'},
     ],
     verdict:'iD4Connect remplace l\'ETL là où la latence et le stockage coûtent cher.',
   },
-  dwh: {
-    icon:'🏛️', label:'Data Warehouse', tag:'Centralise tout pour analyser ensuite',
+  dwh:{
+    label:'Data Warehouse', tag:'Centralise tout pour analyser ensuite',
     them:[
-      {type:'bad',  text:'Toutes les données centralisées et stockées'},
-      {type:'bad',  text:'Schéma figé, évolution coûteuse'},
-      {type:'bad',  text:'Accès uniquement aux données historiques'},
-      {type:'bad',  text:'Infrastructure lourde, licences élevées'},
+      {type:'bad',   text:'Toutes les données centralisées et stockées'},
+      {type:'bad',   text:'Schéma figé, évolution coûteuse'},
+      {type:'bad',   text:'Accès uniquement aux données historiques'},
+      {type:'bad',   text:'Infrastructure lourde, licences élevées'},
     ],
     us:[
-      {type:'good', text:'Aucun stockage central requis'},
-      {type:'good', text:'Schéma métier adaptatif en temps réel'},
-      {type:'good', text:'Données vivantes, interrogées à la source'},
-      {type:'good', text:'Architecture légère sur votre infra existante'},
+      {type:'good',  text:'Aucun stockage central requis'},
+      {type:'good',  text:'Schéma métier adaptatif en temps réel'},
+      {type:'good',  text:'Données vivantes, interrogées à la source'},
+      {type:'good',  text:'Architecture légère sur votre infra existante'},
     ],
     verdict:'Pas de warehouse à alimenter. Les insights arrivent directement depuis les sources.',
   },
-  lake: {
-    icon:'🌊', label:'Data Lake / Staging', tag:'Stocke tout, trie plus tard',
+  lake:{
+    label:'Data Lake / Staging', tag:'Stocke tout, trie plus tard',
     them:[
-      {type:'bad',  text:'Accumulation de données brutes non qualifiées'},
-      {type:'bad',  text:'Coût de stockage croissant, data swamp garanti'},
-      {type:'bad',  text:'Gouvernance et conformité RGPD complexes'},
-      {type:'bad',  text:'Valeur métier tardive, pipeline long'},
+      {type:'bad',   text:'Accumulation de données brutes non qualifiées'},
+      {type:'bad',   text:'Coût de stockage croissant, data swamp garanti'},
+      {type:'bad',   text:'Gouvernance et conformité RGPD complexes'},
+      {type:'bad',   text:'Valeur métier tardive, pipeline long'},
     ],
     us:[
-      {type:'good', text:'Traitement à la volée, sans accumulation'},
-      {type:'good', text:'Zéro coût de stockage intermédiaire'},
-      {type:'good', text:'Conformité RGPD by design, à chaque flux'},
-      {type:'good', text:'Valeur métier immédiate dès le premier flux'},
+      {type:'good',  text:'Traitement à la volée, sans accumulation'},
+      {type:'good',  text:'Zéro coût de stockage intermédiaire'},
+      {type:'good',  text:'Conformité RGPD by design, à chaque flux'},
+      {type:'good',  text:'Valeur métier immédiate dès le premier flux'},
     ],
     verdict:'Fini le swamp. Les données sont qualifiées avant même d\'atteindre leur destination.',
   },
-  esb: {
-    icon:'🔀', label:'ESB / Middleware', tag:'Fait transiter les messages entre applications',
+  esb:{
+    label:'ESB / Middleware', tag:'Fait transiter les messages entre applications',
     them:[
       {type:'neutral', text:'Orchestration applicative, pas data'},
       {type:'bad',     text:'Formats propriétaires et couplage fort'},
@@ -468,50 +441,55 @@ const CATS = {
       {type:'bad',     text:'Infrastructure dédiée, licences coûteuses'},
     ],
     us:[
-      {type:'good', text:'Transformation sémantique des données en transit'},
-      {type:'good', text:'200+ connecteurs universels, découplage natif'},
-      {type:'good', text:'Logique métier embarquée dans chaque flux'},
-      {type:'good', text:'Stateless, déployable partout sans licence'},
+      {type:'good',  text:'Transformation sémantique des données en transit'},
+      {type:'good',  text:'200+ connecteurs universels, découplage natif'},
+      {type:'good',  text:'Logique métier embarquée dans chaque flux'},
+      {type:'good',  text:'Stateless, déployable partout sans licence'},
     ],
     verdict:'iD4Connect va plus loin : il ne fait pas que transporter, il comprend et enrichit.',
   },
-  bi: {
-    icon:'📊', label:'Outils BI', tag:'Visualise des données déjà préparées',
+  bi:{
+    label:'Outils BI', tag:'Visualise des données déjà préparées',
     them:[
-      {type:'bad', text:'Dépend d\'un DWH ou d\'un ETL en amont'},
-      {type:'bad', text:'Données en batch, tableaux de bord figés'},
-      {type:'bad', text:'Préparation data = projet à part entière'},
-      {type:'bad', text:'Silos analytiques par outil'},
+      {type:'bad',   text:'Dépend d\'un DWH ou d\'un ETL en amont'},
+      {type:'bad',   text:'Données en batch, tableaux de bord figés'},
+      {type:'bad',   text:'Préparation data = projet à part entière'},
+      {type:'bad',   text:'Silos analytiques par outil'},
     ],
     us:[
-      {type:'good', text:'Alimente directement votre BI depuis toutes les sources'},
-      {type:'good', text:'KPIs en temps réel sans infrastructure supplémentaire'},
-      {type:'good', text:'Données propres et qualifiées en amont, automatiquement'},
-      {type:'good', text:'Couche data unifiée pour tous vos outils BI'},
+      {type:'good',  text:'Alimente directement votre BI depuis toutes les sources'},
+      {type:'good',  text:'KPIs en temps réel sans infrastructure supplémentaire'},
+      {type:'good',  text:'Données propres et qualifiées en amont, automatiquement'},
+      {type:'good',  text:'Couche data unifiée pour tous vos outils BI'},
     ],
     verdict:'iD4Connect est la couche data que votre BI attendait — sans pipeline à maintenir.',
   },
 };
 
-function renderCat(id) {
+const SVG_CHECK = `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg>`;
+const SVG_CROSS = `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg>`;
+const SVG_ARR   = `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>`;
+const SVG_BULB  = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2a4 4 0 0 1 2.5 7.1V11a.5.5 0 0 1-.5.5h-4A.5.5 0 0 1 5.5 11V9.1A4 4 0 0 1 8 2z"/><path d="M6 13h4M6.5 14.5h3"/></svg>`;
+
+function iconSvg(type){
+  if(type==='bad') return SVG_CROSS;
+  if(type==='good') return SVG_CHECK;
+  return SVG_ARR;
+}
+
+function renderCat(id){
   const cat = CATS[id];
-  const iconMap = {bad:'✕', good:'✓', neutral:'→'};
-  const panel = document.getElementById('cmp-panel');
-  panel.innerHTML = `
+  document.getElementById('cmp-panel').innerHTML = `
     <div class="cmp-card">
       <div class="cmp-cat-head">
-        <div class="cmp-cat-icon">${cat.icon}</div>
+        <div class="cmp-cat-ico">${CAT_ICONS[id]}</div>
         <div class="cmp-cat-name">${cat.label}</div>
         <div class="cmp-cat-tag">${cat.tag}</div>
       </div>
       <div class="cmp-grid">
         <div class="cmp-col them">
           <div class="cmp-col-lbl them">${cat.label}</div>
-          ${cat.them.map(i=>`
-            <div class="cmp-item ${i.type}">
-              <span class="cmp-item-icon">${iconMap[i.type]}</span>
-              <span class="cmp-item-text">${i.text}</span>
-            </div>`).join('')}
+          ${cat.them.map(i=>`<div class="cmp-item ${i.type}">${iconSvg(i.type)}<span class="cmp-item-text">${i.text}</span></div>`).join('')}
         </div>
         <div class="cmp-sep">
           <div class="cmp-sep-badge">iD4Connect</div>
@@ -520,34 +498,25 @@ function renderCat(id) {
         </div>
         <div class="cmp-col us">
           <div class="cmp-col-lbl us">iD4Connect</div>
-          ${cat.us.map(i=>`
-            <div class="cmp-item ${i.type}">
-              <span class="cmp-item-icon">${iconMap[i.type]}</span>
-              <span class="cmp-item-text">${i.text}</span>
-            </div>`).join('')}
+          ${cat.us.map(i=>`<div class="cmp-item ${i.type}">${iconSvg(i.type)}<span class="cmp-item-text">${i.text}</span></div>`).join('')}
         </div>
       </div>
       <div class="cmp-verdict">
-        <span class="cmp-verdict-icon">💡</span>
+        <svg class="cmp-verdict-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2a4 4 0 0 1 2.5 7.1V11a.5.5 0 0 1-.5.5h-4A.5.5 0 0 1 5.5 11V9.1A4 4 0 0 1 8 2z"/><path d="M6 13h4M6.5 14.5h3"/></svg>
         <span class="cmp-verdict-text">${cat.verdict}</span>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
-/* Tabs */
-let activeCat = 'etl';
 document.querySelectorAll('.cmp-tab').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.cmp-tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    activeCat = btn.dataset.cat;
-    renderCat(activeCat);
+    renderCat(btn.dataset.cat);
   });
 });
 renderCat('etl');
 
-/* ── Header / Footer ── */
 async function loadComp(id, file) {
   try {
     const r = await fetch(file);
@@ -569,8 +538,6 @@ window.addEventListener('load', async () => {
     document.documentElement.setAttribute('data-theme',e.detail);
     document.body.setAttribute('data-theme',e.detail);
   });
-
-  /* Scroll reveal */
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, {threshold:.06});
