@@ -239,7 +239,7 @@ const ARTICLES=[
   {
     id:2, cat:'securite',
     title:'DORA, NIS2, RGPD : comment iD4Connect est conforme by design',
-    excerpt:'La conformité ne s'ajoute pas après coup. En ne stockant aucune donnée, iD4Connect évite les obligations de déclaration de violation — une garantie structurelle, pas contractuelle.',
+    excerpt:"La conformité ne s'ajoute pas après coup. En ne stockant aucune donnée, iD4Connect évite les obligations de déclaration de violation — une garantie structurelle, pas contractuelle.",
     tag:'Sécurité', tagClass:'tag-secu',
     author:'Dominique Lecru', date:'14 fév. 2026', read:'9 min',
     color:'#8B5CF6', img:'secu1',
@@ -255,7 +255,7 @@ const ARTICLES=[
   {
     id:4, cat:'partenaires',
     title:'iD4Connect + HELIAQ : la donnée SIEM enrichie en transit',
-    excerpt:'Associer SEQUOIA SIEM à une couche de DataCells permet d'enrichir contextuellement chaque événement de sécurité avant qu'il n'atteigne l'analyste. Un gain de signal sans infrastructure supplémentaire.',
+    excerpt:"Associer SEQUOIA SIEM à une couche de DataCells permet d'enrichir contextuellement chaque événement de sécurité avant qu'il n'atteigne l'analyste. Un gain de signal sans infrastructure supplémentaire.",
     tag:'Partenaires', tagClass:'tag-partner',
     author:'Équipe iD4Connect', date:'22 jan. 2026', read:'5 min',
     color:'#0891B2', img:'partner1',
@@ -263,15 +263,15 @@ const ARTICLES=[
   {
     id:5, cat:'actu',
     title:'iD4Connect franchit le cap de la version 2.60',
-    excerpt:'Refonte complète de l'interface utilisateur, nouveau wizard de création de DataCell, centre de conformité RGPD intégré et support multilingue FR/EN/ES. Tour d'horizon des nouveautés.',
+    excerpt:"Refonte complète de l'interface utilisateur, nouveau wizard de création de DataCell, centre de conformité RGPD intégré et support multilingue FR/EN/ES. Tour d'horizon des nouveautés.",
     tag:'Actualités', tagClass:'tag-actu',
     author:'Dominique Lecru', date:'10 jan. 2026', read:'4 min',
     color:'#F97316', img:'actu1',
   },
   {
     id:6, cat:'technique',
-    title:'DataGraph : le chef d'orchestre qui ne centralise pas',
-    excerpt:'Le DataGraph coordonne l'ensemble des DataCells sans qu'aucune cellule ne communique directement avec une autre. Une topologie en étoile qui garantit la traçabilité totale sans créer un point de centralisation.',
+    title:"DataGraph : le chef d'orchestre qui ne centralise pas",
+    excerpt:"Le DataGraph coordonne l'ensemble des DataCells sans qu'aucune cellule ne communique directement avec une autre. Une topologie en étoile qui garantit la traçabilité totale sans créer un point de centralisation.",
     tag:'Technique', tagClass:'tag-tech',
     author:'Équipe iD4Connect', date:'3 jan. 2026', read:'8 min',
     color:'#2563EB', img:'tech2',
@@ -377,35 +377,11 @@ document.getElementById('search-input').addEventListener('input',e=>{
 
 render();
 
-async function loadComp(id, file) {
-  try {
-    const r = await fetch(file);
-    const html = await r.text();
-    const el = document.getElementById(id);
-    el.innerHTML = html;
-    el.querySelectorAll('script').forEach(s => {
-      const ns = document.createElement('script');
-      ns.textContent = s.textContent;
-      document.head.appendChild(ns);
-    });
-    if (typeof initHeader === 'function') initHeader();
-  } catch(e) { console.error('loadComp:', file, e); }
-}
-window.addEventListener('load', async () => {
+async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});if(typeof initHeader==='function')initHeader();}catch(e){}}
+window.addEventListener('load',async()=>{
   await loadComp('hdr-ph','header.html');
   await loadComp('ftr-ph','footer.html');
-  const t = localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-  document.documentElement.setAttribute('data-theme',t);
-  document.body.setAttribute('data-theme',t);
-  document.addEventListener('themeChange', e => {
-    document.documentElement.setAttribute('data-theme',e.detail);
-    document.body.setAttribute('data-theme',e.detail);
-  });
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
-  },{threshold:.06});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-});
+  document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
   const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 });
