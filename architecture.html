@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="arch.meta.title">Architecture — iD4Connect</title>
+<title>Architecture — iD4Connect</title>
 <meta name="description" content="Architecture stateless iD4Connect : agnostique, souveraine, résiliente. Déployez là où vous êtes déjà.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -23,14 +23,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .cs-item.g{background:var(--green-pale);border-color:var(--green-border);color:var(--green);}
 .cs-item.r{background:var(--red-pale);border-color:var(--red-border);color:var(--red);}
 .cs-item.o{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);}
-
 #arch-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;}
 #arch-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
 .hero-text{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;}
 .hero-text h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--t9);margin-bottom:14px;}
 .hero-text h1 .o{color:var(--orange);}
 .hero-text p{font-size:15px;color:var(--t5);line-height:1.75;max-width:560px;margin:0 auto;}
-
 #agnostic{padding:0 0 96px;background:var(--bg);}
 .ag-outer{max-width:1120px;margin:0 auto;padding:0 32px;}
 .ag-frame{position:relative;border:2px solid var(--orange);border-radius:var(--r-xl);background:var(--card);padding:52px 36px 28px;animation:agGlow 3s ease-in-out infinite;}
@@ -94,7 +92,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .sp.o{background:var(--orange-pale);color:var(--orange);}
 .schema-hint{text-align:center;font-size:11px;color:var(--t4);margin-top:10px;}
 @media(max-width:960px){.ag-layout{grid-template-columns:1fr;gap:16px;}.ag-arrow{flex-direction:row;justify-content:center;}.ag-frame{padding:32px 18px 18px;}}
-
 #principes{padding:96px 0;background:var(--card);}
 .pr-head{margin-bottom:52px;}
 .pr-head .pr-num{font-size:11px;font-weight:800;color:var(--orange);letter-spacing:1px;margin-bottom:8px;}
@@ -108,7 +105,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .pr-card p{font-size:12.5px;color:var(--t5);line-height:1.65;}
 @media(max-width:900px){.pr-grid{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:560px){.pr-grid{grid-template-columns:1fr 1fr;}.pr-grid .pr-card:last-child{grid-column:1/-1;}}
-
 #connect{padding:96px 0;background:var(--bg);}
 .conn-head{text-align:center;margin-bottom:48px;}
 .conn-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
@@ -137,7 +133,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conn-cat .cc-count{font-size:11px;font-weight:700;color:var(--t4);margin-top:6px;}
 @media(max-width:760px){.conn-cats{grid-template-columns:1fr 1fr;}}
 @media(max-width:480px){.conn-cats{grid-template-columns:1fr;}}
-
 #security{padding:96px 0;background:var(--card);}
 .sec-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 .sec-pillars{display:flex;flex-direction:column;gap:0;}
@@ -166,7 +161,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .sec-note{padding:16px 18px;background:var(--green-pale);border:1px solid var(--green-border);border-radius:var(--r);font-size:13px;color:var(--green);font-weight:500;display:flex;align-items:flex-start;gap:9px;line-height:1.6;}
 .sec-note svg{width:15px;height:15px;flex-shrink:0;margin-top:1px;}
 @media(max-width:900px){.sec-grid{grid-template-columns:1fr;}}
-
 #arch-cta{padding:80px 0;background:var(--orange);text-align:center;position:relative;overflow:hidden;}
 #arch-cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px;}
 #arch-cta .wrap{position:relative;z-index:1;}
@@ -185,9 +179,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 <section id="arch-hero">
   <div class="hero-text">
-    <div class="pill" data-i18n="arch.pill">Architecture</div>
-    <h1 data-i18n="arch.hero.h1">Déployez là où<br>vous êtes déjà.<br><span class="o">Sans migration. Sans risque.</span></h1>
-    <p data-i18n="arch.hero.p">iD4Connect s'installe dans votre infrastructure existante. On-premise, cloud privé, multi-cloud — un seul modèle architectural, une souveraineté totale.</p>
+    <div class="pill" id="txt-pill">Architecture</div>
+    <h1 id="txt-hero-h1">Déployez là où<br>vous êtes déjà.<br><span class="o">Sans migration. Sans risque.</span></h1>
+    <p id="txt-hero-p">iD4Connect s'installe dans votre infrastructure existante. On-premise, cloud privé, multi-cloud — un seul modèle architectural, une souveraineté totale.</p>
   </div>
 </section>
 
@@ -198,22 +192,22 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <div class="ag-tabs">
         <button class="ag-tab active" data-tab="cloud">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12.5 10a3 3 0 0 0-2.9-3.8 5 5 0 0 0-9.1 2.3A2.5 2.5 0 0 0 2 13.5h10.5a2 2 0 0 0 0-3.5z"/></svg>
-          <span data-i18n="arch.tab.cloud">Cloud</span>
+          <span id="txt-tab-cloud">Cloud</span>
         </button>
         <button class="ag-tab" data-tab="hybrid">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h5M9 8h5M7 5l-3 3 3 3M9 5l3 3-3 3"/></svg>
-          <span data-i18n="arch.tab.hybrid">Hybride</span>
+          <span id="txt-tab-hybrid">Hybride</span>
         </button>
         <button class="ag-tab" data-tab="onprem">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="4" rx="1"/><rect x="2" y="9" width="12" height="4" rx="1"/><circle cx="12.5" cy="5" r=".8" fill="currentColor" stroke="none"/><circle cx="12.5" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>
-          <span data-i18n="arch.tab.onprem">On-Premise</span>
+          <span id="txt-tab-onprem">On-Premise</span>
         </button>
       </div>
 
       <div class="ag-layout" id="ag-layout">
         <div class="ag-ctx" id="ag-left"></div>
         <div class="ag-arrow in">
-          <span class="ag-arrow-lbl" data-i18n="arch.arrow.transit">Transit</span>
+          <span class="ag-arrow-lbl" id="txt-arrow-transit">Transit</span>
           <svg width="36" height="28" viewBox="0 0 36 28">
             <defs><marker id="arr-in" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><polygon points="0 1,8 4,0 7" fill="#F97316"/></marker></defs>
             <line x1="4" y1="14" x2="28" y2="14" stroke="#F97316" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr-in)"/>
@@ -221,7 +215,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         </div>
         <div class="dc-card active-cell" id="dc-center"></div>
         <div class="ag-arrow out">
-          <span class="ag-arrow-lbl" data-i18n="arch.arrow.output">Sortie</span>
+          <span class="ag-arrow-lbl" id="txt-arrow-output">Sortie</span>
           <svg width="36" height="28" viewBox="0 0 36 28">
             <defs><marker id="arr-out" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><polygon points="0 1,8 4,0 7" fill="#10B981"/></marker></defs>
             <line x1="4" y1="14" x2="28" y2="14" stroke="#10B981" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr-out)"/>
@@ -231,23 +225,23 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       </div>
 
       <div class="ag-orches">
-        <span class="ag-orches-lbl" data-i18n="arch.orches.lbl">Une seule architecture :</span>
-        <span class="ag-cap" data-i18n="arch.cap.stateless">Stateless</span>
-        <span class="ag-cap" data-i18n="arch.cap.sovereign">Souverain</span>
-        <span class="ag-cap" data-i18n="arch.cap.agnostic">Agnostique</span>
+        <span class="ag-orches-lbl" id="txt-orches-lbl">Une seule architecture :</span>
+        <span class="ag-cap" id="txt-cap-stateless">Stateless</span>
+        <span class="ag-cap" id="txt-cap-sovereign">Souverain</span>
+        <span class="ag-cap" id="txt-cap-agnostic">Agnostique</span>
         <span class="ag-cap">Zero Trust</span>
-        <span class="ag-cap" data-i18n="arch.cap.resilient">Résilient</span>
+        <span class="ag-cap" id="txt-cap-resilient">Résilient</span>
       </div>
     </div>
 
     <div class="ag-strip">
       <div class="strip">
-        <div class="sp r" data-i18n="arch.strip.no-migration">✕ Zéro migration de données</div>
-        <div class="sp g" data-i18n="arch.strip.compatible">✓ Compatible votre stack actuelle</div>
-        <div class="sp o" data-i18n="arch.strip.fast">✓ Opérationnel en jours</div>
+        <div class="sp r" id="txt-strip-nomigration">✕ Zéro migration de données</div>
+        <div class="sp g" id="txt-strip-compatible">✓ Compatible votre stack actuelle</div>
+        <div class="sp o" id="txt-strip-fast">✓ Opérationnel en jours</div>
       </div>
     </div>
-    <p class="schema-hint" data-i18n="arch.schema.hint">Changez de mode pour voir le contenu de la DataCell s'adapter</p>
+    <p class="schema-hint" id="txt-schema-hint">Changez de mode pour voir le contenu de la DataCell s'adapter</p>
   </div>
 </section>
 
@@ -255,43 +249,43 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   <div class="wrap">
     <div class="pr-head">
       <div class="pr-num">01</div>
-      <h2 data-i18n="arch.pr.title">Principes fondamentaux</h2>
+      <h2 id="txt-pr-title">Principes fondamentaux</h2>
     </div>
     <div class="pr-grid">
       <div class="pr-card">
         <div class="pr-ico" style="background:#FFF7ED;">
           <svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
-        <h3 data-i18n="arch.pr1.title">Stateless</h3>
-        <p data-i18n="arch.pr1.p">Aucun stockage permanent. Traitement à la volée, insights en temps réel.</p>
+        <h3 id="txt-pr1-title">Stateless</h3>
+        <p id="txt-pr1-p">Aucun stockage permanent. Traitement à la volée, insights en temps réel.</p>
       </div>
       <div class="pr-card">
         <div class="pr-ico" style="background:#ECFEFF;">
           <svg viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <h3>Zero Trust</h3>
-        <p data-i18n="arch.pr2.p">Vérification à chaque flux. Sécurité by design sans point unique de défaillance.</p>
+        <p id="txt-pr2-p">Vérification à chaque flux. Sécurité by design sans point unique de défaillance.</p>
       </div>
       <div class="pr-card">
         <div class="pr-ico" style="background:#EFF6FF;">
           <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-        <h3 data-i18n="arch.pr3.title">Cloud Agnostic</h3>
-        <p data-i18n="arch.pr3.p">Déployable partout : cloud public, privé, on-premise ou hybride.</p>
+        <h3 id="txt-pr3-title">Cloud Agnostic</h3>
+        <p id="txt-pr3-p">Déployable partout : cloud public, privé, on-premise ou hybride.</p>
       </div>
       <div class="pr-card">
         <div class="pr-ico" style="background:#F0FDF4;">
           <svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
         </div>
-        <h3 data-i18n="arch.pr4.title">Souveraineté</h3>
-        <p data-i18n="arch.pr4.p">100% européen. Vos données restent dans votre périmètre, toujours.</p>
+        <h3 id="txt-pr4-title">Souveraineté</h3>
+        <p id="txt-pr4-p">100% européen. Vos données restent dans votre périmètre, toujours.</p>
       </div>
       <div class="pr-card">
         <div class="pr-ico" style="background:#F5F3FF;">
           <svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
         </div>
-        <h3 data-i18n="arch.pr5.title">Résilience</h3>
-        <p data-i18n="arch.pr5.p">Auto-healing et re-routage automatique en cas d'échec.</p>
+        <h3 id="txt-pr5-title">Résilience</h3>
+        <p id="txt-pr5-p">Auto-healing et re-routage automatique en cas d'échec.</p>
       </div>
     </div>
   </div>
@@ -300,34 +294,34 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <section id="connect" class="reveal">
   <div class="wrap">
     <div class="conn-head">
-      <div class="pill" data-i18n="arch.conn.pill">Connecteurs</div>
-      <h2>Connectez <span class="o" data-i18n="arch.conn.h2accent">tout.</span></h2>
-      <p data-i18n="arch.conn.p">Plus de 70 connecteurs natifs pour intégrer l'ensemble de votre SI existant.</p>
+      <div class="pill" id="txt-conn-pill">Connecteurs</div>
+      <h2>Connectez <span class="o" id="txt-conn-h2accent">tout.</span></h2>
+      <p id="txt-conn-p">Plus de 70 connecteurs natifs pour intégrer l'ensemble de votre SI existant.</p>
     </div>
     <div class="conn-cats">
       <div class="conn-cat">
         <div class="cc-ico" style="background:#EFF6FF;"><svg viewBox="0 0 16 16" fill="none" stroke="#3B82F6" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg></div>
-        <h4 data-i18n="arch.cat1.title">Bases de données</h4>
-        <p data-i18n="arch.cat1.p">Relationnelles, NoSQL, entrepôts de données.</p>
-        <div class="cc-count" data-i18n="arch.cat1.count">20+ connecteurs</div>
+        <h4 id="txt-cat1-title">Bases de données</h4>
+        <p id="txt-cat1-p">Relationnelles, NoSQL, entrepôts de données.</p>
+        <div class="cc-count" id="txt-cat1-count">20+ connecteurs</div>
       </div>
       <div class="conn-cat">
         <div class="cc-ico" style="background:#FFF7ED;"><svg viewBox="0 0 16 16" fill="none" stroke="#F97316" stroke-width="1.5"><path d="M8 2v4l3-3"/><rect x="2" y="8" width="12" height="6" rx="1"/></svg></div>
-        <h4 data-i18n="arch.cat2.title">Applications métier</h4>
-        <p data-i18n="arch.cat2.p">ERP, CRM, outils RH et finance.</p>
-        <div class="cc-count" data-i18n="arch.cat2.count">18+ connecteurs</div>
+        <h4 id="txt-cat2-title">Applications métier</h4>
+        <p id="txt-cat2-p">ERP, CRM, outils RH et finance.</p>
+        <div class="cc-count" id="txt-cat2-count">18+ connecteurs</div>
       </div>
       <div class="conn-cat">
         <div class="cc-ico" style="background:#ECFDF5;"><svg viewBox="0 0 16 16" fill="none" stroke="#10B981" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5 8h2l2-3 2 6 1-3"/></svg></div>
-        <h4 data-i18n="arch.cat3.title">IoT &amp; Streaming</h4>
-        <p data-i18n="arch.cat3.p">MQTT, Kafka, capteurs industriels, temps réel.</p>
-        <div class="cc-count" data-i18n="arch.cat3.count">15+ connecteurs</div>
+        <h4 id="txt-cat3-title">IoT &amp; Streaming</h4>
+        <p id="txt-cat3-p">MQTT, Kafka, capteurs industriels, temps réel.</p>
+        <div class="cc-count" id="txt-cat3-count">15+ connecteurs</div>
       </div>
       <div class="conn-cat">
         <div class="cc-ico" style="background:#F5F3FF;"><svg viewBox="0 0 16 16" fill="none" stroke="#8B5CF6" stroke-width="1.5"><path d="M12.5 10a3 3 0 0 0-2.9-3.8 5 5 0 0 0-9.1 2.3A2.5 2.5 0 0 0 2 13.5h10.5a2 2 0 0 0 0-3.5z"/></svg></div>
-        <h4 data-i18n="arch.cat4.title">Cloud &amp; APIs</h4>
-        <p data-i18n="arch.cat4.p">REST, GraphQL, webhooks, services cloud.</p>
-        <div class="cc-count" data-i18n="arch.cat4.count">20+ connecteurs</div>
+        <h4 id="txt-cat4-title">Cloud &amp; APIs</h4>
+        <p id="txt-cat4-p">REST, GraphQL, webhooks, services cloud.</p>
+        <div class="cc-count" id="txt-cat4-count">20+ connecteurs</div>
       </div>
     </div>
     <div class="marquee-wrap">
@@ -393,7 +387,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
     <div class="conn-cta">
       <a href="contact.html" class="conn-btn">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg>
-        <span data-i18n="arch.conn.cta">70+ connecteurs disponibles</span>
+        <span id="txt-conn-cta">70+ connecteurs disponibles</span>
       </a>
     </div>
   </div>
@@ -403,71 +397,53 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   <div class="wrap">
     <div class="sec-grid">
       <div>
-        <div class="pill" data-i18n="arch.sec.pill">Sécurité by Design</div>
-        <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.5px;margin-bottom:16px;" data-i18n="arch.sec.h2">La sécurité n'est pas une couche.<br><span style="color:var(--orange)">C'est l'architecture elle-même.</span></h2>
-        <p style="font-size:15px;color:var(--t5);line-height:1.75;margin-bottom:32px;" data-i18n="arch.sec.p">iD4Connect n'a pas été conçu pour être sécurisé après coup. Chaque principe architectural est une décision de sécurité. Zéro stockage, zéro copie, zéro surface d'attaque inutile.</p>
+        <div class="pill" id="txt-sec-pill">Sécurité by Design</div>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.5px;margin-bottom:16px;" id="txt-sec-h2">La sécurité n'est pas une couche.<br><span style="color:var(--orange)">C'est l'architecture elle-même.</span></h2>
+        <p style="font-size:15px;color:var(--t5);line-height:1.75;margin-bottom:32px;" id="txt-sec-p">iD4Connect n'a pas été conçu pour être sécurisé après coup. Chaque principe architectural est une décision de sécurité. Zéro stockage, zéro copie, zéro surface d'attaque inutile.</p>
         <div class="sec-pillars">
           <div class="sec-pillar">
             <div class="sp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div>
-            <div class="sp-txt">
-              <h4 data-i18n="arch.sp1.title">Zéro surface de stockage</h4>
-              <p data-i18n="arch.sp1.p">Pas de donnée au repos, pas de base à compromettre. Une donnée en transit est une donnée non exposée.</p>
-            </div>
+            <div class="sp-txt"><h4 id="txt-sp1-title">Zéro surface de stockage</h4><p id="txt-sp1-p">Pas de donnée au repos, pas de base à compromettre. Une donnée en transit est une donnée non exposée.</p></div>
           </div>
           <div class="sec-pillar">
             <div class="sp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-            <div class="sp-txt">
-              <h4 data-i18n="arch.sp2.title">Chiffrement de bout en bout</h4>
-              <p data-i18n="arch.sp2.p">Chaque flux est chiffré pendant le transit. De la source à la destination, sans déchiffrement intermédiaire.</p>
-            </div>
+            <div class="sp-txt"><h4 id="txt-sp2-title">Chiffrement de bout en bout</h4><p id="txt-sp2-p">Chaque flux est chiffré pendant le transit. De la source à la destination, sans déchiffrement intermédiaire.</p></div>
           </div>
           <div class="sec-pillar">
             <div class="sp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div class="sp-txt">
-              <h4 data-i18n="arch.sp3.title">Isolation par DataCell</h4>
-              <p data-i18n="arch.sp3.p">Chaque cellule opère dans un périmètre strictement défini. Une compromission ne peut pas se propager latéralement.</p>
-            </div>
+            <div class="sp-txt"><h4 id="txt-sp3-title">Isolation par DataCell</h4><p id="txt-sp3-p">Chaque cellule opère dans un périmètre strictement défini. Une compromission ne peut pas se propager latéralement.</p></div>
           </div>
           <div class="sec-pillar">
             <div class="sp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-            <div class="sp-txt">
-              <h4 data-i18n="arch.sp4.title">Audit log natif</h4>
-              <p data-i18n="arch.sp4.p">Chaque transit est tracé, horodaté et signé. L'historique complet est disponible sans configuration supplémentaire.</p>
-            </div>
+            <div class="sp-txt"><h4 id="txt-sp4-title">Audit log natif</h4><p id="txt-sp4-p">Chaque transit est tracé, horodaté et signé. L'historique complet est disponible sans configuration supplémentaire.</p></div>
           </div>
         </div>
       </div>
       <div class="sec-visual">
         <div class="sec-card">
-          <div class="sec-card-head">
-            <span class="scht" data-i18n="arch.sec.status.title">Statut sécurité</span>
-            <span class="schb" data-i18n="arch.sec.status.badge">Actif</span>
-          </div>
+          <div class="sec-card-head"><span class="scht" id="txt-sec-status-title">Statut sécurité</span><span class="schb" id="txt-sec-status-badge">Actif</span></div>
           <div class="sec-card-body">
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.r1.lbl">Chiffrement flux</span><span class="sr-val ok" data-i18n="arch.sec.r1.val">Activé</span></div>
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.r2.lbl">Stockage données</span><span class="sr-val off" data-i18n="arch.sec.r2.val">Aucun</span></div>
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.r3.lbl">Audit trail</span><span class="sr-val ok" data-i18n="arch.sec.r3.val">Complet</span></div>
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.r4.lbl">Isolation cellule</span><span class="sr-val ok" data-i18n="arch.sec.r4.val">Périmètre fermé</span></div>
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.r5.lbl">Accès extraterritorial</span><span class="sr-val off" data-i18n="arch.sec.r5.val">Impossible</span></div>
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.r6.lbl">Surface d'attaque</span><span class="sr-val ok" data-i18n="arch.sec.r6.val">Minimale</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-r1-lbl">Chiffrement flux</span><span class="sr-val ok" id="txt-r1-val">Activé</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-r2-lbl">Stockage données</span><span class="sr-val off" id="txt-r2-val">Aucun</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-r3-lbl">Audit trail</span><span class="sr-val ok" id="txt-r3-val">Complet</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-r4-lbl">Isolation cellule</span><span class="sr-val ok" id="txt-r4-val">Périmètre fermé</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-r5-lbl">Accès extraterritorial</span><span class="sr-val off" id="txt-r5-val">Impossible</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-r6-lbl">Surface d'attaque</span><span class="sr-val ok" id="txt-r6-val">Minimale</span></div>
           </div>
         </div>
         <div class="sec-card">
-          <div class="sec-card-head">
-            <span class="scht" data-i18n="arch.sec.comp.title">Conformité</span>
-            <span class="schb" data-i18n="arch.sec.comp.badge">Couvert</span>
-          </div>
+          <div class="sec-card-head"><span class="scht" id="txt-comp-title">Conformité</span><span class="schb" id="txt-comp-badge">Couvert</span></div>
           <div class="sec-card-body">
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.c1.lbl">Protection données personnelles</span><span class="sr-val ok" data-i18n="arch.sec.c1.val">By design</span></div>
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.c2.lbl">Résilience opérationnelle</span><span class="sr-val ok" data-i18n="arch.sec.c2.val">Natif</span></div>
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.c3.lbl">Sécurité des réseaux</span><span class="sr-val ok" data-i18n="arch.sec.c3.val">Couvert</span></div>
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.c4.lbl">Données de santé</span><span class="sr-val act" data-i18n="arch.sec.c4.val">Compatible</span></div>
-            <div class="sec-row"><span class="sr-lbl" data-i18n="arch.sec.c5.lbl">Hébergement souverain</span><span class="sr-val ok" data-i18n="arch.sec.c5.val">Européen</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-c1-lbl">Protection données personnelles</span><span class="sr-val ok" id="txt-c1-val">By design</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-c2-lbl">Résilience opérationnelle</span><span class="sr-val ok" id="txt-c2-val">Natif</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-c3-lbl">Sécurité des réseaux</span><span class="sr-val ok" id="txt-c3-val">Couvert</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-c4-lbl">Données de santé</span><span class="sr-val act" id="txt-c4-val">Compatible</span></div>
+            <div class="sec-row"><span class="sr-lbl" id="txt-c5-lbl">Hébergement souverain</span><span class="sr-val ok" id="txt-c5-val">Européen</span></div>
           </div>
         </div>
         <div class="sec-note">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>
-          <span data-i18n="arch.sec.note">La conformité n'est pas une option à activer — elle est le résultat direct d'une architecture qui ne stocke jamais les données.</span>
+          <span id="txt-sec-note">La conformité n'est pas une option à activer — elle est le résultat direct d'une architecture qui ne stocke jamais les données.</span>
         </div>
       </div>
     </div>
@@ -476,11 +452,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 <section id="arch-cta">
   <div class="wrap">
-    <h2 data-i18n="arch.cta.h2">Prêt à voir l'architecture en action ?</h2>
-    <p data-i18n="arch.cta.p">30 minutes pour comprendre comment iD4Connect s'intègre à votre infrastructure.</p>
+    <h2 id="txt-cta-h2">Prêt à voir l'architecture en action ?</h2>
+    <p id="txt-cta-p">30 minutes pour comprendre comment iD4Connect s'intègre à votre infrastructure.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn-w" data-i18n="arch.cta.btn1">Demander une démo →</a>
-      <a href="positionnement.html" class="btn-wo" data-i18n="arch.cta.btn2">Voir le positionnement</a>
+      <a href="contact.html" class="btn-w" id="txt-cta-btn1">Demander une démo →</a>
+      <a href="positionnement.html" class="btn-wo" id="txt-cta-btn2">Voir le positionnement</a>
     </div>
   </div>
 </section>
@@ -488,367 +464,586 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <div id="ftr-ph"></div>
 
 <script>
-/* ══════════════════════════════
-   DICTIONNAIRE i18n
-══════════════════════════════ */
-const I18N = {
-  fr: {
-    'meta.title': 'Architecture — iD4Connect',
-    'pill': 'Architecture',
-    'hero.h1': 'Déployez là où<br>vous êtes déjà.<br><span class="o">Sans migration. Sans risque.</span>',
-    'hero.p': "iD4Connect s'installe dans votre infrastructure existante. On-premise, cloud privé, multi-cloud — un seul modèle architectural, une souveraineté totale.",
-    'tab.cloud': 'Cloud',
-    'tab.hybrid': 'Hybride',
-    'tab.onprem': 'On-Premise',
-    'arrow.transit': 'Transit',
-    'arrow.output': 'Sortie',
-    'orches.lbl': 'Une seule architecture :',
-    'cap.stateless': 'Stateless',
-    'cap.sovereign': 'Souverain',
-    'cap.agnostic': 'Agnostique',
-    'cap.resilient': 'Résilient',
-    'strip.no-migration': '✕ Zéro migration de données',
-    'strip.compatible': '✓ Compatible votre stack actuelle',
-    'strip.fast': '✓ Opérationnel en jours',
-    'schema.hint': "Changez de mode pour voir le contenu de la DataCell s'adapter",
-    'pr.title': 'Principes fondamentaux',
-    'pr1.title': 'Stateless', 'pr1.p': "Aucun stockage permanent. Traitement à la volée, insights en temps réel.",
-    'pr2.p': 'Vérification à chaque flux. Sécurité by design sans point unique de défaillance.',
-    'pr3.title': 'Cloud Agnostic', 'pr3.p': 'Déployable partout : cloud public, privé, on-premise ou hybride.',
-    'pr4.title': 'Souveraineté', 'pr4.p': '100% européen. Vos données restent dans votre périmètre, toujours.',
-    'pr5.title': 'Résilience', 'pr5.p': "Auto-healing et re-routage automatique en cas d'échec.",
-    'conn.pill': 'Connecteurs',
-    'conn.h2accent': 'tout.',
-    'conn.p': "Plus de 70 connecteurs natifs pour intégrer l'ensemble de votre SI existant.",
-    'cat1.title': 'Bases de données', 'cat1.p': 'Relationnelles, NoSQL, entrepôts de données.', 'cat1.count': '20+ connecteurs',
-    'cat2.title': 'Applications métier', 'cat2.p': 'ERP, CRM, outils RH et finance.', 'cat2.count': '18+ connecteurs',
-    'cat3.title': 'IoT & Streaming', 'cat3.p': 'MQTT, Kafka, capteurs industriels, temps réel.', 'cat3.count': '15+ connecteurs',
-    'cat4.title': 'Cloud & APIs', 'cat4.p': 'REST, GraphQL, webhooks, services cloud.', 'cat4.count': '20+ connecteurs',
-    'conn.cta': '70+ connecteurs disponibles',
-    'sec.pill': 'Sécurité by Design',
-    'sec.h2': "La sécurité n'est pas une couche.<br><span style=\"color:var(--orange)\">C'est l'architecture elle-même.</span>",
-    'sec.p': "iD4Connect n'a pas été conçu pour être sécurisé après coup. Chaque principe architectural est une décision de sécurité. Zéro stockage, zéro copie, zéro surface d'attaque inutile.",
-    'sp1.title': 'Zéro surface de stockage', 'sp1.p': "Pas de donnée au repos, pas de base à compromettre. Une donnée en transit est une donnée non exposée.",
-    'sp2.title': 'Chiffrement de bout en bout', 'sp2.p': 'Chaque flux est chiffré pendant le transit. De la source à la destination, sans déchiffrement intermédiaire.',
-    'sp3.title': 'Isolation par DataCell', 'sp3.p': 'Chaque cellule opère dans un périmètre strictement défini. Une compromission ne peut pas se propager latéralement.',
-    'sp4.title': 'Audit log natif', 'sp4.p': "Chaque transit est tracé, horodaté et signé. L'historique complet est disponible sans configuration supplémentaire.",
-    'sec.status.title': 'Statut sécurité', 'sec.status.badge': 'Actif',
-    'sec.r1.lbl': 'Chiffrement flux', 'sec.r1.val': 'Activé',
-    'sec.r2.lbl': 'Stockage données', 'sec.r2.val': 'Aucun',
-    'sec.r3.lbl': 'Audit trail', 'sec.r3.val': 'Complet',
-    'sec.r4.lbl': 'Isolation cellule', 'sec.r4.val': 'Périmètre fermé',
-    'sec.r5.lbl': 'Accès extraterritorial', 'sec.r5.val': 'Impossible',
-    'sec.r6.lbl': "Surface d'attaque", 'sec.r6.val': 'Minimale',
-    'sec.comp.title': 'Conformité', 'sec.comp.badge': 'Couvert',
-    'sec.c1.lbl': 'Protection données personnelles', 'sec.c1.val': 'By design',
-    'sec.c2.lbl': 'Résilience opérationnelle', 'sec.c2.val': 'Natif',
-    'sec.c3.lbl': 'Sécurité des réseaux', 'sec.c3.val': 'Couvert',
-    'sec.c4.lbl': 'Données de santé', 'sec.c4.val': 'Compatible',
-    'sec.c5.lbl': 'Hébergement souverain', 'sec.c5.val': 'Européen',
-    'sec.note': "La conformité n'est pas une option à activer — elle est le résultat direct d'une architecture qui ne stocke jamais les données.",
-    'cta.h2': "Prêt à voir l'architecture en action ?",
-    'cta.p': "30 minutes pour comprendre comment iD4Connect s'intègre à votre infrastructure.",
-    'cta.btn1': 'Demander une démo →',
-    'cta.btn2': 'Voir le positionnement',
-  },
-  en: {
-    'meta.title': 'Architecture — iD4Connect',
-    'pill': 'Architecture',
-    'hero.h1': 'Deploy where<br>you already are.<br><span class="o">No migration. No risk.</span>',
-    'hero.p': 'iD4Connect installs within your existing infrastructure. On-premise, private cloud, multi-cloud — one architectural model, total sovereignty.',
-    'tab.cloud': 'Cloud',
-    'tab.hybrid': 'Hybrid',
-    'tab.onprem': 'On-Premise',
-    'arrow.transit': 'Transit',
-    'arrow.output': 'Output',
-    'orches.lbl': 'One architecture:',
-    'cap.stateless': 'Stateless',
-    'cap.sovereign': 'Sovereign',
-    'cap.agnostic': 'Agnostic',
-    'cap.resilient': 'Resilient',
-    'strip.no-migration': '✕ Zero data migration',
-    'strip.compatible': '✓ Compatible with your current stack',
-    'strip.fast': '✓ Operational within days',
-    'schema.hint': 'Switch modes to see the DataCell content adapt',
-    'pr.title': 'Core principles',
-    'pr1.title': 'Stateless', 'pr1.p': 'No permanent storage. On-the-fly processing, real-time insights.',
-    'pr2.p': 'Verified at every flow. Security by design with no single point of failure.',
-    'pr3.title': 'Cloud Agnostic', 'pr3.p': 'Deployable anywhere: public cloud, private, on-premise or hybrid.',
-    'pr4.title': 'Sovereignty', 'pr4.p': '100% European. Your data stays within your perimeter, always.',
-    'pr5.title': 'Resilience', 'pr5.p': 'Auto-healing and automatic re-routing on failure.',
-    'conn.pill': 'Connectors',
-    'conn.h2accent': 'everything.',
-    'conn.p': 'Over 70 native connectors to integrate your entire existing IT landscape.',
-    'cat1.title': 'Databases', 'cat1.p': 'Relational, NoSQL, data warehouses.', 'cat1.count': '20+ connectors',
-    'cat2.title': 'Business apps', 'cat2.p': 'ERP, CRM, HR and finance tools.', 'cat2.count': '18+ connectors',
-    'cat3.title': 'IoT & Streaming', 'cat3.p': 'MQTT, Kafka, industrial sensors, real-time.', 'cat3.count': '15+ connectors',
-    'cat4.title': 'Cloud & APIs', 'cat4.p': 'REST, GraphQL, webhooks, cloud services.', 'cat4.count': '20+ connectors',
-    'conn.cta': '70+ connectors available',
-    'sec.pill': 'Security by Design',
-    'sec.h2': 'Security is not a layer.<br><span style="color:var(--orange)">It is the architecture itself.</span>',
-    'sec.p': 'iD4Connect was not designed to be secured as an afterthought. Every architectural principle is a security decision. Zero storage, zero copy, zero unnecessary attack surface.',
-    'sp1.title': 'Zero storage surface', 'sp1.p': 'No data at rest, no database to compromise. Data in transit is data unexposed.',
-    'sp2.title': 'End-to-end encryption', 'sp2.p': 'Every flow is encrypted during transit. From source to destination, with no intermediate decryption.',
-    'sp3.title': 'DataCell isolation', 'sp3.p': 'Each cell operates within a strictly defined perimeter. A breach cannot propagate laterally.',
-    'sp4.title': 'Native audit log', 'sp4.p': 'Every transit is traced, timestamped and signed. Full history is available without additional configuration.',
-    'sec.status.title': 'Security status', 'sec.status.badge': 'Active',
-    'sec.r1.lbl': 'Flow encryption', 'sec.r1.val': 'Enabled',
-    'sec.r2.lbl': 'Data storage', 'sec.r2.val': 'None',
-    'sec.r3.lbl': 'Audit trail', 'sec.r3.val': 'Complete',
-    'sec.r4.lbl': 'Cell isolation', 'sec.r4.val': 'Closed perimeter',
-    'sec.r5.lbl': 'Extraterritorial access', 'sec.r5.val': 'Impossible',
-    'sec.r6.lbl': 'Attack surface', 'sec.r6.val': 'Minimal',
-    'sec.comp.title': 'Compliance', 'sec.comp.badge': 'Covered',
-    'sec.c1.lbl': 'Personal data protection', 'sec.c1.val': 'By design',
-    'sec.c2.lbl': 'Operational resilience', 'sec.c2.val': 'Native',
-    'sec.c3.lbl': 'Network security', 'sec.c3.val': 'Covered',
-    'sec.c4.lbl': 'Health data', 'sec.c4.val': 'Compatible',
-    'sec.c5.lbl': 'Sovereign hosting', 'sec.c5.val': 'European',
-    'sec.note': 'Compliance is not an option to enable — it is the direct result of an architecture that never stores data.',
-    'cta.h2': 'Ready to see the architecture in action?',
-    'cta.p': '30 minutes to understand how iD4Connect integrates into your infrastructure.',
-    'cta.btn1': 'Request a demo →',
-    'cta.btn2': 'View positioning',
-  },
-  es: {
-    'meta.title': 'Arquitectura — iD4Connect',
-    'pill': 'Arquitectura',
-    'hero.h1': 'Despliegue donde<br>ya está.<br><span class="o">Sin migración. Sin riesgo.</span>',
-    'hero.p': 'iD4Connect se instala en su infraestructura existente. On-premise, nube privada, multi-cloud — un único modelo arquitectural, soberanía total.',
-    'tab.cloud': 'Cloud',
-    'tab.hybrid': 'Híbrido',
-    'tab.onprem': 'On-Premise',
-    'arrow.transit': 'Tránsito',
-    'arrow.output': 'Salida',
-    'orches.lbl': 'Una sola arquitectura:',
-    'cap.stateless': 'Sin estado',
-    'cap.sovereign': 'Soberano',
-    'cap.agnostic': 'Agnóstico',
-    'cap.resilient': 'Resiliente',
-    'strip.no-migration': '✕ Cero migración de datos',
-    'strip.compatible': '✓ Compatible con su stack actual',
-    'strip.fast': '✓ Operativo en días',
-    'schema.hint': 'Cambie el modo para ver cómo se adapta el contenido de la DataCell',
-    'pr.title': 'Principios fundamentales',
-    'pr1.title': 'Sin estado', 'pr1.p': 'Sin almacenamiento permanente. Procesamiento al vuelo, insights en tiempo real.',
-    'pr2.p': 'Verificación en cada flujo. Seguridad by design sin punto único de fallo.',
-    'pr3.title': 'Cloud Agnóstico', 'pr3.p': 'Desplegable en cualquier lugar: nube pública, privada, on-premise o híbrida.',
-    'pr4.title': 'Soberanía', 'pr4.p': '100% europeo. Sus datos permanecen dentro de su perímetro, siempre.',
-    'pr5.title': 'Resiliencia', 'pr5.p': 'Auto-reparación y re-enrutamiento automático ante fallos.',
-    'conn.pill': 'Conectores',
-    'conn.h2accent': 'todo.',
-    'conn.p': 'Más de 70 conectores nativos para integrar todo su SI existente.',
-    'cat1.title': 'Bases de datos', 'cat1.p': 'Relacionales, NoSQL, almacenes de datos.', 'cat1.count': '20+ conectores',
-    'cat2.title': 'Aplicaciones empresariales', 'cat2.p': 'ERP, CRM, herramientas de RRHH y finanzas.', 'cat2.count': '18+ conectores',
-    'cat3.title': 'IoT & Streaming', 'cat3.p': 'MQTT, Kafka, sensores industriales, tiempo real.', 'cat3.count': '15+ conectores',
-    'cat4.title': 'Cloud & APIs', 'cat4.p': 'REST, GraphQL, webhooks, servicios cloud.', 'cat4.count': '20+ conectores',
-    'conn.cta': '70+ conectores disponibles',
-    'sec.pill': 'Seguridad by Design',
-    'sec.h2': 'La seguridad no es una capa.<br><span style="color:var(--orange)">Es la arquitectura misma.</span>',
-    'sec.p': 'iD4Connect no fue diseñado para añadir seguridad después. Cada principio arquitectural es una decisión de seguridad. Cero almacenamiento, cero copia, cero superficie de ataque innecesaria.',
-    'sp1.title': 'Cero superficie de almacenamiento', 'sp1.p': 'Sin datos en reposo, sin base de datos que comprometer. Un dato en tránsito es un dato no expuesto.',
-    'sp2.title': 'Cifrado extremo a extremo', 'sp2.p': 'Cada flujo está cifrado durante el tránsito. De la fuente al destino, sin descifrado intermedio.',
-    'sp3.title': 'Aislamiento por DataCell', 'sp3.p': 'Cada celda opera dentro de un perímetro estrictamente definido. Una brecha no puede propagarse lateralmente.',
-    'sp4.title': 'Registro de auditoría nativo', 'sp4.p': 'Cada tránsito queda registrado, marcado con tiempo y firmado. El historial completo está disponible sin configuración adicional.',
-    'sec.status.title': 'Estado de seguridad', 'sec.status.badge': 'Activo',
-    'sec.r1.lbl': 'Cifrado de flujos', 'sec.r1.val': 'Activado',
-    'sec.r2.lbl': 'Almacenamiento de datos', 'sec.r2.val': 'Ninguno',
-    'sec.r3.lbl': 'Pista de auditoría', 'sec.r3.val': 'Completa',
-    'sec.r4.lbl': 'Aislamiento de celda', 'sec.r4.val': 'Perímetro cerrado',
-    'sec.r5.lbl': 'Acceso extraterritorial', 'sec.r5.val': 'Imposible',
-    'sec.r6.lbl': 'Superficie de ataque', 'sec.r6.val': 'Mínima',
-    'sec.comp.title': 'Cumplimiento', 'sec.comp.badge': 'Cubierto',
-    'sec.c1.lbl': 'Protección de datos personales', 'sec.c1.val': 'By design',
-    'sec.c2.lbl': 'Resiliencia operacional', 'sec.c2.val': 'Nativo',
-    'sec.c3.lbl': 'Seguridad de redes', 'sec.c3.val': 'Cubierto',
-    'sec.c4.lbl': 'Datos de salud', 'sec.c4.val': 'Compatible',
-    'sec.c5.lbl': 'Alojamiento soberano', 'sec.c5.val': 'Europeo',
-    'sec.note': 'El cumplimiento no es una opción a activar — es el resultado directo de una arquitectura que nunca almacena datos.',
-    'cta.h2': '¿Listo para ver la arquitectura en acción?',
-    'cta.p': '30 minutos para entender cómo iD4Connect se integra en su infraestructura.',
-    'cta.btn1': 'Solicitar una demo →',
-    'cta.btn2': 'Ver el posicionamiento',
-  },
-};
+/* ══════════════════════════════════════════════════════
+   TRADUCTION — if/else direct, pas de dictionnaire
+══════════════════════════════════════════════════════ */
+function applyLang(lang) {
+  document.documentElement.lang = lang;
 
-/* ══════════════════════════════
-   DONNÉES MODES (localisées)
-══════════════════════════════ */
-const MODES_I18N = {
+  /* TITRE DE PAGE */
+  if (lang === 'en') document.title = 'Architecture — iD4Connect';
+  else if (lang === 'es') document.title = 'Arquitectura — iD4Connect';
+  else document.title = 'Architecture — iD4Connect';
+
+  /* HERO */
+  var pill = document.getElementById('txt-pill');
+  if (pill) {
+    if (lang === 'en') pill.textContent = 'Architecture';
+    else if (lang === 'es') pill.textContent = 'Arquitectura';
+    else pill.textContent = 'Architecture';
+  }
+  var heroH1 = document.getElementById('txt-hero-h1');
+  if (heroH1) {
+    if (lang === 'en') heroH1.innerHTML = 'Deploy where<br>you already are.<br><span class="o">No migration. No risk.</span>';
+    else if (lang === 'es') heroH1.innerHTML = 'Despliegue donde<br>ya está.<br><span class="o">Sin migración. Sin riesgo.</span>';
+    else heroH1.innerHTML = 'Déployez là où<br>vous êtes déjà.<br><span class="o">Sans migration. Sans risque.</span>';
+  }
+  var heroP = document.getElementById('txt-hero-p');
+  if (heroP) {
+    if (lang === 'en') heroP.textContent = 'iD4Connect installs within your existing infrastructure. On-premise, private cloud, multi-cloud — one architectural model, total sovereignty.';
+    else if (lang === 'es') heroP.textContent = 'iD4Connect se instala en su infraestructura existente. On-premise, nube privada, multi-cloud — un único modelo arquitectural, soberanía total.';
+    else heroP.textContent = "iD4Connect s'installe dans votre infrastructure existante. On-premise, cloud privé, multi-cloud — un seul modèle architectural, une souveraineté totale.";
+  }
+
+  /* TABS */
+  var tabCloud = document.getElementById('txt-tab-cloud');
+  if (tabCloud) {
+    if (lang === 'en') tabCloud.textContent = 'Cloud';
+    else if (lang === 'es') tabCloud.textContent = 'Cloud';
+    else tabCloud.textContent = 'Cloud';
+  }
+  var tabHybrid = document.getElementById('txt-tab-hybrid');
+  if (tabHybrid) {
+    if (lang === 'en') tabHybrid.textContent = 'Hybrid';
+    else if (lang === 'es') tabHybrid.textContent = 'Híbrido';
+    else tabHybrid.textContent = 'Hybride';
+  }
+  var tabOnprem = document.getElementById('txt-tab-onprem');
+  if (tabOnprem) {
+    if (lang === 'en') tabOnprem.textContent = 'On-Premise';
+    else if (lang === 'es') tabOnprem.textContent = 'On-Premise';
+    else tabOnprem.textContent = 'On-Premise';
+  }
+
+  /* FLÈCHES */
+  var arrowTransit = document.getElementById('txt-arrow-transit');
+  if (arrowTransit) {
+    if (lang === 'en') arrowTransit.textContent = 'Transit';
+    else if (lang === 'es') arrowTransit.textContent = 'Tránsito';
+    else arrowTransit.textContent = 'Transit';
+  }
+  var arrowOutput = document.getElementById('txt-arrow-output');
+  if (arrowOutput) {
+    if (lang === 'en') arrowOutput.textContent = 'Output';
+    else if (lang === 'es') arrowOutput.textContent = 'Salida';
+    else arrowOutput.textContent = 'Sortie';
+  }
+
+  /* ORCHESTRATION BARRE */
+  var orchesLbl = document.getElementById('txt-orches-lbl');
+  if (orchesLbl) {
+    if (lang === 'en') orchesLbl.textContent = 'One architecture:';
+    else if (lang === 'es') orchesLbl.textContent = 'Una sola arquitectura:';
+    else orchesLbl.textContent = 'Une seule architecture :';
+  }
+  var capStateless = document.getElementById('txt-cap-stateless');
+  if (capStateless) {
+    if (lang === 'en') capStateless.textContent = 'Stateless';
+    else if (lang === 'es') capStateless.textContent = 'Sin estado';
+    else capStateless.textContent = 'Stateless';
+  }
+  var capSovereign = document.getElementById('txt-cap-sovereign');
+  if (capSovereign) {
+    if (lang === 'en') capSovereign.textContent = 'Sovereign';
+    else if (lang === 'es') capSovereign.textContent = 'Soberano';
+    else capSovereign.textContent = 'Souverain';
+  }
+  var capAgnostic = document.getElementById('txt-cap-agnostic');
+  if (capAgnostic) {
+    if (lang === 'en') capAgnostic.textContent = 'Agnostic';
+    else if (lang === 'es') capAgnostic.textContent = 'Agnóstico';
+    else capAgnostic.textContent = 'Agnostique';
+  }
+  var capResilient = document.getElementById('txt-cap-resilient');
+  if (capResilient) {
+    if (lang === 'en') capResilient.textContent = 'Resilient';
+    else if (lang === 'es') capResilient.textContent = 'Resiliente';
+    else capResilient.textContent = 'Résilient';
+  }
+
+  /* STRIP */
+  var stripNomig = document.getElementById('txt-strip-nomigration');
+  if (stripNomig) {
+    if (lang === 'en') stripNomig.textContent = '✕ Zero data migration';
+    else if (lang === 'es') stripNomig.textContent = '✕ Cero migración de datos';
+    else stripNomig.textContent = '✕ Zéro migration de données';
+  }
+  var stripCompat = document.getElementById('txt-strip-compatible');
+  if (stripCompat) {
+    if (lang === 'en') stripCompat.textContent = '✓ Compatible with your current stack';
+    else if (lang === 'es') stripCompat.textContent = '✓ Compatible con su stack actual';
+    else stripCompat.textContent = '✓ Compatible votre stack actuelle';
+  }
+  var stripFast = document.getElementById('txt-strip-fast');
+  if (stripFast) {
+    if (lang === 'en') stripFast.textContent = '✓ Operational within days';
+    else if (lang === 'es') stripFast.textContent = '✓ Operativo en días';
+    else stripFast.textContent = '✓ Opérationnel en jours';
+  }
+  var schemaHint = document.getElementById('txt-schema-hint');
+  if (schemaHint) {
+    if (lang === 'en') schemaHint.textContent = 'Switch modes to see the DataCell content adapt';
+    else if (lang === 'es') schemaHint.textContent = 'Cambie el modo para ver cómo se adapta el contenido de la DataCell';
+    else schemaHint.textContent = "Changez de mode pour voir le contenu de la DataCell s'adapter";
+  }
+
+  /* PRINCIPES */
+  var prTitle = document.getElementById('txt-pr-title');
+  if (prTitle) {
+    if (lang === 'en') prTitle.textContent = 'Core principles';
+    else if (lang === 'es') prTitle.textContent = 'Principios fundamentales';
+    else prTitle.textContent = 'Principes fondamentaux';
+  }
+  var pr1t = document.getElementById('txt-pr1-title');
+  if (pr1t) {
+    if (lang === 'en') pr1t.textContent = 'Stateless';
+    else if (lang === 'es') pr1t.textContent = 'Sin estado';
+    else pr1t.textContent = 'Stateless';
+  }
+  var pr1p = document.getElementById('txt-pr1-p');
+  if (pr1p) {
+    if (lang === 'en') pr1p.textContent = 'No permanent storage. On-the-fly processing, real-time insights.';
+    else if (lang === 'es') pr1p.textContent = 'Sin almacenamiento permanente. Procesamiento al vuelo, insights en tiempo real.';
+    else pr1p.textContent = 'Aucun stockage permanent. Traitement à la volée, insights en temps réel.';
+  }
+  var pr2p = document.getElementById('txt-pr2-p');
+  if (pr2p) {
+    if (lang === 'en') pr2p.textContent = 'Verified at every flow. Security by design with no single point of failure.';
+    else if (lang === 'es') pr2p.textContent = 'Verificación en cada flujo. Seguridad by design sin punto único de fallo.';
+    else pr2p.textContent = 'Vérification à chaque flux. Sécurité by design sans point unique de défaillance.';
+  }
+  var pr3t = document.getElementById('txt-pr3-title');
+  if (pr3t) {
+    if (lang === 'en') pr3t.textContent = 'Cloud Agnostic';
+    else if (lang === 'es') pr3t.textContent = 'Cloud Agnóstico';
+    else pr3t.textContent = 'Cloud Agnostic';
+  }
+  var pr3p = document.getElementById('txt-pr3-p');
+  if (pr3p) {
+    if (lang === 'en') pr3p.textContent = 'Deployable anywhere: public cloud, private, on-premise or hybrid.';
+    else if (lang === 'es') pr3p.textContent = 'Desplegable en cualquier lugar: nube pública, privada, on-premise o híbrida.';
+    else pr3p.textContent = 'Déployable partout : cloud public, privé, on-premise ou hybride.';
+  }
+  var pr4t = document.getElementById('txt-pr4-title');
+  if (pr4t) {
+    if (lang === 'en') pr4t.textContent = 'Sovereignty';
+    else if (lang === 'es') pr4t.textContent = 'Soberanía';
+    else pr4t.textContent = 'Souveraineté';
+  }
+  var pr4p = document.getElementById('txt-pr4-p');
+  if (pr4p) {
+    if (lang === 'en') pr4p.textContent = '100% European. Your data stays within your perimeter, always.';
+    else if (lang === 'es') pr4p.textContent = '100% europeo. Sus datos permanecen dentro de su perímetro, siempre.';
+    else pr4p.textContent = '100% européen. Vos données restent dans votre périmètre, toujours.';
+  }
+  var pr5t = document.getElementById('txt-pr5-title');
+  if (pr5t) {
+    if (lang === 'en') pr5t.textContent = 'Resilience';
+    else if (lang === 'es') pr5t.textContent = 'Resiliencia';
+    else pr5t.textContent = 'Résilience';
+  }
+  var pr5p = document.getElementById('txt-pr5-p');
+  if (pr5p) {
+    if (lang === 'en') pr5p.textContent = 'Auto-healing and automatic re-routing on failure.';
+    else if (lang === 'es') pr5p.textContent = 'Auto-reparación y re-enrutamiento automático ante fallos.';
+    else pr5p.textContent = "Auto-healing et re-routage automatique en cas d'échec.";
+  }
+
+  /* CONNECTEURS */
+  var connPill = document.getElementById('txt-conn-pill');
+  if (connPill) {
+    if (lang === 'en') connPill.textContent = 'Connectors';
+    else if (lang === 'es') connPill.textContent = 'Conectores';
+    else connPill.textContent = 'Connecteurs';
+  }
+  var connH2 = document.getElementById('txt-conn-h2accent');
+  if (connH2) {
+    if (lang === 'en') connH2.textContent = 'everything.';
+    else if (lang === 'es') connH2.textContent = 'todo.';
+    else connH2.textContent = 'tout.';
+  }
+  var connP = document.getElementById('txt-conn-p');
+  if (connP) {
+    if (lang === 'en') connP.textContent = 'Over 70 native connectors to integrate your entire existing IT landscape.';
+    else if (lang === 'es') connP.textContent = 'Más de 70 conectores nativos para integrar todo su SI existente.';
+    else connP.textContent = "Plus de 70 connecteurs natifs pour intégrer l'ensemble de votre SI existant.";
+  }
+  var cat1t = document.getElementById('txt-cat1-title');
+  if (cat1t) {
+    if (lang === 'en') cat1t.textContent = 'Databases';
+    else if (lang === 'es') cat1t.textContent = 'Bases de datos';
+    else cat1t.textContent = 'Bases de données';
+  }
+  var cat1p = document.getElementById('txt-cat1-p');
+  if (cat1p) {
+    if (lang === 'en') cat1p.textContent = 'Relational, NoSQL, data warehouses.';
+    else if (lang === 'es') cat1p.textContent = 'Relacionales, NoSQL, almacenes de datos.';
+    else cat1p.textContent = 'Relationnelles, NoSQL, entrepôts de données.';
+  }
+  var cat1c = document.getElementById('txt-cat1-count');
+  if (cat1c) {
+    if (lang === 'en') cat1c.textContent = '20+ connectors';
+    else if (lang === 'es') cat1c.textContent = '20+ conectores';
+    else cat1c.textContent = '20+ connecteurs';
+  }
+  var cat2t = document.getElementById('txt-cat2-title');
+  if (cat2t) {
+    if (lang === 'en') cat2t.textContent = 'Business apps';
+    else if (lang === 'es') cat2t.textContent = 'Aplicaciones empresariales';
+    else cat2t.textContent = 'Applications métier';
+  }
+  var cat2p = document.getElementById('txt-cat2-p');
+  if (cat2p) {
+    if (lang === 'en') cat2p.textContent = 'ERP, CRM, HR and finance tools.';
+    else if (lang === 'es') cat2p.textContent = 'ERP, CRM, herramientas de RRHH y finanzas.';
+    else cat2p.textContent = 'ERP, CRM, outils RH et finance.';
+  }
+  var cat2c = document.getElementById('txt-cat2-count');
+  if (cat2c) {
+    if (lang === 'en') cat2c.textContent = '18+ connectors';
+    else if (lang === 'es') cat2c.textContent = '18+ conectores';
+    else cat2c.textContent = '18+ connecteurs';
+  }
+  var cat3t = document.getElementById('txt-cat3-title');
+  if (cat3t) {
+    if (lang === 'en') cat3t.textContent = 'IoT & Streaming';
+    else if (lang === 'es') cat3t.textContent = 'IoT & Streaming';
+    else cat3t.textContent = 'IoT & Streaming';
+  }
+  var cat3p = document.getElementById('txt-cat3-p');
+  if (cat3p) {
+    if (lang === 'en') cat3p.textContent = 'MQTT, Kafka, industrial sensors, real-time.';
+    else if (lang === 'es') cat3p.textContent = 'MQTT, Kafka, sensores industriales, tiempo real.';
+    else cat3p.textContent = 'MQTT, Kafka, capteurs industriels, temps réel.';
+  }
+  var cat3c = document.getElementById('txt-cat3-count');
+  if (cat3c) {
+    if (lang === 'en') cat3c.textContent = '15+ connectors';
+    else if (lang === 'es') cat3c.textContent = '15+ conectores';
+    else cat3c.textContent = '15+ connecteurs';
+  }
+  var cat4t = document.getElementById('txt-cat4-title');
+  if (cat4t) {
+    if (lang === 'en') cat4t.textContent = 'Cloud & APIs';
+    else if (lang === 'es') cat4t.textContent = 'Cloud & APIs';
+    else cat4t.textContent = 'Cloud & APIs';
+  }
+  var cat4p = document.getElementById('txt-cat4-p');
+  if (cat4p) {
+    if (lang === 'en') cat4p.textContent = 'REST, GraphQL, webhooks, cloud services.';
+    else if (lang === 'es') cat4p.textContent = 'REST, GraphQL, webhooks, servicios cloud.';
+    else cat4p.textContent = 'REST, GraphQL, webhooks, services cloud.';
+  }
+  var cat4c = document.getElementById('txt-cat4-count');
+  if (cat4c) {
+    if (lang === 'en') cat4c.textContent = '20+ connectors';
+    else if (lang === 'es') cat4c.textContent = '20+ conectores';
+    else cat4c.textContent = '20+ connecteurs';
+  }
+  var connCta = document.getElementById('txt-conn-cta');
+  if (connCta) {
+    if (lang === 'en') connCta.textContent = '70+ connectors available';
+    else if (lang === 'es') connCta.textContent = '70+ conectores disponibles';
+    else connCta.textContent = '70+ connecteurs disponibles';
+  }
+
+  /* SÉCURITÉ */
+  var secPill = document.getElementById('txt-sec-pill');
+  if (secPill) {
+    if (lang === 'en') secPill.textContent = 'Security by Design';
+    else if (lang === 'es') secPill.textContent = 'Seguridad by Design';
+    else secPill.textContent = 'Sécurité by Design';
+  }
+  var secH2 = document.getElementById('txt-sec-h2');
+  if (secH2) {
+    if (lang === 'en') secH2.innerHTML = 'Security is not a layer.<br><span style="color:var(--orange)">It is the architecture itself.</span>';
+    else if (lang === 'es') secH2.innerHTML = 'La seguridad no es una capa.<br><span style="color:var(--orange)">Es la arquitectura misma.</span>';
+    else secH2.innerHTML = "La sécurité n'est pas une couche.<br><span style=\"color:var(--orange)\">C'est l'architecture elle-même.</span>";
+  }
+  var secP = document.getElementById('txt-sec-p');
+  if (secP) {
+    if (lang === 'en') secP.textContent = 'iD4Connect was not designed to be secured as an afterthought. Every architectural principle is a security decision. Zero storage, zero copy, zero unnecessary attack surface.';
+    else if (lang === 'es') secP.textContent = 'iD4Connect no fue diseñado para añadir seguridad después. Cada principio arquitectural es una decisión de seguridad. Cero almacenamiento, cero copia, cero superficie de ataque innecesaria.';
+    else secP.textContent = "iD4Connect n'a pas été conçu pour être sécurisé après coup. Chaque principe architectural est une décision de sécurité. Zéro stockage, zéro copie, zéro surface d'attaque inutile.";
+  }
+  var sp1t = document.getElementById('txt-sp1-title');
+  if (sp1t) {
+    if (lang === 'en') sp1t.textContent = 'Zero storage surface';
+    else if (lang === 'es') sp1t.textContent = 'Cero superficie de almacenamiento';
+    else sp1t.textContent = 'Zéro surface de stockage';
+  }
+  var sp1p = document.getElementById('txt-sp1-p');
+  if (sp1p) {
+    if (lang === 'en') sp1p.textContent = 'No data at rest, no database to compromise. Data in transit is data unexposed.';
+    else if (lang === 'es') sp1p.textContent = 'Sin datos en reposo, sin base de datos que comprometer. Un dato en tránsito es un dato no expuesto.';
+    else sp1p.textContent = "Pas de donnée au repos, pas de base à compromettre. Une donnée en transit est une donnée non exposée.";
+  }
+  var sp2t = document.getElementById('txt-sp2-title');
+  if (sp2t) {
+    if (lang === 'en') sp2t.textContent = 'End-to-end encryption';
+    else if (lang === 'es') sp2t.textContent = 'Cifrado extremo a extremo';
+    else sp2t.textContent = 'Chiffrement de bout en bout';
+  }
+  var sp2p = document.getElementById('txt-sp2-p');
+  if (sp2p) {
+    if (lang === 'en') sp2p.textContent = 'Every flow is encrypted during transit. From source to destination, with no intermediate decryption.';
+    else if (lang === 'es') sp2p.textContent = 'Cada flujo está cifrado durante el tránsito. De la fuente al destino, sin descifrado intermedio.';
+    else sp2p.textContent = 'Chaque flux est chiffré pendant le transit. De la source à la destination, sans déchiffrement intermédiaire.';
+  }
+  var sp3t = document.getElementById('txt-sp3-title');
+  if (sp3t) {
+    if (lang === 'en') sp3t.textContent = 'DataCell isolation';
+    else if (lang === 'es') sp3t.textContent = 'Aislamiento por DataCell';
+    else sp3t.textContent = 'Isolation par DataCell';
+  }
+  var sp3p = document.getElementById('txt-sp3-p');
+  if (sp3p) {
+    if (lang === 'en') sp3p.textContent = 'Each cell operates within a strictly defined perimeter. A breach cannot propagate laterally.';
+    else if (lang === 'es') sp3p.textContent = 'Cada celda opera dentro de un perímetro estrictamente definido. Una brecha no puede propagarse lateralmente.';
+    else sp3p.textContent = 'Chaque cellule opère dans un périmètre strictement défini. Une compromission ne peut pas se propager latéralement.';
+  }
+  var sp4t = document.getElementById('txt-sp4-title');
+  if (sp4t) {
+    if (lang === 'en') sp4t.textContent = 'Native audit log';
+    else if (lang === 'es') sp4t.textContent = 'Registro de auditoría nativo';
+    else sp4t.textContent = 'Audit log natif';
+  }
+  var sp4p = document.getElementById('txt-sp4-p');
+  if (sp4p) {
+    if (lang === 'en') sp4p.textContent = 'Every transit is traced, timestamped and signed. Full history is available without additional configuration.';
+    else if (lang === 'es') sp4p.textContent = 'Cada tránsito queda registrado, marcado con tiempo y firmado. El historial completo está disponible sin configuración adicional.';
+    else sp4p.textContent = "Chaque transit est tracé, horodaté et signé. L'historique complet est disponible sans configuration supplémentaire.";
+  }
+
+  /* CARDS STATUT */
+  var secST = document.getElementById('txt-sec-status-title');
+  if (secST) {
+    if (lang === 'en') secST.textContent = 'Security status';
+    else if (lang === 'es') secST.textContent = 'Estado de seguridad';
+    else secST.textContent = 'Statut sécurité';
+  }
+  var secSB = document.getElementById('txt-sec-status-badge');
+  if (secSB) {
+    if (lang === 'en') secSB.textContent = 'Active';
+    else if (lang === 'es') secSB.textContent = 'Activo';
+    else secSB.textContent = 'Actif';
+  }
+  var r1l = document.getElementById('txt-r1-lbl'); if (r1l) { if (lang === 'en') r1l.textContent = 'Flow encryption'; else if (lang === 'es') r1l.textContent = 'Cifrado de flujos'; else r1l.textContent = 'Chiffrement flux'; }
+  var r1v = document.getElementById('txt-r1-val'); if (r1v) { if (lang === 'en') r1v.textContent = 'Enabled'; else if (lang === 'es') r1v.textContent = 'Activado'; else r1v.textContent = 'Activé'; }
+  var r2l = document.getElementById('txt-r2-lbl'); if (r2l) { if (lang === 'en') r2l.textContent = 'Data storage'; else if (lang === 'es') r2l.textContent = 'Almacenamiento de datos'; else r2l.textContent = 'Stockage données'; }
+  var r2v = document.getElementById('txt-r2-val'); if (r2v) { if (lang === 'en') r2v.textContent = 'None'; else if (lang === 'es') r2v.textContent = 'Ninguno'; else r2v.textContent = 'Aucun'; }
+  var r3l = document.getElementById('txt-r3-lbl'); if (r3l) { if (lang === 'en') r3l.textContent = 'Audit trail'; else if (lang === 'es') r3l.textContent = 'Pista de auditoría'; else r3l.textContent = 'Audit trail'; }
+  var r3v = document.getElementById('txt-r3-val'); if (r3v) { if (lang === 'en') r3v.textContent = 'Complete'; else if (lang === 'es') r3v.textContent = 'Completa'; else r3v.textContent = 'Complet'; }
+  var r4l = document.getElementById('txt-r4-lbl'); if (r4l) { if (lang === 'en') r4l.textContent = 'Cell isolation'; else if (lang === 'es') r4l.textContent = 'Aislamiento de celda'; else r4l.textContent = 'Isolation cellule'; }
+  var r4v = document.getElementById('txt-r4-val'); if (r4v) { if (lang === 'en') r4v.textContent = 'Closed perimeter'; else if (lang === 'es') r4v.textContent = 'Perímetro cerrado'; else r4v.textContent = 'Périmètre fermé'; }
+  var r5l = document.getElementById('txt-r5-lbl'); if (r5l) { if (lang === 'en') r5l.textContent = 'Extraterritorial access'; else if (lang === 'es') r5l.textContent = 'Acceso extraterritorial'; else r5l.textContent = 'Accès extraterritorial'; }
+  var r5v = document.getElementById('txt-r5-val'); if (r5v) { if (lang === 'en') r5v.textContent = 'Impossible'; else if (lang === 'es') r5v.textContent = 'Imposible'; else r5v.textContent = 'Impossible'; }
+  var r6l = document.getElementById('txt-r6-lbl'); if (r6l) { if (lang === 'en') r6l.textContent = 'Attack surface'; else if (lang === 'es') r6l.textContent = 'Superficie de ataque'; else r6l.textContent = "Surface d'attaque"; }
+  var r6v = document.getElementById('txt-r6-val'); if (r6v) { if (lang === 'en') r6v.textContent = 'Minimal'; else if (lang === 'es') r6v.textContent = 'Mínima'; else r6v.textContent = 'Minimale'; }
+
+  var cmpT = document.getElementById('txt-comp-title'); if (cmpT) { if (lang === 'en') cmpT.textContent = 'Compliance'; else if (lang === 'es') cmpT.textContent = 'Cumplimiento'; else cmpT.textContent = 'Conformité'; }
+  var cmpB = document.getElementById('txt-comp-badge'); if (cmpB) { if (lang === 'en') cmpB.textContent = 'Covered'; else if (lang === 'es') cmpB.textContent = 'Cubierto'; else cmpB.textContent = 'Couvert'; }
+  var c1l = document.getElementById('txt-c1-lbl'); if (c1l) { if (lang === 'en') c1l.textContent = 'Personal data protection'; else if (lang === 'es') c1l.textContent = 'Protección de datos personales'; else c1l.textContent = 'Protection données personnelles'; }
+  var c1v = document.getElementById('txt-c1-val'); if (c1v) { c1v.textContent = 'By design'; }
+  var c2l = document.getElementById('txt-c2-lbl'); if (c2l) { if (lang === 'en') c2l.textContent = 'Operational resilience'; else if (lang === 'es') c2l.textContent = 'Resiliencia operacional'; else c2l.textContent = 'Résilience opérationnelle'; }
+  var c2v = document.getElementById('txt-c2-val'); if (c2v) { if (lang === 'en') c2v.textContent = 'Native'; else if (lang === 'es') c2v.textContent = 'Nativo'; else c2v.textContent = 'Natif'; }
+  var c3l = document.getElementById('txt-c3-lbl'); if (c3l) { if (lang === 'en') c3l.textContent = 'Network security'; else if (lang === 'es') c3l.textContent = 'Seguridad de redes'; else c3l.textContent = 'Sécurité des réseaux'; }
+  var c3v = document.getElementById('txt-c3-val'); if (c3v) { if (lang === 'en') c3v.textContent = 'Covered'; else if (lang === 'es') c3v.textContent = 'Cubierto'; else c3v.textContent = 'Couvert'; }
+  var c4l = document.getElementById('txt-c4-lbl'); if (c4l) { if (lang === 'en') c4l.textContent = 'Health data'; else if (lang === 'es') c4l.textContent = 'Datos de salud'; else c4l.textContent = 'Données de santé'; }
+  var c4v = document.getElementById('txt-c4-val'); if (c4v) { if (lang === 'en') c4v.textContent = 'Compatible'; else if (lang === 'es') c4v.textContent = 'Compatible'; else c4v.textContent = 'Compatible'; }
+  var c5l = document.getElementById('txt-c5-lbl'); if (c5l) { if (lang === 'en') c5l.textContent = 'Sovereign hosting'; else if (lang === 'es') c5l.textContent = 'Alojamiento soberano'; else c5l.textContent = 'Hébergement souverain'; }
+  var c5v = document.getElementById('txt-c5-val'); if (c5v) { if (lang === 'en') c5v.textContent = 'European'; else if (lang === 'es') c5v.textContent = 'Europeo'; else c5v.textContent = 'Européen'; }
+
+  var secNote = document.getElementById('txt-sec-note');
+  if (secNote) {
+    if (lang === 'en') secNote.textContent = 'Compliance is not an option to enable — it is the direct result of an architecture that never stores data.';
+    else if (lang === 'es') secNote.textContent = 'El cumplimiento no es una opción a activar — es el resultado directo de una arquitectura que nunca almacena datos.';
+    else secNote.textContent = "La conformité n'est pas une option à activer — elle est le résultat direct d'une architecture qui ne stocke jamais les données.";
+  }
+
+  /* CTA */
+  var ctaH2 = document.getElementById('txt-cta-h2');
+  if (ctaH2) {
+    if (lang === 'en') ctaH2.textContent = 'Ready to see the architecture in action?';
+    else if (lang === 'es') ctaH2.textContent = '¿Listo para ver la arquitectura en acción?';
+    else ctaH2.textContent = "Prêt à voir l'architecture en action ?";
+  }
+  var ctaP = document.getElementById('txt-cta-p');
+  if (ctaP) {
+    if (lang === 'en') ctaP.textContent = '30 minutes to understand how iD4Connect integrates into your infrastructure.';
+    else if (lang === 'es') ctaP.textContent = '30 minutos para entender cómo iD4Connect se integra en su infraestructura.';
+    else ctaP.textContent = "30 minutes pour comprendre comment iD4Connect s'intègre à votre infrastructure.";
+  }
+  var ctaBtn1 = document.getElementById('txt-cta-btn1');
+  if (ctaBtn1) {
+    if (lang === 'en') ctaBtn1.textContent = 'Request a demo →';
+    else if (lang === 'es') ctaBtn1.textContent = 'Solicitar una demo →';
+    else ctaBtn1.textContent = 'Demander une démo →';
+  }
+  var ctaBtn2 = document.getElementById('txt-cta-btn2');
+  if (ctaBtn2) {
+    if (lang === 'en') ctaBtn2.textContent = 'View positioning';
+    else if (lang === 'es') ctaBtn2.textContent = 'Ver el posicionamiento';
+    else ctaBtn2.textContent = 'Voir le positionnement';
+  }
+
+  /* Re-render le schéma interactif dans la bonne langue */
+  renderMode(currentMode, lang);
+}
+
+/* ══════════════════════════════════════════════════════
+   DONNÉES MODES
+══════════════════════════════════════════════════════ */
+var MODES_I18N = {
   fr: {
     cloud: {
       left: { lbl:"Vos sources", title:"Infrastructure cloud", sub:"AWS · Azure · GCP", items:[{icon:'db',label:'Bases de données',sub:'RDS, BigQuery, Aurora'},{icon:'file',label:'Stockage objet',sub:'S3, Blob, Cloud Storage'},{icon:'api',label:'APIs & SaaS',sub:'Salesforce, SAP, CRM'},{icon:'stream',label:'Streaming',sub:'Kafka, Kinesis, Pub/Sub'}], chips:[{label:'AWS',c:'#F97316'},{label:'Azure',c:'#0078D4'},{label:'GCP',c:'#4285F4'},{label:'200+',c:'#9CA3AF'}] },
       right:{ lbl:"Vos destinations", title:"Outils métier cloud", sub:"Résultats qualifiés", items:[{icon:'chart',label:'Dashboards temps réel',sub:'Power BI, Looker, Grafana'},{icon:'bell',label:'Alertes opérationnelles',sub:'PagerDuty, OpsGenie'},{icon:'api',label:'API Response',sub:'Consommation applicative'},{icon:'db',label:'Data Warehouse',sub:'Snowflake, BigQuery'}], chips:[{label:'Pas de lock-in',c:'#16A34A'},{label:'Multi-cloud',c:'#3B82F6'}] },
-      dc:{ dcTitle:'Intégration cloud', sources:['S3','BigQuery','Salesforce','Kafka'], ops:[{label:'Qualité & Nettoyage',desc:'Déduplication, valeurs manquantes',color:'#EF4444'},{label:'Transformation',desc:'Conversion formats, calculs métier',color:'#F97316'},{label:'Gouvernance RGPD',desc:'Anonymisation, chiffrement flux',color:'#06B6D4'}], output:'Données qualifiées — zéro stockage', outColor:'#10B981' },
+      dc:{ dcTitle:'Intégration cloud', sources:['S3','BigQuery','Salesforce','Kafka'], ops:[{label:'Qualité & Nettoyage',desc:'Déduplication, valeurs manquantes',color:'#EF4444'},{label:'Transformation',desc:'Conversion formats, calculs métier',color:'#F97316'},{label:'Gouvernance RGPD',desc:'Anonymisation, chiffrement flux',color:'#06B6D4'}], output:'Données qualifiées — zéro stockage', outColor:'#10B981' }
     },
     hybrid: {
       left: { lbl:"On-Premise", title:"Datacenter local", sub:"Données sensibles", items:[{icon:'db',label:'ERP & RH',sub:'Données critiques locales'},{icon:'db',label:'Bases SQL internes',sub:'PostgreSQL, Oracle, SQL Server'},{icon:'stream',label:'Systèmes legacy',sub:'Mainframe, AS400'},{icon:'lock',label:'Données sensibles',sub:'PII, secrets métier'}], chips:[{label:'Sensible',c:'#EF4444'},{label:'Isolé',c:'#16A34A'},{label:'Périmètre fermé',c:'#64748B'}] },
       right:{ lbl:"Cloud privé", title:"Scalabilité élastique", sub:"Flux non-sensibles", items:[{icon:'chart',label:'Analytique & BI',sub:'Rapports, KPIs agrégés'},{icon:'stream',label:'Logs & Métriques',sub:'Monitoring opérationnel'},{icon:'file',label:'Archivage froid',sub:'Données historiques'},{icon:'bell',label:'Alertes & Notifications',sub:'Canaux externes'}], chips:[{label:'Flexible',c:'#8B5CF6'},{label:'Scalable',c:'#3B82F6'},{label:'Vue unifiée',c:'#F97316'}] },
-      dc:{ dcTitle:'Orchestration hybride', sources:['ERP','Oracle','Azure Blob','Kafka'], ops:[{label:'Politique de routage',desc:'Sensible = local, léger = cloud',color:'#F97316'},{label:'Orchestration unifiée',desc:'Un seul DataGraph, deux environnements',color:'#8B5CF6'},{label:'Gouvernance RGPD',desc:"Application des règles de résidence",color:'#06B6D4'}], output:'Vue unifiée — sans couture', outColor:'#10B981' },
+      dc:{ dcTitle:'Orchestration hybride', sources:['ERP','Oracle','Azure Blob','Kafka'], ops:[{label:'Politique de routage',desc:'Sensible = local, léger = cloud',color:'#F97316'},{label:'Orchestration unifiée',desc:'Un seul DataGraph, deux environnements',color:'#8B5CF6'},{label:'Gouvernance RGPD',desc:"Application des règles de résidence",color:'#06B6D4'}], output:'Vue unifiée — sans couture', outColor:'#10B981' }
     },
     onprem: {
       left: { lbl:"Vos sources", title:"Périmètre interne", sub:"Réseau fermé / Air-gap", items:[{icon:'db',label:'Bases de données internes',sub:'SQL, NoSQL, fichiers plats'},{icon:'stream',label:'IoT industriel',sub:'MQTT, OPC-UA, Modbus'},{icon:'api',label:'Applications métier',sub:'ERP, SCADA, MES, LIMS'},{icon:'file',label:'Fichiers & Flux',sub:'CSV, XML, JSON, EDI'}], chips:[{label:'Air-gap',c:'#16A34A'},{label:'Aucun flux sortant',c:'#EF4444'},{label:'200+ sources',c:'#F97316'}] },
       right:{ lbl:"Vos destinations", title:"SI interne uniquement", sub:"Conformité maximale", items:[{icon:'chart',label:'Tableaux de bord internes',sub:'BI & reporting local'},{icon:'bell',label:'Supervision & SIEM',sub:'Alertes sécurité locales'},{icon:'api',label:'Applications métier',sub:'Injection directe'},{icon:'db',label:'Archivage interne',sub:'DWH, datamart sur site'}], chips:[{label:'Zéro exposition',c:'#EF4444'},{label:'Traçable',c:'#8B5CF6'},{label:'Certifiable',c:'#16A34A'}] },
-      dc:{ dcTitle:'Traitement on-premise', sources:['ERP','MQTT','SQL Server','Fichiers'], ops:[{label:'Isolation réseau totale',desc:'Zéro appel sortant, air-gap compatible',color:'#16A34A'},{label:'Traitement in-stream',desc:'CPU/RAM sur vos propres serveurs',color:'#F97316'},{label:'Audit trail & Conformité',desc:'Traçabilité complète, certifiable',color:'#8B5CF6'}], output:'Données jamais exposées', outColor:'#16A34A' },
-    },
+      dc:{ dcTitle:'Traitement on-premise', sources:['ERP','MQTT','SQL Server','Fichiers'], ops:[{label:'Isolation réseau totale',desc:'Zéro appel sortant, air-gap compatible',color:'#16A34A'},{label:'Traitement in-stream',desc:'CPU/RAM sur vos propres serveurs',color:'#F97316'},{label:'Audit trail & Conformité',desc:'Traçabilité complète, certifiable',color:'#8B5CF6'}], output:'Données jamais exposées', outColor:'#16A34A' }
+    }
   },
   en: {
     cloud: {
       left: { lbl:"Your sources", title:"Cloud infrastructure", sub:"AWS · Azure · GCP", items:[{icon:'db',label:'Databases',sub:'RDS, BigQuery, Aurora'},{icon:'file',label:'Object storage',sub:'S3, Blob, Cloud Storage'},{icon:'api',label:'APIs & SaaS',sub:'Salesforce, SAP, CRM'},{icon:'stream',label:'Streaming',sub:'Kafka, Kinesis, Pub/Sub'}], chips:[{label:'AWS',c:'#F97316'},{label:'Azure',c:'#0078D4'},{label:'GCP',c:'#4285F4'},{label:'200+',c:'#9CA3AF'}] },
       right:{ lbl:"Your destinations", title:"Cloud business tools", sub:"Qualified results", items:[{icon:'chart',label:'Real-time dashboards',sub:'Power BI, Looker, Grafana'},{icon:'bell',label:'Operational alerts',sub:'PagerDuty, OpsGenie'},{icon:'api',label:'API Response',sub:'Application consumption'},{icon:'db',label:'Data Warehouse',sub:'Snowflake, BigQuery'}], chips:[{label:'No lock-in',c:'#16A34A'},{label:'Multi-cloud',c:'#3B82F6'}] },
-      dc:{ dcTitle:'Cloud integration', sources:['S3','BigQuery','Salesforce','Kafka'], ops:[{label:'Quality & Cleansing',desc:'Deduplication, missing values',color:'#EF4444'},{label:'Transformation',desc:'Format conversion, business logic',color:'#F97316'},{label:'GDPR Governance',desc:'Anonymization, flow encryption',color:'#06B6D4'}], output:'Qualified data — zero storage', outColor:'#10B981' },
+      dc:{ dcTitle:'Cloud integration', sources:['S3','BigQuery','Salesforce','Kafka'], ops:[{label:'Quality & Cleansing',desc:'Deduplication, missing values',color:'#EF4444'},{label:'Transformation',desc:'Format conversion, business logic',color:'#F97316'},{label:'GDPR Governance',desc:'Anonymization, flow encryption',color:'#06B6D4'}], output:'Qualified data — zero storage', outColor:'#10B981' }
     },
     hybrid: {
       left: { lbl:"On-Premise", title:"Local datacenter", sub:"Sensitive data", items:[{icon:'db',label:'ERP & HR',sub:'Critical local data'},{icon:'db',label:'Internal SQL databases',sub:'PostgreSQL, Oracle, SQL Server'},{icon:'stream',label:'Legacy systems',sub:'Mainframe, AS400'},{icon:'lock',label:'Sensitive data',sub:'PII, business secrets'}], chips:[{label:'Sensitive',c:'#EF4444'},{label:'Isolated',c:'#16A34A'},{label:'Closed perimeter',c:'#64748B'}] },
       right:{ lbl:"Private cloud", title:"Elastic scalability", sub:"Non-sensitive flows", items:[{icon:'chart',label:'Analytics & BI',sub:'Reports, aggregated KPIs'},{icon:'stream',label:'Logs & Metrics',sub:'Operational monitoring'},{icon:'file',label:'Cold archival',sub:'Historical data'},{icon:'bell',label:'Alerts & Notifications',sub:'External channels'}], chips:[{label:'Flexible',c:'#8B5CF6'},{label:'Scalable',c:'#3B82F6'},{label:'Unified view',c:'#F97316'}] },
-      dc:{ dcTitle:'Hybrid orchestration', sources:['ERP','Oracle','Azure Blob','Kafka'], ops:[{label:'Routing policy',desc:'Sensitive = local, light = cloud',color:'#F97316'},{label:'Unified orchestration',desc:'One DataGraph, two environments',color:'#8B5CF6'},{label:'GDPR Governance',desc:'Data residency rules enforcement',color:'#06B6D4'}], output:'Unified view — seamless', outColor:'#10B981' },
+      dc:{ dcTitle:'Hybrid orchestration', sources:['ERP','Oracle','Azure Blob','Kafka'], ops:[{label:'Routing policy',desc:'Sensitive = local, light = cloud',color:'#F97316'},{label:'Unified orchestration',desc:'One DataGraph, two environments',color:'#8B5CF6'},{label:'GDPR Governance',desc:'Data residency rules enforcement',color:'#06B6D4'}], output:'Unified view — seamless', outColor:'#10B981' }
     },
     onprem: {
       left: { lbl:"Your sources", title:"Internal perimeter", sub:"Closed network / Air-gap", items:[{icon:'db',label:'Internal databases',sub:'SQL, NoSQL, flat files'},{icon:'stream',label:'Industrial IoT',sub:'MQTT, OPC-UA, Modbus'},{icon:'api',label:'Business applications',sub:'ERP, SCADA, MES, LIMS'},{icon:'file',label:'Files & Streams',sub:'CSV, XML, JSON, EDI'}], chips:[{label:'Air-gap',c:'#16A34A'},{label:'No outbound flow',c:'#EF4444'},{label:'200+ sources',c:'#F97316'}] },
       right:{ lbl:"Your destinations", title:"Internal IT only", sub:"Maximum compliance", items:[{icon:'chart',label:'Internal dashboards',sub:'Local BI & reporting'},{icon:'bell',label:'Monitoring & SIEM',sub:'Local security alerts'},{icon:'api',label:'Business applications',sub:'Direct injection'},{icon:'db',label:'Internal archival',sub:'On-site DWH, datamart'}], chips:[{label:'Zero exposure',c:'#EF4444'},{label:'Traceable',c:'#8B5CF6'},{label:'Certifiable',c:'#16A34A'}] },
-      dc:{ dcTitle:'On-premise processing', sources:['ERP','MQTT','SQL Server','Files'], ops:[{label:'Full network isolation',desc:'Zero outbound calls, air-gap ready',color:'#16A34A'},{label:'In-stream processing',desc:'CPU/RAM on your own servers',color:'#F97316'},{label:'Audit trail & Compliance',desc:'Full traceability, certifiable',color:'#8B5CF6'}], output:'Data never exposed', outColor:'#16A34A' },
-    },
+      dc:{ dcTitle:'On-premise processing', sources:['ERP','MQTT','SQL Server','Files'], ops:[{label:'Full network isolation',desc:'Zero outbound calls, air-gap ready',color:'#16A34A'},{label:'In-stream processing',desc:'CPU/RAM on your own servers',color:'#F97316'},{label:'Audit trail & Compliance',desc:'Full traceability, certifiable',color:'#8B5CF6'}], output:'Data never exposed', outColor:'#16A34A' }
+    }
   },
   es: {
     cloud: {
       left: { lbl:"Sus fuentes", title:"Infraestructura cloud", sub:"AWS · Azure · GCP", items:[{icon:'db',label:'Bases de datos',sub:'RDS, BigQuery, Aurora'},{icon:'file',label:'Almacenamiento de objetos',sub:'S3, Blob, Cloud Storage'},{icon:'api',label:'APIs & SaaS',sub:'Salesforce, SAP, CRM'},{icon:'stream',label:'Streaming',sub:'Kafka, Kinesis, Pub/Sub'}], chips:[{label:'AWS',c:'#F97316'},{label:'Azure',c:'#0078D4'},{label:'GCP',c:'#4285F4'},{label:'200+',c:'#9CA3AF'}] },
       right:{ lbl:"Sus destinos", title:"Herramientas empresariales cloud", sub:"Resultados cualificados", items:[{icon:'chart',label:'Dashboards en tiempo real',sub:'Power BI, Looker, Grafana'},{icon:'bell',label:'Alertas operacionales',sub:'PagerDuty, OpsGenie'},{icon:'api',label:'API Response',sub:'Consumo aplicativo'},{icon:'db',label:'Data Warehouse',sub:'Snowflake, BigQuery'}], chips:[{label:'Sin lock-in',c:'#16A34A'},{label:'Multi-cloud',c:'#3B82F6'}] },
-      dc:{ dcTitle:'Integración cloud', sources:['S3','BigQuery','Salesforce','Kafka'], ops:[{label:'Calidad & Limpieza',desc:'Deduplicación, valores ausentes',color:'#EF4444'},{label:'Transformación',desc:'Conversión de formatos, lógica de negocio',color:'#F97316'},{label:'Gobernanza RGPD',desc:'Anonimización, cifrado de flujos',color:'#06B6D4'}], output:'Datos cualificados — cero almacenamiento', outColor:'#10B981' },
+      dc:{ dcTitle:'Integración cloud', sources:['S3','BigQuery','Salesforce','Kafka'], ops:[{label:'Calidad & Limpieza',desc:'Deduplicación, valores ausentes',color:'#EF4444'},{label:'Transformación',desc:'Conversión de formatos, lógica de negocio',color:'#F97316'},{label:'Gobernanza RGPD',desc:'Anonimización, cifrado de flujos',color:'#06B6D4'}], output:'Datos cualificados — cero almacenamiento', outColor:'#10B981' }
     },
     hybrid: {
       left: { lbl:"On-Premise", title:"Datacenter local", sub:"Datos sensibles", items:[{icon:'db',label:'ERP & RRHH',sub:'Datos críticos locales'},{icon:'db',label:'Bases SQL internas',sub:'PostgreSQL, Oracle, SQL Server'},{icon:'stream',label:'Sistemas legacy',sub:'Mainframe, AS400'},{icon:'lock',label:'Datos sensibles',sub:'PII, secretos de negocio'}], chips:[{label:'Sensible',c:'#EF4444'},{label:'Aislado',c:'#16A34A'},{label:'Perímetro cerrado',c:'#64748B'}] },
       right:{ lbl:"Nube privada", title:"Escalabilidad elástica", sub:"Flujos no sensibles", items:[{icon:'chart',label:'Analítica & BI',sub:'Informes, KPIs agregados'},{icon:'stream',label:'Logs & Métricas',sub:'Monitoreo operacional'},{icon:'file',label:'Archivo frío',sub:'Datos históricos'},{icon:'bell',label:'Alertas & Notificaciones',sub:'Canales externos'}], chips:[{label:'Flexible',c:'#8B5CF6'},{label:'Escalable',c:'#3B82F6'},{label:'Vista unificada',c:'#F97316'}] },
-      dc:{ dcTitle:'Orquestación híbrida', sources:['ERP','Oracle','Azure Blob','Kafka'], ops:[{label:'Política de enrutamiento',desc:'Sensible = local, ligero = cloud',color:'#F97316'},{label:'Orquestación unificada',desc:'Un DataGraph, dos entornos',color:'#8B5CF6'},{label:'Gobernanza RGPD',desc:'Aplicación de reglas de residencia',color:'#06B6D4'}], output:'Vista unificada — sin costuras', outColor:'#10B981' },
+      dc:{ dcTitle:'Orquestación híbrida', sources:['ERP','Oracle','Azure Blob','Kafka'], ops:[{label:'Política de enrutamiento',desc:'Sensible = local, ligero = cloud',color:'#F97316'},{label:'Orquestación unificada',desc:'Un DataGraph, dos entornos',color:'#8B5CF6'},{label:'Gobernanza RGPD',desc:'Aplicación de reglas de residencia',color:'#06B6D4'}], output:'Vista unificada — sin costuras', outColor:'#10B981' }
     },
     onprem: {
       left: { lbl:"Sus fuentes", title:"Perímetro interno", sub:"Red cerrada / Air-gap", items:[{icon:'db',label:'Bases de datos internas',sub:'SQL, NoSQL, archivos planos'},{icon:'stream',label:'IoT industrial',sub:'MQTT, OPC-UA, Modbus'},{icon:'api',label:'Aplicaciones empresariales',sub:'ERP, SCADA, MES, LIMS'},{icon:'file',label:'Archivos & Flujos',sub:'CSV, XML, JSON, EDI'}], chips:[{label:'Air-gap',c:'#16A34A'},{label:'Sin flujo saliente',c:'#EF4444'},{label:'200+ fuentes',c:'#F97316'}] },
       right:{ lbl:"Sus destinos", title:"SI interno únicamente", sub:"Cumplimiento máximo", items:[{icon:'chart',label:'Cuadros de mando internos',sub:'BI & reporting local'},{icon:'bell',label:'Supervisión & SIEM',sub:'Alertas de seguridad locales'},{icon:'api',label:'Aplicaciones empresariales',sub:'Inyección directa'},{icon:'db',label:'Archivo interno',sub:'DWH, datamart on-site'}], chips:[{label:'Cero exposición',c:'#EF4444'},{label:'Trazable',c:'#8B5CF6'},{label:'Certificable',c:'#16A34A'}] },
-      dc:{ dcTitle:'Procesamiento on-premise', sources:['ERP','MQTT','SQL Server','Archivos'], ops:[{label:'Aislamiento de red total',desc:'Cero llamadas salientes, compatible air-gap',color:'#16A34A'},{label:'Procesamiento in-stream',desc:'CPU/RAM en sus propios servidores',color:'#F97316'},{label:'Auditoría & Cumplimiento',desc:'Trazabilidad completa, certificable',color:'#8B5CF6'}], output:'Datos nunca expuestos', outColor:'#16A34A' },
-    },
-  },
+      dc:{ dcTitle:'Procesamiento on-premise', sources:['ERP','MQTT','SQL Server','Archivos'], ops:[{label:'Aislamiento de red total',desc:'Cero llamadas salientes, compatible air-gap',color:'#16A34A'},{label:'Procesamiento in-stream',desc:'CPU/RAM en sus propios servidores',color:'#F97316'},{label:'Auditoría & Cumplimiento',desc:'Trazabilidad completa, certificable',color:'#8B5CF6'}], output:'Datos nunca expuestos', outColor:'#16A34A' }
+    }
+  }
 };
 
-/* ══════════════════════════════
-   ICÔNES SVG
-══════════════════════════════ */
+/* ICÔNES */
 function getIcon(type, color) {
-  const icons = {
-    db: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><ellipse cx="8" cy="4" rx="5" ry="1.8"/><path d="M3 4v4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V4"/><path d="M3 8v4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V8"/></svg>`,
-    api: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><path d="M2 8h4M10 8h4M6 5l-3 3 3 3M10 5l3 3-3 3"/></svg>`,
-    file:`<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6L9 2z"/><path d="M9 2v4h4"/></svg>`,
-    stream:`<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><path d="M2 8c1-3 3-5 6-5s5 2 6 5-3 5-6 5-5-2-6-5z"/><circle cx="8" cy="8" r="1.5"/></svg>`,
-    chart:`<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/></svg>`,
-    bell: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><path d="M8 2a5 5 0 0 1 5 5v3l1 2H2l1-2V7a5 5 0 0 1 5-5z"/><path d="M6.5 13a1.5 1.5 0 0 0 3 0"/></svg>`,
-    lock: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><rect x="3" y="7" width="10" height="8" rx="1"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>`,
+  var icons = {
+    db: '<svg viewBox="0 0 16 16" fill="none" stroke="'+color+'" stroke-width="1.4"><ellipse cx="8" cy="4" rx="5" ry="1.8"/><path d="M3 4v4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V4"/><path d="M3 8v4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V8"/></svg>',
+    api: '<svg viewBox="0 0 16 16" fill="none" stroke="'+color+'" stroke-width="1.4"><path d="M2 8h4M10 8h4M6 5l-3 3 3 3M10 5l3 3-3 3"/></svg>',
+    file:'<svg viewBox="0 0 16 16" fill="none" stroke="'+color+'" stroke-width="1.4"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6L9 2z"/><path d="M9 2v4h4"/></svg>',
+    stream:'<svg viewBox="0 0 16 16" fill="none" stroke="'+color+'" stroke-width="1.4"><path d="M2 8c1-3 3-5 6-5s5 2 6 5-3 5-6 5-5-2-6-5z"/><circle cx="8" cy="8" r="1.5"/></svg>',
+    chart:'<svg viewBox="0 0 16 16" fill="none" stroke="'+color+'" stroke-width="1.4"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/></svg>',
+    bell: '<svg viewBox="0 0 16 16" fill="none" stroke="'+color+'" stroke-width="1.4"><path d="M8 2a5 5 0 0 1 5 5v3l1 2H2l1-2V7a5 5 0 0 1 5-5z"/><path d="M6.5 13a1.5 1.5 0 0 0 3 0"/></svg>',
+    lock: '<svg viewBox="0 0 16 16" fill="none" stroke="'+color+'" stroke-width="1.4"><rect x="3" y="7" width="10" height="8" rx="1"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>'
   };
   return icons[type] || icons.db;
 }
 
-/* ══════════════════════════════
-   RENDU
-══════════════════════════════ */
-let currentLang = 'fr';
-let currentMode = 'cloud';
+/* RENDU */
+var currentLang = 'fr';
+var currentMode = 'cloud';
 
 function renderCtx(id, data) {
-  const el = document.getElementById(id);
+  var el = document.getElementById(id);
   if (!el) return;
-  el.innerHTML = `
-    <div class="ag-ctx-lbl">${data.lbl}</div>
-    <div class="ag-ctx-title">${data.title}</div>
-    <div class="ag-ctx-sub">${data.sub}</div>
-    <div class="ag-ctx-items">
-      ${data.items.map(item => `
-        <div class="ag-ctx-row">
-          ${getIcon(item.icon, 'var(--t4)')}
-          <div><div class="rn">${item.label}</div><div class="rs">${item.sub}</div></div>
-        </div>`).join('')}
-    </div>
-    <div class="ag-chips">
-      ${data.chips.map(c => `
-        <span class="ag-chip" style="border-color:${c.c}30;color:${c.c};">
-          <span style="width:5px;height:5px;border-radius:50%;background:${c.c};display:inline-block;flex-shrink:0;"></span>
-          ${c.label}
-        </span>`).join('')}
-    </div>`;
+  el.innerHTML =
+    '<div class="ag-ctx-lbl">' + data.lbl + '</div>' +
+    '<div class="ag-ctx-title">' + data.title + '</div>' +
+    '<div class="ag-ctx-sub">' + data.sub + '</div>' +
+    '<div class="ag-ctx-items">' +
+    data.items.map(function(item) {
+      return '<div class="ag-ctx-row">' + getIcon(item.icon, 'var(--t4)') +
+        '<div><div class="rn">' + item.label + '</div><div class="rs">' + item.sub + '</div></div></div>';
+    }).join('') +
+    '</div>' +
+    '<div class="ag-chips">' +
+    data.chips.map(function(c) {
+      return '<span class="ag-chip" style="border-color:' + c.c + '30;color:' + c.c + ';">' +
+        '<span style="width:5px;height:5px;border-radius:50%;background:' + c.c + ';display:inline-block;flex-shrink:0;"></span>' +
+        c.label + '</span>';
+    }).join('') +
+    '</div>';
 }
 
 function renderDcCenter(dc) {
-  const el = document.getElementById('dc-center');
+  var el = document.getElementById('dc-center');
   if (!el) return;
-  const { dcTitle, sources, ops, output, outColor } = dc;
-  el.innerHTML = `
-    <div class="dc-head">
-      <span class="dc-head-lbl">DataCell</span>
-      <div class="dc-dot"></div>
-    </div>
-    <div class="dc-body">
-      <div class="dc-title">${dcTitle}</div>
-      <div class="dc-slbl">${currentLang === 'fr' ? 'Sources' : 'Sources'}</div>
-      <div class="dc-sources">${sources.map(s => `<span class="dc-src">${s}</span>`).join('')}</div>
-      <div class="dc-slbl">${currentLang === 'fr' ? 'Traitement' : currentLang === 'en' ? 'Processing' : 'Procesamiento'}</div>
-      <div class="dc-ops">
-        ${ops.map(op => `
-          <div class="dc-op" style="border-left-color:${op.color};background:${op.color}08;">
-            <div class="dc-op-name">${op.label}</div>
-            <div class="dc-op-desc">${op.desc}</div>
-          </div>`).join('')}
-      </div>
-      <div class="dc-out-arrow">
-        <div class="dc-out-line" style="background:${outColor};"></div>
-        <div class="dc-out-tip" style="border-top:8px solid ${outColor};border-left:5px solid transparent;border-right:5px solid transparent;"></div>
-      </div>
-      <div class="dc-output" style="background:${outColor}12;border:1.5px solid ${outColor}40;">
-        <span class="ck" style="color:${outColor}">✓</span>
-        <span class="ol">${output}</span>
-      </div>
-    </div>`;
+  var srcLbl = 'Sources';
+  var procLbl = currentLang === 'fr' ? 'Traitement' : currentLang === 'en' ? 'Processing' : 'Procesamiento';
+  el.innerHTML =
+    '<div class="dc-head"><span class="dc-head-lbl">DataCell</span><div class="dc-dot"></div></div>' +
+    '<div class="dc-body">' +
+    '<div class="dc-title">' + dc.dcTitle + '</div>' +
+    '<div class="dc-slbl">' + srcLbl + '</div>' +
+    '<div class="dc-sources">' + dc.sources.map(function(s) { return '<span class="dc-src">' + s + '</span>'; }).join('') + '</div>' +
+    '<div class="dc-slbl">' + procLbl + '</div>' +
+    '<div class="dc-ops">' +
+    dc.ops.map(function(op) {
+      return '<div class="dc-op" style="border-left-color:' + op.color + ';background:' + op.color + '08;">' +
+        '<div class="dc-op-name">' + op.label + '</div>' +
+        '<div class="dc-op-desc">' + op.desc + '</div></div>';
+    }).join('') +
+    '</div>' +
+    '<div class="dc-out-arrow"><div class="dc-out-line" style="background:' + dc.outColor + ';"></div>' +
+    '<div class="dc-out-tip" style="border-top:8px solid ' + dc.outColor + ';border-left:5px solid transparent;border-right:5px solid transparent;"></div></div>' +
+    '<div class="dc-output" style="background:' + dc.outColor + '12;border:1.5px solid ' + dc.outColor + '40;">' +
+    '<span class="ck" style="color:' + dc.outColor + '">✓</span>' +
+    '<span class="ol">' + dc.output + '</span></div></div>';
 }
 
 function renderMode(mode, lang) {
   currentMode = mode;
-  const data = (MODES_I18N[lang] || MODES_I18N.fr)[mode];
+  var langData = MODES_I18N[lang] || MODES_I18N.fr;
+  var data = langData[mode];
   if (!data) return;
-  const layout = document.getElementById('ag-layout');
+  var layout = document.getElementById('ag-layout');
   if (layout) { layout.style.animation = 'none'; void layout.offsetWidth; layout.style.animation = 'agFade .2s ease'; }
   renderCtx('ag-left', data.left);
   renderCtx('ag-right', data.right);
   renderDcCenter(data.dc);
 }
 
-/* ══════════════════════════════
-   APPLIQUER LANGUE
-══════════════════════════════ */
-function applyLang(lang) {
-  currentLang = lang;
-  const t = I18N[lang] || I18N.fr;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n').replace('arch.', '');
-    if (t[key] !== undefined) el.innerHTML = t[key];
-  });
-  if (t['meta.title']) document.title = t['meta.title'];
-  document.documentElement.lang = lang;
-  // Re-render le schéma interactif dans la bonne langue
-  renderMode(currentMode, lang);
-}
-
-/* Tabs */
-document.querySelectorAll('.ag-tab').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.ag-tab').forEach(b => b.classList.remove('active'));
+/* TABS */
+document.querySelectorAll('.ag-tab').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.ag-tab').forEach(function(b) { b.classList.remove('active'); });
     btn.classList.add('active');
     renderMode(btn.dataset.tab, currentLang);
   });
 });
 
+/* CHARGEMENT */
 async function loadComp(id, file) {
   try {
-    const r = await fetch(file);
-    const html = await r.text();
-    const el = document.getElementById(id);
+    var r = await fetch(file);
+    var html = await r.text();
+    var el = document.getElementById(id);
     el.innerHTML = html;
-    el.querySelectorAll('script').forEach(s => {
-      const ns = document.createElement('script');
+    el.querySelectorAll('script').forEach(function(s) {
+      var ns = document.createElement('script');
       ns.textContent = s.textContent;
       document.head.appendChild(ns);
     });
@@ -856,23 +1051,28 @@ async function loadComp(id, file) {
   } catch(e) { console.error('loadComp:', file, e); }
 }
 
-window.addEventListener('load', async () => {
+window.addEventListener('load', async function() {
   await loadComp('hdr-ph', 'header.html');
   await loadComp('ftr-ph', 'footer.html');
 
-  const lang = localStorage.getItem('id4-lang') || 'fr';
+  var lang = localStorage.getItem('id4-lang') || 'fr';
+  currentLang = lang;
   applyLang(lang);
+  renderMode('cloud', lang);
 
-  document.addEventListener('themeChange', e => {
+  document.addEventListener('themeChange', function(e) {
     document.documentElement.setAttribute('data-theme', e.detail);
     document.body.setAttribute('data-theme', e.detail);
   });
-  document.addEventListener('langChange', e => applyLang(e.detail));
+  document.addEventListener('langChange', function(e) {
+    currentLang = e.detail;
+    applyLang(e.detail);
+  });
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: .06 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
 });
 </script>
 </body>
