@@ -37,109 +37,71 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 /* ══════════════════════════════════════
    BLOC 1 — SCHÉMA AGNOSTIQUE
 ══════════════════════════════════════ */
+/* ── BLOC 1 AGNOSTIQUE ── */
 #agnostic{padding:0 0 96px;background:var(--bg);}
-.ag-outer{max-width:1080px;margin:0 auto;padding:0 32px;}
-
-/* ── Cadre principal — même style que DataGraph ── */
-.ag-frame{
-  position:relative;
-  border:2px solid var(--orange);
-  border-radius:var(--r-xl);
-  background:var(--card);
-  padding:52px 28px 28px;
-  animation:agGlow 3s ease-in-out infinite;
-}
-@keyframes agGlow{
-  0%,100%{box-shadow:0 0 0 4px rgba(249,115,22,.04),0 12px 48px rgba(249,115,22,.08);}
-  50%{box-shadow:0 0 0 6px rgba(249,115,22,.09),0 12px 48px rgba(249,115,22,.16);}
-}
-
-/* Badge centré en haut — même que DataGraph */
-.ag-badge{
-  position:absolute;top:-18px;left:50%;transform:translateX(-50%);
-  background:var(--orange);color:white;font-weight:800;font-size:13px;
-  padding:7px 28px;border-radius:var(--r-pill);letter-spacing:.5px;
-  box-shadow:0 4px 14px rgba(249,115,22,.4);white-space:nowrap;
-}
-
-/* Tabs à l'intérieur du cadre */
-.ag-tabs{display:flex;justify-content:center;gap:6px;margin-bottom:28px;flex-wrap:wrap;}
-.ag-tab{
-  display:flex;align-items:center;gap:7px;padding:8px 20px;
-  font-size:13px;font-weight:500;font-family:var(--font);
-  border-radius:var(--r-pill);border:1px solid var(--border);
-  background:var(--section);color:var(--t5);cursor:pointer;transition:all var(--tr);
-}
+.ag-outer{max-width:1120px;margin:0 auto;padding:0 32px;}
+/* Cadre orange pulsé — identique DataGraph */
+.ag-frame{position:relative;border:2px solid var(--orange);border-radius:var(--r-xl);background:var(--card);padding:52px 36px 28px;animation:agGlow 3s ease-in-out infinite;}
+@keyframes agGlow{0%,100%{box-shadow:0 0 0 4px rgba(249,115,22,.04),0 12px 48px rgba(249,115,22,.08);}50%{box-shadow:0 0 0 6px rgba(249,115,22,.09),0 12px 48px rgba(249,115,22,.16);}}
+.ag-badge{position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:var(--orange);color:white;font-weight:800;font-size:13px;padding:7px 28px;border-radius:var(--r-pill);letter-spacing:.5px;box-shadow:0 4px 14px rgba(249,115,22,.4);white-space:nowrap;}
+/* Tabs */
+.ag-tabs{display:flex;justify-content:center;gap:6px;margin-bottom:32px;}
+.ag-tab{display:flex;align-items:center;gap:7px;padding:8px 22px;font-size:13px;font-weight:500;font-family:var(--font);border-radius:var(--r-pill);border:1px solid var(--border);background:var(--section);color:var(--t5);cursor:pointer;transition:all var(--tr);}
 .ag-tab svg{width:13px;height:13px;flex-shrink:0;}
 .ag-tab:hover{border-color:var(--orange-border);color:var(--t7);}
 .ag-tab.active{background:var(--orange-pale);color:var(--orange);border-color:var(--orange-border);font-weight:700;}
-
-/* Panels */
-.ag-panel{display:none;animation:slideIn .2s ease;}
-.ag-panel.active{display:block;}
-@keyframes slideIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
-
-/* Grille 3 cards — même que DataCells dans DataGraph */
-.ag-cells{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-
-/* Card mode — style identique aux dc-card */
-.ag-card{
-  background:var(--section);border:1.5px solid var(--border);
-  border-radius:var(--r-lg);overflow:hidden;
-  transition:box-shadow .2s,transform .2s,border-color .2s;
-}
-
-/* Header de card — identique dc-head */
-.ag-card-head{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:9px 13px;border-bottom:1px solid var(--border);
-  background:var(--card);
-}
-.ag-card-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t4);}
-.ag-card-dot{width:8px;height:8px;border-radius:50%;}
-
-.ag-card-body{padding:14px;}
-.ag-card-title{font-size:13px;font-weight:800;color:var(--t9);margin-bottom:4px;}
-.ag-card-sub{font-size:11px;color:var(--t5);margin-bottom:12px;}
-
-/* Section label — identique dc-section-lbl */
-.ag-slbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:6px;}
-
-/* Ops — bordure gauche colorée, identique dc-op */
-.ag-ops{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;}
-.ag-op{
-  display:flex;align-items:center;gap:8px;
-  background:var(--card);border-radius:0 var(--r-xs) var(--r-xs) 0;
-  padding:5px 10px;border-left:3px solid;
-}
-.ag-op-name{font-size:10px;font-weight:700;color:var(--t9);}
-.ag-op-desc{font-size:9px;color:var(--t4);}
-
-/* Flèche + output — identique DataGraph */
-.ag-out-arrow{display:flex;flex-direction:column;align-items:center;margin-bottom:7px;}
-.ag-out-line{width:2px;height:14px;opacity:.8;}
-.ag-out-tip{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;opacity:.8;}
-.ag-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
-.ag-output .ck{font-size:12px;font-weight:700;}
-.ag-output .ol{font-size:12px;font-weight:600;color:var(--t9);}
-
-/* Connecteur entre cadres — flèche Transit/Sortie animée */
-.ag-arrow-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 4px;}
-.ag-arrow-lbl{font-size:9px;font-weight:700;color:var(--orange);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
-
-/* Barre bas — identique DataGraph */
-.ag-orches{
-  margin-top:22px;
-  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
-  gap:8px;padding:12px 20px;
-  background:var(--orange-pale);border:1px solid var(--orange-border);
-  border-radius:var(--r);
-}
+/* Layout : panneau gauche | flèche | DataCell | flèche | panneau droite */
+.ag-layout{display:grid;grid-template-columns:1fr 52px 390px 52px 1fr;align-items:center;animation:agFade .2s ease;}
+@keyframes agFade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* Panneaux contexte gauche/droite */
+.ag-ctx{border:1.5px solid var(--border);border-radius:var(--r-lg);padding:18px;background:var(--section);}
+.ag-ctx-lbl{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:12px;text-align:center;}
+.ag-ctx-title{font-size:13px;font-weight:800;color:var(--t9);margin-bottom:3px;}
+.ag-ctx-sub{font-size:11px;color:var(--t5);margin-bottom:12px;}
+.ag-ctx-items{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+.ag-ctx-row{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);}
+.ag-ctx-row svg{width:12px;height:12px;color:var(--t4);flex-shrink:0;}
+.ag-ctx-row .rn{font-size:12px;font-weight:500;color:var(--t7);}
+.ag-ctx-row .rs{font-size:10px;color:var(--t4);}
+.ag-chips{display:flex;flex-wrap:wrap;gap:4px;padding-top:10px;border-top:1px solid var(--border);}
+.ag-chip{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:var(--r-pill);font-size:10px;font-weight:600;border:1px solid;background:var(--card);}
+/* Flèches transit/sortie */
+.ag-arrow{display:flex;flex-direction:column;align-items:center;gap:5px;padding:0 4px;}
+.ag-arrow-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;white-space:nowrap;}
+.ag-arrow.in .ag-arrow-lbl{color:var(--orange);}
+.ag-arrow.out .ag-arrow-lbl{color:var(--green-em);}
+/* ── DataCell centrale — même card exacte que datacell.html ── */
+.dc-card{background:var(--card);border:2px solid var(--orange);border-radius:var(--r-xl);overflow:hidden;animation:glowPulse 3s ease-in-out infinite;}
+@keyframes glowPulse{0%,100%{box-shadow:0 8px 40px rgba(249,115,22,.12);}50%{box-shadow:0 8px 48px rgba(249,115,22,.28);}}
+.dc-header{background:var(--orange);padding:10px 16px;text-align:center;}
+.dc-header span{color:white;font-weight:800;font-size:13px;letter-spacing:1px;}
+.dc-stats{display:flex;justify-content:space-around;padding:10px 16px;background:var(--orange-pale);border-bottom:1px solid var(--orange-border);}
+.dc-stat .sv{font-size:18px;font-weight:900;color:var(--orange);line-height:1;}
+.dc-stat .sv.dim{color:var(--t4);}
+.dc-stat .sl{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#92400E;margin-top:2px;}
+.dc-stat .sl.dim{color:var(--t4);}
+[data-theme="dark"] .dc-stat .sl{color:var(--orange-border);}
+.dc-grid{padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.cat-card{background:var(--section);border:1.5px solid var(--border);border-radius:var(--r);padding:8px 10px;cursor:pointer;transition:all .2s;}
+.cat-card:hover{border-color:var(--border-s);}
+.cat-card.active{transform:scale(1.02);}
+.cat-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;}
+.cat-left{display:flex;align-items:center;gap:4px;}
+.cat-name{font-size:9.5px;font-weight:700;color:var(--t9);}
+.cat-badge{font-size:8.5px;font-weight:700;color:white;padding:1px 5px;border-radius:10px;}
+.cat-preview{font-size:9px;color:var(--t4);}
+.cat-items{margin-top:5px;animation:slideIn .18s ease;}
+@keyframes slideIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+.cat-item{display:flex;align-items:center;gap:3px;padding:2px 0;font-size:9px;color:var(--t5);}
+.cat-item.more{color:var(--orange);font-style:italic;font-weight:600;}
+.cat-ck{font-size:8.5px;color:var(--green-em);}
+.dc-foot{text-align:center;padding:0 0 9px;font-size:9px;color:var(--t4);font-style:italic;}
+/* Barre bas du cadre */
+.ag-orches{margin-top:24px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px 20px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r);}
 .ag-orches-lbl{font-size:10px;font-weight:700;color:#92400E;margin-right:4px;}
 [data-theme="dark"] .ag-orches-lbl{color:var(--orange-border);}
 .ag-cap{background:var(--card);border:1px solid var(--orange-border);color:var(--orange);font-size:10px;font-weight:700;padding:3px 11px;border-radius:var(--r-pill);}
-
-/* Strip bas */
+/* Strip */
 .ag-strip{display:flex;justify-content:center;margin-top:28px;}
 .strip{display:flex;overflow:hidden;border-radius:var(--r-pill);border:1.5px solid var(--border);box-shadow:var(--sh-sm);}
 .sp{padding:10px 22px;font-size:11px;font-weight:700;border-right:1.5px solid var(--border);}
@@ -148,8 +110,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .sp.g{background:var(--green-pale);color:var(--green);}
 .sp.o{background:var(--orange-pale);color:var(--orange);}
 .schema-hint{text-align:center;font-size:11px;color:var(--t4);margin-top:10px;}
-
-@media(max-width:860px){.ag-cells{grid-template-columns:1fr;}.ag-frame{padding:48px 18px 18px;}}
+@media(max-width:960px){.ag-layout{grid-template-columns:1fr;gap:16px;}.ag-arrow{flex-direction:row;justify-content:center;}.ag-frame{padding:48px 18px 18px;}}
 @media(max-width:600px){.wrap,.ag-outer{padding:0 20px;}}
 
 /* ══════════════════════════════════════
@@ -310,19 +271,16 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 ══════════════════════════════ -->
 <section id="agnostic">
   <div class="ag-outer">
-
-    <!-- Cadre orange — même style DataGraph -->
     <div class="ag-frame">
       <div class="ag-badge">Architecture agnostique — Déployez où vous êtes</div>
 
-      <!-- Tabs à l'intérieur -->
       <div class="ag-tabs">
         <button class="ag-tab active" data-tab="cloud">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12.5 10a3 3 0 0 0-2.9-3.8 5 5 0 0 0-9.1 2.3A2.5 2.5 0 0 0 2 13.5h10.5a2 2 0 0 0 0-3.5z"/></svg>
           Cloud
         </button>
         <button class="ag-tab" data-tab="hybrid">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h5M9 8h5M7 5l-3 3 3 3M9 5l3 3-3 3"/></svg>
           Hybride
         </button>
         <button class="ag-tab" data-tab="onprem">
@@ -331,22 +289,44 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         </button>
       </div>
 
-      <!-- CLOUD -->
-      <div class="ag-panel active" id="tab-cloud">
-        <div class="ag-cells" id="cells-cloud"></div>
+      <!-- Layout principal : contexte | flèche | DataCell | flèche | contexte -->
+      <div class="ag-layout" id="ag-layout">
+        <!-- panneau gauche -->
+        <div class="ag-ctx" id="ag-left"></div>
+
+        <!-- flèche transit -->
+        <div class="ag-arrow in">
+          <span class="ag-arrow-lbl">Transit</span>
+          <svg width="44" height="18" viewBox="0 0 44 18">
+            <defs><marker id="arr-in" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0,7 3.5,0 7" fill="#F97316"/></marker></defs>
+            <line x1="2" y1="9" x2="36" y2="9" stroke="#F97316" stroke-width="2.5" marker-end="url(#arr-in)"/>
+          </svg>
+        </div>
+
+        <!-- DataCell centrale -->
+        <div class="dc-card">
+          <div class="dc-header"><span>DataCell</span></div>
+          <div class="dc-stats">
+            <div class="dc-stat"><div class="sv" id="dc-cnt">201+</div><div class="sl">Fonctionnalités</div></div>
+            <div class="dc-stat"><div class="sv dim">0</div><div class="sl dim">Stockage</div></div>
+          </div>
+          <div class="dc-grid" id="dc-grid-arch"></div>
+          <div class="dc-foot">+ modules personnalisés</div>
+        </div>
+
+        <!-- flèche sortie -->
+        <div class="ag-arrow out">
+          <span class="ag-arrow-lbl">Sortie</span>
+          <svg width="44" height="18" viewBox="0 0 44 18">
+            <defs><marker id="arr-out" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0,7 3.5,0 7" fill="#10B981"/></marker></defs>
+            <line x1="2" y1="9" x2="36" y2="9" stroke="#10B981" stroke-width="2.5" marker-end="url(#arr-out)"/>
+          </svg>
+        </div>
+
+        <!-- panneau droite -->
+        <div class="ag-ctx" id="ag-right"></div>
       </div>
 
-      <!-- HYBRIDE -->
-      <div class="ag-panel" id="tab-hybrid">
-        <div class="ag-cells" id="cells-hybrid"></div>
-      </div>
-
-      <!-- ON-PREMISE -->
-      <div class="ag-panel" id="tab-onprem">
-        <div class="ag-cells" id="cells-onprem"></div>
-      </div>
-
-      <!-- Barre bas -->
       <div class="ag-orches">
         <span class="ag-orches-lbl">Une seule architecture :</span>
         <span class="ag-cap">Stateless</span>
@@ -357,7 +337,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       </div>
     </div>
 
-    <!-- Strip bas -->
     <div class="ag-strip">
       <div class="strip">
         <div class="sp r">✕ Zéro migration de données</div>
@@ -365,7 +344,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         <div class="sp o">✓ Opérationnel en jours</div>
       </div>
     </div>
-    <p class="schema-hint">Sélectionnez votre mode de déploiement</p>
+    <p class="schema-hint">Cliquez sur une catégorie DataCell pour explorer les fonctionnalités</p>
   </div>
 </section>
 
@@ -672,146 +651,211 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <div id="ftr-ph"></div>
 
 <script>
-/* ── DONNÉES MODES DE DÉPLOIEMENT ── */
+/* ── DONNÉES MODES ── */
 const MODES = {
-  cloud: [
-    { label:"Vos sources cloud", sublabel:"Multi-provider",
-      headColor:"#3B82F6", dotColor:"#3B82F6",
-      ops:[
-        {label:"AWS S3 / Azure Blob", desc:"Stockage objet natif", color:"#3B82F6"},
-        {label:"GCP BigQuery", desc:"Entrepôt analytique", color:"#4285F4"},
-        {label:"APIs REST / SaaS", desc:"Salesforce, SAP, CRM…", color:"#8B5CF6"},
+  cloud: {
+    left: {
+      lbl: "Vos sources", title: "Infrastructure cloud", sub: "AWS · Azure · GCP",
+      items: [
+        {icon:'db', label:'Bases de données', sub:'RDS, BigQuery, Aurora'},
+        {icon:'file', label:'Stockage objet', sub:'S3, Blob, Cloud Storage'},
+        {icon:'api', label:'APIs & SaaS', sub:'Salesforce, SAP, CRM'},
+        {icon:'stream', label:'Streaming', sub:'Kafka, Kinesis, Pub/Sub'},
       ],
-      output:"Transit vers DataCell", outColor:"#F97316"
+      chips: [{label:'AWS',c:'#F97316'},{label:'Azure',c:'#0078D4'},{label:'GCP',c:'#4285F4'},{label:'200+',c:'#9CA3AF'}],
     },
-    { label:"DataCell cloud", sublabel:"Dans votre tenant",
-      headColor:"#F97316", dotColor:"#10B981", isCenter:true,
-      ops:[
-        {label:"Traitement in-stream", desc:"Zéro copie intermédiaire", color:"#F97316"},
-        {label:"Logique métier", desc:"Règles & transformations", color:"#8B5CF6"},
-        {label:"Gouvernance RGPD", desc:"Anonymisation en flux", color:"#06B6D4"},
+    right: {
+      lbl: "Vos destinations", title: "Outils métier cloud", sub: "Résultats qualifiés",
+      items: [
+        {icon:'chart', label:'Dashboards temps réel', sub:'Power BI, Looker, Grafana'},
+        {icon:'bell', label:'Alertes opérationnelles', sub:'PagerDuty, OpsGenie'},
+        {icon:'api', label:'API Response', sub:'Consommation applicative'},
+        {icon:'db', label:'Data Warehouse', sub:'Snowflake, BigQuery'},
       ],
-      output:"Données qualifiées", outColor:"#10B981"
+      chips: [{label:'Pas de lock-in',c:'#16A34A'},{label:'Multi-cloud',c:'#3B82F6'}],
     },
-    { label:"Vos destinations", sublabel:"Résultats métier",
-      headColor:"#10B981", dotColor:"#10B981",
-      ops:[
-        {label:"Dashboards temps réel", desc:"KPIs & visualisations", color:"#10B981"},
-        {label:"Alertes opérationnelles", desc:"Seuils & détections", color:"#EF4444"},
-        {label:"API Response", desc:"Consommation applicative", color:"#6366F1"},
+    cats: [
+      {label:'Qualité & Nettoyage',color:'#EF4444',icon:'🧹',count:34,highlight:true},
+      {label:'Transformation',color:'#F97316',icon:'⚙️',count:41},
+      {label:'Enrichissement',color:'#8B5CF6',icon:'✨',count:28},
+      {label:'Gouvernance RGPD',color:'#06B6D4',icon:'🔒',count:38,highlight:true},
+      {label:'Orchestration',color:'#10B981',icon:'🎯',count:31},
+      {label:'Monitoring',color:'#3B82F6',icon:'📡',count:29},
+    ],
+  },
+  hybrid: {
+    left: {
+      lbl: "On-Premise", title: "Datacenter local", sub: "Données sensibles",
+      items: [
+        {icon:'db', label:'ERP & RH', sub:'Données critiques locales'},
+        {icon:'db', label:'Bases SQL internes', sub:'PostgreSQL, Oracle, SQL Server'},
+        {icon:'stream', label:'Systèmes legacy', sub:'Mainframe, AS400'},
+        {icon:'lock', label:'Données sensibles', sub:'PII, secrets métier'},
       ],
-      output:"Pas de vendor lock-in", outColor:"#F97316"
+      chips: [{label:'Sensible',c:'#EF4444'},{label:'Isolé',c:'#16A34A'},{label:'Périmètre fermé',c:'#64748B'}],
     },
-  ],
-  hybrid: [
-    { label:"Datacenter local", sublabel:"Données sensibles",
-      headColor:"#3B82F6", dotColor:"#3B82F6",
-      ops:[
-        {label:"ERP / RH / Finance", desc:"Données critiques locales", color:"#EF4444"},
-        {label:"Bases SQL internes", desc:"PostgreSQL, Oracle…", color:"#336791"},
-        {label:"Systèmes legacy", desc:"Mainframe, AS400…", color:"#64748B"},
+    right: {
+      lbl: "Cloud privé", title: "Scalabilité élastique", sub: "Flux non-sensibles",
+      items: [
+        {icon:'chart', label:'Analytique & BI', sub:'Rapports, KPIs agrégés'},
+        {icon:'stream', label:'Logs & Métriques', sub:'Monitoring opérationnel'},
+        {icon:'file', label:'Archivage froid', sub:'Données historiques'},
+        {icon:'bell', label:'Alertes & Notifications', sub:'Canaux externes'},
       ],
-      output:"Transit sécurisé local", outColor:"#F97316"
+      chips: [{label:'Flexible',c:'#8B5CF6'},{label:'Scalable',c:'#3B82F6'},{label:'Vue unifiée',c:'#F97316'}],
     },
-    { label:"DataGraph unifié", sublabel:"Orchestration centrale",
-      headColor:"#F97316", dotColor:"#10B981", isCenter:true,
-      ops:[
-        {label:"Politique de routage", desc:"Sensible = local, léger = cloud", color:"#F97316"},
-        {label:"Vue unifiée", desc:"Tous les environnements", color:"#8B5CF6"},
-        {label:"Migration progressive", desc:"Basculez flux par flux", color:"#10B981"},
+    cats: [
+      {label:'Qualité & Nettoyage',color:'#EF4444',icon:'🧹',count:34},
+      {label:'Transformation',color:'#F97316',icon:'⚙️',count:41,highlight:true},
+      {label:'Enrichissement',color:'#8B5CF6',icon:'✨',count:28},
+      {label:'Gouvernance RGPD',color:'#06B6D4',icon:'🔒',count:38,highlight:true},
+      {label:'Orchestration',color:'#10B981',icon:'🎯',count:31,highlight:true},
+      {label:'Monitoring',color:'#3B82F6',icon:'📡',count:29},
+    ],
+  },
+  onprem: {
+    left: {
+      lbl: "Vos sources", title: "Périmètre interne", sub: "Réseau fermé / Air-gap",
+      items: [
+        {icon:'db', label:'Bases de données internes', sub:'SQL, NoSQL, fichiers plats'},
+        {icon:'stream', label:'IoT industriel', sub:'MQTT, OPC-UA, Modbus'},
+        {icon:'api', label:'Applications métier', sub:'ERP, SCADA, MES, LIMS'},
+        {icon:'file', label:'Fichiers & Flux', sub:'CSV, XML, JSON, EDI'},
       ],
-      output:"Orchestration sans couture", outColor:"#10B981"
+      chips: [{label:'Air-gap',c:'#16A34A'},{label:'Aucun flux sortant',c:'#EF4444'},{label:'200+ sources',c:'#F97316'}],
     },
-    { label:"Cloud privé", sublabel:"Scalabilité élastique",
-      headColor:"#8B5CF6", dotColor:"#8B5CF6",
-      ops:[
-        {label:"Flux non-sensibles", desc:"Logs, métriques, IoT…", color:"#06B6D4"},
-        {label:"Scalabilité auto", desc:"Burst sur demande", color:"#8B5CF6"},
-        {label:"Archivage froid", desc:"Données historiques", color:"#64748B"},
+    right: {
+      lbl: "Vos destinations", title: "SI interne uniquement", sub: "Conformité maximale",
+      items: [
+        {icon:'chart', label:'Tableaux de bord internes', sub:'BI & reporting local'},
+        {icon:'bell', label:'Supervision & SIEM', sub:'Alertes sécurité locales'},
+        {icon:'api', label:'Applications métier', sub:'Injection directe'},
+        {icon:'db', label:'Archivage interne', sub:'DWH, datamart sur site'},
       ],
-      output:"Résultats consolidés", outColor:"#10B981"
+      chips: [{label:'Zéro exposition',c:'#EF4444'},{label:'Traçable',c:'#8B5CF6'},{label:'Certifiable',c:'#16A34A'}],
     },
-  ],
-  onprem: [
-    { label:"Vos sources internes", sublabel:"Périmètre fermé",
-      headColor:"#16A34A", dotColor:"#16A34A",
-      ops:[
-        {label:"Bases de données", desc:"SQL, NoSQL, fichiers", color:"#336791"},
-        {label:"Flux IoT industriels", desc:"MQTT, OPC-UA, Modbus", color:"#06B6D4"},
-        {label:"Applications métier", desc:"ERP, SCADA, MES…", color:"#F97316"},
-      ],
-      output:"Transit interne uniquement", outColor:"#F97316"
-    },
-    { label:"DataCell on-premise", sublabel:"Zéro appel sortant",
-      headColor:"#F97316", dotColor:"#10B981", isCenter:true,
-      ops:[
-        {label:"Isolation réseau totale", desc:"Air-gap compatible", color:"#16A34A"},
-        {label:"Traitement local", desc:"CPU/RAM sur vos serveurs", color:"#F97316"},
-        {label:"Audit trail natif", desc:"Traçabilité complète", color:"#8B5CF6"},
-      ],
-      output:"Données jamais exposées", outColor:"#10B981"
-    },
-    { label:"Destinations internes", sublabel:"Dans votre SI",
-      headColor:"#16A34A", dotColor:"#16A34A",
-      ops:[
-        {label:"Tableaux de bord internes", desc:"BI & reporting local", color:"#10B981"},
-        {label:"Systèmes de supervision", desc:"SIEM, monitoring", color:"#EF4444"},
-        {label:"Applications métier", desc:"Injection directe", color:"#6366F1"},
-      ],
-      output:"Conformité maximale", outColor:"#16A34A"
-    },
-  ],
+    cats: [
+      {label:'Qualité & Nettoyage',color:'#EF4444',icon:'🧹',count:34},
+      {label:'Transformation',color:'#F97316',icon:'⚙️',count:41},
+      {label:'Enrichissement',color:'#8B5CF6',icon:'✨',count:28},
+      {label:'Gouvernance RGPD',color:'#06B6D4',icon:'🔒',count:38,highlight:true},
+      {label:'Orchestration',color:'#10B981',icon:'🎯',count:31,highlight:true},
+      {label:'Monitoring',color:'#3B82F6',icon:'📡',count:29,highlight:true},
+    ],
+  },
 };
 
-function renderMode(containerId, cards) {
-  const container = document.getElementById(containerId);
-  if(!container) return;
-  container.innerHTML = '';
-  cards.forEach(card => {
-    const div = document.createElement('div');
-    div.className = 'ag-card';
-    if(card.isCenter) div.style.cssText = `border-color:var(--orange);box-shadow:0 8px 28px rgba(249,115,22,.12);`;
+/* ── Icônes SVG par type ── */
+function getIcon(type, color) {
+  const icons = {
+    db: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><ellipse cx="8" cy="4" rx="5" ry="1.8"/><path d="M3 4v4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V4"/><path d="M3 8v4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V8"/></svg>`,
+    api: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><path d="M2 8h4M10 8h4M6 5l-3 3 3 3M10 5l3 3-3 3"/></svg>`,
+    file: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6L9 2z"/><path d="M9 2v4h4"/></svg>`,
+    stream: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><path d="M2 8c1-3 3-5 6-5s5 2 6 5-3 5-6 5-5-2-6-5z"/><circle cx="8" cy="8" r="1.5"/></svg>`,
+    chart: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/></svg>`,
+    bell: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><path d="M8 2a5 5 0 0 1 5 5v3l1 2H2l1-2V7a5 5 0 0 1 5-5z"/><path d="M6.5 13a1.5 1.5 0 0 0 3 0"/></svg>`,
+    lock: `<svg viewBox="0 0 16 16" fill="none" stroke="${color}" stroke-width="1.4"><rect x="3" y="7" width="10" height="8" rx="1"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>`,
+  };
+  return icons[type] || icons.db;
+}
 
+let activeMode = 'cloud';
+let activecat = null;
+
+/* ── Rendu panneau contexte ── */
+function renderCtx(id, data) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.innerHTML = `
+    <div class="ag-ctx-lbl">${data.lbl}</div>
+    <div class="ag-ctx-title">${data.title}</div>
+    <div class="ag-ctx-sub">${data.sub}</div>
+    <div class="ag-ctx-items">
+      ${data.items.map(item=>`
+        <div class="ag-ctx-row">
+          ${getIcon(item.icon, 'var(--t4)')}
+          <div>
+            <div class="rn">${item.label}</div>
+            <div class="rs">${item.sub}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="ag-chips">
+      ${data.chips.map(c=>`
+        <span class="ag-chip" style="border-color:${c.c}30;color:${c.c};">
+          <span style="width:5px;height:5px;border-radius:50%;background:${c.c};display:inline-block;flex-shrink:0;"></span>
+          ${c.label}
+        </span>
+      `).join('')}
+    </div>
+  `;
+}
+
+/* ── Rendu grille DataCell — identique datacell.html ── */
+const CAT_ITEMS = {
+  'Qualité & Nettoyage': ['Valeurs manquantes','Déduplication','Valeurs aberrantes','Standardisation','+ 30 autres'],
+  'Transformation':      ['Conversion formats','Calculs métier','Agrégations','Pivots & unpivots','+ 37 autres'],
+  'Enrichissement':      ['Contexte métier','Géolocalisation','Scoring IA','Catégorisation','+ 24 autres'],
+  'Gouvernance RGPD':    ['Anonymisation','Pseudonymisation','Chiffrement flux','Traçabilité','+ 34 autres'],
+  'Orchestration':       ['Déclencheurs','Scheduling','Retry logique','Dépendances','+ 27 autres'],
+  'Monitoring':          ['Détection anomalies','SLA monitoring','Audit logs','Alertes seuils','+ 25 autres'],
+};
+
+function isDark(){ return document.documentElement.getAttribute('data-theme')==='dark'; }
+function catBg(cat){ return isDark() ? cat.color+'18' : cat.color+'12'; }
+function cardBg(){ return isDark() ? 'var(--section)' : '#FAFAFA'; }
+
+function renderDcGrid(cats) {
+  const grid = document.getElementById('dc-grid-arch');
+  if(!grid) return;
+  grid.innerHTML = '';
+  cats.forEach((cat, i) => {
+    const isActive = activecat === i;
+    const items = CAT_ITEMS[cat.label] || [];
+    const div = document.createElement('div');
+    div.className = 'cat-card' + (isActive ? ' active' : '');
+    div.style.cssText = `background:${isActive ? catBg(cat) : cardBg()};border-color:${isActive ? cat.color : 'var(--border)'};${cat.highlight && !isActive ? 'border-color:'+cat.color+'60;' : ''}`;
     div.innerHTML = `
-      <div class="ag-card-head" style="${card.isCenter?'background:var(--orange-pale);border-color:var(--orange-border);':''}">
-        <span class="ag-card-lbl" style="${card.isCenter?'color:var(--orange);':''}">${card.isCenter ? 'DataCell' : 'Environnement'}</span>
-        <div class="ag-card-dot" style="background:${card.dotColor};box-shadow:0 0 0 3px ${card.dotColor}30;"></div>
+      <div class="cat-top">
+        <div class="cat-left">
+          <span style="font-size:11px">${cat.icon}</span>
+          <span class="cat-name">${cat.label}</span>
+        </div>
+        <span class="cat-badge" style="background:${cat.color}">${cat.count}</span>
       </div>
-      <div class="ag-card-body">
-        <div class="ag-card-title">${card.label}</div>
-        <div class="ag-card-sub">${card.sublabel}</div>
-        <div class="ag-slbl">Flux</div>
-        <div class="ag-ops">
-          ${card.ops.map(op=>`
-            <div class="ag-op" style="border-left-color:${op.color};background:${op.color}08;">
-              <div>
-                <div class="ag-op-name">${op.label}</div>
-                <div class="ag-op-desc">${op.desc}</div>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-        <div class="ag-out-arrow">
-          <div class="ag-out-line" style="background:${card.outColor};"></div>
-          <div class="ag-out-tip" style="border-top:8px solid ${card.outColor};border-left:5px solid transparent;border-right:5px solid transparent;"></div>
-        </div>
-        <div class="ag-output" style="background:${card.outColor}12;border:1.5px solid ${card.outColor}40;">
-          <span class="ck" style="color:${card.outColor}">✓</span>
-          <span class="ol">${card.output}</span>
-        </div>
-      </div>
+      ${isActive
+        ? `<div class="cat-items">${items.map((it,j)=>`<div class="cat-item${j===items.length-1?' more':''}"><span class="cat-ck">${j<items.length-1?'✓':''}</span>${it}</div>`).join('')}</div>`
+        : `<div class="cat-preview">${items[0]} · ${items[1]}…</div>`
+      }
     `;
-    container.appendChild(div);
+    div.addEventListener('click', () => {
+      activecat = activecat === i ? null : i;
+      renderDcGrid(MODES[activeMode].cats);
+    });
+    grid.appendChild(div);
   });
+}
+
+/* ── Rendu complet d'un mode ── */
+function renderMode(mode) {
+  activeMode = mode;
+  activecat = null;
+  const data = MODES[mode];
+  // Animer le layout
+  const layout = document.getElementById('ag-layout');
+  if(layout){ layout.style.animation='none'; void layout.offsetWidth; layout.style.animation='agFade .2s ease'; }
+  renderCtx('ag-left', data.left);
+  renderCtx('ag-right', data.right);
+  renderDcGrid(data.cats);
 }
 
 /* Tabs */
 document.querySelectorAll('.ag-tab').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.ag-tab').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.ag-panel').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    renderMode(btn.dataset.tab);
   });
 });
 
@@ -839,9 +883,7 @@ window.addEventListener('load', async () => {
     document.documentElement.setAttribute('data-theme',e.detail);
     document.body.setAttribute('data-theme',e.detail);
   });
-  renderMode('cells-cloud', MODES.cloud);
-  renderMode('cells-hybrid', MODES.hybrid);
-  renderMode('cells-onprem', MODES.onprem);
+  renderMode('cloud');
 
   (entries=>{
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
