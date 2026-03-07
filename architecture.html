@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture — iD4Connect</title>
+<meta name="description" content="Architecture stateless iD4Connect : agnostique, souveraine, résiliente. Déployez là où vous êtes déjà.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--green-em:#10B981;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue:#2563EB;--blue-pale:#EFF6FF;--blue-border:rgba(37,99,235,.18);--purple:#8B5CF6;--purple-pale:#F5F3FF;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
+:root,[data-theme="light"]{--bg:#F5F4F0;--card:#FFFFFF;--section:#EEEDEA;--t9:#111827;--t7:#374151;--t5:#6B7280;--t4:#9CA3AF;--border:#E5E3DE;--border-s:#D1CFCA;--sh-sm:0 1px 3px rgba(0,0,0,.07);--sh:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.10);}
+[data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--sh-lg:0 12px 40px rgba(0,0,0,.4);--orange-pale:rgba(249,115,22,.09);--orange-border:rgba(249,115,22,.22);--green-pale:rgba(22,163,74,.09);--green-border:rgba(22,163,74,.22);--red-pale:rgba(220,38,38,.09);--red-border:rgba(220,38,38,.22);--blue-pale:rgba(37,99,235,.09);--blue-border:rgba(37,99,235,.18);--purple-pale:rgba(139,92,246,.09);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
+.pill{display:inline-flex;align-items:center;padding:5px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.cs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+.cs-item{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;border:1px solid;}
+.cs-item.g{background:var(--green-pale);border-color:var(--green-border);color:var(--green);}
+.cs-item.r{background:var(--red-pale);border-color:var(--red-border);color:var(--red);}
+.cs-item.o{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+#arch-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;}
+#arch-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
+.hero-text{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;}
+.hero-text h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--t9);margin-bottom:14px;}
+.hero-text h1 .o{color:var(--orange);}
+.hero-text p{font-size:15px;color:var(--t5);line-height:1.75;max-width:560px;margin:0 auto;}
+
+/* ══════════════════════════════════════
+   BLOC 1 — SCHÉMA AGNOSTIQUE
+══════════════════════════════════════ */
+#agnostic{padding:0 0 96px;background:var(--bg);}
+.ag-outer{max-width:1000px;margin:0 auto;padding:0 32px;}
+
+/* Tabs */
+.ag-tabs{display:flex;justify-content:center;gap:6px;margin-bottom:40px;flex-wrap:wrap;}
+.ag-tab{display:flex;align-items:center;gap:7px;padding:9px 22px;font-size:13.5px;font-weight:500;font-family:var(--font);border-radius:var(--r-pill);border:1px solid var(--border);background:var(--card);color:var(--t5);cursor:pointer;transition:all var(--tr);}
+.ag-tab svg{width:14px;height:14px;flex-shrink:0;}
+.ag-tab:hover{border-color:var(--border-s);color:var(--t7);}
+.ag-tab.active{background:var(--orange);color:white;border-color:var(--orange);font-weight:600;}
+
+/* Panel */
+.ag-panel{display:none;}
+.ag-panel.active{display:block;}
+
+/* Schéma visuel pour chaque mode */
+.ag-schema{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r-xl);padding:36px 40px;
+  box-shadow:var(--sh-sm);
+}
+.ag-schema-grid{display:grid;align-items:center;gap:24px;}
+.ag-schema-grid.three{grid-template-columns:1fr 40px 1fr 40px 1fr;}
+.ag-schema-grid.two{grid-template-columns:1fr 40px 1fr;}
+
+/* Nœuds */
+.ag-node{border-radius:var(--r-lg);padding:20px 18px;text-align:center;border:1px solid;}
+.ag-node.infra{background:var(--blue-pale);border-color:var(--blue-border);}
+.ag-node.cell{background:var(--orange-pale);border-color:var(--orange-border);}
+.ag-node.cloud{background:var(--section);border-color:var(--border);}
+.ag-node.hybrid-l{background:var(--blue-pale);border-color:var(--blue-border);}
+.ag-node.hybrid-r{background:var(--section);border-color:var(--border);}
+.ag-node.onprem{background:var(--green-pale);border-color:var(--green-border);}
+
+.ag-node .nicon{font-size:26px;margin-bottom:10px;}
+.ag-node .ntitle{font-size:13px;font-weight:800;color:var(--t9);margin-bottom:5px;}
+.ag-node .ndesc{font-size:12px;color:var(--t5);line-height:1.5;}
+.ag-node .nbadge{display:inline-flex;margin-top:8px;padding:3px 10px;border-radius:var(--r-pill);font-size:10.5px;font-weight:700;}
+.ag-node.cell .nbadge{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
+.ag-node.infra .nbadge,.ag-node.hybrid-l .nbadge{background:var(--blue-pale);color:var(--blue);border:1px solid var(--blue-border);}
+.ag-node.cloud .nbadge,.ag-node.hybrid-r .nbadge{background:var(--section);color:var(--t5);border:1px solid var(--border);}
+.ag-node.onprem .nbadge{background:var(--green-pale);color:var(--green);border:1px solid var(--green-border);}
+
+/* Connecteur animé */
+.ag-conn{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.ag-conn-line{width:2px;height:40px;background:linear-gradient(to bottom,var(--border),var(--orange),var(--border));position:relative;overflow:hidden;}
+.ag-conn-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:40%;background:linear-gradient(to bottom,transparent,var(--orange),transparent);animation:flowDown 1.8s ease-in-out infinite;}
+@keyframes flowDown{0%{top:-40%;}100%{top:100%;}}
+.ag-conn-lbl{font-size:9.5px;font-weight:700;color:var(--orange);letter-spacing:.5px;text-transform:uppercase;}
+
+/* Feats sous le schéma */
+.ag-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
+.ag-feat{display:flex;align-items:flex-start;gap:9px;padding:14px;background:var(--section);border:1px solid var(--border);border-radius:var(--r);}
+.ag-feat svg{width:15px;height:15px;color:var(--orange);flex-shrink:0;margin-top:1px;}
+.ag-feat p{font-size:12.5px;color:var(--t7);line-height:1.5;}
+.ag-feat p strong{display:block;font-size:13px;color:var(--t9);margin-bottom:2px;}
+
+.ag-strip{display:flex;justify-content:center;margin-top:28px;}
+.strip{display:flex;overflow:hidden;border-radius:var(--r-pill);border:1.5px solid var(--border);box-shadow:var(--sh-sm);}
+.sp{padding:10px 22px;font-size:11px;font-weight:700;border-right:1.5px solid var(--border);}
+.sp:last-child{border-right:none;}
+.sp.r{background:var(--red-pale);color:var(--red);}
+.sp.g{background:var(--green-pale);color:var(--green);}
+.sp.o{background:var(--orange-pale);color:var(--orange);}
+
+@media(max-width:760px){.ag-schema-grid.three,.ag-schema-grid.two{grid-template-columns:1fr;}.ag-conn{flex-direction:row;}.ag-conn-line{width:40px;height:2px;}.ag-feats{grid-template-columns:1fr;}}
+@media(max-width:600px){.wrap,.ag-outer{padding:0 20px;}}
+
+/* ══════════════════════════════════════
+   BLOC 2 — 5 PRINCIPES
+══════════════════════════════════════ */
+#principes{padding:96px 0;background:var(--card);}
+.pr-head{margin-bottom:52px;}
+.pr-head .pr-num{font-size:11px;font-weight:800;color:var(--orange);letter-spacing:1px;margin-bottom:8px;}
+.pr-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
+
+.pr-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.pr-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 20px;text-align:center;transition:all .2s;}
+.pr-card:hover{border-color:var(--orange-border);transform:translateY(-3px);box-shadow:var(--sh);}
+.pr-ico{width:54px;height:54px;border-radius:var(--r);margin:0 auto 18px;display:flex;align-items:center;justify-content:center;}
+.pr-ico svg{width:24px;height:24px;}
+.pr-card h3{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:10px;}
+.pr-card p{font-size:12.5px;color:var(--t5);line-height:1.65;}
+
+@media(max-width:900px){.pr-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:560px){.pr-grid{grid-template-columns:1fr 1fr;}.pr-grid .pr-card:last-child{grid-column:1/-1;}}
+
+/* ══════════════════════════════════════
+   BLOC 3 — CONNECTEZ TOUT
+══════════════════════════════════════ */
+#connect{padding:96px 0;background:var(--bg);}
+.conn-head{text-align:center;margin-bottom:48px;}
+.conn-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
+.conn-head h2 .o{color:var(--orange);}
+.conn-head p{font-size:15px;color:var(--t5);margin-top:10px;}
+
+/* Défilement infini */
+.marquee-wrap{overflow:hidden;position:relative;margin-bottom:16px;}
+.marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+.marquee-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent);}
+.marquee-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
+
+.marquee-track{display:flex;gap:10px;width:max-content;animation:marquee 28s linear infinite;}
+.marquee-track.rev{animation:marqueeRev 32s linear infinite;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+@keyframes marqueeRev{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+
+.conn-chip{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 16px;white-space:nowrap;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r-sm);font-size:12.5px;font-weight:600;color:var(--t7);
+  flex-shrink:0;
+}
+.conn-chip .cdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+.conn-cta{text-align:center;margin-top:28px;}
+.conn-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:12px 28px;background:var(--orange);color:white;
+  font-family:var(--font);font-size:14px;font-weight:700;
+  border-radius:var(--r-pill);text-decoration:none;border:none;cursor:pointer;
+  transition:all var(--tr);
+}
+.conn-btn:hover{background:var(--orange-d);transform:translateY(-1px);}
+
+/* Catégories de connecteurs */
+.conn-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:40px;}
+.conn-cat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;transition:border-color var(--tr);}
+.conn-cat:hover{border-color:var(--orange-border);}
+.cc-ico{width:36px;height:36px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.cc-ico svg{width:17px;height:17px;}
+.conn-cat h4{font-size:13px;font-weight:700;color:var(--t9);margin-bottom:4px;}
+.conn-cat p{font-size:12px;color:var(--t5);line-height:1.5;}
+.conn-cat .cc-count{font-size:11px;font-weight:700;color:var(--t4);margin-top:6px;}
+
+@media(max-width:760px){.conn-cats{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.conn-cats{grid-template-columns:1fr;}}
+
+/* ══════════════════════════════════════
+   BLOC 4 — SÉCURITÉ BY DESIGN
+══════════════════════════════════════ */
+#security{padding:96px 0;background:var(--card);}
+.sec-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+
+.sec-pillars{display:flex;flex-direction:column;gap:0;}
+.sec-pillar{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:22px 0;border-bottom:1px solid var(--border);
+  transition:all var(--tr);
+}
+.sec-pillar:last-child{border-bottom:none;}
+.sec-pillar:hover .sp-ico{border-color:var(--orange-border);background:var(--orange-pale);}
+.sec-pillar:hover .sp-ico svg{color:var(--orange);}
+.sp-ico{
+  width:42px;height:42px;flex-shrink:0;
+  background:var(--section);border:1px solid var(--border);
+  border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;
+  transition:all var(--tr);
+}
+.sp-ico svg{width:19px;height:19px;color:var(--t5);transition:color var(--tr);}
+.sp-txt h4{font-size:14px;font-weight:700;color:var(--t9);margin-bottom:5px;}
+.sp-txt p{font-size:13px;color:var(--t5);line-height:1.65;}
+
+/* Visuel droite */
+.sec-visual{display:flex;flex-direction:column;gap:12px;}
+.sec-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;}
+.sec-card-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 16px;border-bottom:1px solid var(--border);
+  background:var(--section);
+}
+.sec-card-head .scht{font-size:11px;font-weight:700;color:var(--t5);text-transform:uppercase;letter-spacing:.5px;}
+.sec-card-head .schb{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--green);padding:2px 8px;background:var(--green-pale);border:1px solid var(--green-border);border-radius:var(--r-pill);}
+.sec-card-head .schb::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 1.5s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.sec-card-body{padding:14px 16px;display:flex;flex-direction:column;gap:7px;}
+.sec-row{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.sec-row .sr-lbl{font-size:12px;color:var(--t5);}
+.sec-row .sr-val{font-size:12px;font-weight:700;padding:2px 9px;border-radius:var(--r-pill);}
+.sr-val.ok{background:var(--green-pale);color:var(--green);border:1px solid var(--green-border);}
+.sr-val.act{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
+.sr-val.off{background:var(--red-pale);color:var(--red);border:1px solid var(--red-border);}
+
+.sec-note{
+  padding:16px 18px;background:var(--green-pale);
+  border:1px solid var(--green-border);border-radius:var(--r);
+  font-size:13px;color:var(--green);font-weight:500;
+  display:flex;align-items:flex-start;gap:9px;line-height:1.6;
+}
+.sec-note svg{width:15px;height:15px;flex-shrink:0;margin-top:1px;}
+
+@media(max-width:900px){.sec-grid{grid-template-columns:1fr;}}
+
+/* CTA */
+#arch-cta{padding:80px 0;background:var(--orange);text-align:center;position:relative;overflow:hidden;}
+#arch-cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px;}
+#arch-cta .wrap{position:relative;z-index:1;}
+#arch-cta h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:white;margin-bottom:10px;letter-spacing:-.4px;}
+#arch-cta p{font-size:15px;color:rgba(255,255,255,.8);margin-bottom:28px;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-w{display:inline-flex;align-items:center;gap:6px;padding:12px 26px;background:white;color:var(--orange);font-family:var(--font);font-size:14px;font-weight:700;border-radius:var(--r-sm);text-decoration:none;cursor:pointer;transition:all var(--tr);}
+.btn-w:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15);}
+.btn-wo{display:inline-flex;align-items:center;gap:6px;padding:12px 26px;background:transparent;color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:all var(--tr);}
+.btn-wo:hover{border-color:white;background:rgba(255,255,255,.1);}
+</style>
+</head>
+<body>
+<div id="hdr-ph"></div>
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<section id="arch-hero">
+  <div class="hero-text">
+    <div class="pill">Architecture</div>
+    <h1>Déployez là où<br>vous êtes déjà.<br><span class="o">Sans migration. Sans risque.</span></h1>
+    <p>iD4Connect s'installe dans votre infrastructure existante. On-premise, cloud privé, multi-cloud — un seul modèle architectural, une souveraineté totale.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     BLOC 1 — SCHÉMA AGNOSTIQUE
+══════════════════════════════ -->
+<section id="agnostic">
+  <div class="ag-outer">
+
+    <div class="ag-tabs">
+      <button class="ag-tab active" data-tab="cloud">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12.5 10a3 3 0 0 0-2.9-3.8 5 5 0 0 0-9.1 2.3A2.5 2.5 0 0 0 2 13.5h10.5a2 2 0 0 0 0-3.5z"/></svg>
+        Cloud
+      </button>
+      <button class="ag-tab" data-tab="hybrid">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        Hybride
+      </button>
+      <button class="ag-tab" data-tab="onprem">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="4" rx="1"/><rect x="2" y="9" width="12" height="4" rx="1"/><circle cx="12.5" cy="5" r=".8" fill="currentColor" stroke="none"/><circle cx="12.5" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>
+        On-Premise
+      </button>
+    </div>
+
+    <!-- CLOUD -->
+    <div class="ag-panel active" id="tab-cloud">
+      <div class="ag-schema">
+        <div class="ag-schema-grid three">
+          <div class="ag-node infra">
+            <div class="nicon">🏢</div>
+            <div class="ntitle">Votre tenant cloud</div>
+            <div class="ndesc">AWS, Azure ou GCP — votre environnement, vos accès, vos règles.</div>
+            <span class="nbadge">Souverain</span>
+          </div>
+          <div class="ag-conn">
+            <div class="ag-conn-line"></div>
+            <div class="ag-conn-lbl">Transit</div>
+          </div>
+          <div class="ag-node cell">
+            <div class="nicon">⚡</div>
+            <div class="ntitle">DataCell déployée</div>
+            <div class="ndesc">S'exécute dans votre tenant. Vos données ne sortent jamais de votre périmètre cloud.</div>
+            <span class="nbadge">iD4Connect</span>
+          </div>
+          <div class="ag-conn">
+            <div class="ag-conn-line"></div>
+            <div class="ag-conn-lbl">Sortie</div>
+          </div>
+          <div class="ag-node cloud">
+            <div class="nicon">📊</div>
+            <div class="ntitle">Vos destinations</div>
+            <div class="ndesc">KPIs, dashboards, alertes — directement dans vos outils métier.</div>
+            <span class="nbadge">Métier</span>
+          </div>
+        </div>
+        <div class="ag-feats">
+          <div class="ag-feat">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Multi-cloud natif</strong>Basculez entre providers sans modifier votre configuration DataCell.</p>
+          </div>
+          <div class="ag-feat">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Pas de vendor lock-in</strong>Votre logique métier reste portable, indépendamment de l'infrastructure.</p>
+          </div>
+          <div class="ag-feat">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Scalabilité instantanée</strong>Les DataCells s'adaptent automatiquement à la charge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HYBRIDE -->
+    <div class="ag-panel" id="tab-hybrid">
+      <div class="ag-schema">
+        <div class="ag-schema-grid three">
+          <div class="ag-node hybrid-l">
+            <div class="nicon">🏢</div>
+            <div class="ntitle">On-Premise</div>
+            <div class="ndesc">Données sensibles, traitées localement. Aucune exposition externe.</div>
+            <span class="nbadge">Sensible</span>
+          </div>
+          <div class="ag-conn">
+            <div class="ag-conn-line"></div>
+            <div class="ag-conn-lbl">DataGraph</div>
+          </div>
+          <div class="ag-node cell">
+            <div class="nicon">⚡</div>
+            <div class="ntitle">Orchestration unifiée</div>
+            <div class="ndesc">Le DataGraph pilote l'ensemble depuis une interface centralisée, quel que soit l'environnement.</div>
+            <span class="nbadge">iD4Connect</span>
+          </div>
+          <div class="ag-conn">
+            <div class="ag-conn-line"></div>
+            <div class="ag-conn-lbl">Transit</div>
+          </div>
+          <div class="ag-node hybrid-r">
+            <div class="nicon">☁️</div>
+            <div class="ntitle">Cloud privé</div>
+            <div class="ndesc">Flux légers, scalabilité élastique. Données non-sensibles selon votre politique.</div>
+            <span class="nbadge">Flexible</span>
+          </div>
+        </div>
+        <div class="ag-feats">
+          <div class="ag-feat">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Politique granulaire</strong>Définissez quelle donnée transite où, selon sa sensibilité.</p>
+          </div>
+          <div class="ag-feat">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Migration progressive</strong>Basculez par flux, sans couper les systèmes en production.</p>
+          </div>
+          <div class="ag-feat">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Vue unifiée</strong>Un seul DataGraph surveille tous vos environnements simultanément.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ON-PREMISE -->
+    <div class="ag-panel" id="tab-onprem">
+      <div class="ag-schema">
+        <div class="ag-schema-grid three">
+          <div class="ag-node onprem">
+            <div class="nicon">🏭</div>
+            <div class="ntitle">Vos datacenters</div>
+            <div class="ndesc">Isolation réseau totale. Aucun flux sortant. Idéal pour les environnements critiques.</div>
+            <span class="nbadge">Isolé</span>
+          </div>
+          <div class="ag-conn">
+            <div class="ag-conn-line"></div>
+            <div class="ag-conn-lbl">Transit</div>
+          </div>
+          <div class="ag-node cell">
+            <div class="nicon">⚡</div>
+            <div class="ntitle">DataCell locale</div>
+            <div class="ndesc">Déployée directement sur votre infrastructure. Zéro dépendance externe, zéro appel sortant.</div>
+            <span class="nbadge">iD4Connect</span>
+          </div>
+          <div class="ag-conn">
+            <div class="ag-conn-line"></div>
+            <div class="ag-conn-lbl">Sortie</div>
+          </div>
+          <div class="ag-node onprem">
+            <div class="nicon">🔒</div>
+            <div class="ntitle">Périmètre fermé</div>
+            <div class="ndesc">Résultats disponibles dans vos systèmes internes uniquement. Conformité maximale.</div>
+            <span class="nbadge">Sécurisé</span>
+          </div>
+        </div>
+        <div class="ag-feats">
+          <div class="ag-feat">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Zéro dépendance externe</strong>Fonctionne en réseau fermé, sans accès internet.</p>
+          </div>
+          <div class="ag-feat">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Conformité maximale</strong>Adapté aux secteurs de la santé, du secteur public et de la défense.</p>
+          </div>
+          <div class="ag-feat">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Déploiement en jours</strong>Pas de migration, pas de refonte — installation sur votre stack existante.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ag-strip">
+      <div class="strip">
+        <div class="sp r">✕ Zéro migration de données</div>
+        <div class="sp g">✓ Compatible votre stack actuelle</div>
+        <div class="sp o">✓ Opérationnel en jours</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     BLOC 2 — 5 PRINCIPES
+══════════════════════════════ -->
+<section id="principes" class="reveal">
+  <div class="wrap">
+    <div class="pr-head">
+      <div class="pr-num">01</div>
+      <h2>Principes fondamentaux</h2>
+    </div>
+    <div class="pr-grid">
+
+      <div class="pr-card">
+        <div class="pr-ico" style="background:#FFF7ED;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <h3>Stateless</h3>
+        <p>Aucun stockage permanent. Traitement à la volée, insights en temps réel.</p>
+      </div>
+
+      <div class="pr-card">
+        <div class="pr-ico" style="background:#ECFEFF;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3>Zero Trust</h3>
+        <p>Vérification à chaque flux. Sécurité by design sans point unique de défaillance.</p>
+      </div>
+
+      <div class="pr-card">
+        <div class="pr-ico" style="background:#EFF6FF;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3>Cloud Agnostic</h3>
+        <p>Déployable partout : cloud public, privé, on-premise ou hybride.</p>
+      </div>
+
+      <div class="pr-card">
+        <div class="pr-ico" style="background:#F0FDF4;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+            <line x1="9" y1="9" x2="9.01" y2="9"/>
+            <line x1="15" y1="9" x2="15.01" y2="9"/>
+          </svg>
+        </div>
+        <h3>Souveraineté</h3>
+        <p>100% européen. Vos données restent dans votre périmètre, toujours.</p>
+      </div>
+
+      <div class="pr-card">
+        <div class="pr-ico" style="background:#F5F3FF;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"/>
+            <polyline points="1 20 1 14 7 14"/>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+          </svg>
+        </div>
+        <h3>Résilience</h3>
+        <p>Auto-healing et re-routage automatique en cas d'échec.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     BLOC 3 — CONNECTEZ TOUT
+══════════════════════════════ -->
+<section id="connect" class="reveal">
+  <div class="wrap">
+    <div class="conn-head">
+      <div class="pill">Connecteurs</div>
+      <h2>Connectez <span class="o">tout.</span></h2>
+      <p>Plus de 70 connecteurs natifs pour intégrer l'ensemble de votre SI existant.</p>
+    </div>
+
+    <!-- Catégories -->
+    <div class="conn-cats">
+      <div class="conn-cat">
+        <div class="cc-ico" style="background:#EFF6FF;">
+          <svg viewBox="0 0 16 16" fill="none" stroke="#3B82F6" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg>
+        </div>
+        <h4>Bases de données</h4>
+        <p>Relationnelles, NoSQL, entrepôts de données.</p>
+        <div class="cc-count">20+ connecteurs</div>
+      </div>
+      <div class="conn-cat">
+        <div class="cc-ico" style="background:#FFF7ED;">
+          <svg viewBox="0 0 16 16" fill="none" stroke="#F97316" stroke-width="1.5"><path d="M8 2v4l3-3"/><rect x="2" y="8" width="12" height="6" rx="1"/></svg>
+        </div>
+        <h4>Applications métier</h4>
+        <p>ERP, CRM, outils RH et finance.</p>
+        <div class="cc-count">18+ connecteurs</div>
+      </div>
+      <div class="conn-cat">
+        <div class="cc-ico" style="background:#ECFDF5;">
+          <svg viewBox="0 0 16 16" fill="none" stroke="#10B981" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5 8h2l2-3 2 6 1-3"/></svg>
+        </div>
+        <h4>IoT & Streaming</h4>
+        <p>MQTT, Kafka, capteurs industriels, temps réel.</p>
+        <div class="cc-count">15+ connecteurs</div>
+      </div>
+      <div class="conn-cat">
+        <div class="cc-ico" style="background:#F5F3FF;">
+          <svg viewBox="0 0 16 16" fill="none" stroke="#8B5CF6" stroke-width="1.5"><path d="M12.5 10a3 3 0 0 0-2.9-3.8 5 5 0 0 0-9.1 2.3A2.5 2.5 0 0 0 2 13.5h10.5a2 2 0 0 0 0-3.5z"/></svg>
+        </div>
+        <h4>Cloud & APIs</h4>
+        <p>REST, GraphQL, webhooks, services cloud.</p>
+        <div class="cc-count">20+ connecteurs</div>
+      </div>
+    </div>
+
+    <!-- Défilement connecteurs ligne 1 -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span class="conn-chip"><span class="cdot" style="background:#3B82F6"></span>REST APIs</span>
+        <span class="conn-chip"><span class="cdot" style="background:#06B6D4"></span>MQTT</span>
+        <span class="conn-chip"><span class="cdot" style="background:#F97316"></span>AWS S3</span>
+        <span class="conn-chip"><span class="cdot" style="background:#0078D4"></span>Azure Blob</span>
+        <span class="conn-chip"><span class="cdot" style="background:#FACC15"></span>CSV / Excel</span>
+        <span class="conn-chip"><span class="cdot" style="background:#E535AB"></span>GraphQL</span>
+        <span class="conn-chip"><span class="cdot" style="background:#336791"></span>PostgreSQL</span>
+        <span class="conn-chip"><span class="cdot" style="background:#CC2927"></span>SQL Server</span>
+        <span class="conn-chip"><span class="cdot" style="background:#4DB33D"></span>MongoDB</span>
+        <span class="conn-chip"><span class="cdot" style="background:#00A1E0"></span>Salesforce</span>
+        <span class="conn-chip"><span class="cdot" style="background:#0070AD"></span>SAP</span>
+        <span class="conn-chip"><span class="cdot" style="background:#EF4444"></span>Oracle</span>
+        <span class="conn-chip"><span class="cdot" style="background:#4285F4"></span>Google BigQuery</span>
+        <span class="conn-chip"><span class="cdot" style="background:#231F20"></span>Kafka</span>
+        <!-- dupliqué pour boucle infinie -->
+        <span class="conn-chip"><span class="cdot" style="background:#3B82F6"></span>REST APIs</span>
+        <span class="conn-chip"><span class="cdot" style="background:#06B6D4"></span>MQTT</span>
+        <span class="conn-chip"><span class="cdot" style="background:#F97316"></span>AWS S3</span>
+        <span class="conn-chip"><span class="cdot" style="background:#0078D4"></span>Azure Blob</span>
+        <span class="conn-chip"><span class="cdot" style="background:#FACC15"></span>CSV / Excel</span>
+        <span class="conn-chip"><span class="cdot" style="background:#E535AB"></span>GraphQL</span>
+        <span class="conn-chip"><span class="cdot" style="background:#336791"></span>PostgreSQL</span>
+        <span class="conn-chip"><span class="cdot" style="background:#CC2927"></span>SQL Server</span>
+        <span class="conn-chip"><span class="cdot" style="background:#4DB33D"></span>MongoDB</span>
+        <span class="conn-chip"><span class="cdot" style="background:#00A1E0"></span>Salesforce</span>
+        <span class="conn-chip"><span class="cdot" style="background:#0070AD"></span>SAP</span>
+        <span class="conn-chip"><span class="cdot" style="background:#EF4444"></span>Oracle</span>
+        <span class="conn-chip"><span class="cdot" style="background:#4285F4"></span>Google BigQuery</span>
+        <span class="conn-chip"><span class="cdot" style="background:#231F20"></span>Kafka</span>
+      </div>
+    </div>
+    <!-- Ligne 2 inversée -->
+    <div class="marquee-wrap">
+      <div class="marquee-track rev">
+        <span class="conn-chip"><span class="cdot" style="background:#E8001D"></span>MySQL</span>
+        <span class="conn-chip"><span class="cdot" style="background:#1A73E8"></span>Google Sheets</span>
+        <span class="conn-chip"><span class="cdot" style="background:#7C3AED"></span>Snowflake</span>
+        <span class="conn-chip"><span class="cdot" style="background:#FF4500"></span>Redis</span>
+        <span class="conn-chip"><span class="cdot" style="background:#0A66C2"></span>SharePoint</span>
+        <span class="conn-chip"><span class="cdot" style="background:#F97316"></span>RabbitMQ</span>
+        <span class="conn-chip"><span class="cdot" style="background:#00758F"></span>MariaDB</span>
+        <span class="conn-chip"><span class="cdot" style="background:#0052CC"></span>Jira</span>
+        <span class="conn-chip"><span class="cdot" style="background:#4A154B"></span>Slack</span>
+        <span class="conn-chip"><span class="cdot" style="background:#EB5757"></span>Notion</span>
+        <span class="conn-chip"><span class="cdot" style="background:#10B981"></span>FTP / SFTP</span>
+        <span class="conn-chip"><span class="cdot" style="background:#6366F1"></span>Elasticsearch</span>
+        <span class="conn-chip"><span class="cdot" style="background:#E8001D"></span>MySQL</span>
+        <span class="conn-chip"><span class="cdot" style="background:#1A73E8"></span>Google Sheets</span>
+        <span class="conn-chip"><span class="cdot" style="background:#7C3AED"></span>Snowflake</span>
+        <span class="conn-chip"><span class="cdot" style="background:#FF4500"></span>Redis</span>
+        <span class="conn-chip"><span class="cdot" style="background:#0A66C2"></span>SharePoint</span>
+        <span class="conn-chip"><span class="cdot" style="background:#F97316"></span>RabbitMQ</span>
+        <span class="conn-chip"><span class="cdot" style="background:#00758F"></span>MariaDB</span>
+        <span class="conn-chip"><span class="cdot" style="background:#0052CC"></span>Jira</span>
+        <span class="conn-chip"><span class="cdot" style="background:#4A154B"></span>Slack</span>
+        <span class="conn-chip"><span class="cdot" style="background:#EB5757"></span>Notion</span>
+        <span class="conn-chip"><span class="cdot" style="background:#10B981"></span>FTP / SFTP</span>
+        <span class="conn-chip"><span class="cdot" style="background:#6366F1"></span>Elasticsearch</span>
+      </div>
+    </div>
+
+    <div class="conn-cta">
+      <a href="contact.html" class="conn-btn">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg>
+        70+ connecteurs disponibles
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     BLOC 4 — SÉCURITÉ BY DESIGN
+══════════════════════════════ -->
+<section id="security" class="reveal">
+  <div class="wrap">
+    <div class="sec-grid">
+      <div>
+        <div class="pill">Sécurité by Design</div>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.5px;margin-bottom:16px;">
+          La sécurité n'est pas une couche.<br>
+          <span style="color:var(--orange)">C'est l'architecture elle-même.</span>
+        </h2>
+        <p style="font-size:15px;color:var(--t5);line-height:1.75;margin-bottom:32px;">
+          iD4Connect n'a pas été conçu pour être sécurisé après coup. Chaque principe architectural est une décision de sécurité. Zéro stockage, zéro copie, zéro surface d'attaque inutile.
+        </p>
+        <div class="sec-pillars">
+          <div class="sec-pillar">
+            <div class="sp-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+            </div>
+            <div class="sp-txt">
+              <h4>Zéro surface de stockage</h4>
+              <p>Pas de donnée au repos, pas de base à compromettre. Une donnée en transit est une donnée non exposée.</p>
+            </div>
+          </div>
+          <div class="sec-pillar">
+            <div class="sp-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div class="sp-txt">
+              <h4>Chiffrement de bout en bout</h4>
+              <p>Chaque flux est chiffré pendant le transit. De la source à la destination, sans déchiffrement intermédiaire.</p>
+            </div>
+          </div>
+          <div class="sec-pillar">
+            <div class="sp-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="sp-txt">
+              <h4>Isolation par DataCell</h4>
+              <p>Chaque cellule opère dans un périmètre strictement défini. Une compromission ne peut pas se propager latéralement.</p>
+            </div>
+          </div>
+          <div class="sec-pillar">
+            <div class="sp-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="sp-txt">
+              <h4>Audit log natif</h4>
+              <p>Chaque transit est traçé, horodaté et signé. L'historique complet est disponible sans configuration supplémentaire.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visuel droite -->
+      <div class="sec-visual">
+        <div class="sec-card">
+          <div class="sec-card-head">
+            <span class="scht">Statut sécurité</span>
+            <span class="schb">Actif</span>
+          </div>
+          <div class="sec-card-body">
+            <div class="sec-row"><span class="sr-lbl">Chiffrement flux</span><span class="sr-val ok">Activé</span></div>
+            <div class="sec-row"><span class="sr-lbl">Stockage données</span><span class="sr-val off">Aucun</span></div>
+            <div class="sec-row"><span class="sr-lbl">Audit trail</span><span class="sr-val ok">Complet</span></div>
+            <div class="sec-row"><span class="sr-lbl">Isolation cellule</span><span class="sr-val ok">Périmètre fermé</span></div>
+            <div class="sec-row"><span class="sr-lbl">Accès extraterritorial</span><span class="sr-val off">Impossible</span></div>
+            <div class="sec-row"><span class="sr-lbl">Surface d'attaque</span><span class="sr-val ok">Minimale</span></div>
+          </div>
+        </div>
+
+        <div class="sec-card">
+          <div class="sec-card-head">
+            <span class="scht">Conformité</span>
+            <span class="schb">Couvert</span>
+          </div>
+          <div class="sec-card-body">
+            <div class="sec-row"><span class="sr-lbl">Protection données personnelles</span><span class="sr-val ok">By design</span></div>
+            <div class="sec-row"><span class="sr-lbl">Résilience opérationnelle</span><span class="sr-val ok">Natif</span></div>
+            <div class="sec-row"><span class="sr-lbl">Sécurité des réseaux</span><span class="sr-val ok">Couvert</span></div>
+            <div class="sec-row"><span class="sr-lbl">Données de santé</span><span class="sr-val act">Compatible</span></div>
+            <div class="sec-row"><span class="sr-lbl">Hébergement souverain</span><span class="sr-val ok">Européen</span></div>
+          </div>
+        </div>
+
+        <div class="sec-note">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>
+          La conformité n'est pas une option à activer — elle est le résultat direct d'une architecture qui ne stocke jamais les données.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="arch-cta">
+  <div class="wrap">
+    <h2>Prêt à voir l'architecture en action ?</h2>
+    <p>30 minutes pour comprendre comment iD4Connect s'intègre à votre infrastructure.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-w">Demander une démo →</a>
+      <a href="positionnement.html" class="btn-wo">Voir le positionnement</a>
+    </div>
+  </div>
+</section>
+
+<div id="ftr-ph"></div>
+
+<script>
+/* Tabs */
+document.querySelectorAll('.ag-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.ag-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.ag-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+async function loadComp(id, file) {
+  try {
+    const r = await fetch(file);
+    const html = await r.text();
+    const el = document.getElementById(id);
+    el.innerHTML = html;
+    el.querySelectorAll('script').forEach(s => {
+      const ns = document.createElement('script');
+      ns.textContent = s.textContent;
+      document.head.appendChild(ns);
+    });
+  } catch(e){}
+}
+
+window.addEventListener('load', async () => {
+  await loadComp('hdr-ph','header.html');
+  await loadComp('ftr-ph','footer.html');
+  const t = localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  document.documentElement.setAttribute('data-theme',t);
+  document.body.setAttribute('data-theme',t);
+  document.addEventListener('themeChange', e => {
+    document.documentElement.setAttribute('data-theme',e.detail);
+    document.body.setAttribute('data-theme',e.detail);
+  });
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+  },{threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+});
+</script>
+</body>
+</html>
