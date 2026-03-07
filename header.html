@@ -19,7 +19,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.visible{opacity:1;transform:none;}
 /* HERO */
-#arch-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;isolation:isolate;}
+#arch-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;}
 #arch-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;z-index:0;}
 #arch-hero{position:relative;z-index:0;}
 .hero-text{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;}
@@ -27,7 +27,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .hero-text h1 .o{color:var(--orange);}
 .hero-text p{font-size:15px;color:var(--t5);line-height:1.75;max-width:560px;margin:0 auto;}
 /* AGNOSTIC */
-#agnostic{padding:0 0 96px;background:var(--bg);isolation:isolate;}
+#agnostic{padding:0 0 96px;background:var(--bg);}
 .ag-outer{max-width:1120px;margin:0 auto;padding:0 32px;}
 .ag-frame{position:relative;border:2px solid var(--orange);border-radius:var(--r-xl);background:var(--card);padding:52px 36px 28px;animation:agGlow 3s ease-in-out infinite;}
 @keyframes agGlow{0%,100%{box-shadow:0 0 0 4px rgba(249,115,22,.04),0 12px 48px rgba(249,115,22,.08);}50%{box-shadow:0 0 0 6px rgba(249,115,22,.09),0 12px 48px rgba(249,115,22,.16);}}
@@ -178,7 +178,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 </head>
 <body>
 <script>(function(){var t=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.body&&document.body.setAttribute('data-theme',t);})();</script>
-<div id="hdr-ph" style="position:relative;z-index:1001;"></div>
+<div id="hdr-ph"></div>
 
 <section id="arch-hero">
   <div class="hero-text">
@@ -409,7 +409,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 /* ══════════════════════════════
    DICTIONNAIRE i18n
 ══════════════════════════════ */
-const I18N = {
+const ARCH_I18N = {
   fr: {
     "meta.title":"Architecture — iD4Connect",
     "pill":"Architecture",
@@ -689,7 +689,7 @@ function renderDcCenter(dc) {
 
 function renderMode(mode, lang) {
   currentMode = mode;
-  var data = (MODES_I18N[lang] || MODES_I18N.fr)[mode];
+  var data = (MODES_ARCH_I18N[lang] || MODES_I18N.fr)[mode];
   if (!data) return;
   var layout = document.getElementById("ag-layout");
   if (layout) { layout.style.animation = "none"; void layout.offsetWidth; layout.style.animation = "agFade .2s ease"; }
@@ -703,7 +703,7 @@ function renderMode(mode, lang) {
 ══════════════════════════════ */
 function applyLang(lang) {
   currentLang = lang;
-  var t = I18N[lang] || I18N.fr;
+  var t = ARCH_I18N[lang] || ARCH_I18N.fr;
   document.querySelectorAll("[data-i18n]").forEach(function(el) {
     var key = el.getAttribute("data-i18n").replace("arch.", "");
     if (t[key] !== undefined) el.innerHTML = t[key];
