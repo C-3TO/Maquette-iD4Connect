@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demander une démo — iD4Connect</title>
+<meta name="description" content="Prenez 30 minutes avec notre équipe pour voir iD4Connect en action sur vos cas d'usage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-em:#10B981;--blue:#2563EB;--blue-pale:#EFF6FF;--purple:#8B5CF6;--purple-pale:#F5F3FF;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
+:root,[data-theme="light"]{--bg:#F5F4F0;--card:#FFFFFF;--section:#EEEDEA;--t9:#111827;--t7:#374151;--t5:#6B7280;--t4:#9CA3AF;--border:#E5E3DE;--border-s:#D1CFCA;--sh-sm:0 1px 3px rgba(0,0,0,.07);--sh:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.10);}
+[data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--sh-lg:0 12px 40px rgba(0,0,0,.4);--orange-pale:rgba(249,115,22,.09);--orange-border:rgba(249,115,22,.22);--green-pale:rgba(22,163,74,.09);--blue-pale:rgba(37,99,235,.09);--purple-pale:rgba(139,92,246,.09);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
+.wrap{max-width:1060px;margin:0 auto;padding:0 32px;}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
+.pill svg{width:12px;height:12px;}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;background:var(--orange);color:white;font-size:13.5px;font-weight:700;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);width:100%;}
+.btn-primary:hover{background:var(--orange-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.3);}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none;}
+
+/* ── HERO ── */
+.contact-hero{padding:72px 0 60px;background:var(--bg);position:relative;overflow:hidden;}
+.contact-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
+.hero-in{position:relative;z-index:1;max-width:600px;}
+.hero-in h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--t9);margin-bottom:14px;}
+.hero-in h1 span{color:var(--orange);}
+.hero-in p{font-size:15.5px;color:var(--t5);line-height:1.75;max-width:500px;}
+
+/* ── LAYOUT ── */
+.contact-layout{padding:52px 0 80px;background:var(--bg);}
+.contact-grid{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start;}
+
+/* ── FORM ── */
+.form-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-xl);padding:40px;box-shadow:var(--sh);}
+.form-title{font-size:18px;font-weight:800;color:var(--t9);margin-bottom:6px;}
+.form-sub{font-size:13px;color:var(--t5);margin-bottom:32px;line-height:1.6;}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.form-group:last-of-type{margin-bottom:24px;}
+.form-label{font-size:12px;font-weight:700;color:var(--t7);letter-spacing:.3px;}
+.form-label span{color:var(--orange);}
+.form-input,.form-select,.form-textarea{background:var(--section);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:10px 14px;font-size:13.5px;font-family:var(--font);color:var(--t9);outline:none;transition:border-color .2s,box-shadow .2s;width:100%;}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--t4);}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.1);}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:12px;padding-right:36px;cursor:pointer;}
+[data-theme="dark"] .form-select{background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");}
+.form-select option{background:var(--card);}
+.form-textarea{resize:vertical;min-height:100px;line-height:1.6;}
+
+.form-check{display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;}
+.form-check input[type=checkbox]{width:16px;height:16px;border:1.5px solid var(--border);border-radius:3px;cursor:pointer;flex-shrink:0;margin-top:2px;accent-color:var(--orange);}
+.form-check-lbl{font-size:12px;color:var(--t5);line-height:1.6;}
+.form-check-lbl a{color:var(--orange);text-decoration:none;}
+.form-check-lbl a:hover{text-decoration:underline;}
+
+/* Success state */
+.form-success{display:none;text-align:center;padding:20px 0;}
+.form-success-ico{width:56px;height:56px;border-radius:50%;background:var(--green-pale);border:2px solid rgba(22,163,74,.25);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.form-success-ico svg{width:24px;height:24px;color:var(--green);}
+.form-success h3{font-size:18px;font-weight:800;color:var(--t9);margin-bottom:8px;}
+.form-success p{font-size:13.5px;color:var(--t5);line-height:1.65;}
+
+/* ── SIDEBAR ── */
+.contact-sidebar{display:flex;flex-direction:column;gap:20px;}
+
+.info-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:24px;}
+.info-card-title{font-size:13px;font-weight:800;color:var(--t9);margin-bottom:16px;}
+.info-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;}
+.info-item:last-child{margin-bottom:0;}
+.info-ico{width:36px;height:36px;border-radius:var(--r-sm);background:var(--orange-pale);border:1px solid var(--orange-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.info-ico svg{width:16px;height:16px;color:var(--orange);}
+.info-text-lbl{font-size:11px;font-weight:700;color:var(--t4);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;}
+.info-text-val{font-size:13px;font-weight:600;color:var(--t9);}
+.info-text-val a{color:var(--orange);text-decoration:none;}
+.info-text-val a:hover{text-decoration:underline;}
+
+.steps-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:24px;}
+.steps-title{font-size:13px;font-weight:800;color:var(--t9);margin-bottom:20px;}
+.step{display:flex;gap:14px;margin-bottom:18px;}
+.step:last-child{margin-bottom:0;}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--orange);color:white;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-body{}
+.step-title{font-size:13px;font-weight:700;color:var(--t9);margin-bottom:3px;}
+.step-desc{font-size:12px;color:var(--t5);line-height:1.55;}
+
+.trust-card{background:linear-gradient(135deg,var(--orange-pale),var(--card));border:1.5px solid var(--orange-border);border-radius:var(--r-lg);padding:24px;}
+[data-theme="dark"] .trust-card{background:linear-gradient(135deg,rgba(249,115,22,.08),var(--card));}
+.trust-title{font-size:12px;font-weight:700;color:var(--t5);text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px;}
+.trust-items{display:flex;flex-direction:column;gap:10px;}
+.trust-item{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--t7);}
+.trust-dot{width:18px;height:18px;border-radius:50%;background:var(--green-pale);border:1.5px solid rgba(22,163,74,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.trust-dot svg{width:10px;height:10px;color:var(--green);}
+
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}.contact-sidebar{order:-1;}}
+@media(max-width:600px){.form-row{grid-template-columns:1fr;}.form-card{padding:24px;}.wrap{padding:0 20px;}}
+</style>
+</head>
+<body>
+<div id="hdr-ph"></div>
+
+<section class="contact-hero">
+  <div class="wrap">
+    <div class="hero-in">
+      <div class="pill">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>
+        Démo & Contact
+      </div>
+      <h1>Voyez iD4Connect<br><span>sur vos données.</span></h1>
+      <p>30 minutes suffisent pour comprendre ce que le traitement en transit peut changer dans votre organisation. Pas de slideshow — une démo sur votre cas d'usage réel.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-layout">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <!-- FORMULAIRE -->
+      <div class="form-card">
+        <div id="form-content">
+          <div class="form-title">Demander une démo</div>
+          <div class="form-sub">Remplissez ce formulaire et nous vous recontactons sous 24h ouvrées pour planifier la session.</div>
+
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Prénom <span>*</span></label>
+              <input class="form-input" type="text" id="f-prenom" placeholder="Marie">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Nom <span>*</span></label>
+              <input class="form-input" type="text" id="f-nom" placeholder="Dupont">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email professionnel <span>*</span></label>
+            <input class="form-input" type="email" id="f-email" placeholder="marie.dupont@entreprise.fr">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Société <span>*</span></label>
+              <input class="form-input" type="text" id="f-societe" placeholder="Nom de votre entreprise">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Fonction</label>
+              <input class="form-input" type="text" id="f-fonction" placeholder="DSI, CTO, Data Manager…">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Secteur d'activité</label>
+            <select class="form-select" id="f-secteur">
+              <option value="" disabled selected>Sélectionnez votre secteur</option>
+              <option value="cyber">Cybersécurité</option>
+              <option value="finance">Banque & Assurance</option>
+              <option value="industrie">Industrie & IoT</option>
+              <option value="smartbuilding">Smart Building</option>
+              <option value="sante">Santé</option>
+              <option value="public">Secteur Public</option>
+              <option value="energie">Énergie & Utilities</option>
+              <option value="retail">Retail & Distribution</option>
+              <option value="logistique">Logistique & Supply Chain</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Cas d'usage ou contexte</label>
+            <textarea class="form-textarea" id="f-message" placeholder="Décrivez brièvement votre problématique data, vos sources, ce que vous cherchez à faire…"></textarea>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" id="f-rgpd">
+            <label class="form-check-lbl" for="f-rgpd">J'accepte que mes données soient utilisées pour traiter ma demande de démo, conformément à la <a href="#">politique de confidentialité</a> d'iD4Connect. Aucune donnée n'est revendue ou cédée à des tiers.</label>
+          </div>
+
+          <button class="btn-primary" id="submit-btn" onclick="submitForm()">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>
+            Demander ma démo gratuite
+          </button>
+        </div>
+
+        <div class="form-success" id="form-success">
+          <div class="form-success-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <h3>Demande envoyée !</h3>
+          <p>Nous avons bien reçu votre demande.<br>Un membre de l'équipe iD4Connect vous contactera <strong>sous 24h ouvrées</strong> pour planifier votre session de démo.</p>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar">
+
+        <!-- Infos contact -->
+        <div class="info-card">
+          <div class="info-card-title">Nous contacter directement</div>
+
+          <div class="info-item">
+            <div class="info-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 3h11a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M2 4l6 5 6-5"/></svg>
+            </div>
+            <div>
+              <div class="info-text-lbl">Email</div>
+              <div class="info-text-val"><a href="mailto:contact@id4connect.com">contact@id4connect.com</a></div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="3"/><path d="M5 8h6M8 5v6"/></svg>
+            </div>
+            <div>
+              <div class="info-text-lbl">LinkedIn</div>
+              <div class="info-text-val"><a href="https://linkedin.com/company/id4connect" target="_blank">iD4Connect sur LinkedIn</a></div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5C4.4 1.5 1.5 4.4 1.5 8S4.4 14.5 8 14.5 14.5 11.6 14.5 8 11.6 1.5 8 1.5z"/><path d="M8 4.5v3.5l2 2"/></svg>
+            </div>
+            <div>
+              <div class="info-text-lbl">Siège social</div>
+              <div class="info-text-val">Massy, Île-de-France</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Étapes -->
+        <div class="steps-card">
+          <div class="steps-title">Comment se passe la démo ?</div>
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <div class="step-title">Cadrage de votre contexte</div>
+              <div class="step-desc">On commence par comprendre vos sources de données, vos systèmes existants et ce que vous cherchez à résoudre.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <div class="step-title">Démo live sur votre cas d'usage</div>
+              <div class="step-desc">Pas de slideshow générique — on configure une DataCell sur un scénario concret de votre secteur.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <div class="step-title">Questions & architecture cible</div>
+              <div class="step-desc">On esquisse ensemble comment iD4Connect s'intègrerait dans votre SI, sans migration ni refonte.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Garanties -->
+        <div class="trust-card">
+          <div class="trust-title">Ce que vous n'aurez pas</div>
+          <div class="trust-items">
+            <div class="trust-item">
+              <div class="trust-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg></div>
+              Pas de relance commerciale agressive
+            </div>
+            <div class="trust-item">
+              <div class="trust-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg></div>
+              Pas de données revendues ou partagées
+            </div>
+            <div class="trust-item">
+              <div class="trust-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg></div>
+              Pas d'engagement ni de contrat à signer
+            </div>
+            <div class="trust-item">
+              <div class="trust-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg></div>
+              Pas de présentation PowerPoint de 40 slides
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="ftr-ph"></div>
+
+<script>
+function submitForm() {
+  const prenom = document.getElementById('f-prenom').value.trim();
+  const nom = document.getElementById('f-nom').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const societe = document.getElementById('f-societe').value.trim();
+  const rgpd = document.getElementById('f-rgpd').checked;
+
+  if (!prenom || !nom || !email || !societe) {
+    const inputs = [
+      { id: 'f-prenom', val: prenom },
+      { id: 'f-nom', val: nom },
+      { id: 'f-email', val: email },
+      { id: 'f-societe', val: societe },
+    ];
+    inputs.forEach(({ id, val }) => {
+      const el = document.getElementById(id);
+      el.style.borderColor = !val ? 'var(--red, #DC2626)' : 'var(--border)';
+    });
+    return;
+  }
+  if (!rgpd) {
+    document.getElementById('f-rgpd').style.outline = '2px solid var(--orange)';
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2a6 6 0 1 0 6 6"/><animateTransform attributeName="transform" type="rotate" from="0 8 8" to="360 8 8" dur=".7s" repeatCount="indefinite"/></svg> Envoi en cours…';
+
+  setTimeout(() => {
+    document.getElementById('form-content').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }, 1200);
+}
+
+async function loadComp(id, file) {
+  try {
+    const r = await fetch(file);
+    const html = await r.text();
+    const el = document.getElementById(id);
+    el.innerHTML = html;
+    el.querySelectorAll('script').forEach(s => {
+      const ns = document.createElement('script');
+      ns.textContent = s.textContent;
+      document.head.appendChild(ns);
+    });
+    if (typeof initHeader === 'function') initHeader();
+  } catch(e) { console.error('loadComp:', file, e); }
+}
+
+window.addEventListener('load', async () => {
+  await loadComp('hdr-ph', 'header.html');
+  await loadComp('ftr-ph', 'footer.html');
+  document.addEventListener('themeChange', e => {
+    document.documentElement.setAttribute('data-theme', e.detail);
+    document.body.setAttribute('data-theme', e.detail);
+  });
+});
+</script>
+</body>
+</html>
