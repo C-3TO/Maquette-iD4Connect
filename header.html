@@ -26,30 +26,31 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .chev{width:11px;height:11px;flex-shrink:0;transition:transform var(--tr);color:var(--t4);}
 .nav-item:hover .chev{transform:rotate(180deg);}
 
-.drop{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(-6px);background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:5px;min-width:188px;opacity:0;visibility:hidden;pointer-events:none;transition:all var(--tr);box-shadow:var(--sh);}
+.drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-4px);background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:5px;min-width:188px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity var(--tr),transform var(--tr);box-shadow:var(--sh);/* pont invisible pour combler le gap */padding-top:11px;margin-top:-5px;}
+.drop::before{content:'';position:absolute;top:0;left:0;right:0;height:10px;background:transparent;}
 .nav-item:hover .drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
 .drop.wide{min-width:276px;display:grid;grid-template-columns:1fr 1fr;gap:1px;}
 .drop-lbl{grid-column:1/-1;padding:5px 9px 2px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);opacity:.7;}
 .drop-item{display:flex;align-items:center;gap:7px;padding:7px 9px;font-size:13px;font-weight:500;font-family:var(--font);color:var(--t7);text-decoration:none;border-radius:var(--r-xs);transition:all var(--tr);}
 .drop-item:hover{background:var(--orange-pale);color:var(--orange);}
 .di{font-size:14px;width:18px;text-align:center;}
+.di-svg{width:14px;height:14px;flex-shrink:0;color:var(--t4);}
+.drop-item:hover .di-svg{color:var(--orange);}
 
 /* RIGHT */
 .hdr-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
 
-/* LANG DROPDOWN */
+/* LANG — simple texte */
 .lang-wrap{position:relative;}
-.lang-trigger{display:flex;align-items:center;gap:5px;padding:5px 10px;background:var(--section);border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:12px;font-weight:600;font-family:var(--font);color:var(--t7);transition:all var(--tr);}
+.lang-trigger{display:flex;align-items:center;gap:4px;padding:5px 9px;background:none;border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:12px;font-weight:700;font-family:var(--font);color:var(--t5);letter-spacing:.5px;transition:all var(--tr);}
 .lang-trigger:hover{border-color:var(--border-s);color:var(--t9);}
-.lang-trigger .lchev{width:11px;height:11px;color:var(--t4);transition:transform var(--tr);}
+.lang-trigger .lchev{width:10px;height:10px;color:var(--t4);transition:transform var(--tr);flex-shrink:0;}
 .lang-wrap.open .lang-trigger .lchev{transform:rotate(180deg);}
-.lang-flag{font-size:14px;line-height:1;}
-.lang-drop{position:absolute;top:calc(100% + 5px);right:0;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:4px;min-width:130px;opacity:0;visibility:hidden;pointer-events:none;transition:all var(--tr);box-shadow:var(--sh);}
+.lang-drop{position:absolute;top:calc(100% + 5px);right:0;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:4px;min-width:90px;opacity:0;visibility:hidden;pointer-events:none;transition:all var(--tr);box-shadow:var(--sh);}
 .lang-wrap.open .lang-drop{opacity:1;visibility:visible;pointer-events:auto;}
-.lang-opt{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:var(--r-xs);font-size:13px;font-weight:500;font-family:var(--font);color:var(--t7);cursor:pointer;transition:all var(--tr);}
+.lang-opt{display:block;padding:7px 12px;border-radius:var(--r-xs);font-size:12px;font-weight:600;font-family:var(--font);letter-spacing:.4px;color:var(--t7);cursor:pointer;transition:all var(--tr);}
 .lang-opt:hover{background:var(--section);color:var(--t9);}
-.lang-opt.active{color:var(--orange);font-weight:600;}
-.lang-opt .lflag{font-size:15px;}
+.lang-opt.active{color:var(--orange);}
 
 /* THEME BTN */
 .theme-btn{width:32px;height:32px;background:var(--section);border:1px solid var(--border);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--tr);color:var(--t5);}
@@ -105,24 +106,24 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <div class="nav-item">
         <button class="nav-btn"><span data-i18n="nav.tech">Technologie</span><svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="drop">
-          <a href="datacell.html"       class="drop-item"><span class="di">⚡</span>DataCell</a>
-          <a href="datagraph.html"      class="drop-item"><span class="di">🕸</span>DataGraph</a>
-          <a href="architecture.html"   class="drop-item"><span class="di">🏗</span><span data-i18n="nav.archi">Architecture</span></a>
-          <a href="positionnement.html" class="drop-item"><span class="di">🎯</span><span data-i18n="nav.pos">Positionnement</span></a>
+          <a href="datacell.html"       class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/></svg>DataCell</a>
+          <a href="datagraph.html"      class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><circle cx="2.5" cy="4" r="1.5"/><circle cx="13.5" cy="4" r="1.5"/><circle cx="2.5" cy="12" r="1.5"/><circle cx="13.5" cy="12" r="1.5"/><line x1="4" y1="4.5" x2="6" y2="7"/><line x1="12" y1="4.5" x2="10" y2="7"/><line x1="4" y1="11.5" x2="6" y2="9"/><line x1="12" y1="11.5" x2="10" y2="9"/></svg><span data-i18n="nav.archi-dg">DataGraph</span></a>
+          <a href="architecture.html"   class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg><span data-i18n="nav.archi">Architecture</span></a>
+          <a href="positionnement.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><circle cx="8" cy="8" r="3"/><line x1="8" y1="1.5" x2="8" y2="4.5"/><line x1="8" y1="11.5" x2="8" y2="14.5"/><line x1="1.5" y1="8" x2="4.5" y2="8"/><line x1="11.5" y1="8" x2="14.5" y2="8"/></svg><span data-i18n="nav.pos">Positionnement</span></a>
         </div>
       </div>
       <div class="nav-item">
         <button class="nav-btn"><span data-i18n="nav.sectors">Secteurs</span><svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="drop wide">
           <div class="drop-lbl" data-i18n="nav.sectors">Secteurs</div>
-          <a href="secteur-cyber.html"         class="drop-item"><span class="di">🛡</span><span data-i18n="nav.cyber">Cybersécurité</span></a>
-          <a href="secteur-iot.html"           class="drop-item"><span class="di">🏭</span><span data-i18n="nav.iot">Industrie & IoT</span></a>
-          <a href="secteur-smartbuilding.html" class="drop-item"><span class="di">🏢</span>Smart Building</a>
-          <a href="secteur-sante.html"         class="drop-item"><span class="di">🏥</span><span data-i18n="nav.health">Santé</span></a>
-          <a href="secteur-public.html"        class="drop-item"><span class="di">🏛</span><span data-i18n="nav.public">Secteur Public</span></a>
-          <a href="secteur-energie.html"       class="drop-item"><span class="di">⚡</span><span data-i18n="nav.energy">Énergie</span></a>
-          <a href="secteur-retail.html"        class="drop-item"><span class="di">🛒</span>Retail</a>
-          <a href="secteur-logistique.html"    class="drop-item"><span class="di">🚛</span><span data-i18n="nav.log">Logistique</span></a>
+          <a href="secteur-cyber.html"         class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg><span data-i18n="nav.cyber">Cybersécurité</span></a>
+          <a href="secteur-iot.html"           class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="12" height="8" rx="1"/><path d="M5 5V3.5a3 3 0 0 1 6 0V5"/><circle cx="8" cy="9" r="1.5"/></svg><span data-i18n="nav.iot">Industrie & IoT</span></a>
+          <a href="secteur-smartbuilding.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="10" height="13" rx="1"/><line x1="6" y1="5" x2="6" y2="5.5"/><line x1="10" y1="5" x2="10" y2="5.5"/><line x1="6" y1="8" x2="6" y2="8.5"/><line x1="10" y1="8" x2="10" y2="8.5"/><rect x="6" y="11" width="4" height="4"/></svg>Smart Building</a>
+          <a href="secteur-sante.html"         class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 14s-5.5-3.8-5.5-8a5 5 0 0 1 5.5-1.5A5 5 0 0 1 13.5 6c0 4.2-5.5 8-5.5 8z"/><path d="M6 8h4M8 6v4"/></svg><span data-i18n="nav.health">Santé</span></a>
+          <a href="secteur-public.html"        class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 14h14M3 14V7M13 14V7M6 14V7M10 14V7M1 7l7-5 7 5"/></svg><span data-i18n="nav.public">Secteur Public</span></a>
+          <a href="secteur-energie.html"       class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg><span data-i18n="nav.energy">Énergie</span></a>
+          <a href="secteur-retail.html"        class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 2h1.5l1.5 7h7l1.5-5H5"/><circle cx="7" cy="13" r="1"/><circle cx="12" cy="13" r="1"/></svg>Retail</a>
+          <a href="secteur-logistique.html"    class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="5" width="10" height="8" rx="1"/><path d="M11 7h2.5L15 11v2h-4V7z"/><circle cx="4" cy="13.5" r="1"/><circle cx="12" cy="13.5" r="1"/></svg><span data-i18n="nav.log">Logistique</span></a>
         </div>
       </div>
       <div class="nav-item"><a href="blog.html"     class="nav-btn" data-i18n="nav.blog">Blog</a></div>
@@ -132,14 +133,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
     <div class="hdr-right">
       <div class="lang-wrap" id="lang-wrap">
         <button class="lang-trigger" onclick="toggleLangDrop()">
-          <span class="lang-flag" id="lang-flag">🇫🇷</span>
           <span id="lang-cur">FR</span>
           <svg class="lchev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="lang-drop" id="lang-drop">
-          <div class="lang-opt active" onclick="setLang('fr')"><span class="lflag">🇫🇷</span>Français</div>
-          <div class="lang-opt"        onclick="setLang('en')"><span class="lflag">🇬🇧</span>English</div>
-          <div class="lang-opt"        onclick="setLang('es')"><span class="lflag">🇪🇸</span>Español</div>
+          <div class="lang-opt active" onclick="setLang('fr')">Français</div>
+          <div class="lang-opt"        onclick="setLang('en')">English</div>
+          <div class="lang-opt"        onclick="setLang('es')">Español</div>
         </div>
       </div>
 
