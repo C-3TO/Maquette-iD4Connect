@@ -1,157 +1,52 @@
-<!-- ============================================================
-     iD4Connect — FOOTER v2
-     ============================================================ -->
+<!-- iD4Connect FOOTER v3 — simple -->
 <style>
-#id4-footer {
-  font-family: var(--font, 'Inter', sans-serif);
-  background: var(--text-900, #111827);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 64px 0 0;
-}
-
-[data-theme="light"] #id4-footer {
-  background: #111827;
-}
-
-.ft-inner {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-/* TOP */
-.ft-top {
-  display: grid;
-  grid-template-columns: 2.2fr 1fr 1fr 1fr 1fr;
-  gap: 40px;
-  padding-bottom: 52px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+#ftr{font-family:var(--font,'Inter',sans-serif);background:#0F172A;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 0;}
+[data-theme="light"] #ftr{background:#0F172A;}
+.ftr-in{max-width:1160px;margin:0 auto;padding:0 32px;}
+.ftr-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06);}
 
 /* Brand */
-.ft-brand .ft-logo {
-  display: flex; align-items: center; gap: 8px;
-  text-decoration: none; margin-bottom: 16px;
-}
-.ft-brand .ft-logo svg { width: 28px; height: 28px; }
-.ft-brand .ft-logo-text { font-size: 16px; font-weight: 800; color: #F9FAFB; letter-spacing: -0.3px; }
-.ft-brand .ft-logo-text span { color: #F97316; }
-
-.ft-tagline {
-  font-size: 13px; color: #6B7280; line-height: 1.7;
-  margin-bottom: 22px; max-width: 260px;
-}
-
-.ft-badges {
-  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px;
-}
-.ft-badge {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 4px 10px;
-  border: 1px solid rgba(249,115,22,0.2);
-  border-radius: 100px;
-  font-size: 10px; font-weight: 700; letter-spacing: 0.4px;
-  color: #F97316; background: rgba(249,115,22,0.06);
-}
-
-.ft-socials { display: flex; gap: 8px; }
-.ft-social {
-  width: 32px; height: 32px; border-radius: 8px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none; font-size: 14px;
-  transition: all 0.18s;
-}
-.ft-social:hover { background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.3); transform: translateY(-1px); }
+.ftr-brand .ftr-logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-bottom:14px;}
+.ftr-brand .ftr-logo-word{font-size:16px;font-weight:800;color:#F97316;letter-spacing:-.3px;}
+.ftr-tagline{font-size:13px;color:#4B5563;line-height:1.7;max-width:240px;}
 
 /* Columns */
-.ft-col h4 {
-  font-size: 10px; font-weight: 700; color: #9CA3AF;
-  letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 16px;
-}
-.ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.ft-col ul li a {
-  font-size: 13px; font-weight: 400; color: #6B7280;
-  text-decoration: none; transition: color 0.18s;
-}
-.ft-col ul li a:hover { color: #F97316; }
-
-/* Compliance */
-.ft-compliance {
-  display: flex; align-items: center; justify-content: center;
-  gap: 20px; padding: 20px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  flex-wrap: wrap;
-}
-.ft-comp-item {
-  display: flex; align-items: center; gap: 5px;
-  font-size: 11px; font-weight: 600; color: #4B5563; letter-spacing: 0.3px;
-}
-.ft-comp-dot {
-  width: 14px; height: 14px; border-radius: 50%;
-  background: rgba(249,115,22,0.08);
-  border: 1px solid rgba(249,115,22,0.2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 8px; color: #F97316; font-weight: 800;
-}
+.ftr-col h4{font-size:10px;font-weight:700;color:#6B7280;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px;}
+.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.ftr-col ul li a{font-size:13px;color:#4B5563;text-decoration:none;transition:color .16s;}
+.ftr-col ul li a:hover{color:#F97316;}
 
 /* Bottom */
-.ft-bottom {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 0; gap: 16px; flex-wrap: wrap;
-}
-.ft-copy { font-size: 12px; color: #374151; }
-.ft-copy strong { color: #4B5563; }
-.ft-links { display: flex; gap: 16px; flex-wrap: wrap; }
-.ft-links a { font-size: 12px; color: #374151; text-decoration: none; transition: color 0.18s; }
-.ft-links a:hover { color: #F97316; }
+.ftr-bottom{display:flex;align-items:center;justify-content:space-between;padding:18px 0;flex-wrap:wrap;gap:12px;}
+.ftr-copy{font-size:12px;color:#374151;}
+.ftr-links{display:flex;gap:16px;}
+.ftr-links a{font-size:12px;color:#374151;text-decoration:none;transition:color .16s;}
+.ftr-links a:hover{color:#F97316;}
 
-@media (max-width: 960px) {
-  .ft-top { grid-template-columns: 1fr 1fr; }
-  .ft-brand { grid-column: 1 / -1; }
-}
-@media (max-width: 600px) {
-  .ft-top { grid-template-columns: 1fr; }
-  .ft-inner { padding: 0 20px; }
-  .ft-bottom { flex-direction: column; text-align: center; }
-}
+@media(max-width:900px){.ftr-top{grid-template-columns:1fr 1fr;}.ftr-brand{grid-column:1/-1;}}
+@media(max-width:600px){.ftr-top{grid-template-columns:1fr;}.ftr-in{padding:0 20px;}.ftr-bottom{flex-direction:column;text-align:center;}}
 </style>
 
-<footer id="id4-footer">
-  <div class="ft-inner">
-
-    <div class="ft-top">
-      <div class="ft-brand">
-        <a href="index.html" class="ft-logo">
-          <svg viewBox="0 0 30 30" fill="none">
-            <circle cx="15" cy="4.5" r="3"   fill="#F97316"/>
-            <circle cx="24" cy="10" r="2.4"  fill="#F97316" opacity=".8"/>
-            <circle cx="26" cy="20" r="2.1"  fill="#F97316" opacity=".65"/>
-            <circle cx="20" cy="27" r="2.6"  fill="#F97316" opacity=".85"/>
-            <circle cx="10" cy="27" r="2.1"  fill="#F97316" opacity=".7"/>
-            <circle cx="4"  cy="20" r="2.4"  fill="#F97316" opacity=".6"/>
-            <circle cx="6"  cy="10" r="2.1"  fill="#F97316" opacity=".75"/>
-            <circle cx="15" cy="15" r="4.5"  fill="#F97316" opacity=".12"/>
-            <circle cx="15" cy="15" r="2.2"  fill="#F97316"/>
+<footer id="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <a href="index.html" class="ftr-logo">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="4.5" fill="#F97316"/>
+            <ellipse cx="20" cy="5.5" rx="3.2" ry="3.8" fill="#F97316"/>
+            <ellipse cx="32" cy="10.5" rx="2.8" ry="3.2" fill="#F97316" opacity=".85"/>
+            <ellipse cx="35.5" cy="22" rx="2.2" ry="2.8" fill="#F97316" opacity=".7"/>
+            <ellipse cx="29" cy="33.5" rx="3" ry="2.5" fill="#F97316" opacity=".9"/>
+            <ellipse cx="11" cy="34" rx="2.4" ry="2.4" fill="#F97316" opacity=".75"/>
+            <ellipse cx="4.5" cy="23" rx="2" ry="2.5" fill="#F97316" opacity=".65"/>
+            <ellipse cx="7" cy="11" rx="2.5" ry="3" fill="#F97316" opacity=".8"/>
           </svg>
-          <span class="ft-logo-text">i<span>D4</span>Connect</span>
+          <span class="ftr-logo-word">iD4Connect</span>
         </a>
-        <p class="ft-tagline">Intelligence Data for Connect — La donnée utile à votre métier, traitée en transit. Zéro stockage. Souveraineté by design.</p>
-        <div class="ft-badges">
-          <span class="ft-badge">🇪🇺 Souveraineté EU</span>
-          <span class="ft-badge">🔒 RGPD by Design</span>
-          <span class="ft-badge">⚡ TRL 9</span>
-          <span class="ft-badge">🔬 Deep Tech</span>
-        </div>
-        <div class="ft-socials">
-          <a href="#" class="ft-social" title="LinkedIn">💼</a>
-          <a href="#" class="ft-social" title="GitHub">💻</a>
-          <a href="#" class="ft-social" title="X">𝕏</a>
-        </div>
+        <p class="ftr-tagline">La donnée utile à votre métier, traitée en transit. Zéro stockage. Souveraineté by design.</p>
       </div>
-
-      <div class="ft-col">
+      <div class="ftr-col">
         <h4>Technologie</h4>
         <ul>
           <li><a href="datacell.html">DataCell</a></li>
@@ -160,8 +55,7 @@
           <li><a href="positionnement.html">Positionnement</a></li>
         </ul>
       </div>
-
-      <div class="ft-col">
+      <div class="ftr-col">
         <h4>Secteurs</h4>
         <ul>
           <li><a href="secteur-cyber.html">Cybersécurité</a></li>
@@ -169,49 +63,25 @@
           <li><a href="secteur-smartbuilding.html">Smart Building</a></li>
           <li><a href="secteur-sante.html">Santé</a></li>
           <li><a href="secteur-energie.html">Énergie</a></li>
-          <li><a href="secteur-retail.html">Retail</a></li>
         </ul>
       </div>
-
-      <div class="ft-col">
+      <div class="ftr-col">
         <h4>Société</h4>
         <ul>
           <li><a href="histoire.html">Notre histoire</a></li>
-          <li><a href="partenaires.html">Partenaires</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h4>Ressources</h4>
-        <ul>
           <li><a href="contact.html">Demander une démo</a></li>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">API Reference</a></li>
-          <li><a href="#">Livre blanc</a></li>
         </ul>
       </div>
     </div>
-
-    <div class="ft-compliance">
-      <div class="ft-comp-item"><span class="ft-comp-dot">✓</span>RGPD</div>
-      <div class="ft-comp-item"><span class="ft-comp-dot">✓</span>NIS2</div>
-      <div class="ft-comp-item"><span class="ft-comp-dot">✓</span>DORA</div>
-      <div class="ft-comp-item"><span class="ft-comp-dot">✓</span>HDS</div>
-      <div class="ft-comp-item"><span class="ft-comp-dot">✓</span>ISO 27001</div>
-      <div class="ft-comp-item"><span class="ft-comp-dot">✓</span>Souveraineté Européenne</div>
-      <div class="ft-comp-item"><span class="ft-comp-dot">✓</span>Architecture Stateless</div>
-    </div>
-
-    <div class="ft-bottom">
-      <div class="ft-copy">© 2025 <strong>iD4Connect France SAS</strong> — SIRET 92783776500019 — Tous droits réservés</div>
-      <div class="ft-links">
-        <a href="#">Politique de confidentialité</a>
+    <div class="ftr-bottom">
+      <div class="ftr-copy">© 2025 iD4Connect France SAS — Tous droits réservés</div>
+      <div class="ftr-links">
+        <a href="#">Confidentialité</a>
         <a href="#">Mentions légales</a>
         <a href="#">Cookies</a>
       </div>
     </div>
-
   </div>
 </footer>
