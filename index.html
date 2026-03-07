@@ -1,698 +1,347 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iD4Connect — Vos données restent où elles sont. L'intelligence, non.</title>
-  <meta name="description" content="iD4Connect traite vos données en transit, sans les stocker ni les dupliquer. Deep Tech européen, TRL 9, souveraineté by design.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iD4Connect — Vos données restent où elles sont.</title>
+<meta name="description" content="iD4Connect traite vos données en transit, sans les stocker. Deep Tech européen, TRL 9.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* TOKENS (fallback si header non chargé) */
+:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue-pale:#EFF6FF;--purple-pale:#F5F3FF;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
+:root,[data-theme="light"]{--bg:#F5F4F0;--card:#FFFFFF;--section:#EEEDEA;--t9:#111827;--t7:#374151;--t5:#6B7280;--t4:#9CA3AF;--border:#E5E3DE;--border-s:#D1CFCA;--sh-sm:0 1px 3px rgba(0,0,0,.07);--sh:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.10);}
+[data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--sh-lg:0 12px 40px rgba(0,0,0,.4);--orange-pale:rgba(249,115,22,.08);--orange-border:rgba(249,115,22,.2);--green-pale:rgba(22,163,74,.08);--green-border:rgba(22,163,74,.2);--red-pale:rgba(220,38,38,.08);--red-border:rgba(220,38,38,.2);--blue-pale:rgba(59,130,246,.08);--purple-pale:rgba(139,92,246,.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
 
-  <style>
-  /* variables héritées du header — fallback si chargé seul */
-  :root {
-    --orange:#F97316; --orange-hover:#EA6C0A; --orange-pale:#FFF7ED; --orange-border:#FED7AA;
-    --green:#16A34A; --green-pale:#F0FDF4; --green-border:#BBF7D0;
-    --red:#DC2626; --red-pale:#FEF2F2; --red-border:#FECACA;
-    --blue-pale:#EFF6FF; --purple-pale:#F5F3FF; --teal-pale:#F0FDFA;
-    --font:'Inter',sans-serif; --radius-xs:6px; --radius-sm:8px; --radius:12px;
-    --radius-lg:16px; --radius-xl:24px; --radius-pill:100px; --tr:0.18s ease; --header-h:64px;
-  }
-  :root,[data-theme="light"]{
-    --bg:#F5F4F0; --bg-card:#FFFFFF; --bg-section:#EEEDEA; --bg-section-2:#F0EDE8;
-    --text-900:#111827; --text-700:#374151; --text-500:#6B7280; --text-400:#9CA3AF;
-    --border:#E5E3DE; --border-strong:#D1CFCA;
-    --shadow-sm:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);
-    --shadow:0 4px 16px rgba(0,0,0,.08); --shadow-lg:0 12px 40px rgba(0,0,0,.1);
-  }
-  [data-theme="dark"]{
-    --bg:#0C1221; --bg-card:#162032; --bg-section:#0A0E1A; --bg-section-2:#111827;
-    --text-900:#F9FAFB; --text-700:#D1D5DB; --text-500:#6B7280; --text-400:#4B5563;
-    --border:#1F2D3D; --border-strong:#2D3F52;
-    --shadow-sm:0 1px 3px rgba(0,0,0,.3); --shadow:0 4px 16px rgba(0,0,0,.3); --shadow-lg:0 12px 40px rgba(0,0,0,.4);
-    --orange-pale:rgba(249,115,22,.08); --orange-border:rgba(249,115,22,.2);
-    --green-pale:rgba(22,163,74,.08); --green-border:rgba(22,163,74,.2);
-    --red-pale:rgba(220,38,38,.08); --red-border:rgba(220,38,38,.2);
-    --blue-pale:rgba(59,130,246,.08); --purple-pale:rgba(139,92,246,.08); --teal-pale:rgba(20,184,166,.08);
-  }
+/* ── COMPOSANTS COMMUNS ── */
+.pill{display:inline-flex;align-items:center;padding:5px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
+.sec-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
+.sec-title .o{color:var(--orange);}
+.sec-sub{font-size:15px;color:var(--t5);line-height:1.75;}
 
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{font-family:var(--font);background:var(--bg);color:var(--text-900);-webkit-font-smoothing:antialiased;padding-top:var(--header-h);}
-  .container{max-width:1160px;margin:0 auto;padding:0 32px;}
+.cs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+.cs-item{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;border:1px solid;}
+.cs-item.g{background:var(--green-pale);border-color:var(--green-border);color:var(--green);}
+.cs-item.r{background:var(--red-pale);border-color:var(--red-border);color:var(--red);}
+.cs-item.o{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);}
 
-  /* ── COMPOSANTS RÉUTILISABLES ── */
-  .pill{
-    display:inline-flex;align-items:center;padding:5px 14px;
-    background:var(--orange-pale);border:1px solid var(--orange-border);
-    border-radius:var(--radius-pill);
-    font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);
-    margin-bottom:20px;
-  }
-  .section-title{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;line-height:1.15;letter-spacing:-0.5px;color:var(--text-900);}
-  .section-title .orange{color:var(--orange);}
-  .section-sub{font-size:15px;color:var(--text-500);line-height:1.7;max-width:580px;}
+.btn-p{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
+.btn-p:hover{background:var(--orange-d);transform:translateY(-1px);}
+.btn-g{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
+.btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
 
-  .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
-  .tag{
-    display:inline-flex;align-items:center;gap:5px;
-    padding:5px 12px;border-radius:var(--radius-pill);
-    font-size:12px;font-weight:500;border:1px solid var(--border);
-    background:var(--bg-card);color:var(--text-500);
-  }
-  .tag .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-  .tag .dot.orange{background:var(--orange);}
-  .tag .dot.blue{background:#3B82F6;}
-  .tag .dot.green{background:var(--green);}
-  .tag .dot.purple{background:#8B5CF6;}
+/* ════════════════════════════════════
+   HERO
+════════════════════════════════════ */
+#hero{padding:88px 0 80px;background:var(--bg);position:relative;overflow:hidden;}
+#hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.35;pointer-events:none;}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:center;}
 
-  .check-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
-  .cs-item{
-    display:inline-flex;align-items:center;gap:6px;
-    padding:7px 14px;border-radius:var(--radius-pill);
-    font-size:12.5px;font-weight:600;border:1px solid;
-  }
-  .cs-item.green{background:var(--green-pale);border-color:var(--green-border);color:var(--green);}
-  .cs-item.red{background:var(--red-pale);border-color:var(--red-border);color:var(--red);}
-  .cs-item.orange{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;padding:5px 12px 5px 7px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-pill);font-size:12px;font-weight:600;color:var(--t7);margin-bottom:24px;box-shadow:var(--sh-sm);}
+.hero-eyebrow .dot{width:7px;height:7px;background:var(--orange);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
 
-  /* ══════════════════════════════════════════════════
-     HERO
-  ══════════════════════════════════════════════════ */
-  #hero{
-    padding:80px 0 72px;
-    background:var(--bg);
-    position:relative;overflow:hidden;
-  }
-  /* Subtle grid background */
-  #hero::before{
-    content:'';position:absolute;inset:0;
-    background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
-    background-size:48px 48px;
-    opacity:.4;pointer-events:none;
-  }
-  #hero::after{
-    content:'';position:absolute;bottom:0;left:0;right:0;height:120px;
-    background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;
-  }
+.hero-h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;line-height:1.06;letter-spacing:-1.2px;color:var(--t9);margin-bottom:20px;}
+.hero-h1 .o{color:var(--orange);}
+.hero-desc{font-size:15.5px;color:var(--t5);line-height:1.75;margin-bottom:32px;max-width:500px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
 
-  .hero-inner{
-    position:relative;z-index:1;
-    display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center;
-  }
+/* Visual droite */
+.hero-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg);}
+.hcard-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--section);}
+.hcard-head .ht{font-size:11px;font-weight:700;color:var(--t5);letter-spacing:.5px;text-transform:uppercase;}
+.live{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--green);}
+.live span{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 1.5s infinite;}
+.hcard-body{padding:16px;display:flex;flex-direction:column;gap:8px;}
+.flow{display:flex;align-items:center;gap:6px;}
+.fn{padding:7px 11px;border-radius:var(--r-sm);font-size:11.5px;font-weight:600;white-space:nowrap;}
+.fn.src{background:var(--blue-pale);color:#2563EB;border:1px solid rgba(37,99,235,.15);}
+.fn.cell{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
+.fn.out{background:var(--green-pale);color:var(--green);border:1px solid var(--green-border);}
+.fn.arr{background:none;border:none;color:var(--t4);font-size:13px;padding:0 2px;}
+.hcard-foot{padding:10px 14px;border-top:1px solid var(--border);background:var(--green-pale);font-size:11.5px;font-weight:600;color:var(--green);}
 
-  .hero-content .hero-eyebrow{
-    display:inline-flex;align-items:center;gap:7px;
-    padding:5px 12px 5px 7px;
-    background:var(--bg-card);border:1px solid var(--border);
-    border-radius:var(--radius-pill);
-    font-size:12px;font-weight:600;color:var(--text-700);
-    margin-bottom:24px;box-shadow:var(--shadow-sm);
-  }
-  .hero-content .hero-eyebrow .dot{
-    width:7px;height:7px;background:var(--orange);border-radius:50%;
-    animation:pulse 2s infinite;
-  }
-  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(.85);}}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:10px;}
+.hstat{background:var(--card);padding:13px 14px;}
+.hstat .sv{font-size:19px;font-weight:900;color:var(--orange);letter-spacing:-.3px;}
+.hstat .sl{font-size:10.5px;color:var(--t5);margin-top:1px;}
 
-  .hero-h1{
-    font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:900;line-height:1.08;
-    letter-spacing:-1px;color:var(--text-900);margin-bottom:20px;
-  }
-  .hero-h1 .orange{color:var(--orange);}
+@media(max-width:1000px){.hero-inner{grid-template-columns:1fr;gap:40px;}.hero-card{max-width:480px;}}
 
-  .hero-desc{font-size:16px;color:var(--text-500);line-height:1.75;margin-bottom:32px;max-width:520px;}
+/* ════════════════════════════════════
+   BLOC 1 — SOUVERAINETÉ
+════════════════════════════════════ */
+#sov{padding:96px 0;background:var(--card);}
+.sov-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 
-  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;}
+.alert{background:var(--red-pale);border:1px solid var(--red-border);border-radius:var(--r);padding:16px 18px;margin-bottom:28px;}
+.alert-title{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:var(--red);margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px;}
+.alert p{font-size:13px;color:var(--t7);line-height:1.65;}
+.alert strong{color:var(--red);}
 
-  .btn-primary{
-    display:inline-flex;align-items:center;gap:6px;padding:12px 22px;
-    background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;
-    border-radius:var(--radius-sm);text-decoration:none;border:none;cursor:pointer;
-    transition:all var(--tr);
-  }
-  .btn-primary:hover{background:var(--orange-hover);transform:translateY(-1px);box-shadow:0 4px 14px rgba(249,115,22,.35);}
-  .btn-ghost{
-    display:inline-flex;align-items:center;gap:6px;padding:12px 22px;
-    background:transparent;color:var(--text-700);font-family:var(--font);font-size:14px;font-weight:500;
-    border-radius:var(--radius-sm);text-decoration:none;border:1px solid var(--border-strong);cursor:pointer;
-    transition:all var(--tr);
-  }
-  .btn-ghost:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
+.feat-list{display:flex;flex-direction:column;gap:16px;margin-bottom:28px;}
+.feat{display:flex;gap:11px;align-items:flex-start;}
+.feat-ico{width:34px;height:34px;flex-shrink:0;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:15px;}
+.feat h4{font-size:13.5px;font-weight:700;margin-bottom:3px;}
+.feat p{font-size:13px;color:var(--t5);line-height:1.6;}
 
-  .hero-proof{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-  .hero-proof .proof-item{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text-500);}
-  .hero-proof .proof-item svg{color:var(--green);}
-  .hero-proof .sep{width:1px;height:16px;background:var(--border);}
+/* Visual droite */
+.vs-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);}
+.vs-row{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid var(--border);}
+.vs-row:last-child{border-bottom:none;}
+.vs-row.bad{background:var(--red-pale);}
+.vs-row.good{background:var(--green-pale);}
+.vs-ico{font-size:22px;flex-shrink:0;}
+.vs-txt{font-size:12.5px;line-height:1.5;}
+.vs-row.bad .vs-txt{color:var(--red);}
+.vs-row.good .vs-txt{color:var(--green);}
+.vs-txt strong{display:block;font-weight:700;margin-bottom:2px;}
+.vs-sep{text-align:center;padding:10px;font-size:11px;font-weight:700;color:var(--t4);letter-spacing:1px;text-transform:uppercase;background:var(--bg);border-bottom:1px solid var(--border);}
 
-  /* Hero visual */
-  .hero-visual{position:relative;}
-  .hero-app-card{
-    background:var(--bg-card);border:1px solid var(--border);
-    border-radius:var(--radius-lg);overflow:hidden;
-    box-shadow:var(--shadow-lg);
-  }
-  .hac-header{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:10px 14px;border-bottom:1px solid var(--border);
-    background:var(--bg-section);
-  }
-  .hac-header .hac-title{font-size:11px;font-weight:700;color:var(--text-500);letter-spacing:.5px;text-transform:uppercase;}
-  .hac-status{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--green);}
-  .hac-status .live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 1.5s infinite;}
+.compliance-wrap{margin-top:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;}
+.compliance-wrap .clbl{font-size:10px;font-weight:700;color:var(--t4);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;}
+.ctags{display:flex;flex-wrap:wrap;gap:6px;}
+.ctag{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:var(--r-pill);font-size:11.5px;font-weight:600;background:var(--green-pale);border:1px solid var(--green-border);color:var(--green);}
 
-  .hac-body{padding:16px;}
-  .flow-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
-  .flow-row:last-child{margin-bottom:0;}
-  .fn{
-    padding:7px 11px;border-radius:var(--radius-sm);
-    font-size:11.5px;font-weight:600;white-space:nowrap;
-  }
-  .fn.src{background:var(--blue-pale);color:#2563EB;border:1px solid rgba(37,99,235,.15);}
-  .fn.cell{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
-  .fn.out{background:var(--green-pale);color:var(--green);border:1px solid var(--green-border);}
-  .fn.arr{background:none;border:none;color:var(--text-400);font-size:14px;padding:0 2px;}
+@media(max-width:900px){.sov-grid{grid-template-columns:1fr;}}
 
-  .hac-footer{
-    padding:10px 14px;border-top:1px solid var(--border);
-    background:var(--green-pale);
-    display:flex;align-items:center;gap:7px;
-    font-size:11.5px;font-weight:600;color:var(--green);
-  }
+/* ════════════════════════════════════
+   BLOC 2 — AGNOSTIQUE (tabs)
+════════════════════════════════════ */
+#agnostic{padding:96px 0;background:var(--bg);}
+.ag-head{text-align:center;margin-bottom:44px;}
+.ag-head .sec-sub{margin:10px auto 0;max-width:540px;}
 
-  /* Stats en dessous de la visual */
-  .hero-stats{
-    display:grid;grid-template-columns:repeat(4,1fr);
-    gap:1px;background:var(--border);
-    border:1px solid var(--border);border-radius:var(--radius);
-    overflow:hidden;margin-top:12px;
-  }
-  .hs-item{
-    background:var(--bg-card);padding:14px 16px;
-    display:flex;flex-direction:column;gap:2px;
-  }
-  .hs-val{font-size:20px;font-weight:900;color:var(--orange);letter-spacing:-0.5px;}
-  .hs-lbl{font-size:10.5px;color:var(--text-500);font-weight:500;}
+/* Section number */
+.sec-num{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:1.2px;text-transform:uppercase;display:block;margin-bottom:10px;}
 
-  @media(max-width:1000px){
-    .hero-inner{grid-template-columns:1fr;gap:40px;}
-    .hero-visual{max-width:480px;}
-  }
+/* Tabs */
+.ag-tabs{display:flex;justify-content:center;gap:6px;margin-bottom:36px;flex-wrap:wrap;}
+.ag-tab{display:flex;align-items:center;gap:6px;padding:8px 18px;font-size:13.5px;font-weight:500;font-family:var(--font);border-radius:var(--r-pill);border:1px solid var(--border);background:var(--card);color:var(--t5);cursor:pointer;transition:all var(--tr);}
+.ag-tab:hover{border-color:var(--border-s);color:var(--t7);}
+.ag-tab.active{background:var(--orange);color:white;border-color:var(--orange);font-weight:600;}
+.ag-tab .tab-ico{font-size:16px;}
 
-  /* ══════════════════════════════════════════════════
-     SECTION — SOUVERAINETÉ
-  ══════════════════════════════════════════════════ */
-  #sovereignty{padding:96px 0;background:var(--bg-card);}
-  .sov-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+/* Panels */
+.ag-panel{display:none;}
+.ag-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.panel-left h3{font-size:1.5rem;font-weight:800;color:var(--t9);margin-bottom:12px;letter-spacing:-.3px;}
+.panel-left p{font-size:14px;color:var(--t5);line-height:1.75;margin-bottom:22px;}
+.panel-feats{display:flex;flex-direction:column;gap:8px;}
+.pf{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--t7);}
+.pf::before{content:'✓';color:var(--orange);font-weight:700;font-size:12px;flex-shrink:0;}
+/* Visual panel */
+.panel-visual{background:var(--card);border:1px solid var(--border);border-radius:var(--r-xl);padding:32px;display:flex;align-items:center;justify-content:center;min-height:220px;box-shadow:var(--sh-sm);}
+.pv-inner{text-align:center;}
+.pv-icon{font-size:48px;margin-bottom:14px;display:block;}
+.pv-label{font-size:13px;color:var(--t5);}
+@media(max-width:760px){.ag-panel.active{grid-template-columns:1fr;}.panel-visual{min-height:140px;}}
 
-  .alert-box{
-    background:var(--red-pale);border:1px solid var(--red-border);
-    border-radius:var(--radius);padding:18px 20px;margin-bottom:28px;
-  }
-  .alert-box .ab-title{
-    display:flex;align-items:center;gap:8px;
-    font-size:12px;font-weight:700;color:var(--red);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;
-  }
-  .alert-box p{font-size:13px;color:var(--text-700);line-height:1.65;}
-  .alert-box strong{color:var(--red);}
+/* ════════════════════════════════════
+   BLOC 3 — TEMPS RÉEL
+════════════════════════════════════ */
+#rt{padding:96px 0;background:var(--card);}
+.rt-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 
-  .feature-list{display:flex;flex-direction:column;gap:18px;margin-bottom:28px;}
-  .feat-item{display:flex;gap:12px;align-items:flex-start;}
-  .feat-icon{
-    width:36px;height:36px;flex-shrink:0;
-    background:var(--orange-pale);border:1px solid var(--orange-border);
-    border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:16px;
-  }
-  .feat-text h4{font-size:13.5px;font-weight:700;color:var(--text-900);margin-bottom:3px;}
-  .feat-text p{font-size:13px;color:var(--text-500);line-height:1.6;}
+.rt-compare{display:flex;flex-direction:column;gap:16px;}
+.rtc{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
+.rtc-h{padding:9px 14px;border-bottom:1px solid var(--border);font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;display:flex;align-items:center;gap:6px;}
+.rtc-h.classic{color:var(--t5);}
+.rtc-h.id4c{color:var(--orange);}
+.rtc-b{padding:14px;}
+.rtc-steps{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+.step{padding:5px 9px;border-radius:var(--r-xs);font-size:11.5px;font-weight:600;}
+.step.g{background:var(--section);color:var(--t5);}
+.step.r{background:var(--red-pale);color:var(--red);}
+.step.o{background:var(--orange-pale);color:var(--orange);}
+.step-arr{color:var(--t4);font-size:11px;}
+.rtc-time{margin-top:9px;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;}
+.rtc-time.slow{background:var(--red-pale);color:var(--red);}
+.rtc-time.fast{background:var(--green-pale);color:var(--green);}
+@media(max-width:900px){.rt-grid{grid-template-columns:1fr;}}
 
-  /* Visual souveraineté */
-  .sov-visual{display:flex;flex-direction:column;gap:10px;}
-  .sov-card{
-    background:var(--bg-card);border:1px solid var(--border);
-    border-radius:var(--radius-lg);padding:24px;
-    box-shadow:var(--shadow-sm);
-  }
-  .sov-vs-row{display:flex;flex-direction:column;gap:8px;}
-  .sov-vs-item{
-    display:flex;align-items:center;gap:12px;
-    padding:13px 16px;border-radius:var(--radius-sm);border:1px solid;
-  }
-  .sov-vs-item.bad{background:var(--red-pale);border-color:var(--red-border);}
-  .sov-vs-item.good{background:var(--green-pale);border-color:var(--green-border);}
-  .sov-vs-item .svi-icon{font-size:20px;flex-shrink:0;}
-  .sov-vs-item .svi-text{font-size:12.5px;line-height:1.5;}
-  .sov-vs-item.bad .svi-text{color:var(--red);}
-  .sov-vs-item.good .svi-text{color:var(--green);}
-  .sov-vs-item .svi-text strong{display:block;font-weight:700;margin-bottom:1px;}
+/* ════════════════════════════════════
+   BLOC 4 — COMPARATIF ARCHITECTURE
+════════════════════════════════════ */
+#archi{padding:96px 0;background:var(--bg);}
+.archi-head{text-align:center;margin-bottom:48px;}
+.archi-head .sec-sub{margin:10px auto 0;max-width:520px;}
 
-  .sov-divider{
-    text-align:center;font-size:11px;font-weight:700;letter-spacing:1px;
-    text-transform:uppercase;color:var(--text-400);padding:4px 0;
-  }
+.archi-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r-xl);padding:40px 48px;box-shadow:var(--sh-sm);}
+.archi-vs{display:grid;grid-template-columns:1fr 56px 1fr;gap:32px;align-items:start;}
 
-  /* ══════════════════════════════════════════════════
-     SECTION — DÉPLOIEMENT AGNOSTIQUE
-  ══════════════════════════════════════════════════ */
-  #agnostic{padding:96px 0;background:var(--bg);}
-  .agnostic-header{text-align:center;margin-bottom:52px;}
-  .agnostic-header .section-sub{margin:12px auto 0;}
+.aside-lbl{display:inline-flex;padding:4px 12px;border-radius:var(--r-pill);font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:16px;}
+.aside-lbl.classic{background:var(--section);color:var(--t5);border:1px solid var(--border);}
+.aside-lbl.id4c{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
 
-  .deploy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .deploy-card{
-    background:var(--bg-card);border:1px solid var(--border);
-    border-radius:var(--radius-lg);padding:28px;
-    transition:all var(--tr);
-  }
-  .deploy-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-pale);}
-  .deploy-card.featured{border-color:var(--orange);}
-  .dc-icon{font-size:28px;margin-bottom:14px;}
-  .dc-title{font-size:16px;font-weight:700;color:var(--text-900);margin-bottom:6px;}
-  .dc-desc{font-size:13px;color:var(--text-500);line-height:1.65;margin-bottom:16px;}
-  .dc-feats{display:flex;flex-direction:column;gap:6px;}
-  .dc-feat{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--text-700);}
-  .dc-feat::before{content:'✓';color:var(--orange);font-weight:700;font-size:11px;flex-shrink:0;}
+.flow-col{display:flex;flex-direction:column;align-items:center;gap:0;}
+.abox{width:100%;padding:10px 14px;border-radius:var(--r-sm);font-size:12.5px;font-weight:600;text-align:center;border:1px solid;}
+.abox.src{background:var(--blue-pale);border-color:rgba(59,130,246,.2);color:#2563EB;}
+.abox.kpi{background:var(--green-pale);border-color:var(--green-border);color:var(--green);}
+.abox.etl{background:var(--section);border-color:var(--border);color:var(--t5);}
+.abox.cell{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);padding:20px 14px;}
+.aarr{font-size:12px;color:var(--t4);padding:5px 0;text-align:center;}
 
-  /* ══════════════════════════════════════════════════
-     SECTION — TEMPS RÉEL
-  ══════════════════════════════════════════════════ */
-  #realtime{padding:96px 0;background:var(--bg-card);}
-  .rt-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+/* Dashed zone autour ETL→ODS→DWH */
+.etl-zone{width:100%;border:1.5px dashed var(--orange-border);border-radius:var(--r);padding:10px;background:rgba(249,115,22,.04);display:flex;flex-direction:column;align-items:center;gap:0;}
+.etl-zone-lbl{font-size:9.5px;font-weight:700;color:var(--orange);letter-spacing:.8px;text-transform:uppercase;opacity:.75;margin-bottom:8px;}
 
-  /* Comparaison visuelle */
-  .rt-compare{display:flex;flex-direction:column;gap:24px;}
-  .rtc-block{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
-  .rtc-header{
-    padding:10px 14px;border-bottom:1px solid var(--border);
-    font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
-    display:flex;align-items:center;gap:6px;
-  }
-  .rtc-header.classic{color:var(--text-400);}
-  .rtc-header.id4c{color:var(--orange);}
-  .rtc-body{padding:14px;}
-  .rtc-steps{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
-  .rtc-step{
-    padding:5px 10px;border-radius:var(--radius-xs);
-    font-size:11.5px;font-weight:600;
-  }
-  .rtc-step.grey{background:var(--bg-section);color:var(--text-500);}
-  .rtc-step.orange{background:var(--orange-pale);color:var(--orange);}
-  .rtc-step.red-s{background:var(--red-pale);color:var(--red);}
-  .rtc-arrow{color:var(--text-400);font-size:12px;}
-  .rtc-time{
-    margin-top:10px;display:inline-flex;align-items:center;gap:5px;
-    padding:4px 10px;border-radius:var(--radius-pill);
-    font-size:11px;font-weight:700;
-  }
-  .rtc-time.slow{background:var(--red-pale);color:var(--red);}
-  .rtc-time.fast{background:var(--green-pale);color:var(--green);}
+.vs-mid{display:flex;align-items:center;justify-content:center;padding-top:56px;}
+.vs-bubble{width:40px;height:40px;border-radius:50%;background:var(--section);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:800;color:var(--t5);}
 
-  .rt-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;}
-  .rt-kpi{
-    background:var(--bg);border:1px solid var(--border);
-    border-radius:var(--radius-sm);padding:14px 16px;
-  }
-  .rt-kpi .kv{font-size:22px;font-weight:900;color:var(--orange);letter-spacing:-0.5px;}
-  .rt-kpi .kl{font-size:11px;color:var(--text-500);margin-top:2px;}
+.archi-bene{display:flex;flex-direction:column;gap:7px;margin-top:16px;}
+.bene{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--t7);}
+.bene .ok{color:var(--green);font-weight:700;font-size:12px;}
 
-  /* ══════════════════════════════════════════════════
-     SECTION — COMPARATIF ARCHITECTURE
-  ══════════════════════════════════════════════════ */
-  #archi-compare{padding:96px 0;background:var(--bg);}
-  .ac-header{text-align:center;margin-bottom:52px;}
-  .ac-header .section-sub{margin:12px auto 0;}
+.archi-footer{margin-top:24px;padding:14px 18px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-sm);font-size:13px;font-weight:500;color:var(--orange);display:flex;align-items:center;gap:7px;}
 
-  /* Tabs */
-  .ac-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:36px;flex-wrap:wrap;}
-  .ac-tab{
-    display:flex;align-items:center;gap:6px;padding:8px 16px;
-    font-size:13px;font-weight:500;font-family:var(--font);
-    border-radius:var(--radius-pill);border:1px solid var(--border);
-    background:var(--bg-card);color:var(--text-500);cursor:pointer;transition:all var(--tr);
-  }
-  .ac-tab:hover,.ac-tab.active{background:var(--orange);color:white;border-color:var(--orange);}
+@media(max-width:860px){.archi-vs{grid-template-columns:1fr;gap:20px;}.vs-mid{display:none;}.archi-panel{padding:24px;}}
 
-  .ac-panel{
-    background:var(--bg-card);border:1px solid var(--border);
-    border-radius:var(--radius-xl);padding:40px;
-    box-shadow:var(--shadow-sm);
-  }
-  .ac-vs{display:grid;grid-template-columns:1fr 48px 1fr;gap:24px;align-items:start;}
-  .ac-side-label{
-    display:inline-flex;padding:5px 12px;border-radius:var(--radius-pill);
-    font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
-    margin-bottom:16px;
-  }
-  .ac-side-label.classic{background:var(--bg-section);color:var(--text-500);border:1px solid var(--border);}
-  .ac-side-label.id4c{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
+/* ════════════════════════════════════
+   BLOC 5 — DEEP TECH
+════════════════════════════════════ */
+#dt{padding:96px 0;background:var(--card);}
+.dt-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 
-  .ac-flow{display:flex;flex-direction:column;gap:6px;}
-  .ac-box{
-    padding:11px 14px;border-radius:var(--radius-sm);
-    font-size:12.5px;font-weight:600;text-align:center;border:1px solid;
-  }
-  .ac-box.source{background:var(--blue-pale);border-color:rgba(59,130,246,.2);color:#2563EB;}
-  .ac-box.kpi{background:var(--green-pale);border-color:var(--green-border);color:var(--green);}
-  .ac-box.etl{background:var(--bg-section);border-color:var(--border);color:var(--text-500);}
-  .ac-box.cell{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);padding:18px;}
-  .ac-arr{text-align:center;font-size:14px;color:var(--text-400);}
-  .ac-zone{
-    border:2px dashed var(--orange-border);border-radius:var(--radius);
-    padding:10px;background:var(--orange-pale);
-    display:flex;flex-direction:column;gap:6px;position:relative;
-  }
-  .ac-zone-label{
-    text-align:center;font-size:10px;font-weight:700;color:var(--orange);
-    letter-spacing:.8px;text-transform:uppercase;margin-bottom:4px;opacity:.8;
-  }
-  .ac-vs-mid{display:flex;align-items:center;justify-content:center;padding-top:48px;}
-  .vs-bubble{
-    width:40px;height:40px;border-radius:50%;
-    background:var(--bg-section);border:2px solid var(--border);
-    display:flex;align-items:center;justify-content:center;
-    font-size:11px;font-weight:800;color:var(--text-500);
-  }
-  .ac-benefits{display:flex;flex-direction:column;gap:7px;margin-top:16px;}
-  .ac-benefit{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--text-700);}
-  .ac-benefit .ok{color:var(--green);font-weight:700;}
+.trl-badge{display:inline-flex;align-items:baseline;gap:6px;margin-bottom:18px;}
+.trl-num{font-size:4.5rem;font-weight:900;color:var(--orange);line-height:1;letter-spacing:-3px;}
+.trl-txt{font-size:10px;font-weight:700;color:var(--t4);letter-spacing:1px;text-transform:uppercase;line-height:1.4;}
 
-  .ac-footer{
-    margin-top:24px;padding:14px 18px;
-    background:var(--orange-pale);border:1px solid var(--orange-border);
-    border-radius:var(--radius-sm);
-    font-size:13px;font-weight:500;color:var(--orange);
-    display:flex;align-items:center;gap:8px;
-  }
+.dt-pillars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;}
+.dp{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;transition:border-color var(--tr);}
+.dp:hover{border-color:var(--orange);}
+.dp .dp-ico{font-size:19px;margin-bottom:7px;}
+.dp h4{font-size:13px;font-weight:700;margin-bottom:3px;}
+.dp p{font-size:12px;color:var(--t5);line-height:1.6;}
 
-  /* ══════════════════════════════════════════════════
-     SECTION — RÉSULTATS (stats colorées)
-  ══════════════════════════════════════════════════ */
-  #results{padding:96px 0;background:var(--bg-card);}
-  .results-header{text-align:center;margin-bottom:52px;}
-  .results-header .section-sub{margin:12px auto 0;}
+/* Timeline */
+.rdt{position:relative;padding-left:22px;}
+.rdt::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1.5px;background:linear-gradient(to bottom,var(--orange),rgba(249,115,22,.08));}
+.rdi{position:relative;padding:0 0 22px 18px;}
+.rdi::before{content:'';position:absolute;left:-18px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--orange);border:2px solid var(--bg);}
+.rdi .ry{font-size:11px;font-weight:700;color:var(--orange);margin-bottom:3px;}
+.rdi .rd{font-size:13px;color:var(--t5);line-height:1.6;}
+@media(max-width:900px){.dt-grid{grid-template-columns:1fr;}.dt-pillars{grid-template-columns:1fr 1fr;}}
 
-  .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
-  .result-card{
-    border-radius:var(--radius-lg);padding:28px 24px;
-    border:1px solid transparent;
-  }
-  .result-card.green{background:var(--green-pale);border-color:var(--green-border);}
-  .result-card.blue{background:var(--blue-pale);border-color:rgba(59,130,246,.2);}
-  .result-card.orange{background:var(--orange-pale);border-color:var(--orange-border);}
-  .result-card.purple{background:var(--purple-pale);border-color:rgba(139,92,246,.2);}
+/* ════════════════════════════════════
+   BLOC 6 — PARTENAIRES
+════════════════════════════════════ */
+#partners{padding:64px 0;background:var(--bg);}
+.pt-head{text-align:center;margin-bottom:32px;}
+.pt-head h2{font-size:1rem;font-weight:700;color:var(--t5);}
+.pt-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.pt-chip{display:flex;align-items:center;gap:9px;padding:11px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);transition:all var(--tr);text-decoration:none;}
+.pt-chip:hover{border-color:var(--orange);background:var(--orange-pale);}
+.pt-chip .pc-ico{font-size:18px;}
+.pt-chip .pc-name{font-size:13px;font-weight:700;color:var(--t9);}
+.pt-chip .pc-tag{font-size:11px;color:var(--t4);}
 
-  .rc-value{font-size:2.8rem;font-weight:900;letter-spacing:-1.5px;line-height:1;margin-bottom:10px;}
-  .result-card.green  .rc-value{color:var(--green);}
-  .result-card.blue   .rc-value{color:#2563EB;}
-  .result-card.orange .rc-value{color:var(--orange);}
-  .result-card.purple .rc-value{color:#7C3AED;}
+/* ════════════════════════════════════
+   CTA FINAL
+════════════════════════════════════ */
+#cta{padding:80px 0;background:var(--orange);text-align:center;position:relative;overflow:hidden;}
+#cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;}
+#cta .wrap{position:relative;z-index:1;}
+#cta h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;color:white;margin-bottom:10px;letter-spacing:-.5px;}
+#cta p{font-size:15px;color:rgba(255,255,255,.8);margin-bottom:30px;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-w{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:white;color:var(--orange);font-family:var(--font);font-size:14px;font-weight:700;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
+.btn-w:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15);}
+.btn-wo{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:all var(--tr);}
+.btn-wo:hover{border-color:white;background:rgba(255,255,255,.1);}
 
-  .rc-label{font-size:13px;font-weight:700;color:var(--text-900);margin-bottom:6px;}
-  .rc-desc{font-size:12.5px;color:var(--text-500);line-height:1.6;}
-
-  /* ══════════════════════════════════════════════════
-     SECTION — DEEP TECH
-  ══════════════════════════════════════════════════ */
-  #deeptech{padding:96px 0;background:var(--bg);}
-  .dt-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
-
-  .trl-display{
-    display:inline-flex;align-items:baseline;gap:6px;
-    margin-bottom:20px;
-  }
-  .trl-num{font-size:5rem;font-weight:900;color:var(--orange);line-height:1;letter-spacing:-3px;}
-  .trl-lbl{font-size:11px;font-weight:700;color:var(--text-400);letter-spacing:1px;text-transform:uppercase;}
-
-  .dt-pillars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;}
-  .dt-pillar{
-    background:var(--bg-card);border:1px solid var(--border);
-    border-radius:var(--radius);padding:16px;transition:all var(--tr);
-  }
-  .dt-pillar:hover{border-color:var(--orange);}
-  .dt-pillar .dp-icon{font-size:20px;margin-bottom:8px;}
-  .dt-pillar h4{font-size:13px;font-weight:700;margin-bottom:4px;}
-  .dt-pillar p{font-size:12px;color:var(--text-500);line-height:1.6;}
-
-  /* Timeline R&D */
-  .rd-timeline{position:relative;padding-left:24px;}
-  .rd-timeline::before{
-    content:'';position:absolute;left:5px;top:6px;bottom:6px;
-    width:1.5px;background:linear-gradient(to bottom,var(--orange),rgba(249,115,22,.1));
-  }
-  .rd-item{position:relative;padding:0 0 24px 20px;}
-  .rd-item::before{
-    content:'';position:absolute;left:-20px;top:5px;
-    width:9px;height:9px;border-radius:50%;
-    background:var(--orange);border:2px solid var(--bg);
-  }
-  .rd-year{font-size:11px;font-weight:700;color:var(--orange);margin-bottom:3px;}
-  .rd-desc{font-size:13px;color:var(--text-500);line-height:1.6;}
-
-  /* ══════════════════════════════════════════════════
-     SECTION — PARTENAIRES
-  ══════════════════════════════════════════════════ */
-  #partners{padding:64px 0;background:var(--bg-card);}
-  .partners-header{text-align:center;margin-bottom:36px;}
-  .partners-header h2{font-size:1.2rem;font-weight:700;color:var(--text-500);}
-
-  .partners-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
-  .partner-chip{
-    display:flex;align-items:center;gap:9px;
-    padding:12px 20px;
-    background:var(--bg);border:1px solid var(--border);
-    border-radius:var(--radius);
-    transition:all var(--tr);text-decoration:none;
-  }
-  .partner-chip:hover{border-color:var(--orange);background:var(--orange-pale);}
-  .partner-chip .pc-icon{font-size:20px;}
-  .partner-chip .pc-name{font-size:13.5px;font-weight:700;color:var(--text-900);}
-  .partner-chip .pc-tag{font-size:11px;color:var(--text-400);}
-
-  /* ══════════════════════════════════════════════════
-     CTA FINAL
-  ══════════════════════════════════════════════════ */
-  #cta-band{
-    padding:80px 0;
-    background:var(--orange);
-    text-align:center;
-    position:relative;overflow:hidden;
-  }
-  #cta-band::before{
-    content:'';position:absolute;inset:0;
-    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
-    background-size:40px 40px;
-  }
-  #cta-band .container{position:relative;z-index:1;}
-  #cta-band h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:white;margin-bottom:12px;letter-spacing:-.5px;}
-  #cta-band p{font-size:15px;color:rgba(255,255,255,.8);margin-bottom:32px;}
-  .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-  .btn-white{
-    display:inline-flex;align-items:center;gap:6px;padding:12px 24px;
-    background:white;color:var(--orange);font-family:var(--font);font-size:14px;font-weight:700;
-    border-radius:var(--radius-sm);text-decoration:none;border:none;cursor:pointer;
-    transition:all var(--tr);
-  }
-  .btn-white:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15);}
-  .btn-white-outline{
-    display:inline-flex;align-items:center;gap:6px;padding:12px 24px;
-    background:transparent;color:white;font-family:var(--font);font-size:14px;font-weight:600;
-    border-radius:var(--radius-sm);text-decoration:none;border:2px solid rgba(255,255,255,.4);cursor:pointer;
-    transition:all var(--tr);
-  }
-  .btn-white-outline:hover{border-color:white;background:rgba(255,255,255,.1);}
-
-  /* ── RESPONSIVE ── */
-  @media(max-width:900px){
-    .sov-grid,.rt-grid,.dt-grid{grid-template-columns:1fr;}
-    .deploy-grid{grid-template-columns:1fr 1fr;}
-    .results-grid{grid-template-columns:1fr 1fr;}
-    .ac-vs{grid-template-columns:1fr;gap:16px;}
-    .ac-vs-mid{display:none;}
-    .container{padding:0 20px;}
-    section{padding-top:64px!important;padding-bottom:64px!important;}
-  }
-  @media(max-width:600px){
-    .deploy-grid,.results-grid,.dt-pillars{grid-template-columns:1fr;}
-    .hero-stats{grid-template-columns:repeat(2,1fr);}
-    .hero-ctas{flex-direction:column;}
-    .hero-ctas a{text-align:center;justify-content:center;}
-  }
-  </style>
+@media(max-width:600px){.wrap{padding:0 20px;}section{padding-top:64px!important;padding-bottom:64px!important;}.hero-ctas{flex-direction:column;}.hero-stats{grid-template-columns:repeat(2,1fr);}dt-pillars{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
+<div id="hdr-ph"></div>
 
-<div id="header-placeholder"></div>
-
-<!-- ══════════════════════════════════════════════════
+<!-- ══════════════════════════════
      HERO
-══════════════════════════════════════════════════ -->
+══════════════════════════════ -->
 <section id="hero">
-  <div class="container">
+  <div class="wrap">
     <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-eyebrow">
-          <span class="dot"></span>
-          <span>Deep Tech Européen · TRL 9 · Stateless by Design</span>
-        </div>
-
-        <h1 class="hero-h1">
-          Vos données restent<br>
-          <span class="orange">où elles sont.</span><br>
-          L'intelligence, non.
-        </h1>
-
-        <p class="hero-desc">
-          iD4Connect traite vos données pendant leur transit — sans les stocker, sans les dupliquer. Insights en temps réel, souveraineté garantie, conformité by design.
-        </p>
-
+      <div>
+        <div class="hero-eyebrow"><span class="dot"></span>Deep Tech Européen · TRL 9 · Stateless by Design</div>
+        <h1 class="hero-h1">Vos données restent<br>où elles sont.<br><span class="o">L'intelligence, non.</span></h1>
+        <p class="hero-desc">iD4Connect traite vos données pendant leur transit — sans les stocker, sans les dupliquer. Insights en temps réel, souveraineté garantie.</p>
         <div class="hero-ctas">
-          <a href="contact.html" class="btn-primary">Demander une démo →</a>
-          <a href="architecture.html" class="btn-ghost">Voir l'architecture</a>
-        </div>
-
-        <div class="hero-proof">
-          <div class="proof-item">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            RGPD by design
-          </div>
-          <div class="sep"></div>
-          <div class="proof-item">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Zéro stockage intermédiaire
-          </div>
-          <div class="sep"></div>
-          <div class="proof-item">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Souveraineté européenne
-          </div>
+          <a href="contact.html" class="btn-p">Demander une démo →</a>
+          <a href="architecture.html" class="btn-g">Voir l'architecture</a>
         </div>
       </div>
-
-      <div class="hero-visual">
-        <div class="hero-app-card">
-          <div class="hac-header">
-            <span class="hac-title">Flux temps réel</span>
-            <span class="hac-status"><span class="live-dot"></span>Live</span>
+      <div>
+        <div class="hero-card">
+          <div class="hcard-head"><span class="ht">Flux en transit</span><span class="live"><span></span>Temps réel</span></div>
+          <div class="hcard-body">
+            <div class="flow"><div class="fn src">ERP / SQL</div><div class="fn arr">→</div><div class="fn cell">⚡ DataCell</div><div class="fn arr">→</div><div class="fn out">KPI Métier</div></div>
+            <div class="flow"><div class="fn src">IoT / MQTT</div><div class="fn arr">→</div><div class="fn cell">⚡ DataCell</div><div class="fn arr">→</div><div class="fn out">Alerte live</div></div>
+            <div class="flow"><div class="fn src">API / SaaS</div><div class="fn arr">→</div><div class="fn cell">⚡ DataCell</div><div class="fn arr">→</div><div class="fn out">Dashboard</div></div>
           </div>
-          <div class="hac-body">
-            <div class="flow-row">
-              <div class="fn src">📊 ERP SAP</div>
-              <div class="fn arr">→</div>
-              <div class="fn cell">⚡ DataCell</div>
-              <div class="fn arr">→</div>
-              <div class="fn out">✓ KPI Métier</div>
-            </div>
-            <div class="flow-row">
-              <div class="fn src">🏭 IoT MQTT</div>
-              <div class="fn arr">→</div>
-              <div class="fn cell">⚡ DataCell</div>
-              <div class="fn arr">→</div>
-              <div class="fn out">✓ Alerte live</div>
-            </div>
-            <div class="flow-row">
-              <div class="fn src">☁️ API SaaS</div>
-              <div class="fn arr">→</div>
-              <div class="fn cell">⚡ DataCell</div>
-              <div class="fn arr">→</div>
-              <div class="fn out">✓ Dashboard</div>
-            </div>
-          </div>
-          <div class="hac-footer">✓ Aucune donnée stockée au passage</div>
+          <div class="hcard-foot">✓ Aucune donnée stockée au passage</div>
         </div>
-
         <div class="hero-stats">
-          <div class="hs-item"><div class="hs-val">0</div><div class="hs-lbl">Donnée stockée</div></div>
-          <div class="hs-item"><div class="hs-val">&lt;5ms</div><div class="hs-lbl">Latence</div></div>
-          <div class="hs-item"><div class="hs-val">200+</div><div class="hs-lbl">Connecteurs</div></div>
-          <div class="hs-item"><div class="hs-val">5×</div><div class="hs-lbl">Moins cher</div></div>
+          <div class="hstat"><div class="sv">0</div><div class="sl">Donnée stockée</div></div>
+          <div class="hstat"><div class="sv">&lt;5ms</div><div class="sl">Latence</div></div>
+          <div class="hstat"><div class="sv">200+</div><div class="sl">Connecteurs</div></div>
+          <div class="hstat"><div class="sv">5×</div><div class="sl">Moins cher</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-     SOUVERAINETÉ
-══════════════════════════════════════════════════ -->
-<section id="sovereignty">
-  <div class="container">
+<!-- ══════════════════════════════
+     BLOC 1 — SOUVERAINETÉ
+══════════════════════════════ -->
+<section id="sov">
+  <div class="wrap">
     <div class="sov-grid">
       <div>
         <div class="pill">Souveraineté & Gouvernance</div>
-        <h2 class="section-title" style="margin-bottom:16px">
-          Vos données ne quittent<br>jamais votre infrastructure.
-        </h2>
-        <p class="section-sub" style="margin-bottom:28px">
-          Dans un monde soumis au Cloud Act et FISA 702, héberger vos données chez AWS, Azure ou GCP crée un risque juridique réel. iD4Connect élimine ce risque à la racine.
-        </p>
+        <h2 class="sec-title" style="margin-bottom:16px">Vos données ne quittent jamais<br>votre infrastructure.</h2>
+        <p class="sec-sub" style="margin-bottom:28px">Dans un monde soumis à des lois d'accès extraterritorial aux données, héberger vos données chez des acteurs hors UE crée un risque juridique réel. iD4Connect élimine ce risque.</p>
 
-        <div class="alert-box">
-          <div class="ab-title">⚠️ Le risque Cloud Act</div>
-          <p>Toute donnée hébergée chez un acteur américain est <strong>juridiquement accessible par les autorités US</strong>, même si les serveurs sont en Europe. Le Cloud Act (2018) l'autorise sans notification préalable.</p>
+        <div class="alert">
+          <div class="alert-title">⚠️ Risque juridique</div>
+          <p>Les données hébergées chez des acteurs américains sont <strong>juridiquement accessibles par les autorités US</strong> sans notification préalable, même si les serveurs sont localisés en Europe.</p>
         </div>
 
-        <div class="feature-list">
-          <div class="feat-item">
-            <div class="feat-icon">🏠</div>
-            <div class="feat-text">
-              <h4>Données à la source</h4>
-              <p>Les DataCells se déploient directement dans votre infrastructure. Vos données ne transitent que dans votre périmètre.</p>
-            </div>
-          </div>
-          <div class="feat-item">
-            <div class="feat-icon">🔒</div>
-            <div class="feat-text">
-              <h4>RGPD by design</h4>
-              <p>Aucune copie, aucun stockage intermédiaire. La conformité est l'architecture elle-même.</p>
-            </div>
-          </div>
-          <div class="feat-item">
-            <div class="feat-icon">🇪🇺</div>
-            <div class="feat-text">
-              <h4>Alternative européenne souveraine</h4>
-              <p>Technologie CETIC, gouvernance 100% européenne. NIS2, DORA, HDS natifs.</p>
-            </div>
-          </div>
+        <div class="feat-list">
+          <div class="feat"><div class="feat-ico">🏠</div><div><h4>Données à la source</h4><p>Les DataCells se déploient dans votre infrastructure. Vos données transitent uniquement dans votre périmètre.</p></div></div>
+          <div class="feat"><div class="feat-ico">🔒</div><div><h4>RGPD by design</h4><p>Aucune copie, aucun stockage intermédiaire. La conformité est l'architecture elle-même.</p></div></div>
+          <div class="feat"><div class="feat-ico">🇪🇺</div><div><h4>Alternative européenne</h4><p>Technologie 100% européenne. NIS2, DORA, HDS natifs.</p></div></div>
         </div>
 
-        <div class="check-strip">
-          <span class="cs-item green">✓ Zéro Cloud Act</span>
-          <span class="cs-item green">✓ RGPD natif</span>
-          <span class="cs-item red">✗ Aucun stockage intermédiaire</span>
+        <div class="cs">
+          <span class="cs-item g">✓ RGPD natif</span>
+          <span class="cs-item r">✗ Aucun stockage intermédiaire</span>
+          <span class="cs-item g">✓ Souveraineté garantie</span>
         </div>
       </div>
 
       <div>
-        <div class="sov-card">
-          <div style="font-size:12px;font-weight:700;color:var(--text-400);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">Comparaison du risque</div>
-          <div class="sov-vs-row">
-            <div class="sov-vs-item bad">
-              <div class="svi-icon">☁️🇺🇸</div>
-              <div class="svi-text">
-                <strong>AWS / Azure / GCP + Snowflake</strong>
-                Soumis au Cloud Act — données accessibles par les autorités US sans votre accord
-              </div>
-            </div>
-            <div class="sov-divider">↕ vs</div>
-            <div class="sov-vs-item good">
-              <div class="svi-icon">⚡🇪🇺</div>
-              <div class="svi-text">
-                <strong>iD4Connect — Zéro exposition</strong>
-                Déploiement on-premise, traitement en transit, aucune donnée exposée
-              </div>
-            </div>
+        <div class="vs-card">
+          <div class="vs-row bad">
+            <div class="vs-ico">☁️</div>
+            <div class="vs-txt"><strong>Hébergement hors UE</strong>Données potentiellement accessibles par des tiers sans votre consentement</div>
+          </div>
+          <div class="vs-sep">vs</div>
+          <div class="vs-row good">
+            <div class="vs-ico">⚡</div>
+            <div class="vs-txt"><strong>iD4Connect — Zéro exposition</strong>Traitement en transit, déploiement on-premise, aucune donnée exposée</div>
           </div>
         </div>
-
-        <div class="sov-card" style="margin-top:12px;">
-          <div style="font-size:12px;font-weight:700;color:var(--text-400);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Conformité couverte</div>
-          <div class="tag-row">
-            <span class="tag"><span class="dot green"></span>RGPD</span>
-            <span class="tag"><span class="dot green"></span>NIS2</span>
-            <span class="tag"><span class="dot green"></span>DORA</span>
-            <span class="tag"><span class="dot green"></span>HDS</span>
-            <span class="tag"><span class="dot green"></span>ISO 27001</span>
-            <span class="tag"><span class="dot green"></span>SecNumCloud</span>
+        <div class="compliance-wrap">
+          <div class="clbl">Conformité couverte</div>
+          <div class="ctags">
+            <span class="ctag">✓ RGPD</span><span class="ctag">✓ NIS2</span><span class="ctag">✓ DORA</span>
+            <span class="ctag">✓ HDS</span><span class="ctag">✓ ISO 27001</span>
           </div>
         </div>
       </div>
@@ -700,319 +349,274 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-     AGNOSTIQUE
-══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════
+     BLOC 2 — AGNOSTIQUE (tabs)
+══════════════════════════════ -->
 <section id="agnostic">
-  <div class="container">
-    <div class="agnostic-header">
+  <div class="wrap">
+    <div class="ag-head">
       <div class="pill">Déploiement Agnostique</div>
-      <h2 class="section-title">Installez-le là où vous êtes déjà.</h2>
-      <p class="section-sub">On-premise, cloud privé ou multi-cloud — iD4Connect s'adapte à votre infrastructure existante. Zéro migration, zéro refonte.</p>
+      <h2 class="sec-title">Installez-le là où vous êtes déjà.</h2>
+      <p class="sec-sub">On-premise, cloud privé, multi-cloud — iD4Connect s'adapte à votre infrastructure sans migration ni refonte.</p>
     </div>
 
-    <div class="deploy-grid">
-      <div class="deploy-card">
-        <div class="dc-icon">🏢</div>
-        <div class="dc-title">On-Premise</div>
-        <p class="dc-desc">Déploiement complet dans vos datacenters. Données 100% sous contrôle, jamais exposées à l'extérieur.</p>
-        <div class="dc-feats">
-          <div class="dc-feat">Isolation réseau totale</div>
-          <div class="dc-feat">Conformité SecNumCloud, HDS</div>
-          <div class="dc-feat">Idéal secteur public & santé</div>
+    <div class="ag-tabs">
+      <button class="ag-tab active" data-tab="cloud"><span class="tab-ico">☁️</span> Cloud</button>
+      <button class="ag-tab"        data-tab="hybrid"><span class="tab-ico">🔀</span> Hybride</button>
+      <button class="ag-tab"        data-tab="onprem"><span class="tab-ico">🏢</span> On-Premise</button>
+    </div>
+
+    <!-- Panel Cloud -->
+    <div class="ag-panel active" id="tab-cloud">
+      <div class="panel-left">
+        <h3>Déploiement Cloud</h3>
+        <p>Compatible avec les principaux cloud providers, en mode souverain. Vos DataCells s'exécutent dans votre tenant — pas dans le nôtre.</p>
+        <div class="panel-feats">
+          <div class="pf">Multi-cloud natif (AWS, Azure, GCP)</div>
+          <div class="pf">Pas de vendor lock-in</div>
+          <div class="pf">Scalabilité instantanée</div>
+          <div class="pf">SLA 99,9% garanti</div>
         </div>
       </div>
-      <div class="deploy-card featured">
-        <div class="dc-icon">☁️</div>
-        <div class="dc-title">Cloud Privé / Hybride</div>
-        <p class="dc-desc">Compatible AWS, Azure, GCP en mode souverain. Vos DataCells tournent dans votre tenant, jamais dans le nôtre.</p>
-        <div class="dc-feats">
-          <div class="dc-feat">Multi-cloud natif</div>
-          <div class="dc-feat">Pas de vendor lock-in</div>
-          <div class="dc-feat">Scalabilité instantanée</div>
-        </div>
-      </div>
-      <div class="deploy-card">
-        <div class="dc-icon">🔀</div>
-        <div class="dc-title">Architecture Hybride</div>
-        <p class="dc-desc">Combinez on-premise et cloud selon la sensibilité de vos données. Une seule orchestration, plusieurs environnements.</p>
-        <div class="dc-feats">
-          <div class="dc-feat">DataGraph unifié sur tous les envs</div>
-          <div class="dc-feat">Politique de données granulaire</div>
-          <div class="dc-feat">Migration progressive</div>
-        </div>
+      <div class="panel-visual">
+        <div class="pv-inner"><span class="pv-icon">☁️</span><div class="pv-label">Infrastructure cloud — données dans votre tenant</div></div>
       </div>
     </div>
 
-    <div class="check-strip" style="justify-content:center;margin-top:28px;">
-      <span class="cs-item red">✗ Zéro dépendance cloud</span>
-      <span class="cs-item green">✓ Compatible votre stack actuelle</span>
-      <span class="cs-item orange">✓ Déploiement en jours</span>
+    <!-- Panel Hybride -->
+    <div class="ag-panel" id="tab-hybrid">
+      <div class="panel-left">
+        <h3>Architecture Hybride</h3>
+        <p>Combinez on-premise et cloud selon la sensibilité de vos données. Une seule orchestration via DataGraph, plusieurs environnements.</p>
+        <div class="panel-feats">
+          <div class="pf">DataGraph unifié sur tous les environnements</div>
+          <div class="pf">Politique de données granulaire</div>
+          <div class="pf">Migration progressive, sans coupure</div>
+          <div class="pf">Données sensibles on-premise, flux légers en cloud</div>
+        </div>
+      </div>
+      <div class="panel-visual">
+        <div class="pv-inner"><span class="pv-icon">🔀</span><div class="pv-label">Orchestration unifiée multi-environnements</div></div>
+      </div>
+    </div>
+
+    <!-- Panel On-Premise -->
+    <div class="ag-panel" id="tab-onprem">
+      <div class="panel-left">
+        <h3>Déploiement On-Premise</h3>
+        <p>Installation complète dans vos datacenters. Données 100% sous contrôle, jamais exposées à l'extérieur. Idéal pour le secteur public et la santé.</p>
+        <div class="panel-feats">
+          <div class="pf">Isolation réseau totale</div>
+          <div class="pf">Conformité HDS, SecNumCloud</div>
+          <div class="pf">Zéro dépendance externe</div>
+          <div class="pf">Déploiement en jours</div>
+        </div>
+      </div>
+      <div class="panel-visual">
+        <div class="pv-inner"><span class="pv-icon">🏢</span><div class="pv-label">Données 100% dans votre périmètre</div></div>
+      </div>
+    </div>
+
+    <div class="cs" style="justify-content:center;margin-top:20px;">
+      <span class="cs-item r">✗ Zéro dépendance externe</span>
+      <span class="cs-item g">✓ Compatible votre stack actuelle</span>
+      <span class="cs-item o">✓ Déploiement en jours</span>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-     TEMPS RÉEL
-══════════════════════════════════════════════════ -->
-<section id="realtime">
-  <div class="container">
+<!-- ══════════════════════════════
+     BLOC 3 — TEMPS RÉEL
+══════════════════════════════ -->
+<section id="rt">
+  <div class="wrap">
     <div class="rt-grid">
-      <div>
-        <div class="rt-compare">
-          <div class="rtc-block">
-            <div class="rtc-header classic">⏳ Architecture classique (batch)</div>
-            <div class="rtc-body">
-              <div class="rtc-steps">
-                <span class="rtc-step grey">Source</span>
-                <span class="rtc-arrow">→</span>
-                <span class="rtc-step red-s">ETL</span>
-                <span class="rtc-arrow">→</span>
-                <span class="rtc-step red-s">ODS</span>
-                <span class="rtc-arrow">→</span>
-                <span class="rtc-step red-s">DataWarehouse</span>
-                <span class="rtc-arrow">→</span>
-                <span class="rtc-step grey">KPI</span>
-              </div>
-              <div class="rtc-time slow">⏱ H+2 à H+24</div>
+      <div class="rt-compare">
+        <div class="rtc">
+          <div class="rtc-h classic">⏳ Architecture classique (batch)</div>
+          <div class="rtc-b">
+            <div class="rtc-steps">
+              <span class="step g">Source</span><span class="step-arr">→</span>
+              <span class="step r">ETL</span><span class="step-arr">→</span>
+              <span class="step r">ODS</span><span class="step-arr">→</span>
+              <span class="step r">DataWarehouse</span><span class="step-arr">→</span>
+              <span class="step g">KPI</span>
             </div>
+            <div class="rtc-time slow">⏱ H+2 à H+24</div>
           </div>
-          <div class="rtc-block">
-            <div class="rtc-header id4c">⚡ iD4Connect (stream)</div>
-            <div class="rtc-body">
-              <div class="rtc-steps">
-                <span class="rtc-step grey">Source</span>
-                <span class="rtc-arrow">→</span>
-                <span class="rtc-step orange">⚡ DataCell</span>
-                <span class="rtc-arrow">→</span>
-                <span class="rtc-step grey">KPI</span>
-              </div>
-              <div class="rtc-time fast">⚡ &lt; 5ms</div>
+        </div>
+        <div class="rtc">
+          <div class="rtc-h id4c">⚡ iD4Connect (stream)</div>
+          <div class="rtc-b">
+            <div class="rtc-steps">
+              <span class="step g">Source</span><span class="step-arr">→</span>
+              <span class="step o">⚡ DataCell</span><span class="step-arr">→</span>
+              <span class="step g">KPI</span>
             </div>
+            <div class="rtc-time fast">⚡ &lt; 5ms</div>
           </div>
         </div>
       </div>
-
       <div>
         <div class="pill">Temps Réel</div>
-        <h2 class="section-title" style="margin-bottom:16px">Pas de batch.<br>Pas de latence.<br><span class="orange">L'insight pendant le transit.</span></h2>
-        <p style="font-size:14px;color:var(--text-500);line-height:1.75;margin-bottom:28px;">
-          Les architectures traditionnelles extraient, stockent, transforment, puis restituent. iD4Connect produit l'insight <em>pendant que la donnée transite</em> — sans escale intermédiaire. Ce n'est pas de l'optimisation, c'est une rupture architecturale.
-        </p>
-        <div class="rt-kpis">
-          <div class="rt-kpi"><div class="kv">&lt;5ms</div><div class="kl">Latence de traitement</div></div>
-          <div class="rt-kpi"><div class="kv">0</div><div class="kl">Stockage intermédiaire</div></div>
-          <div class="rt-kpi"><div class="kv">24/7</div><div class="kl">Streaming continu</div></div>
-          <div class="rt-kpi"><div class="kv">×5</div><div class="kl">Réduction TCO</div></div>
+        <h2 class="sec-title" style="margin-bottom:16px">Pas de batch.<br>Pas de latence.<br><span class="o">L'insight pendant le transit.</span></h2>
+        <p class="sec-sub">Les architectures traditionnelles extraient, stockent, transforment, puis restituent. iD4Connect produit l'insight <em>pendant que la donnée transite</em>. Ce n'est pas de l'optimisation — c'est une rupture architecturale.</p>
+        <div class="cs">
+          <span class="cs-item g">✓ &lt;5ms de latence</span>
+          <span class="cs-item r">✗ Zéro stockage intermédiaire</span>
+          <span class="cs-item g">✓ Streaming continu 24/7</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-     COMPARATIF ARCHITECTURE
-══════════════════════════════════════════════════ -->
-<section id="archi-compare">
-  <div class="container">
-    <div class="ac-header">
+<!-- ══════════════════════════════
+     BLOC 4 — COMPARATIF ARCHI
+══════════════════════════════ -->
+<section id="archi">
+  <div class="wrap">
+    <div class="archi-head">
       <div class="pill">Architecture Comparée</div>
-      <h2 class="section-title">DataCell vs Pipeline Classique</h2>
-      <p class="section-sub">Un pipeline ETL classique enchaîne 5 à 7 étapes. iD4Connect réduit ce chemin à une seule unité autonome.</p>
+      <h2 class="sec-title">DataCell vs Pipeline Classique</h2>
+      <p class="sec-sub">Un pipeline ETL classique enchaîne 4 à 6 étapes. Une seule DataCell les remplace toutes.</p>
     </div>
 
-    <div class="ac-tabs">
-      <button class="ac-tab active">⚙️ ETL classique</button>
-      <button class="ac-tab">🏛️ Data Warehouse</button>
-      <button class="ac-tab">🗄️ Data Lake / Staging</button>
-      <button class="ac-tab">🔗 ESB / Middleware</button>
-      <button class="ac-tab">📊 Outils BI</button>
-    </div>
+    <div class="archi-panel">
+      <div class="archi-vs">
 
-    <div class="ac-panel">
-      <div class="ac-vs">
+        <!-- Classique -->
         <div>
-          <span class="ac-side-label classic">Architecture Classique</span>
-          <div class="ac-flow">
-            <div class="ac-box source">📊 Source de données</div>
-            <div class="ac-arr">↓</div>
-            <div class="ac-zone">
-              <div class="ac-zone-label">⚡ Zone remplacée par DataCell</div>
-              <div class="ac-box etl">🔄 ETL <small style="opacity:.7">(Extract, Transform, Load)</small></div>
-              <div class="ac-arr" style="font-size:11px;color:var(--orange);">↓</div>
-              <div class="ac-box etl">🗄️ ODS <small style="opacity:.7">(Operational Data Store)</small></div>
-              <div class="ac-arr" style="font-size:11px;color:var(--orange);">↓</div>
-              <div class="ac-box etl">🏛️ Datalake / DataWarehouse</div>
+          <span class="aside-lbl classic">Architecture Classique</span>
+          <div class="flow-col">
+            <div class="abox src">📊 Source de données</div>
+            <div class="aarr">↓</div>
+            <div class="etl-zone">
+              <div class="etl-zone-lbl">⚡ Remplacé par une DataCell</div>
+              <div class="abox etl">🔄 ETL</div>
+              <div class="aarr" style="color:var(--orange);font-size:10px;">↓</div>
+              <div class="abox etl">🗄 ODS</div>
+              <div class="aarr" style="color:var(--orange);font-size:10px;">↓</div>
+              <div class="abox etl">🏛 DataWarehouse / DataLake</div>
             </div>
-            <div class="ac-arr">↓</div>
-            <div class="ac-box kpi">📈 KPI Métier</div>
+            <div class="aarr">↓</div>
+            <div class="abox kpi">📈 KPI Métier</div>
           </div>
         </div>
 
-        <div class="ac-vs-mid">
+        <!-- VS -->
+        <div class="vs-mid">
           <div class="vs-bubble">VS</div>
         </div>
 
+        <!-- iD4Connect -->
         <div>
-          <span class="ac-side-label id4c">iD4Connect</span>
-          <div class="ac-flow">
-            <div class="ac-box source">📊 Source de données</div>
-            <div class="ac-arr">↓</div>
-            <div class="ac-box cell">
-              <div style="font-size:22px;margin-bottom:6px;">⚡</div>
+          <span class="aside-lbl id4c">iD4Connect</span>
+          <div class="flow-col">
+            <div class="abox src">📊 Source de données</div>
+            <div class="aarr">↓</div>
+            <div class="abox cell">
+              <div style="font-size:20px;margin-bottom:5px;">⚡</div>
               <div style="font-weight:800;font-size:14px;">DataCell</div>
-              <div style="font-size:11px;opacity:.8;margin-top:3px;">Traitement autonome en transit</div>
+              <div style="font-size:11px;opacity:.8;margin-top:2px;">Traitement autonome en transit</div>
             </div>
-            <div class="ac-arr">↓</div>
-            <div class="ac-box kpi">📈 KPI Métier</div>
+            <div class="aarr">↓</div>
+            <div class="abox kpi">📈 KPI Métier</div>
           </div>
-          <div class="ac-benefits">
-            <div class="ac-benefit"><span class="ok">✓</span> Aucun stockage intermédiaire</div>
-            <div class="ac-benefit"><span class="ok">✓</span> Latence &lt;5ms vs H+2 en batch</div>
-            <div class="ac-benefit"><span class="ok">✓</span> 5× moins cher en TCO</div>
-            <div class="ac-benefit"><span class="ok">✓</span> RGPD by design</div>
+          <div class="archi-bene">
+            <div class="bene"><span class="ok">✓</span> Aucun stockage intermédiaire</div>
+            <div class="bene"><span class="ok">✓</span> Latence &lt;5ms vs H+2 en batch</div>
+            <div class="bene"><span class="ok">✓</span> 5× moins cher en TCO</div>
+            <div class="bene"><span class="ok">✓</span> RGPD by design</div>
           </div>
         </div>
-      </div>
 
-      <div class="ac-footer">
-        💡 iD4Connect remplace l'ETL là où la latence et le stockage coûtent cher.
       </div>
+      <div class="archi-footer">💡 iD4Connect remplace l'ETL là où la latence et le stockage coûtent le plus cher.</div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-     RÉSULTATS
-══════════════════════════════════════════════════ -->
-<section id="results">
-  <div class="container">
-    <div class="results-header">
-      <div class="pill">Ce que ça change</div>
-      <h2 class="section-title">Des résultats concrets,<br><span class="orange">dès le premier flux.</span></h2>
-    </div>
-
-    <div class="results-grid">
-      <div class="result-card green">
-        <div class="rc-value">5×</div>
-        <div class="rc-label">moins cher</div>
-        <div class="rc-desc">que les architectures ETL/DWH traditionnelles</div>
-      </div>
-      <div class="result-card blue">
-        <div class="rc-value">0</div>
-        <div class="rc-label">donnée stockée</div>
-        <div class="rc-desc">zéro risque de fuite, conformité RGPD native</div>
-      </div>
-      <div class="result-card orange">
-        <div class="rc-value">200+</div>
-        <div class="rc-label">connecteurs natifs</div>
-        <div class="rc-desc">prêts à l'emploi, sans développement custom</div>
-      </div>
-      <div class="result-card purple">
-        <div class="rc-value">J+1</div>
-        <div class="rc-label">time-to-value</div>
-        <div class="rc-desc">premiers insights en jours, pas en mois</div>
-      </div>
-    </div>
-
-    <div class="check-strip" style="justify-content:center;margin-top:8px;">
-      <span class="cs-item red">✗ Aucun stockage intermédiaire</span>
-      <span class="cs-item green">✓ Souveraineté des données</span>
-      <span class="cs-item orange">✓ Conformité RGPD by design</span>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════
-     DEEP TECH
-══════════════════════════════════════════════════ -->
-<section id="deeptech">
-  <div class="container">
+<!-- ══════════════════════════════
+     BLOC 5 — DEEP TECH
+══════════════════════════════ -->
+<section id="dt">
+  <div class="wrap">
     <div class="dt-grid">
       <div>
         <div class="pill">Deep Tech · R&D Européenne</div>
-        <div class="trl-display">
-          <span class="trl-num">9</span>
-          <span class="trl-lbl">Technology<br>Readiness<br>Level</span>
-        </div>
-        <h2 class="section-title" style="margin-bottom:16px;">15 ans de recherche.<br>Une architecture<br><span class="orange">sans précédent.</span></h2>
-        <p style="font-size:14px;color:var(--text-500);line-height:1.75;margin-bottom:28px;">
-          Technologie issue du CETIC — centre de R&D belge — portée au niveau de maturité industrielle TRL 9. Son architecture stateless est impossible à reproduire avec les paradigmes classiques.
-        </p>
+        <div class="trl-badge"><span class="trl-num">9</span><span class="trl-txt">Technology<br>Readiness<br>Level</span></div>
+        <h2 class="sec-title" style="margin-bottom:14px">Architecture stateless issue<br>de 15 ans de R&D européenne.<br><span class="o">Aucune donnée stockée ou dupliquée.</span></h2>
+        <p class="sec-sub">Technologie issue de la recherche appliquée européenne, portée au niveau de maturité industrielle le plus élevé. Son architecture stateless est une rupture technologique, économique, réglementaire et environnementale.</p>
         <div class="dt-pillars">
-          <div class="dt-pillar"><div class="dp-icon">⚡</div><h4>Stateless</h4><p>Aucun état persistant. Chaque DataCell traite et oublie. Zéro surface d'attaque.</p></div>
-          <div class="dt-pillar"><div class="dp-icon">🔬</div><h4>Disruptive</h4><p>Rupture technologique, économique, réglementaire et environnementale.</p></div>
-          <div class="dt-pillar"><div class="dp-icon">🏗️</div><h4>Modulaire</h4><p>DataCells déployables unitairement. Scaling horizontal natif.</p></div>
-          <div class="dt-pillar"><div class="dp-icon">🛡️</div><h4>Zero Trust Data</h4><p>Chaque flux vérifié, tracé, chiffré. Audit natif, conformité automatique.</p></div>
+          <div class="dp"><div class="dp-ico">⚡</div><h4>Stateless</h4><p>Aucun état persistant. Traite et oublie. Zéro surface d'attaque.</p></div>
+          <div class="dp"><div class="dp-ico">🔬</div><h4>Disruptive</h4><p>Rupture architecturale par rapport aux paradigmes ETL/DWH.</p></div>
+          <div class="dp"><div class="dp-ico">🏗</div><h4>Modulaire</h4><p>DataCells déployables unitairement. Scaling natif.</p></div>
+          <div class="dp"><div class="dp-ico">🛡</div><h4>Zero Trust Data</h4><p>Chaque flux vérifié, tracé, chiffré. Audit natif.</p></div>
         </div>
       </div>
-
       <div>
-        <div style="font-size:12px;font-weight:700;color:var(--text-400);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;">Chronologie R&D</div>
-        <div class="rd-timeline">
-          <div class="rd-item">
-            <div class="rd-year">2008 — 2015</div>
-            <div class="rd-desc">Recherches fondamentales au CETIC sur le traitement en-flux de données hétérogènes. Première modélisation de l'architecture stateless.</div>
-          </div>
-          <div class="rd-item">
-            <div class="rd-year">2016 — 2019</div>
-            <div class="rd-desc">Développement des premiers prototypes DataCell. Validation sur données industrielles réelles. TRL 4 → 6.</div>
-          </div>
-          <div class="rd-item">
-            <div class="rd-year">2020 — 2022</div>
-            <div class="rd-desc">Industrialisation. Premiers déploiements pilotes. Développement du DataGraph. TRL 7 → 8.</div>
-          </div>
-          <div class="rd-item">
-            <div class="rd-year">2023</div>
-            <div class="rd-desc">Création d'iD4Connect France SAS. Commercialisation. TRL 9 atteint. Premiers partenaires stratégiques.</div>
-          </div>
-          <div class="rd-item">
-            <div class="rd-year">2024 — Aujourd'hui</div>
-            <div class="rd-desc">Expansion Europe & Moyen-Orient. Roadmap IA : agents data-modèles, IoT multi-protocoles, chat pilotage agents.</div>
-          </div>
+        <div style="font-size:11px;font-weight:700;color:var(--t4);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;">Chronologie R&D</div>
+        <div class="rdt">
+          <div class="rdi"><div class="ry">2008 — 2015</div><div class="rd">Recherches fondamentales sur le traitement en-flux de données hétérogènes. Première modélisation de l'architecture stateless.</div></div>
+          <div class="rdi"><div class="ry">2016 — 2019</div><div class="rd">Développement des premiers prototypes. Validation sur données industrielles réelles. TRL 4 → 6.</div></div>
+          <div class="rdi"><div class="ry">2020 — 2022</div><div class="rd">Industrialisation. Premiers déploiements pilotes. TRL 7 → 8.</div></div>
+          <div class="rdi"><div class="ry">2023</div><div class="rd">Création d'iD4Connect France SAS. Commercialisation. TRL 9 atteint.</div></div>
+          <div class="rdi"><div class="ry">2024 — Aujourd'hui</div><div class="rd">Expansion Europe & Moyen-Orient. Roadmap IA : agents data-modèles, IoT multi-protocoles.</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-     PARTENAIRES
-══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════
+     BLOC 6 — PARTENAIRES
+══════════════════════════════ -->
 <section id="partners">
-  <div class="container">
-    <div class="partners-header">
-      <div class="pill" style="margin-bottom:8px">Écosystème Partenaires</div>
+  <div class="wrap">
+    <div class="pt-head">
+      <div class="pill" style="margin-bottom:10px">Écosystème Partenaires</div>
       <h2>Ils déploient iD4Connect</h2>
     </div>
-    <div class="partners-row">
-      <div class="partner-chip"><div class="pc-icon">🛡️</div><div><div class="pc-name">HELIAQ</div><div class="pc-tag">Cybersécurité · SIEM + EDR</div></div></div>
-      <div class="partner-chip"><div class="pc-icon">🏢</div><div><div class="pc-name">NRB</div><div class="pc-tag">Intégrateur IT · Belgique</div></div></div>
-      <div class="partner-chip"><div class="pc-icon">🔒</div><div><div class="pc-name">RevBits</div><div class="pc-tag">Cybersécurité · PAM/EDR</div></div></div>
-      <div class="partner-chip"><div class="pc-icon">🔬</div><div><div class="pc-name">CETIC</div><div class="pc-tag">R&D · Origine technologique</div></div></div>
-      <div class="partner-chip"><div class="pc-icon">🛡️</div><div><div class="pc-name">Seclab Security</div><div class="pc-tag">Hardware Security · OT/IT</div></div></div>
+    <div class="pt-row">
+      <div class="pt-chip"><div class="pc-ico">🛡</div><div><div class="pc-name">HELIAQ</div><div class="pc-tag">Cybersécurité · SIEM + EDR</div></div></div>
+      <div class="pt-chip"><div class="pc-ico">🏢</div><div><div class="pc-name">NRB</div><div class="pc-tag">Intégrateur IT · Belgique</div></div></div>
+      <div class="pt-chip"><div class="pc-ico">🔒</div><div><div class="pc-name">RevBits</div><div class="pc-tag">Cybersécurité · PAM/EDR</div></div></div>
+      <div class="pt-chip"><div class="pc-ico">🔬</div><div><div class="pc-name">CETIC</div><div class="pc-tag">Centre R&D · Origine technologique</div></div></div>
+      <div class="pt-chip"><div class="pc-ico">🛡</div><div><div class="pc-name">Seclab Security</div><div class="pc-tag">Hardware Security · OT/IT</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
+<!-- ══════════════════════════════
      CTA FINAL
-══════════════════════════════════════════════════ -->
-<section id="cta-band">
-  <div class="container">
+══════════════════════════════ -->
+<section id="cta">
+  <div class="wrap">
     <h2>Prêt à reprendre le contrôle de vos données ?</h2>
     <p>Découvrez comment iD4Connect s'intègre à votre infrastructure en 30 minutes.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn-white">Demander une démo →</a>
-      <a href="architecture.html" class="btn-white-outline">Explorer l'architecture</a>
+      <a href="contact.html" class="btn-w">Demander une démo →</a>
+      <a href="architecture.html" class="btn-wo">Explorer l'architecture</a>
     </div>
   </div>
 </section>
 
-<div id="footer-placeholder"></div>
+<div id="ftr-ph"></div>
 
 <script>
-async function loadComponent(id, file) {
+/* Tabs agnostique */
+document.querySelectorAll('.ag-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.ag-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.ag-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+/* Chargement header/footer */
+async function loadComp(id, file) {
   try {
     const r = await fetch(file);
     const html = await r.text();
@@ -1023,37 +627,24 @@ async function loadComponent(id, file) {
       ns.textContent = s.textContent;
       document.head.appendChild(ns);
     });
-  } catch(e) {
-    console.warn('Composant non trouvé (nécessite un serveur HTTP):', file);
-  }
+  } catch(e) { console.warn('Serveur HTTP requis pour', file); }
 }
 
 window.addEventListener('load', async () => {
-  await loadComponent('header-placeholder', 'header.html');
-  await loadComponent('footer-placeholder', 'footer.html');
+  await loadComp('hdr-ph', 'header.html');
+  await loadComp('ftr-ph', 'footer.html');
 
-  const savedLang  = localStorage.getItem('id4-lang')  || 'fr';
-  const savedTheme = localStorage.getItem('id4-theme')  ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const t = localStorage.getItem('id4-theme') ||
+    (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+  document.body.setAttribute('data-theme', t);
 
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  document.body.setAttribute('data-theme', savedTheme);
-
-  // Écouter les changements header
   document.addEventListener('themeChange', e => {
     document.documentElement.setAttribute('data-theme', e.detail);
     document.body.setAttribute('data-theme', e.detail);
   });
 
-  // Tabs architecture
-  document.querySelectorAll('.ac-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.ac-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-    });
-  });
-
-  // Scroll reveal
+  /* Scroll reveal */
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1062,17 +653,14 @@ window.addEventListener('load', async () => {
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.07 });
 
-  document.querySelectorAll('section').forEach(s => {
+  document.querySelectorAll('section:not(#hero)').forEach(s => {
     s.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     s.style.opacity = '0';
-    s.style.transform = 'translateY(16px)';
+    s.style.transform = 'translateY(14px)';
     io.observe(s);
   });
-  // Hero immédiatement visible
-  const hero = document.getElementById('hero');
-  if (hero) { hero.style.opacity = '1'; hero.style.transform = 'none'; }
 });
 </script>
 </body>
