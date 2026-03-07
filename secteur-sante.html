@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santé — iD4Connect</title>
+<meta name="description" content="iD4Connect traite les données médicales en transit, sans les centraliser. Dossier patient, qualité des soins, coordination — protection des données by design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--green-em:#10B981;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue:#2563EB;--blue-pale:#EFF6FF;--purple:#8B5CF6;--purple-pale:#F5F3FF;--cyan:#06B6D4;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
+:root,[data-theme="light"]{--bg:#F5F4F0;--card:#FFFFFF;--section:#EEEDEA;--t9:#111827;--t7:#374151;--t5:#6B7280;--t4:#9CA3AF;--border:#E5E3DE;--border-s:#D1CFCA;--sh-sm:0 1px 3px rgba(0,0,0,.07);--sh:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.10);}
+[data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--sh-lg:0 12px 40px rgba(0,0,0,.4);--orange-pale:rgba(249,115,22,.09);--orange-border:rgba(249,115,22,.22);--green-pale:rgba(22,163,74,.09);--green-border:rgba(22,163,74,.22);--red-pale:rgba(220,38,38,.09);--red-border:rgba(220,38,38,.22);--blue-pale:rgba(37,99,235,.09);--purple-pale:rgba(139,92,246,.09);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
+.wrap{max-width:1060px;margin:0 auto;padding:0 32px;}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
+.pill svg{width:12px;height:12px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* HERO */
+#sante-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;}
+#sante-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
+.hero-inner{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;}
+.hero-inner h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--t9);margin-bottom:16px;}
+.hero-inner h1 .o{color:var(--orange);}
+.hero-inner p{font-size:15.5px;color:var(--t5);line-height:1.75;max-width:540px;margin:0 auto 36px;}
+.hero-stats{display:inline-flex;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);}
+.hstat{padding:18px 32px;text-align:center;border-right:1px solid var(--border);}
+.hstat:last-child{border-right:none;}
+.hstat-val{font-size:26px;font-weight:900;color:var(--orange);line-height:1;}
+.hstat-lbl{font-size:12px;font-weight:700;color:var(--t9);margin-top:3px;}
+.hstat-sub{font-size:10px;color:var(--t4);margin-top:1px;}
+
+/* CAS D'USAGE */
+#cas-usage{padding:0 0 96px;background:var(--bg);}
+.section-head{text-align:center;margin-bottom:44px;}
+.section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
+.section-head h2 .o{color:var(--orange);}
+.section-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
+.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;}
+.uc-card:hover{border-color:var(--orange-border);box-shadow:var(--sh);transform:translateY(-2px);}
+.uc-card.active{border-color:var(--orange);box-shadow:0 8px 28px rgba(249,115,22,.15);}
+.uc-head{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;border-bottom:1px solid var(--border);background:var(--section);}
+.uc-card.active .uc-head{background:var(--orange-pale);border-color:var(--orange-border);}
+.uc-head-left{display:flex;align-items:center;gap:8px;}
+.uc-head-ico{width:22px;height:22px;color:var(--t5);}
+.uc-card.active .uc-head-ico{color:var(--orange);}
+.uc-head-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t4);}
+.uc-card.active .uc-head-lbl{color:var(--orange);}
+.uc-dot{width:8px;height:8px;border-radius:50%;background:var(--green-em);box-shadow:0 0 0 3px rgba(16,185,129,.2);}
+.uc-body{padding:14px;}
+.uc-title{font-size:13.5px;font-weight:800;color:var(--t9);margin-bottom:11px;}
+.uc-slbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:6px;}
+.uc-sources{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:11px;}
+.uc-src{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-xs);padding:3px 9px;font-size:10.5px;font-weight:600;color:var(--t7);}
+[data-theme="dark"] .uc-src{background:var(--section);}
+.uc-ops{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;}
+.uc-op{display:flex;flex-direction:column;gap:1px;background:var(--section);border-radius:0 var(--r-xs) var(--r-xs) 0;padding:5px 10px;border-left:3px solid;}
+[data-theme="dark"] .uc-op{background:var(--bg);}
+.uc-op-name{font-size:10px;font-weight:700;color:var(--t9);}
+.uc-op-desc{font-size:9px;color:var(--t4);}
+.uc-arrow{display:flex;flex-direction:column;align-items:center;margin:6px 0;}
+.uc-arrow-line{width:2px;height:12px;opacity:.75;}
+.uc-arrow-tip{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;opacity:.75;}
+.uc-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
+.uc-output svg{width:11px;height:11px;flex-shrink:0;}
+.uc-output-lbl{font-size:11.5px;font-weight:700;color:var(--t9);}
+
+/* PROTECTION */
+#protection{padding:96px 0;background:var(--card);}
+.conf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.conf-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:24px;border-top-width:3px;transition:box-shadow .2s,transform .2s;}
+.conf-card:hover{box-shadow:var(--sh);transform:translateY(-2px);}
+.conf-ico{width:40px;height:40px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.conf-ico svg{width:20px;height:20px;}
+.conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
+.conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
+
+/* CTA */
+#sante-cta{padding:96px 0;background:var(--card);}
+.cta-box{background:var(--bg);border:2px solid var(--orange-border);border-radius:var(--r-xl);padding:48px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(249,115,22,.08);}
+.cta-box h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:10px;}
+.cta-box p{font-size:13.5px;color:var(--t5);line-height:1.65;max-width:440px;}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--orange);color:white;font-size:13.5px;font-weight:700;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
+.btn-primary:hover{background:var(--orange-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.3);}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:transparent;color:var(--t7);font-size:13.5px;font-weight:600;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;border:1.5px solid var(--border);cursor:pointer;transition:all var(--tr);}
+.btn-secondary:hover{border-color:var(--border-s);color:var(--t9);}
+
+@media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}.conf-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.uc-grid{grid-template-columns:1fr;}.wrap{padding:0 20px;}.hero-stats{flex-direction:column;}.hstat{border-right:none;border-bottom:1px solid var(--border);}.hstat:last-child{border-bottom:none;}}
+</style>
+</head>
+<body>
+<div id="hdr-ph"></div>
+
+<!-- HERO -->
+<section id="sante-hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="pill">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 14s-5.5-3.8-5.5-8a5 5 0 0 1 5.5-1.5A5 5 0 0 1 13.5 6c0 4.2-5.5 8-5.5 8z"/><path d="M6 8h4M8 6v4"/></svg>
+        Santé
+      </div>
+      <h1>Les données de santé sont sensibles.<br><span class="o">Traitez-les sans les exposer.</span></h1>
+      <p>iD4Connect traite les données médicales en transit, sans les centraliser. Dossier patient, qualité des soins, coordination — tout en temps réel, avec une protection des données personnelles by design.</p>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-val">0</div>
+          <div class="hstat-lbl">donnée copiée</div>
+          <div class="hstat-sub">anonymisation à la source</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-val">100%</div>
+          <div class="hstat-lbl">traçable</div>
+          <div class="hstat-sub">audit trail natif</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-val">Sur site</div>
+          <div class="hstat-lbl">déployé</div>
+          <div class="hstat-sub">dans votre infrastructure</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAS D'USAGE -->
+<section id="cas-usage" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="pill">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>
+        Cas d'usage
+      </div>
+      <h2>Ce qu'iD4Connect fait concrètement<br><span class="o">dans votre établissement de santé.</span></h2>
+    </div>
+    <div class="uc-grid" id="uc-grid"></div>
+    <p class="section-hint">Cliquez sur une DataCell pour la mettre en avant</p>
+  </div>
+</section>
+
+<!-- PROTECTION -->
+<section id="protection" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="pill">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/><path d="M5.5 8l2 2 3-3"/></svg>
+        Protection des données
+      </div>
+      <h2>La protection des patients<br><span class="o">gravée dans l'architecture.</span></h2>
+    </div>
+    <div class="conf-grid">
+
+      <div class="conf-card" style="border-top-color:#8B5CF6;">
+        <div class="conf-ico" style="background:var(--purple-pale);">
+          <svg viewBox="0 0 20 20" fill="none" stroke="#8B5CF6" stroke-width="1.5"><rect x="4" y="8" width="12" height="10" rx="1.5"/><path d="M7 8V6a3 3 0 0 1 6 0v2"/><circle cx="10" cy="13" r="1.5"/></svg>
+        </div>
+        <div class="conf-title">Données de santé jamais exposées</div>
+        <div class="conf-desc">Les données patients transitent sans être copiées ni centralisées. Pas de base intermédiaire, pas d'exposition supplémentaire — conformité by design.</div>
+      </div>
+
+      <div class="conf-card" style="border-top-color:#06B6D4;">
+        <div class="conf-ico" style="background:rgba(6,182,212,.09);">
+          <svg viewBox="0 0 20 20" fill="none" stroke="#06B6D4" stroke-width="1.5"><path d="M10 2a8 8 0 1 0 0 16A8 8 0 0 0 10 2z"/><path d="M10 6v4l2.5 2"/><path d="M6 3.5l1.5 1.5M12 2.5l1 1.5"/></svg>
+        </div>
+        <div class="conf-title">Anonymisation à la source</div>
+        <div class="conf-desc">La pseudonymisation et l'anonymisation s'appliquent dès la collecte, avant tout traitement. Vos équipes travaillent sur des données protégées dès le départ.</div>
+      </div>
+
+      <div class="conf-card" style="border-top-color:#10B981;">
+        <div class="conf-ico" style="background:var(--green-pale);">
+          <svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><path d="M3 4h14M3 9h14M3 14h8"/><path d="M15 12l2 2 3-2.5"/></svg>
+        </div>
+        <div class="conf-title">Hébergement sur votre infrastructure</div>
+        <div class="conf-desc">iD4Connect se déploie dans votre environnement hospitalier, sur site ou sur votre cloud privé. Aucune donnée de santé ne quitte votre périmètre de contrôle.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="sante-cta" class="reveal">
+  <div class="wrap">
+    <div class="cta-box">
+      <div>
+        <h2>Vos données de santé méritent<br>une architecture à leur hauteur.</h2>
+        <p>Déployez iD4Connect dans votre SI hospitalier sans migration. Protection des données patients garantie dès le premier flux.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">Demander une démo →</a>
+        <a href="#" class="btn-secondary">Télécharger la fiche</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="ftr-ph"></div>
+
+<script>
+const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+document.documentElement.setAttribute('data-theme',t0);
+document.body.setAttribute('data-theme',t0);
+
+const USE_CASES=[
+  {
+    id:'dossier',
+    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="16" height="18" rx="1.5"/><path d="M7 7h8M7 10.5h8M7 14h5"/><path d="M14 13l1.5 1.5L18 12"/></svg>`,
+    title:'Dossier patient unifié',
+    sources:['SIH / DPI','Données labo HL7','Imagerie DICOM'],
+    ops:[
+      {label:'Anonymisation', desc:'Pseudonymisation des données personnelles à la source', color:'#8B5CF6'},
+      {label:'Normalisation', desc:'Unification des formats hétérogènes HL7, FHIR, CSV', color:'#3B82F6'},
+      {label:'Enrichissement', desc:'Croisement résultats labo et antécédents patient', color:'#10B981'},
+    ],
+    output:'Vue 360° patient sécurisée', outColor:'#8B5CF6',
+  },
+  {
+    id:'qualite',
+    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="16" height="16" rx="1.5"/><path d="M7 11l3 3 5-5"/><path d="M3 8h16"/></svg>`,
+    title:'Indicateurs qualité & performance',
+    sources:['DMP / DPI','Données bloc opératoire','Fichiers RH soignants'],
+    ops:[
+      {label:'Agrégation', desc:'Consolidation indicateurs par service et par période', color:'#F97316'},
+      {label:'Calculs métier', desc:'Taux d\'occupation, DMS, taux de réadmission', color:'#3B82F6'},
+      {label:'Alertes', desc:'Seuils qualité dépassés notifiés en temps réel', color:'#EF4444'},
+    ],
+    output:'Tableau de bord qualité live', outColor:'#3B82F6',
+  },
+  {
+    id:'flux',
+    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="3"/><path d="M11 4v4M11 14v4M4 11h4M14 11h4"/><path d="M6.3 6.3l2.8 2.8M12.9 12.9l2.8 2.8M6.3 15.7l2.8-2.8M12.9 9.1l2.8-2.8"/></svg>`,
+    title:'Coordination des soins',
+    sources:['Prescriptions','Résultats examens','Agenda soignants'],
+    ops:[
+      {label:'Corrélation', desc:'Croisement prescriptions et résultats en temps réel', color:'#06B6D4'},
+      {label:'Détection', desc:'Identification des délais critiques de prise en charge', color:'#EF4444'},
+      {label:'Traçabilité', desc:'Audit complet du parcours patient', color:'#10B981'},
+    ],
+    output:'Alerte parcours patient', outColor:'#06B6D4',
+  },
+];
+
+let activeUC=null;
+function renderUC(){
+  document.getElementById('uc-grid').innerHTML=USE_CASES.map(uc=>`
+    <div class="uc-card ${activeUC===uc.id?'active':''}" onclick="toggleUC('${uc.id}')">
+      <div class="uc-head">
+        <div class="uc-head-left">
+          <span class="uc-head-ico">${uc.svgIcon}</span>
+          <span class="uc-head-lbl">DataCell</span>
+        </div>
+        <div class="uc-dot"></div>
+      </div>
+      <div class="uc-body">
+        <div class="uc-title">${uc.title}</div>
+        <div class="uc-slbl">Sources</div>
+        <div class="uc-sources">${uc.sources.map(s=>`<span class="uc-src">${s}</span>`).join('')}</div>
+        <div class="uc-slbl">Traitement</div>
+        <div class="uc-ops">${uc.ops.map(op=>`
+          <div class="uc-op" style="border-left-color:${op.color};background:${op.color}08;">
+            <div class="uc-op-name">${op.label}</div>
+            <div class="uc-op-desc">${op.desc}</div>
+          </div>`).join('')}
+        </div>
+        <div class="uc-arrow">
+          <div class="uc-arrow-line" style="background:${uc.outColor};"></div>
+          <div class="uc-arrow-tip" style="border-top:7px solid ${uc.outColor};border-left:5px solid transparent;border-right:5px solid transparent;"></div>
+        </div>
+        <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;">
+          <svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg>
+          <span class="uc-output-lbl">${uc.output}</span>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function toggleUC(id){activeUC=activeUC===id?null:id;renderUC();}
+renderUC();
+
+async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
+window.addEventListener('load',async()=>{
+  await loadComp('hdr-ph','header.html');
+  await loadComp('ftr-ph','footer.html');
+  document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
+  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+});
+</script>
+</body>
+</html>
