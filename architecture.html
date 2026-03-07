@@ -1069,6 +1069,17 @@ window.addEventListener('load', async function() {
     applyLang(e.detail);
   });
 
+  /* Polling localStorage — détecte le changement de langue même sans event */
+  var _lastLang = currentLang;
+  setInterval(function() {
+    var l = localStorage.getItem('id4-lang') || 'fr';
+    if (l !== _lastLang) {
+      _lastLang = l;
+      currentLang = l;
+      applyLang(l);
+    }
+  }, 200);
+
   var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: .06 });
