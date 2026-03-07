@@ -154,9 +154,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <div id="ftr-ph"></div>
 <script>
 
-const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-document.documentElement.setAttribute('data-theme',t0);
-document.body.setAttribute('data-theme',t0);
 function initPage(DATA){
   let active=null;
   function render(){
