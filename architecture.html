@@ -20,7 +20,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .reveal.visible{opacity:1;transform:none;}
 /* HERO */
 #arch-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;}
-#arch-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
+#arch-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;z-index:0;}
+#arch-hero{position:relative;z-index:0;}
 .hero-text{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;}
 .hero-text h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--t9);margin-bottom:14px;}
 .hero-text h1 .o{color:var(--orange);}
