@@ -227,129 +227,78 @@ h1.hero-h1 .line{display:block;}
 .pv p{font-size:13px;color:var(--t5);line-height:1.6;}
 @media(max-width:760px){.tab-panel.active{grid-template-columns:1fr;}.panel-visual{min-height:120px;padding:24px;}}
 
-/* ═══ BLOC 3 — TEMPS RÉEL — RACE TRACK ═══ */
-#rt{padding:96px 0;background:var(--card);overflow:hidden;}
+/* ═══ BLOC 3 — TEMPS RÉEL ═══ */
+#rt{padding:96px 0;background:var(--card);}
+.rt-top{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;}
+.rt-bot{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
 
-.rt-header{text-align:center;margin-bottom:64px;}
-.rt-header .pill{margin-bottom:16px;}
-.rt-header h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:900;letter-spacing:-1px;line-height:1.05;margin-bottom:14px;color:var(--t9);}
-.rt-header h2 .o{color:var(--orange);}
-.rt-header p{font-size:15px;color:var(--t5);max-width:540px;margin:0 auto;line-height:1.7;}
+/* Grandes tuiles */
+.rt-tile{padding:40px 44px;border-radius:0;position:relative;overflow:hidden;}
+.rt-tile.tl{border-radius:var(--r-lg) 0 0 0;}
+.rt-tile.tr{border-radius:0 var(--r-lg) 0 0;}
+.rt-tile.bl{border-radius:0 0 0 var(--r-lg);}
+.rt-tile.br{border-radius:0 0 var(--r-lg) 0;}
 
-/* Race track — 2 voies + colonne métriques centrale */
-.rt-race{display:grid;grid-template-columns:1fr 120px 1fr;gap:0;align-items:start;position:relative;}
+.rt-tile.dark{background:var(--bg);}
+.rt-tile.accent{background:var(--orange);color:white;}
+.rt-tile.muted{background:var(--section);}
 
-/* Ligne centrale verticale */
-.rt-race::before{
-  content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
-  background:linear-gradient(to bottom,transparent,var(--border) 10%,var(--border) 90%,transparent);
-  transform:translateX(-50%);pointer-events:none;
+/* Tuile étiquette */
+.rt-tag{font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;opacity:.5;margin-bottom:16px;display:block;}
+.rt-tile.accent .rt-tag{opacity:.7;color:white;}
+
+/* Grande stat */
+.rt-big{font-size:clamp(3.5rem,7vw,6rem);font-weight:900;letter-spacing:-3px;line-height:1;display:block;margin-bottom:8px;}
+.rt-tile.dark .rt-big{color:var(--t9);}
+.rt-tile.accent .rt-big{color:white;}
+.rt-tile.muted .rt-big{color:var(--t4);}
+
+.rt-sub{font-size:14px;line-height:1.6;max-width:320px;}
+.rt-tile.dark .rt-sub{color:var(--t5);}
+.rt-tile.accent .rt-sub{color:rgba(255,255,255,.8);}
+.rt-tile.muted .rt-sub{color:var(--t5);}
+
+/* Tuile étapes */
+.rt-steps{display:flex;flex-direction:column;gap:8px;margin-top:20px;}
+.rt-step-row{display:flex;align-items:center;gap:8px;}
+.rt-step-box{padding:6px 12px;border-radius:var(--r-sm);font-size:12px;font-weight:600;border:1px solid;}
+.rt-step-box.src{background:var(--blue-pale);border-color:rgba(37,99,235,.18);color:#2563EB;}
+.rt-step-box.bad{background:rgba(220,38,38,.08);border-color:var(--red-border);color:var(--red);}
+.rt-step-box.good{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:white;}
+.rt-step-box.out{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.8);}
+.rt-arr{font-size:11px;color:var(--t4);flex-shrink:0;}
+.rt-arr.w{color:rgba(255,255,255,.4);}
+.rt-step-time{font-size:10px;font-weight:700;padding:3px 8px;border-radius:var(--r-pill);margin-left:auto;white-space:nowrap;}
+.rt-step-time.slow{background:rgba(220,38,38,.15);color:var(--red);}
+.rt-step-time.fast{background:rgba(255,255,255,.2);color:white;}
+
+/* Halo accent tile */
+.rt-tile.accent::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:220px;height:220px;border-radius:50%;
+  background:rgba(255,255,255,.07);pointer-events:none;
+}
+.rt-tile.accent::after{
+  content:'';position:absolute;bottom:-40px;left:-40px;
+  width:160px;height:160px;border-radius:50%;
+  background:rgba(255,255,255,.05);pointer-events:none;
 }
 
-/* Voie gauche — classique */
-.rt-lane{display:flex;flex-direction:column;gap:0;}
-.rt-lane.left{padding-right:24px;}
-.rt-lane.right{padding-left:24px;}
+.rt-verdict-wrap{margin-top:2px;padding:28px 44px;background:var(--bg);border-radius:0 0 var(--r-lg) var(--r-lg);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+.rt-vs-stat{display:flex;align-items:baseline;gap:8px;}
+.rt-vs-n{font-size:2rem;font-weight:900;letter-spacing:-1px;}
+.rt-vs-n.bad{color:var(--red);}
+.rt-vs-n.good{color:var(--orange);}
+.rt-vs-l{font-size:12px;color:var(--t5);}
+.rt-vs-divider{font-size:1.5rem;font-weight:900;color:var(--border);flex-shrink:0;}
 
-.rt-lane-head{
-  display:flex;align-items:center;gap:10px;
-  padding:12px 16px;border-radius:var(--r);
-  margin-bottom:20px;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
-}
-.rt-lane-head.classic{background:var(--section);color:var(--t5);border:1px solid var(--border);}
-.rt-lane-head.id4c{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
-.rt-lane-head svg{width:14px;height:14px;flex-shrink:0;}
-
-/* Étape individuelle */
-.rt-step{
-  display:flex;align-items:stretch;gap:12px;
-  margin-bottom:6px;position:relative;
-}
-.rt-step-line{
-  display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:16px;
-}
-.rt-step-dot{
-  width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px;
-  border:2px solid;
-}
-.rt-step-dot.gray{border-color:var(--border-s);background:var(--section);}
-.rt-step-dot.red{border-color:var(--red);background:var(--red-pale);}
-.rt-step-dot.orange{border-color:var(--orange);background:var(--orange-pale);}
-.rt-step-connector{
-  flex:1;width:1px;background:var(--border);margin-top:4px;
-}
-.rt-step-connector.dashed{
-  background:repeating-linear-gradient(to bottom,var(--border) 0,var(--border) 4px,transparent 4px,transparent 8px);
-}
-
-.rt-step-body{flex:1;padding:10px 14px;border-radius:var(--r-sm);border:1px solid;margin-bottom:6px;}
-.rt-step-body.gray{background:var(--bg);border-color:var(--border);color:var(--t5);}
-.rt-step-body.red{background:var(--red-pale);border-color:var(--red-border);}
-.rt-step-body.orange{background:var(--orange-pale);border-color:var(--orange-border);}
-.rt-step-name{font-size:12px;font-weight:700;color:var(--t9);display:block;margin-bottom:2px;}
-.rt-step-body.red .rt-step-name{color:var(--red);}
-.rt-step-body.orange .rt-step-name{color:var(--orange);}
-.rt-step-desc{font-size:11px;color:var(--t5);line-height:1.5;}
-
-/* Grande durée à droite de chaque étape classique */
-.rt-step-dur{
-  font-size:10px;font-weight:700;color:var(--red);
-  background:var(--red-pale);border:1px solid var(--red-border);
-  border-radius:var(--r-pill);padding:2px 8px;
-  white-space:nowrap;align-self:center;flex-shrink:0;
-}
-.rt-step-dur.fast{color:var(--green);background:var(--green-pale);border-color:var(--green-border);}
-
-/* Colonne centrale — métriques */
-.rt-metrics{display:flex;flex-direction:column;align-items:center;gap:0;padding-top:64px;}
-.rt-metric{
-  display:flex;flex-direction:column;align-items:center;
-  padding:16px 8px;
-  width:100%;
-}
-.rt-metric-n{font-size:1.5rem;font-weight:900;letter-spacing:-1px;line-height:1;color:var(--t4);}
-.rt-metric-n.bad{color:var(--red);}
-.rt-metric-n.good{color:var(--orange);}
-.rt-metric-l{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--t4);margin-top:3px;text-align:center;line-height:1.3;}
-.rt-metric-sep{width:1px;flex:1;min-height:28px;background:var(--border);}
-
-/* Verdict en bas */
-.rt-verdict{
-  grid-column:1/-1;margin-top:40px;
-  display:grid;grid-template-columns:1fr 1fr;gap:12px;
-}
-.rt-verdict-classic{
-  padding:16px 20px;background:var(--red-pale);border:1px solid var(--red-border);
-  border-radius:var(--r);display:flex;align-items:center;gap:12px;
-}
-.rt-verdict-id4c{
-  padding:16px 20px;background:var(--orange-pale);border:1px solid var(--orange-border);
-  border-radius:var(--r);display:flex;align-items:center;gap:12px;
-  position:relative;overflow:hidden;
-}
-.rt-verdict-id4c::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 120% 120% at 0% 50%,rgba(249,115,22,.15) 0%,transparent 70%);
-  pointer-events:none;
-}
-.rt-v-icon{width:36px;height:36px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.rt-v-icon.red{background:rgba(220,38,38,.15);}
-.rt-v-icon.orange{background:rgba(249,115,22,.2);}
-.rt-v-icon svg{width:16px;height:16px;}
-.rt-v-icon.red svg{color:var(--red);}
-.rt-v-icon.orange svg{color:var(--orange);}
-.rt-v-stat{font-size:1.6rem;font-weight:900;letter-spacing:-1px;line-height:1;}
-.rt-verdict-classic .rt-v-stat{color:var(--red);}
-.rt-verdict-id4c .rt-v-stat{color:var(--orange);}
-.rt-v-lbl{font-size:11px;color:var(--t5);margin-top:2px;line-height:1.4;}
-
-@media(max-width:860px){
-  .rt-race{grid-template-columns:1fr;}
-  .rt-race::before{display:none;}
-  .rt-metrics{flex-direction:row;padding-top:0;padding:16px 0;gap:16px;}
-  .rt-metric-sep{width:24px;height:1px;min-height:auto;}
-  .rt-lane.left,.rt-lane.right{padding:0;}
-  .rt-verdict{grid-template-columns:1fr;}
+@media(max-width:760px){
+  .rt-top,.rt-bot{grid-template-columns:1fr;}
+  .rt-tile.tl{border-radius:var(--r-lg) var(--r-lg) 0 0;}
+  .rt-tile.tr,.rt-tile.bl{border-radius:0;}
+  .rt-tile.br{border-radius:0;}
+  .rt-tile{padding:28px 24px;}
+  .rt-verdict-wrap{padding:24px;}
 }
 
 /* ═══ BLOC 4 — COMPARATIF ARCHI ═══ */
@@ -642,137 +591,77 @@ h1.hero-h1 .line{display:block;}
 <section id="rt" class="reveal">
   <div class="wrap">
 
-    <div class="rt-header">
-      <div class="pill">Temps Réel</div>
-      <h2>Le pipeline est mort.<br><span class="o">La donnée transit, l'insight arrive.</span></h2>
-      <p>Les architectures classiques accumulent les étapes et la latence. iD4Connect traite pendant le transit, sans jamais stocker.</p>
-    </div>
+    <!-- Ligne 1 : stat choc à gauche + étapes classiques à droite -->
+    <div class="rt-top">
 
-    <div class="rt-race">
-
-      <!-- VOIE GAUCHE — Classique -->
-      <div class="rt-lane left">
-        <div class="rt-lane-head classic">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><line x1="8" y1="5" x2="8" y2="8"/><line x1="8" y1="8" x2="11" y2="10"/></svg>
-          Architecture classique
-        </div>
-
-        <div class="rt-step">
-          <div class="rt-step-line"><div class="rt-step-dot gray"></div><div class="rt-step-connector"></div></div>
-          <div class="rt-step-body gray" style="flex:1">
-            <span class="rt-step-name">Source de données</span>
-            <span class="rt-step-desc">ERP, API, IoT, base SQL</span>
+      <div class="rt-tile dark tl">
+        <span class="rt-tag">Architecture classique</span>
+        <span class="rt-big">H+24</span>
+        <p class="rt-sub">4 étapes, 3 copies de vos données, des heures de latence avant le premier insight.</p>
+        <div class="rt-steps" style="margin-top:24px;">
+          <div class="rt-step-row">
+            <span class="rt-step-box src">Source</span>
+            <span class="rt-arr">→</span>
+            <span class="rt-step-box bad">ETL</span>
+            <span class="rt-arr">→</span>
+            <span class="rt-step-box bad">ODS</span>
+            <span class="rt-arr">→</span>
+            <span class="rt-step-box bad">DWH</span>
+            <span class="rt-arr">→</span>
+            <span class="rt-step-box bad">KPI</span>
           </div>
-        </div>
-
-        <div class="rt-step">
-          <div class="rt-step-line"><div class="rt-step-dot red"></div><div class="rt-step-connector"></div></div>
-          <div class="rt-step-body red" style="flex:1">
-            <span class="rt-step-name">ETL — Extraction</span>
-            <span class="rt-step-desc">Copie, transformation, chargement</span>
-          </div>
-          <span class="rt-step-dur">+30min</span>
-        </div>
-
-        <div class="rt-step">
-          <div class="rt-step-line"><div class="rt-step-dot red"></div><div class="rt-step-connector"></div></div>
-          <div class="rt-step-body red" style="flex:1">
-            <span class="rt-step-name">ODS — Stockage opérationnel</span>
-            <span class="rt-step-desc">Données dupliquées, synchronisation</span>
-          </div>
-          <span class="rt-step-dur">+2h</span>
-        </div>
-
-        <div class="rt-step">
-          <div class="rt-step-line"><div class="rt-step-dot red"></div><div class="rt-step-connector"></div></div>
-          <div class="rt-step-body red" style="flex:1">
-            <span class="rt-step-name">DataWarehouse</span>
-            <span class="rt-step-desc">Agrégation batch, jobs planifiés</span>
-          </div>
-          <span class="rt-step-dur">+8h</span>
-        </div>
-
-        <div class="rt-step">
-          <div class="rt-step-line"><div class="rt-step-dot gray"></div></div>
-          <div class="rt-step-body gray" style="flex:1">
-            <span class="rt-step-name">KPI disponible</span>
-            <span class="rt-step-desc">Données périmées de 2h à 24h</span>
-          </div>
-          <span class="rt-step-dur">H+24</span>
         </div>
       </div>
 
-      <!-- COLONNE CENTRALE — métriques -->
-      <div class="rt-metrics">
-        <div class="rt-metric"><span class="rt-metric-n bad">4+</span><span class="rt-metric-l">étapes inutiles</span></div>
-        <div class="rt-metric-sep"></div>
-        <div class="rt-metric"><span class="rt-metric-n bad">3×</span><span class="rt-metric-l">données dupliquées</span></div>
-        <div class="rt-metric-sep"></div>
-        <div class="rt-metric"><span class="rt-metric-n good">5×</span><span class="rt-metric-l">moins cher avec iD4C</span></div>
-        <div class="rt-metric-sep"></div>
-        <div class="rt-metric"><span class="rt-metric-n good">&lt;5ms</span><span class="rt-metric-l">latence iD4C</span></div>
-      </div>
-
-      <!-- VOIE DROITE — iD4Connect -->
-      <div class="rt-lane right">
-        <div class="rt-lane-head id4c">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5z"/></svg>
-          iD4Connect · Stream
-        </div>
-
-        <div class="rt-step">
-          <div class="rt-step-line"><div class="rt-step-dot gray"></div><div class="rt-step-connector"></div></div>
-          <div class="rt-step-body gray" style="flex:1">
-            <span class="rt-step-name">Source de données</span>
-            <span class="rt-step-desc">ERP, API, IoT, base SQL</span>
-          </div>
-        </div>
-
-        <div class="rt-step">
-          <div class="rt-step-line"><div class="rt-step-dot orange"></div><div class="rt-step-connector dashed" style="background:none;background-image:linear-gradient(to bottom,var(--orange-border) 0,var(--orange-border) 4px,transparent 4px,transparent 8px);"></div></div>
-          <div class="rt-step-body orange" style="flex:1">
-            <span class="rt-step-name">DataCell — Transit intelligent</span>
-            <span class="rt-step-desc">Traitement en-flux, zéro stockage intermédiaire, transformation contextuelle</span>
-          </div>
-          <span class="rt-step-dur fast">&lt;5ms</span>
-        </div>
-
-        <div class="rt-step">
-          <div class="rt-step-line"><div class="rt-step-dot gray"></div></div>
-          <div class="rt-step-body gray" style="flex:1">
-            <span class="rt-step-name">KPI disponible</span>
-            <span class="rt-step-desc">Insight en temps réel, données fraîches</span>
-          </div>
-          <span class="rt-step-dur fast">Immédiat</span>
-        </div>
-
-        <!-- Encadré rupture -->
-        <div style="margin-top:20px;padding:16px 18px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r);position:relative;overflow:hidden;">
-          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 120% at 0% 50%,rgba(249,115,22,.12) 0%,transparent 70%);pointer-events:none;"></div>
-          <p style="font-size:13px;font-weight:700;color:var(--orange);margin-bottom:6px;position:relative;">Ce n'est pas de l'optimisation.</p>
-          <p style="font-size:12.5px;color:var(--t7);line-height:1.6;position:relative;">iD4Connect élimine le pipeline. La donnée transite, l'insight arrive. Aucune étape intermédiaire, aucune donnée dupliquée, aucune latence accumulée.</p>
-        </div>
-      </div>
-
-      <!-- VERDICT bas de page -->
-      <div class="rt-verdict">
-        <div class="rt-verdict-classic">
-          <div class="rt-v-icon red"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><line x1="8" y1="5" x2="8" y2="11"/></svg></div>
-          <div>
-            <div class="rt-v-stat">H+24</div>
-            <div class="rt-v-lbl">Latence architecture classique<br>ETL · ODS · DataWarehouse · Batch</div>
-          </div>
-        </div>
-        <div class="rt-verdict-id4c">
-          <div class="rt-v-icon orange"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5z"/></svg></div>
-          <div style="position:relative;">
-            <div class="rt-v-stat">&lt;5ms</div>
-            <div class="rt-v-lbl">Latence iD4Connect<br>Transit · Stateless · Temps réel</div>
+      <div class="rt-tile accent tr">
+        <span class="rt-tag">iD4Connect · Stream</span>
+        <span class="rt-big">&lt;5ms</span>
+        <p class="rt-sub">Une seule étape. Zéro copie. L'insight arrive pendant que la donnée transite.</p>
+        <div class="rt-steps" style="margin-top:24px;">
+          <div class="rt-step-row">
+            <span class="rt-step-box src" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:white;">Source</span>
+            <span class="rt-arr w">→</span>
+            <span class="rt-step-box good">DataCell</span>
+            <span class="rt-arr w">→</span>
+            <span class="rt-step-box out">KPI</span>
           </div>
         </div>
       </div>
 
     </div>
+
+    <!-- Ligne 2 : contexte à gauche + message fort à droite -->
+    <div class="rt-bot">
+
+      <div class="rt-tile muted bl">
+        <span class="rt-tag">Pourquoi c'est important</span>
+        <p class="rt-sub" style="font-size:15px;color:var(--t7);line-height:1.75;">Les architectures ETL classiques stockent vos données à chaque étape. Plus de surface d'exposition, plus de coût, plus de latence. Chaque couche est un risque et un goulot d'étranglement.</p>
+      </div>
+
+      <div class="rt-tile dark br" style="background:var(--orange-pale);border:1px solid var(--orange-border);">
+        <span class="rt-tag" style="color:var(--orange);opacity:1;">Rupture architecturale</span>
+        <p style="font-size:1.1rem;font-weight:800;color:var(--orange);line-height:1.4;margin-bottom:12px;">Ce n'est pas de l'optimisation.</p>
+        <p class="rt-sub" style="color:var(--t7);">iD4Connect élimine le pipeline. Aucune étape intermédiaire, aucune donnée dupliquée, aucune latence accumulée. La conformité est structurelle.</p>
+      </div>
+
+    </div>
+
+    <!-- Verdict final -->
+    <div class="rt-verdict-wrap">
+      <div class="rt-vs-stat">
+        <span class="rt-vs-n bad">H+24</span>
+        <span class="rt-vs-l">latence moyenne<br>architecture ETL classique</span>
+      </div>
+      <span class="rt-vs-divider">vs</span>
+      <div class="rt-vs-stat">
+        <span class="rt-vs-n good">&lt;5ms</span>
+        <span class="rt-vs-l">latence iD4Connect<br>traitement en transit</span>
+      </div>
+      <div style="flex:1;display:flex;justify-content:flex-end;">
+        <a href="/architecture" class="btn-p">Voir l'architecture →</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
