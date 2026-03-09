@@ -299,25 +299,52 @@ h1.hero-h1 .line{display:block;}
 
 @media(max-width:680px){.ac-table thead th:first-child,.ac-table tbody td:first-child{display:none;}}
 
-/* ═══ BLOC 5 — DEEP TECH ═══ */
+/* ═══ BLOC 5 — COMPLÉMENTARITÉ ═══ */
 #dt{padding:96px 0;background:var(--card);}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
-.trl{display:flex;align-items:baseline;gap:6px;margin-bottom:18px;}
-.trl-n{font-size:5rem;font-weight:900;color:var(--orange);line-height:1;letter-spacing:-3px;}
-.trl-l{font-size:10px;font-weight:700;color:var(--t4);letter-spacing:1px;text-transform:uppercase;line-height:1.5;}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;}
-.pillar{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;transition:border-color var(--tr);}
-.pillar:hover{border-color:var(--orange);}
-.pillar svg{width:18px;height:18px;color:var(--orange);margin-bottom:8px;}
-.pillar h4{font-size:13px;font-weight:700;margin-bottom:3px;}
-.pillar p{font-size:12px;color:var(--t5);line-height:1.6;}
-.timeline{position:relative;padding-left:20px;}
-.timeline::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:1.5px;background:linear-gradient(to bottom,var(--orange),rgba(249,115,22,.08));}
-.tl-item{position:relative;padding:0 0 22px 16px;}
-.tl-item::before{content:'';position:absolute;left:-17px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--orange);border:2px solid var(--bg);}
-.tl-year{font-size:11px;font-weight:700;color:var(--orange);margin-bottom:3px;}
-.tl-desc{font-size:13px;color:var(--t5);line-height:1.6;}
-@media(max-width:900px){.two-col{grid-template-columns:1fr;gap:44px;}.pillars{grid-template-columns:1fr 1fr;}}
+.dt-head{text-align:center;margin-bottom:56px;}
+.dt-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);margin-bottom:10px;}
+.dt-head h2 .o{color:var(--orange);}
+.dt-head p{font-size:15px;color:var(--t5);max-width:540px;margin:0 auto;line-height:1.7;}
+
+/* Grille 4 cards */
+.dt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;}
+
+.dt-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);}
+.dt-card:hover{border-color:var(--orange-border);box-shadow:0 8px 28px rgba(249,115,22,.09);transform:translateY(-2px);}
+
+/* Partie haute — l'outil existant */
+.dt-card-top{padding:20px 18px 16px;}
+.dt-card-meta{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--t4);margin-bottom:14px;}
+.dt-tool{display:flex;align-items:center;gap:10px;margin-bottom:0;}
+.dt-tool-ico{width:34px;height:34px;border-radius:var(--r-sm);background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dt-tool-ico svg{width:16px;height:16px;color:var(--t5);}
+.dt-tool-name{font-size:14px;font-weight:800;color:var(--t9);line-height:1.2;}
+.dt-tool-sub{font-size:11px;color:var(--t4);margin-top:2px;line-height:1.4;}
+
+/* Bande "+" */
+.dt-plus{display:flex;align-items:center;gap:8px;padding:9px 18px;background:var(--orange-pale);border-top:1px solid var(--orange-border);border-bottom:1px solid var(--orange-border);}
+.dt-plus svg{width:11px;height:11px;color:var(--orange);}
+.dt-plus-lbl{font-size:11.5px;font-weight:700;color:var(--orange);}
+
+/* Résultat */
+.dt-result{padding:14px 18px 20px;flex:1;}
+.dt-result-lbl{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:6px;color:var(--t4);}
+.dt-result-title{font-size:15px;font-weight:800;color:var(--t9);margin-bottom:4px;line-height:1.3;}
+.dt-result-sub{font-size:12px;color:var(--t5);line-height:1.55;}
+
+/* ETL card — cas différent : remplacement */
+.dt-card.replaces .dt-plus{background:var(--red-pale);border-color:var(--red-border);}
+.dt-card.replaces .dt-plus svg{color:var(--red);}
+.dt-card.replaces .dt-plus-lbl{color:var(--red);}
+.dt-card.replaces:hover{border-color:var(--red-border);}
+
+/* Note bas */
+.dt-note{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 18px;font-size:13px;color:var(--t5);display:flex;align-items:center;gap:10px;line-height:1.6;}
+.dt-note svg{flex-shrink:0;color:var(--t4);width:14px;height:14px;}
+.dt-note strong{color:var(--t9);}
+
+@media(max-width:900px){.dt-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:540px){.dt-grid{grid-template-columns:1fr;}}
 
 /* ═══ BLOC 6 — PARTENAIRES ═══ */
 #partners{padding:72px 0;background:var(--bg);}
@@ -672,33 +699,125 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
-<!-- ═══ BLOC 5 — DEEP TECH ═══ -->
+<!-- ═══ BLOC 5 — COMPLÉMENTARITÉ ═══ -->
 <section id="dt" class="reveal">
   <div class="wrap">
-    <div class="two-col">
-      <div>
-        <div class="pill">Deep Tech · R&D Européenne</div>
-        <div class="trl"><span class="trl-n">9</span><span class="trl-l">Technology<br>Readiness<br>Level</span></div>
-        <h2 class="sec-title" style="margin-bottom:14px">Architecture stateless issue<br>de 15 ans de R&D européenne.<br><span class="o">Aucune donnée stockée ou dupliquée.</span></h2>
-        <p class="sec-sub" style="margin-bottom:0">Technologie portée au niveau de maturité industrielle le plus élevé. Son architecture stateless est une rupture technologique, économique, réglementaire et environnementale.</p>
-        <div class="pillars">
-          <div class="pillar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg><h4>Stateless</h4><p>Aucun état persistant. Traite et oublie. Zéro surface d'attaque.</p></div>
-          <div class="pillar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2"/></svg><h4>Disruptive</h4><p>Rupture architecturale par rapport aux paradigmes ETL/DWH.</p></div>
-          <div class="pillar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg><h4>Modulaire</h4><p>DataCells déployables unitairement. Scaling natif.</p></div>
-          <div class="pillar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg><h4>Zero Trust Data</h4><p>Chaque flux vérifié, tracé, chiffré. Audit natif.</p></div>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:11px;font-weight:700;color:var(--t4);letter-spacing:1px;text-transform:uppercase;margin-bottom:22px;">Chronologie R&D</div>
-        <div class="timeline">
-          <div class="tl-item"><div class="tl-year">2008 · 2015</div><div class="tl-desc">Recherches fondamentales sur le traitement en-flux de données hétérogènes. Première modélisation de l'architecture stateless.</div></div>
-          <div class="tl-item"><div class="tl-year">2016 · 2019</div><div class="tl-desc">Développement des premiers prototypes. Validation sur données industrielles réelles. TRL 4 à 6.</div></div>
-          <div class="tl-item"><div class="tl-year">2020 · 2022</div><div class="tl-desc">Industrialisation. Premiers déploiements pilotes. TRL 7 à 8.</div></div>
-          <div class="tl-item"><div class="tl-year">2023</div><div class="tl-desc">Création d'iD4Connect France SAS. Commercialisation. TRL 9 atteint.</div></div>
-          <div class="tl-item" style="padding-bottom:0"><div class="tl-year">2024 · Aujourd'hui</div><div class="tl-desc">Expansion Europe & Moyen-Orient. Roadmap IA : agents data-modèles, IoT multi-protocoles.</div></div>
-        </div>
-      </div>
+
+    <div class="dt-head">
+      <div class="pill">Complémentarité</div>
+      <h2>iD4Connect ne remplace pas vos outils.<br><span class="o">Il les rend meilleurs.</span></h2>
+      <p>Vous avez déjà une infrastructure en place. iD4Connect s'y insère sans tout réarchitecturer — sauf là où c'est votre ETL qui coûte.</p>
     </div>
+
+    <div class="dt-grid">
+
+      <!-- BI -->
+      <div class="dt-card reveal">
+        <div class="dt-card-top">
+          <div class="dt-card-meta">Vous avez</div>
+          <div class="dt-tool">
+            <div class="dt-tool-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/><path d="M2 9L6 6l4 1 4-4"/></svg>
+            </div>
+            <div>
+              <div class="dt-tool-name">Votre outil BI</div>
+              <div class="dt-tool-sub">Tableaux de bord alimentés en batch</div>
+            </div>
+          </div>
+        </div>
+        <div class="dt-plus">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
+          <span class="dt-plus-lbl">iD4Connect</span>
+        </div>
+        <div class="dt-result">
+          <div class="dt-result-lbl">Résultat</div>
+          <div class="dt-result-title">BI temps réel</div>
+          <div class="dt-result-sub">Dashboards live, sans DWH ni pipeline à maintenir en amont</div>
+        </div>
+      </div>
+
+      <!-- SIEM -->
+      <div class="dt-card reveal">
+        <div class="dt-card-top">
+          <div class="dt-card-meta">Vous avez</div>
+          <div class="dt-tool">
+            <div class="dt-tool-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>
+            </div>
+            <div>
+              <div class="dt-tool-name">Votre SIEM / EDR</div>
+              <div class="dt-tool-sub">Logs bruts, corrélation limitée</div>
+            </div>
+          </div>
+        </div>
+        <div class="dt-plus">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
+          <span class="dt-plus-lbl">iD4Connect</span>
+        </div>
+        <div class="dt-result">
+          <div class="dt-result-lbl">Résultat</div>
+          <div class="dt-result-title">Détection enrichie</div>
+          <div class="dt-result-sub">Contexte métier sur chaque alerte, corrélation cross-sources en transit</div>
+        </div>
+      </div>
+
+      <!-- CRM / ERP -->
+      <div class="dt-card reveal">
+        <div class="dt-card-top">
+          <div class="dt-card-meta">Vous avez</div>
+          <div class="dt-tool">
+            <div class="dt-tool-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="5" height="4" rx="1"/><rect x="9" y="3" width="5" height="4" rx="1"/><rect x="2" y="9" width="5" height="4" rx="1"/><rect x="9" y="9" width="5" height="4" rx="1"/><path d="M4.5 7v2M11.5 7v2M7 5h2M7 11h2"/></svg>
+            </div>
+            <div>
+              <div class="dt-tool-name">Votre CRM / ERP</div>
+              <div class="dt-tool-sub">Données cloisonnées par outil</div>
+            </div>
+          </div>
+        </div>
+        <div class="dt-plus">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
+          <span class="dt-plus-lbl">iD4Connect</span>
+        </div>
+        <div class="dt-result">
+          <div class="dt-result-lbl">Résultat</div>
+          <div class="dt-result-title">Vision unifiée</div>
+          <div class="dt-result-sub">Croisement multi-sources instantané, sans duplication ni migration</div>
+        </div>
+      </div>
+
+      <!-- ETL — cas remplacement -->
+      <div class="dt-card replaces reveal">
+        <div class="dt-card-top">
+          <div class="dt-card-meta">Vous avez</div>
+          <div class="dt-tool">
+            <div class="dt-tool-ico">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h3v8H2zM7 2h3v12H7zM12 6h2v6h-2z"/></svg>
+            </div>
+            <div>
+              <div class="dt-tool-name">Votre ETL</div>
+              <div class="dt-tool-sub">Batch, staging, latence accumulée</div>
+            </div>
+          </div>
+        </div>
+        <div class="dt-plus">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="9" y2="6"/></svg>
+          <span class="dt-plus-lbl">Remplacé par iD4Connect</span>
+        </div>
+        <div class="dt-result">
+          <div class="dt-result-lbl">Résultat</div>
+          <div class="dt-result-title">Zéro pipeline</div>
+          <div class="dt-result-sub">Traitement en transit, sans zone tampon. 5× moins cher en TCO.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dt-note">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="7" x2="8" y2="11" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
+      <span><strong>Votre équipe garde ses outils.</strong> iD4Connect s'intègre en quelques jours, sans migration de données, sans formation longue, sans risque.</span>
+    </div>
+
   </div>
 </section>
 
