@@ -124,35 +124,35 @@ h1.hero-h1 .line{display:block;}
 .sov-left .sov-intro{font-size:14px;color:var(--t5);line-height:1.7;margin-bottom:20px;max-width:480px;}
 
 /* Liste d'arguments — flex:1 pour remplir la hauteur */
-.sov-args{display:flex;flex-direction:column;gap:0;flex:1;}
+.sov-args{display:flex;flex-direction:column;gap:10px;flex:1;}
 .sov-arg{
-  display:flex;align-items:flex-start;gap:14px;
-  padding:14px 0;
-  border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px;
+  background:var(--bg);
+  border:1.5px solid var(--border);
+  border-radius:var(--r);
   flex:1;
+  transition:border-color var(--tr),box-shadow var(--tr);
 }
-.sov-arg:first-child{border-top:1px solid var(--border);}
+.sov-arg:hover{border-color:var(--orange-border);box-shadow:0 4px 16px rgba(249,115,22,.08);}
 
 .sov-arg-ico{
-  width:30px;height:30px;flex-shrink:0;
-  background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);
+  width:36px;height:36px;flex-shrink:0;
+  background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-sm);
   display:flex;align-items:center;justify-content:center;
-  margin-top:1px;transition:border-color .2s,background .2s;
+  margin-top:1px;
 }
-.sov-arg:hover .sov-arg-ico{border-color:var(--orange-border);background:var(--orange-pale);}
-.sov-arg-ico svg{width:13px;height:13px;color:var(--t4);transition:color .2s;}
-.sov-arg:hover .sov-arg-ico svg{color:var(--orange);}
+.sov-arg-ico svg{width:16px;height:16px;color:var(--orange);}
 
 .sov-arg-body{flex:1;}
-.sov-arg-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--t4);margin-bottom:3px;display:block;}
-.sov-arg-title{font-size:13px;font-weight:700;color:var(--t9);margin-bottom:3px;line-height:1.3;}
+.sov-arg-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--t4);margin-bottom:4px;display:block;}
+.sov-arg-title{font-size:14px;font-weight:700;color:var(--t9);margin-bottom:4px;line-height:1.3;}
 .sov-arg-desc{font-size:12.5px;color:var(--t5);line-height:1.55;}
 
 .sov-arg-stat{
-  text-align:right;flex-shrink:0;width:72px;padding-top:2px;
+  text-align:right;flex-shrink:0;width:80px;padding-top:2px;
 }
-.sov-arg-stat .n{display:block;font-size:1.35rem;font-weight:900;letter-spacing:-1px;line-height:1;color:var(--t4);transition:color .2s;}
-.sov-arg:hover .sov-arg-stat .n{color:var(--orange);}
+.sov-arg-stat .n{display:block;font-size:1.5rem;font-weight:900;letter-spacing:-1px;line-height:1;color:var(--orange);}
 .sov-arg-stat .l{display:block;font-size:10px;font-weight:600;color:var(--t4);line-height:1.4;margin-top:3px;}
 
 /* ── COL DROITE — même hauteur que gauche ── */
@@ -469,7 +469,7 @@ h1.hero-h1 .line{display:block;}
             <div class="sov-arg-body">
               <span class="sov-arg-label">Alternative européenne</span>
               <div class="sov-arg-title">100% européen, sans compromis.</div>
-              <div class="sov-arg-desc">15 ans de R&amp;D européenne. Aucune dépendance à une juridiction étrangère. NIS2, DORA, HDS natifs dès le premier déploiement.</div>
+              <div class="sov-arg-desc">15 ans de R&amp;D européenne. Aucune dépendance à une juridiction étrangère. Les exigences réglementaires des secteurs les plus contraints sont couvertes nativement dès le premier déploiement.</div>
             </div>
             <div class="sov-arg-stat">
               <span class="n">TRL9</span>
@@ -535,11 +535,11 @@ h1.hero-h1 .line{display:block;}
         <div class="sov-comply">
           <span class="sov-comply-lbl">Conformité couverte</span>
           <div class="sov-comply-tags">
-            <span class="ctag">✓ RGPD</span>
-            <span class="ctag">✓ NIS2</span>
-            <span class="ctag">✓ DORA</span>
-            <span class="ctag">✓ HDS</span>
-            <span class="ctag">✓ ISO 27001</span>
+            <span class="ctag">✓ Protection des données personnelles</span>
+            <span class="ctag">✓ Résilience des infrastructures critiques</span>
+            <span class="ctag">✓ Secteur financier</span>
+            <span class="ctag">✓ Données de santé</span>
+            <span class="ctag">✓ Sécurité de l'information</span>
           </div>
         </div>
 
