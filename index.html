@@ -347,14 +347,18 @@ h1.hero-h1 .line{display:block;}
 @media(max-width:540px){.dt-grid{grid-template-columns:1fr;}}
 
 /* ═══ BLOC 6 — PARTENAIRES ═══ */
-#partners{padding:72px 0;background:var(--bg);}
-.pt-head{text-align:center;margin-bottom:32px;}
-.pt-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
-.pt-chip{display:flex;align-items:center;gap:10px;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);transition:all var(--tr);text-decoration:none;}
-.pt-chip:hover{border-color:var(--orange-border);background:var(--orange-pale);}
-.pt-chip svg{width:18px;height:18px;color:var(--t4);flex-shrink:0;}
-.pt-chip:hover svg{color:var(--orange);}
-.pt-name{font-size:13.5px;font-weight:700;color:var(--t9);}
+#partners{padding:80px 0;background:var(--bg);}
+.pt-head{text-align:center;margin-bottom:52px;}
+.pt-head h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;letter-spacing:-.5px;color:var(--t9);margin-bottom:8px;}
+.pt-head p{font-size:15px;color:var(--t5);}
+.pt-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+.pt-chip{display:flex;align-items:center;gap:10px;padding:14px 22px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);transition:all var(--tr);text-decoration:none;}
+.pt-chip:hover{border-color:var(--orange-border);background:var(--orange-pale);box-shadow:0 4px 16px rgba(249,115,22,.08);}
+.pt-chip-ico{width:32px;height:32px;border-radius:var(--r-sm);background:var(--section);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pt-chip-ico svg{width:15px;height:15px;color:var(--t5);}
+.pt-chip:hover .pt-chip-ico svg{color:var(--orange);}
+.pt-chip:hover .pt-chip-ico{border-color:var(--orange-border);background:var(--orange-pale);}
+.pt-name{font-size:14px;font-weight:700;color:var(--t9);}
 .pt-tag{font-size:11px;color:var(--t4);margin-top:1px;}
 
 /* ═══ CTA FINAL ═══ */
@@ -706,7 +710,7 @@ h1.hero-h1 .line{display:block;}
     <div class="dt-head">
       <div class="pill">Complémentarité</div>
       <h2>iD4Connect ne remplace pas vos outils.<br><span class="o">Il les rend meilleurs.</span></h2>
-      <p>Vous avez déjà une infrastructure en place. iD4Connect s'y insère sans tout réarchitecturer — sauf là où c'est votre ETL qui coûte.</p>
+      <p>Vous avez déjà une infrastructure en place. iD4Connect s'y insère sans tout réarchitecturer, sans formation longue, sans migration de données.</p>
     </div>
 
     <div class="dt-grid">
@@ -786,8 +790,8 @@ h1.hero-h1 .line{display:block;}
         </div>
       </div>
 
-      <!-- ETL — cas remplacement -->
-      <div class="dt-card replaces reveal">
+      <!-- ETL -->
+      <div class="dt-card reveal">
         <div class="dt-card-top">
           <div class="dt-card-meta">Vous avez</div>
           <div class="dt-tool">
@@ -801,13 +805,13 @@ h1.hero-h1 .line{display:block;}
           </div>
         </div>
         <div class="dt-plus">
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="9" y2="6"/></svg>
-          <span class="dt-plus-lbl">Remplacé par iD4Connect</span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
+          <span class="dt-plus-lbl">iD4Connect</span>
         </div>
         <div class="dt-result">
           <div class="dt-result-lbl">Résultat</div>
-          <div class="dt-result-title">Zéro pipeline</div>
-          <div class="dt-result-sub">Traitement en transit, sans zone tampon. 5× moins cher en TCO.</div>
+          <div class="dt-result-title">Pipeline allégé</div>
+          <div class="dt-result-sub">iD4Connect absorbe les flux temps réel, votre ETL garde les traitements batch complexes</div>
         </div>
       </div>
 
@@ -825,15 +829,31 @@ h1.hero-h1 .line{display:block;}
 <section id="partners" class="reveal">
   <div class="wrap">
     <div class="pt-head">
-      <div class="pill" style="margin-bottom:10px">Écosystème Partenaires</div>
-      <h2 style="font-size:1rem;font-weight:700;color:var(--t5)">Ils déploient iD4Connect</h2>
+      <div class="pill">Partenaires</div>
+      <h2>Ils déploient iD4Connect</h2>
+      <p>Des organisations qui transforment leur approche de la data</p>
     </div>
-    <div class="pt-row">
-      <a href="/cybersecurite" class="pt-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg><div><div class="pt-name">HELIAQ</div><div class="pt-tag">Cybersécurité · SIEM + EDR</div></div></a>
-      <a href="#" class="pt-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="14" height="9" rx="1"/><path d="M5 4V3a3 3 0 0 1 6 0v1"/></svg><div><div class="pt-name">NRB</div><div class="pt-tag">Intégrateur IT · Belgique</div></div></a>
-      <a href="#" class="pt-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4"/></svg><div><div class="pt-name">RevBits</div><div class="pt-tag">Cybersécurité · PAM/EDR</div></div></a>
-      <a href="/notre-histoire" class="pt-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5L5 11M11 5l1.5-1.5"/></svg><div><div class="pt-name">CETIC</div><div class="pt-tag">Centre R&D · Origine technologique</div></div></a>
-      <a href="/cybersecurite" class="pt-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="12" height="8" rx="1"/><path d="M5 5V3.5a3 3 0 0 1 6 0V5"/></svg><div><div class="pt-name">Seclab Security</div><div class="pt-tag">Hardware Security · OT/IT</div></div></a>
+    <div class="pt-logos">
+      <a href="/cybersecurite" class="pt-chip">
+        <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg></div>
+        <div><div class="pt-name">HELIAQ</div><div class="pt-tag">Cybersécurité · France</div></div>
+      </a>
+      <a href="#" class="pt-chip">
+        <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="14" height="9" rx="1"/><path d="M5 4V3a3 3 0 0 1 6 0v1"/></svg></div>
+        <div><div class="pt-name">NRB</div><div class="pt-tag">Intégrateur IT · Belgique</div></div>
+      </a>
+      <a href="#" class="pt-chip">
+        <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4"/></svg></div>
+        <div><div class="pt-name">RevBits</div><div class="pt-tag">Cybersécurité · PAM/EDR</div></div>
+      </a>
+      <a href="/notre-histoire" class="pt-chip">
+        <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5L5 11M11 5l1.5-1.5"/></svg></div>
+        <div><div class="pt-name">CETIC</div><div class="pt-tag">Centre R&D · Origine technologique</div></div>
+      </a>
+      <a href="/cybersecurite" class="pt-chip">
+        <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="12" height="8" rx="1"/><path d="M5 5V3.5a3 3 0 0 1 6 0V5"/></svg></div>
+        <div><div class="pt-name">Seclab Security</div><div class="pt-tag">Hardware Security · OT/IT</div></div>
+      </a>
     </div>
   </div>
 </section>
