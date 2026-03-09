@@ -154,39 +154,6 @@ h1.hero-h1 .line{display:block;}
 @media(max-width:960px){.sov-layout{grid-template-columns:1fr;gap:40px;}.sov-right{position:static;}}
 @media(max-width:600px){.sov-arg{gap:12px;}.sov-arg-stat{width:60px;}}
 
-/* Variante 1 — split stat / texte */
-.sov-card--split{display:flex;gap:0;padding:0;overflow:hidden;}
-.sov-card-split-left{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:84px;padding:20px 12px;background:var(--orange-pale);border-right:1px solid var(--orange-border);flex-shrink:0;transition:background .25s;}
-.sov-card--split:hover .sov-card-split-left{background:rgba(249,115,22,.18);}
-.sov-big-stat{font-size:2.2rem;font-weight:900;letter-spacing:-2px;line-height:1;color:var(--orange);}
-.sov-big-unit{font-size:10px;font-weight:600;color:var(--orange);text-align:center;line-height:1.3;margin-top:4px;opacity:.75;}
-.sov-card-split-right{padding:20px 18px;display:flex;flex-direction:column;}
-.sov-card-split-right .sov-ico{margin-bottom:11px;}
-.sov-card-split-right h3{font-size:13px;margin-bottom:6px;}
-.sov-card-split-right p{font-size:12px;line-height:1.55;}
-
-/* Variante 2 — barres de conformité */
-.sov-meter{display:flex;flex-direction:column;gap:7px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border);transition:border-color .25s;}
-.sov-card--featured:hover .sov-meter{border-color:var(--orange-border);}
-.sov-meter-row{display:flex;align-items:center;gap:8px;}
-.sov-meter-lbl{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--t4);width:34px;flex-shrink:0;text-transform:uppercase;}
-.sov-meter-bar{flex:1;height:3px;background:var(--border);border-radius:2px;overflow:hidden;}
-.sov-meter-fill{height:100%;background:var(--orange);border-radius:2px;}
-
-/* Variante 3 — liste avec dots */
-.sov-list{list-style:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:8px;transition:border-color .25s;}
-.sov-card--list:hover .sov-list{border-color:var(--orange-border);}
-.sov-list li{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--t7);}
-.sov-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-.sov-dot.g{background:var(--green);}
-
-/* Liens sources dans l'alerte rouge */
-.sov-legal-src a{color:var(--t5);text-decoration:underline;text-decoration-color:rgba(156,163,175,.35);text-underline-offset:2px;transition:color .2s;}
-.sov-legal-src a:hover{color:var(--red);}
-
-@media(max-width:900px){.sov-cards{grid-template-columns:1fr;}}
-@media(max-width:480px){.sov-card--split{flex-direction:column;}.sov-card-split-left{flex-direction:row;gap:8px;padding:14px 18px;border-right:none;border-bottom:1px solid var(--orange-border);}}
-
 /* ═══ BLOC 2 — AGNOSTIQUE ═══ */
 #agnostic{padding:96px 0;background:var(--bg);}
 .center-head{text-align:center;margin-bottom:48px;}
@@ -351,89 +318,128 @@ h1.hero-h1 .line{display:block;}
 <!-- ═══ BLOC 1 — SOUVERAINETÉ ═══ -->
 <section id="sov" class="reveal">
   <div class="wrap">
+    <div class="sov-layout">
 
-    <div class="sov-head">
-      <div class="pill">Souveraineté & Gouvernance</div>
-      <h2>Vos données ne quittent<br>jamais votre infrastructure.</h2>
-      <p>Dans un monde soumis aux lois d'accès extraterritorial, l'hébergement chez des acteurs soumis au droit américain crée un risque juridique réel — même si leurs serveurs sont physiquement en Europe.</p>
-    </div>
+      <!-- COL GAUCHE -->
+      <div class="sov-left">
+        <div class="pill">Souveraineté & Gouvernance</div>
+        <h2>Vos données ne quittent<br>jamais votre infrastructure.</h2>
+        <p class="sov-intro">Dans un monde soumis aux lois d'accès extraterritorial, l'hébergement chez des acteurs soumis au droit américain crée un risque juridique réel — même si leurs serveurs sont physiquement en Europe.</p>
+        <div class="sov-args">
 
-    <div class="sov-cards">
-
-      <!-- Carte 1 : grande stat à gauche + texte à droite -->
-      <div class="sov-card sov-card--split">
-        <div class="sov-card-split-left">
-          <span class="sov-big-stat">0</span>
-          <span class="sov-big-unit">octet<br>stocké</span>
-        </div>
-        <div class="sov-card-split-right">
-          <div class="sov-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="sov-arg">
+            <div class="sov-arg-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="sov-arg-body">
+              <span class="sov-arg-label">Données à la source</span>
+              <div class="sov-arg-title">Restent dans votre périmètre.</div>
+              <div class="sov-arg-desc">Les DataCells se déploient directement dans votre infrastructure. Vos données transitent exclusivement dans votre environnement — jamais dans le nôtre.</div>
+            </div>
+            <div class="sov-arg-stat">
+              <span class="n">0</span>
+              <span class="l">octet stocké hors de votre SI</span>
+            </div>
           </div>
-          <span class="sov-tag">Données à la source</span>
-          <h3>Restent dans votre périmètre.</h3>
-          <p>Les DataCells se déploient dans votre infrastructure. Vos données transitent dans votre environnement — jamais dans le nôtre.</p>
+
+          <div class="sov-arg">
+            <div class="sov-arg-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div class="sov-arg-body">
+              <span class="sov-arg-label">Conformité by design</span>
+              <div class="sov-arg-title">La conformité est l'architecture.</div>
+              <div class="sov-arg-desc">Aucune copie, aucun stockage intermédiaire. La conformité n'est pas une couche ajoutée — elle est structurelle, renforcée par des modèles API à chaque transformation.</div>
+            </div>
+            <div class="sov-arg-stat">
+              <span class="n">5×</span>
+              <span class="l">moins cher qu'un ETL classique</span>
+            </div>
+          </div>
+
+          <div class="sov-arg">
+            <div class="sov-arg-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="sov-arg-body">
+              <span class="sov-arg-label">Alternative européenne</span>
+              <div class="sov-arg-title">100% européen, sans compromis.</div>
+              <div class="sov-arg-desc">15 ans de R&amp;D européenne. Aucune dépendance à une juridiction étrangère. NIS2, DORA, HDS natifs dès le premier déploiement.</div>
+            </div>
+            <div class="sov-arg-stat">
+              <span class="n">TRL9</span>
+              <span class="l">maturité industrielle maximale</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- Carte 2 : icône + texte + barre de progression décorative -->
-      <div class="sov-card sov-card--featured">
-        <div class="sov-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <span class="sov-tag">Conformité by design</span>
-        <h3>La conformité est l'architecture.</h3>
-        <p>Aucune copie, aucun stockage intermédiaire. La conformité est structurelle — pas une couche ajoutée.</p>
-        <div class="sov-meter">
-          <div class="sov-meter-row"><span class="sov-meter-lbl">RGPD</span><div class="sov-meter-bar"><div class="sov-meter-fill" style="width:100%"></div></div></div>
-          <div class="sov-meter-row"><span class="sov-meter-lbl">NIS2</span><div class="sov-meter-bar"><div class="sov-meter-fill" style="width:100%"></div></div></div>
-          <div class="sov-meter-row"><span class="sov-meter-lbl">DORA</span><div class="sov-meter-bar"><div class="sov-meter-fill" style="width:100%"></div></div></div>
-        </div>
-      </div>
+      <!-- COL DROITE : alerte sticky -->
+      <div class="sov-right">
 
-      <!-- Carte 3 : liste de points avec indicateurs colorés -->
-      <div class="sov-card sov-card--list">
-        <div class="sov-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <span class="sov-tag">Alternative européenne</span>
-        <h3>100% européen,<br>sans compromis.</h3>
-        <ul class="sov-list">
-          <li><span class="sov-dot g"></span>15 ans de R&D en Europe</li>
-          <li><span class="sov-dot g"></span>Aucune dépendance US/CN</li>
-          <li><span class="sov-dot g"></span>TRL 9 — maturité maximale</li>
-          <li><span class="sov-dot g"></span>Déployé chez des clients réels</li>
-        </ul>
-      </div>
+        <div class="sov-alert">
+          <div class="sov-alert-head">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2L1.5 13.5h13L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="8" y1="7" x2="8" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="12" r=".8" fill="currentColor"/></svg>
+            <span>Risque juridique réel</span>
+          </div>
+          <p class="sov-alert-body">
+            Les données hébergées chez des acteurs soumis au droit américain sont <strong>juridiquement accessibles par les autorités américaines sans notification préalable</strong>, même si les serveurs sont physiquement en Europe.
+          </p>
+          <div class="sov-sources">
 
+            <a class="sov-src" href="https://www.justice.gov/d9/pages/attachments/2019/04/09/cloud_act.pdf" target="_blank" rel="noopener">
+              <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 1h6l4 4v10H4V1z"/><polyline points="10 1 10 5 14 5"/></svg></div>
+              <div class="sov-src-text">
+                <span class="sov-src-name">CLOUD Act (2018)</span>
+                <span class="sov-src-ref">Pub.L. 115-141, Div. V — justice.gov</span>
+              </div>
+              <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
+            </a>
+
+            <a class="sov-src" href="https://www.law.cornell.edu/uscode/text/50/1881a" target="_blank" rel="noopener">
+              <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="1" width="12" height="14" rx="1"/><line x1="5" y1="6" x2="11" y2="6"/><line x1="5" y1="9" x2="9" y2="9"/></svg></div>
+              <div class="sov-src-text">
+                <span class="sov-src-name">FISA Section 702</span>
+                <span class="sov-src-ref">50 U.S.C. § 1881a — law.cornell.edu</span>
+              </div>
+              <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
+            </a>
+
+            <a class="sov-src" href="https://curia.europa.eu/juris/document/document.jsf?text=&docid=228677&pageIndex=0&doclang=FR" target="_blank" rel="noopener">
+              <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><line x1="5" y1="8" x2="11" y2="8"/><line x1="8" y1="5" x2="8" y2="11"/></svg></div>
+              <div class="sov-src-text">
+                <span class="sov-src-name">Arrêt Schrems II</span>
+                <span class="sov-src-ref">CJUE, C-311/18 — 16 juillet 2020</span>
+              </div>
+              <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
+            </a>
+
+            <a class="sov-src" href="https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2025/12/cloud-act-gutachten.html" target="_blank" rel="noopener">
+              <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5z"/></svg></div>
+              <div class="sov-src-text">
+                <span class="sov-src-name">Rapport BMI — déc. 2025</span>
+                <span class="sov-src-ref">Bundesministerium des Innern — bmi.bund.de</span>
+              </div>
+              <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="sov-comply">
+          <span class="sov-comply-lbl">Conformité couverte</span>
+          <div class="sov-comply-tags">
+            <span class="ctag">✓ RGPD</span>
+            <span class="ctag">✓ NIS2</span>
+            <span class="ctag">✓ DORA</span>
+            <span class="ctag">✓ HDS</span>
+            <span class="ctag">✓ ISO 27001</span>
+          </div>
+        </div>
+
+      </div>
     </div>
-
-    <div class="sov-footer">
-      <div class="sov-legal">
-        <svg viewBox="0 0 16 16" fill="none"><path d="M8 2L1.5 13.5h13L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="8" y1="7" x2="8" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="12" r=".8" fill="currentColor"/></svg>
-        <div class="sov-legal-txt">
-          Les données hébergées chez des acteurs soumis au droit américain sont <strong>juridiquement accessibles par les autorités américaines sans notification préalable</strong>, même si les serveurs sont physiquement en Europe ou ailleurs.
-          <span class="sov-legal-src">Sources :
-            <a href="https://www.justice.gov/d9/pages/attachments/2019/04/09/cloud_act.pdf" target="_blank" rel="noopener">CLOUD Act (2018)</a>
-            ·
-            <a href="https://www.law.cornell.edu/uscode/text/50/1881a" target="_blank" rel="noopener">FISA §702, 50 U.S.C. §1881a</a>
-            ·
-            <a href="https://curia.europa.eu/juris/document/document.jsf?docid=228677&doclang=FR" target="_blank" rel="noopener">Arrêt Schrems II, CJUE C-311/18 (2020)</a>
-          </span>
-        </div>
-      </div>
-      <div class="sov-comply">
-        <span class="sov-comply-lbl">Conformité couverte</span>
-        <div class="sov-comply-tags">
-          <span class="ctag">✓ RGPD</span>
-          <span class="ctag">✓ NIS2</span>
-          <span class="ctag">✓ DORA</span>
-          <span class="ctag">✓ HDS</span>
-          <span class="ctag">✓ ISO 27001</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
