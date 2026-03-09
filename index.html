@@ -229,44 +229,42 @@ h1.hero-h1 .line{display:block;}
 
 /* ═══ BLOC 3 — TEMPS RÉEL ═══ */
 #rt{padding:96px 0;background:var(--card);}
-.rt-head{text-align:center;margin-bottom:48px;}
+.rt-head{text-align:center;margin-bottom:64px;}
 .rt-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.5px;line-height:1.12;color:var(--t9);margin-bottom:10px;}
 .rt-head h2 .o{color:var(--orange);}
-.rt-head p{font-size:15px;color:var(--t5);line-height:1.7;max-width:500px;margin:0 auto;}
+.rt-head p{font-size:15px;color:var(--t5);line-height:1.7;max-width:480px;margin:0 auto;}
 
-/* Grille 2x2 soudée */
-.rt-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);}
-.rt-cell{background:var(--bg);padding:32px 36px;}
-.rt-cell.accent{background:var(--orange-pale);}
+/* Deux lignes de comparaison */
+.rt-compare{display:flex;flex-direction:column;gap:12px;margin-bottom:40px;}
 
-.rt-cell-tag{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--t4);margin-bottom:16px;display:block;}
-.rt-cell.accent .rt-cell-tag{color:var(--orange);}
+.rt-row{display:grid;grid-template-columns:160px 1fr auto;align-items:center;gap:24px;padding:24px 28px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);}
+.rt-row.highlight{border-color:var(--orange-border);background:var(--orange-pale);}
 
-.rt-cell-stat{font-size:clamp(2.8rem,5vw,4rem);font-weight:900;letter-spacing:-2px;line-height:1;color:var(--t9);display:block;margin-bottom:10px;}
-.rt-cell.accent .rt-cell-stat{color:var(--orange);}
+.rt-row-label{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--t4);}
+.rt-row.highlight .rt-row-label{color:var(--orange);}
 
-.rt-cell-desc{font-size:13.5px;color:var(--t5);line-height:1.65;margin-bottom:20px;}
-.rt-cell.accent .rt-cell-desc{color:var(--t7);}
+.rt-row-flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.rt-fbox{padding:5px 12px;border-radius:var(--r-sm);font-size:12px;font-weight:600;border:1px solid;}
+.rt-fbox.src{background:var(--blue-pale);border-color:rgba(37,99,235,.18);color:#2563EB;}
+.rt-fbox.bad{background:var(--red-pale);border-color:var(--red-border);color:var(--red);}
+.rt-fbox.ok{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);}
+.rt-fbox.neu{background:var(--section);border-color:var(--border);color:var(--t5);}
+.rt-farr{font-size:11px;color:var(--t4);}
 
-/* Séquence de steps */
-.rt-seq{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-top:20px;}
-.rt-seq-box{padding:5px 11px;border-radius:var(--r-sm);font-size:11.5px;font-weight:600;border:1px solid;}
-.rt-seq-box.src{background:var(--blue-pale);border-color:rgba(37,99,235,.18);color:#2563EB;}
-.rt-seq-box.bad{background:var(--red-pale);border-color:var(--red-border);color:var(--red);}
-.rt-seq-box.ok{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);}
-.rt-seq-box.neu{background:var(--section);border-color:var(--border);color:var(--t5);}
-.rt-seq-arr{font-size:10px;color:var(--t4);}
+.rt-row-time{text-align:right;white-space:nowrap;}
+.rt-row-time .n{display:block;font-size:1.6rem;font-weight:900;letter-spacing:-1px;line-height:1;}
+.rt-row-time .n.bad{color:var(--red);}
+.rt-row-time .n.ok{color:var(--orange);}
+.rt-row-time .l{display:block;font-size:11px;color:var(--t4);margin-top:2px;}
 
-/* Barre verdict */
-.rt-verdict{margin-top:1px;background:var(--bg);border-radius:0 0 var(--r-lg) var(--r-lg);padding:22px 36px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;border-top:1px solid var(--border);}
-.rt-v-pair{display:flex;align-items:baseline;gap:8px;}
-.rt-v-n{font-size:1.8rem;font-weight:900;letter-spacing:-1px;line-height:1;}
-.rt-v-n.bad{color:var(--red);}
-.rt-v-n.ok{color:var(--orange);}
-.rt-v-l{font-size:12px;color:var(--t5);line-height:1.4;}
-.rt-v-sep{font-size:1rem;font-weight:700;color:var(--border-s);padding:0 4px;}
+/* Message en bas */
+.rt-note{padding:20px 24px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;gap:16px;}
+.rt-note-ico{width:32px;height:32px;border-radius:var(--r-sm);background:var(--orange-pale);border:1px solid var(--orange-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rt-note-ico svg{width:14px;height:14px;color:var(--orange);}
+.rt-note-text{font-size:13.5px;color:var(--t7);line-height:1.6;}
+.rt-note-text strong{color:var(--t9);}
 
-@media(max-width:720px){.rt-grid2{grid-template-columns:1fr;}.rt-cell{padding:24px 20px;}}
+@media(max-width:700px){.rt-row{grid-template-columns:1fr;gap:12px;}.rt-row-time{text-align:left;}}
 
 /* ═══ BLOC 4 — COMPARATIF ARCHI ═══ */
 #archi{padding:96px 0;background:var(--bg);}
@@ -561,61 +559,46 @@ h1.hero-h1 .line{display:block;}
     <div class="rt-head">
       <div class="pill">Temps Réel</div>
       <h2>Pas de batch. Pas de latence.<br><span class="o">L'insight pendant le transit.</span></h2>
-      <p>Les architectures classiques accumulent les étapes et la latence. iD4Connect traite pendant le transit, sans jamais stocker.</p>
+      <p>Deux architectures, deux résultats. La différence tient à une seule décision de conception.</p>
     </div>
 
-    <div class="rt-grid2">
+    <div class="rt-compare">
 
-      <div class="rt-cell">
-        <span class="rt-cell-tag">Architecture classique</span>
-        <span class="rt-cell-stat">H+24</span>
-        <p class="rt-cell-desc">4 étapes, 3 copies de vos données, des heures de latence avant le premier insight.</p>
-        <div class="rt-seq">
-          <span class="rt-seq-box src">Source</span><span class="rt-seq-arr">→</span>
-          <span class="rt-seq-box bad">ETL</span><span class="rt-seq-arr">→</span>
-          <span class="rt-seq-box bad">ODS</span><span class="rt-seq-arr">→</span>
-          <span class="rt-seq-box bad">DWH</span><span class="rt-seq-arr">→</span>
-          <span class="rt-seq-box neu">KPI</span>
+      <div class="rt-row">
+        <span class="rt-row-label">Architecture classique</span>
+        <div class="rt-row-flow">
+          <span class="rt-fbox src">Source</span><span class="rt-farr">→</span>
+          <span class="rt-fbox bad">ETL</span><span class="rt-farr">→</span>
+          <span class="rt-fbox bad">ODS</span><span class="rt-farr">→</span>
+          <span class="rt-fbox bad">DataWarehouse</span><span class="rt-farr">→</span>
+          <span class="rt-fbox neu">KPI</span>
+        </div>
+        <div class="rt-row-time">
+          <span class="n bad">H+24</span>
+          <span class="l">latence</span>
         </div>
       </div>
 
-      <div class="rt-cell accent">
-        <span class="rt-cell-tag">iD4Connect · Stream</span>
-        <span class="rt-cell-stat">&lt;5ms</span>
-        <p class="rt-cell-desc">Une seule étape. Zéro copie. L'insight arrive pendant que la donnée transite.</p>
-        <div class="rt-seq">
-          <span class="rt-seq-box src">Source</span><span class="rt-seq-arr">→</span>
-          <span class="rt-seq-box ok">DataCell</span><span class="rt-seq-arr">→</span>
-          <span class="rt-seq-box neu">KPI</span>
+      <div class="rt-row highlight">
+        <span class="rt-row-label">iD4Connect</span>
+        <div class="rt-row-flow">
+          <span class="rt-fbox src">Source</span><span class="rt-farr">→</span>
+          <span class="rt-fbox ok">DataCell</span><span class="rt-farr">→</span>
+          <span class="rt-fbox neu">KPI</span>
         </div>
-      </div>
-
-      <div class="rt-cell" style="background:var(--section);">
-        <span class="rt-cell-tag">Pourquoi c'est important</span>
-        <p class="rt-cell-desc" style="margin-bottom:0;">Les architectures ETL stockent vos données à chaque étape. Plus de surface d'exposition, plus de coût, plus de latence. Chaque couche est un risque et un goulot d'étranglement.</p>
-      </div>
-
-      <div class="rt-cell" style="background:var(--section);">
-        <span class="rt-cell-tag" style="color:var(--orange);">Rupture architecturale</span>
-        <p style="font-size:14px;font-weight:700;color:var(--t9);margin-bottom:8px;line-height:1.4;">Ce n'est pas de l'optimisation.</p>
-        <p class="rt-cell-desc" style="margin-bottom:0;">iD4Connect élimine le pipeline. Aucune étape intermédiaire, aucune donnée dupliquée, aucune latence accumulée.</p>
+        <div class="rt-row-time">
+          <span class="n ok">&lt;5ms</span>
+          <span class="l">latence</span>
+        </div>
       </div>
 
     </div>
 
-    <div class="rt-verdict">
-      <div class="rt-v-pair">
-        <span class="rt-v-n bad">H+24</span>
-        <span class="rt-v-l">latence ETL classique</span>
+    <div class="rt-note">
+      <div class="rt-note-ico">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5 6.5 5z"/></svg>
       </div>
-      <span class="rt-v-sep">vs</span>
-      <div class="rt-v-pair">
-        <span class="rt-v-n ok">&lt;5ms</span>
-        <span class="rt-v-l">latence iD4Connect</span>
-      </div>
-      <div style="flex:1;display:flex;justify-content:flex-end;">
-        <a href="/architecture" class="btn-g">Voir l'architecture →</a>
-      </div>
+      <p class="rt-note-text"><strong>Ce n'est pas de l'optimisation, c'est une rupture architecturale.</strong> iD4Connect élimine ETL, ODS et DataWarehouse. La donnée transite, l'insight arrive. Zéro stockage intermédiaire, zéro latence accumulée.</p>
     </div>
 
   </div>
