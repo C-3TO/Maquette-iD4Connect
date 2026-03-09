@@ -268,28 +268,36 @@ h1.hero-h1 .line{display:block;}
 
 /* ═══ BLOC 4 — COMPARATIF ARCHI ═══ */
 #archi{padding:96px 0;background:var(--bg);}
-.archi-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r-xl);padding:48px;box-shadow:var(--sh-sm);}
-.archi-vs{display:grid;grid-template-columns:1fr 48px 1fr;gap:32px;align-items:start;}
-.side-lbl{display:inline-flex;padding:4px 12px;border-radius:var(--r-pill);font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:16px;}
-.side-lbl.classic{background:var(--section);color:var(--t5);border:1px solid var(--border);}
-.side-lbl.id4c{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
-.flow-col{display:flex;flex-direction:column;align-items:stretch;gap:0;}
-.abox{padding:10px 14px;border-radius:var(--r-sm);font-size:12.5px;font-weight:600;text-align:center;border:1px solid;}
-.abox.src{background:var(--blue-pale);border-color:rgba(59,130,246,.2);color:#2563EB;}
-.abox.kpi{background:var(--green-pale);border-color:var(--green-border);color:var(--green);}
-.abox.etl{background:var(--section);border-color:var(--border);color:var(--t5);}
-.abox.cell{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);padding:22px 14px;}
-.a-arr{text-align:center;font-size:12px;color:var(--t4);padding:5px 0;}
-.etl-zone{border:1.5px dashed var(--orange-border);border-radius:var(--r);padding:10px;background:rgba(249,115,22,.03);display:flex;flex-direction:column;gap:0;}
-.etl-zone-lbl{text-align:center;font-size:9.5px;font-weight:700;color:var(--orange);letter-spacing:.8px;text-transform:uppercase;opacity:.75;margin-bottom:8px;}
-.vs-mid{display:flex;align-items:center;justify-content:center;padding-top:52px;}
-.vs-bubble{width:40px;height:40px;border-radius:50%;background:var(--section);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:800;color:var(--t5);}
-.bene-list{display:flex;flex-direction:column;gap:8px;margin-top:16px;}
-.bene{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--t7);}
-.bene .ck{color:var(--green);font-size:11px;font-weight:800;}
-.archi-note{margin-top:28px;padding:14px 18px;background:var(--section);border:1px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-weight:500;color:var(--t5);display:flex;align-items:center;gap:8px;}
-.archi-note strong{color:var(--t9);}
-@media(max-width:860px){.archi-vs{grid-template-columns:1fr;}.vs-mid{display:none;}.archi-panel{padding:24px;}}
+
+/* Tableau comparatif */
+.ac-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh-sm);}
+.ac-table thead tr th{padding:14px 20px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;background:var(--section);border-bottom:1px solid var(--border);}
+.ac-table thead th:first-child{text-align:left;color:var(--t5);width:36%;}
+.ac-table thead th.col-classic{text-align:center;color:var(--t5);}
+.ac-table thead th.col-id4c{text-align:center;color:var(--orange);background:var(--orange-pale);border-left:1px solid var(--orange-border);}
+
+.ac-table tbody tr td{padding:16px 20px;font-size:13.5px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.ac-table tbody tr:last-child td{border-bottom:none;}
+.ac-table tbody tr:hover td{background:var(--section);}
+.ac-table tbody tr:hover td.col-id4c{background:var(--orange-pale);}
+
+.ac-table td:first-child{font-weight:600;color:var(--t7);background:var(--card);}
+.ac-table td.col-classic{text-align:center;color:var(--t5);background:var(--bg);}
+.ac-table td.col-id4c{text-align:center;background:var(--orange-pale);border-left:1px solid var(--orange-border);}
+
+/* Valeurs dans le tableau */
+.ac-val{display:inline-flex;align-items:center;gap:6px;font-size:13px;}
+.ac-val.bad{color:var(--red);}
+.ac-val.ok{color:var(--orange);font-weight:700;}
+.ac-val.neu{color:var(--t5);}
+.ac-ico{width:14px;height:14px;flex-shrink:0;}
+
+/* Note bas de tableau */
+.ac-note{margin-top:12px;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);font-size:13px;color:var(--t5);display:flex;align-items:center;gap:10px;line-height:1.6;}
+.ac-note svg{flex-shrink:0;color:var(--t4);}
+.ac-note strong{color:var(--t9);}
+
+@media(max-width:680px){.ac-table thead th:first-child,.ac-table tbody td:first-child{display:none;}}
 
 /* ═══ BLOC 5 — DEEP TECH ═══ */
 #dt{padding:96px 0;background:var(--card);}
@@ -607,42 +615,60 @@ h1.hero-h1 .line{display:block;}
 <!-- ═══ BLOC 4 — COMPARATIF ARCHI ═══ -->
 <section id="archi" class="reveal">
   <div class="wrap">
+
     <div class="center-head" style="margin-bottom:40px;">
       <div class="pill">Architecture Comparée</div>
-      <h2 class="sec-title">DataCell vs Pipeline Classique</h2>
-      <p class="sec-sub" style="margin:10px auto 0;max-width:500px;">Un pipeline ETL classique enchaîne 4 à 6 étapes avec stockage à chaque niveau. Une seule DataCell traite en transit, sans aucune étape intermédiaire.</p>
+      <h2 class="sec-title">Ce que iD4Connect élimine</h2>
+      <p class="sec-sub" style="margin:10px auto 0;max-width:480px;">Moins d'étapes, moins de surface d'exposition, moins de coût. La simplicité n'est pas un compromis.</p>
     </div>
-    <div class="archi-panel">
-      <div class="archi-vs">
-        <div>
-          <span class="side-lbl classic">Architecture Classique</span>
-          <div class="flow-col">
-            <div class="abox src">📊 Source de données</div><div class="a-arr">↓</div>
-            <div class="etl-zone"><div class="etl-zone-lbl">⚡ Remplacé par une DataCell</div><div class="abox etl">🔄 ETL</div><div class="a-arr" style="color:var(--orange);font-size:10px;">↓</div><div class="abox etl">🗄 ODS</div><div class="a-arr" style="color:var(--orange);font-size:10px;">↓</div><div class="abox etl">🏛 DataWarehouse / DataLake</div></div>
-            <div class="a-arr">↓</div><div class="abox kpi">📈 KPI Métier</div>
-          </div>
-        </div>
-        <div class="vs-mid"><div class="vs-bubble">VS</div></div>
-        <div>
-          <span class="side-lbl id4c">iD4Connect</span>
-          <div class="flow-col">
-            <div class="abox src">📊 Source de données</div><div class="a-arr">↓</div>
-            <div class="abox cell"><div style="font-size:22px;margin-bottom:6px;">⚡</div><div style="font-weight:800;font-size:15px;">DataCell</div><div style="font-size:11px;opacity:.8;margin-top:3px;">Traitement autonome en transit</div></div>
-            <div class="a-arr">↓</div><div class="abox kpi">📈 KPI Métier</div>
-          </div>
-          <div class="bene-list">
-            <div class="bene"><span class="ck">✓</span> Aucun stockage intermédiaire</div>
-            <div class="bene"><span class="ck">✓</span> Latence &lt;5ms vs H+2 en batch</div>
-            <div class="bene"><span class="ck">✓</span> 5× moins cher en TCO</div>
-            <div class="bene"><span class="ck">✓</span> Conformité by design</div>
-          </div>
-        </div>
-      </div>
-      <div class="archi-note">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="7" x2="8" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
-        <span>iD4Connect élimine ETL, ODS et DataWarehouse là où ils sont devenus <strong>le goulot d'étranglement de votre architecture</strong> : latence, coût, surface d'exposition. Il coexiste et s'intègre avec vos outils existants.</span>
-      </div>
+
+    <table class="ac-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-classic">Architecture ETL classique</th>
+          <th class="col-id4c">iD4Connect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Étapes de traitement</td>
+          <td class="col-classic"><span class="ac-val bad"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>4 à 6 étapes</span></td>
+          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>1 seule étape</span></td>
+        </tr>
+        <tr>
+          <td>Copies de la donnée</td>
+          <td class="col-classic"><span class="ac-val bad"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>3 à 4 copies</span></td>
+          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>Zéro copie</span></td>
+        </tr>
+        <tr>
+          <td>Latence insight</td>
+          <td class="col-classic"><span class="ac-val bad"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>H+2 à H+24</span></td>
+          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>&lt; 5ms</span></td>
+        </tr>
+        <tr>
+          <td>Stockage intermédiaire</td>
+          <td class="col-classic"><span class="ac-val bad"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>ODS + DataWarehouse</span></td>
+          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>Aucun</span></td>
+        </tr>
+        <tr>
+          <td>Conformité RGPD / NIS2</td>
+          <td class="col-classic"><span class="ac-val neu">Efforts manuels requis</span></td>
+          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>By design</span></td>
+        </tr>
+        <tr>
+          <td>TCO relatif</td>
+          <td class="col-classic"><span class="ac-val neu">Référence</span></td>
+          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>5× moins cher</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ac-note">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="7" x2="8" y2="11" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
+      <span>iD4Connect <strong>coexiste avec votre infrastructure existante</strong>. Il n'impose pas de remplacement global, il élimine les goulots d'étranglement là où ils coûtent le plus.</span>
     </div>
+
   </div>
 </section>
 
