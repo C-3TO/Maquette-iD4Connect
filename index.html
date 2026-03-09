@@ -132,9 +132,13 @@ h1.hero-h1 .line{display:block;}
   border:1.5px solid var(--border);
   border-radius:var(--r);
   flex:1;
-  transition:border-color var(--tr),box-shadow var(--tr);
+  transition:border-color var(--tr),box-shadow var(--tr),background var(--tr);
 }
-.sov-arg:hover{border-color:var(--orange-border);box-shadow:0 4px 16px rgba(249,115,22,.08);}
+.sov-arg:hover{
+  border-color:var(--orange);
+  background:var(--card);
+  box-shadow:0 0 0 4px rgba(249,115,22,.08), 0 8px 28px rgba(249,115,22,.12);
+}
 
 .sov-arg-ico{
   width:36px;height:36px;flex-shrink:0;
