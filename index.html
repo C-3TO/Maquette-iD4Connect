@@ -65,104 +65,90 @@ h1.hero-h1 .line{display:block;}
 /* ═══════════════════════════════════════════
    BLOC 1 — SOUVERAINETÉ — CARTES INTERACTIVES
 ═══════════════════════════════════════════ */
-#sov{padding:100px 0;background:var(--card);}
+#sov{padding:96px 0;background:var(--card);}
 
-.sov-head{text-align:center;margin-bottom:64px;}
-.sov-head h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:900;letter-spacing:-1px;line-height:1.1;margin-bottom:14px;color:var(--t9);}
-.sov-head p{font-size:15px;color:var(--t5);max-width:520px;margin:0 auto;}
+.sov-head{text-align:center;margin-bottom:56px;}
+.sov-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.5px;line-height:1.12;margin-bottom:12px;color:var(--t9);}
+.sov-head p{font-size:15px;color:var(--t5);max-width:520px;margin:0 auto;line-height:1.75;}
 
-.sov-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.sov-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 
+/* Même langage que .pillar / .rtc / .vs-card */
 .sov-card{
   position:relative;
   background:var(--bg);
   border:1px solid var(--border);
-  border-radius:20px;
-  padding:36px 30px 30px;
+  border-radius:var(--r);          /* 12px — cohérent avec le reste */
+  padding:28px 24px 24px;
   overflow:hidden;
-  transition:border-color .35s ease, transform .35s ease, box-shadow .35s ease;
+  transition:border-color .25s ease, box-shadow .25s ease;
 }
 .sov-card:hover{
   border-color:var(--orange-border);
-  transform:translateY(-8px);
-  box-shadow:0 24px 64px rgba(249,115,22,.13);
+  box-shadow:var(--sh);
 }
-.sov-card::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 90% 55% at 50% 0%, rgba(249,115,22,.08) 0%, transparent 70%);
-  opacity:0;transition:opacity .4s ease;pointer-events:none;
-}
-.sov-card:hover::before{opacity:1;}
 
-/* Grand numéro décoratif en fond */
-.sov-num{
-  position:absolute;top:-16px;right:16px;
-  font-size:130px;font-weight:900;letter-spacing:-8px;line-height:1;
-  color:var(--border);pointer-events:none;user-select:none;
-  transition:color .35s ease;
-}
-.sov-card:hover .sov-num{color:rgba(249,115,22,.07);}
-
-/* Icone container */
+/* Icone — même style que .feat-ico */
 .sov-ico{
-  width:50px;height:50px;
-  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  width:34px;height:34px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--r-sm);       /* 8px */
   display:flex;align-items:center;justify-content:center;
-  margin-bottom:22px;position:relative;z-index:1;
-  transition:border-color .35s,background .35s;
+  margin-bottom:18px;
+  transition:border-color .25s, background .25s;
 }
 .sov-card:hover .sov-ico{border-color:var(--orange-border);background:var(--orange-pale);}
-.sov-ico svg{width:22px;height:22px;color:var(--t4);transition:color .35s;}
+.sov-ico svg{width:16px;height:16px;color:var(--t4);transition:color .25s;}
 .sov-card:hover .sov-ico svg{color:var(--orange);}
 
+/* Tag — identique à .tl-year */
 .sov-tag{
-  display:block;font-size:10px;font-weight:700;letter-spacing:1.4px;
-  text-transform:uppercase;color:var(--t4);margin-bottom:9px;
-  position:relative;z-index:1;transition:color .35s;
+  display:block;font-size:10px;font-weight:700;letter-spacing:1.2px;
+  text-transform:uppercase;color:var(--t4);margin-bottom:7px;
+  transition:color .25s;
 }
 .sov-card:hover .sov-tag{color:var(--orange);}
 
 .sov-card h3{
-  font-size:1.3rem;font-weight:800;line-height:1.2;letter-spacing:-.3px;
-  color:var(--t9);margin-bottom:11px;position:relative;z-index:1;
+  font-size:13.5px;font-weight:700;line-height:1.3;
+  color:var(--t9);margin-bottom:8px;
 }
 .sov-card p{
-  font-size:13.5px;color:var(--t5);line-height:1.7;
-  position:relative;z-index:1;
+  font-size:13px;color:var(--t5);line-height:1.6;
 }
 
-/* Stat en pied de carte */
+/* Stat — séparateur identique à .sov-stat */
 .sov-stat{
-  display:flex;align-items:baseline;gap:7px;
-  margin-top:26px;padding-top:18px;
+  display:flex;align-items:baseline;gap:6px;
+  margin-top:20px;padding-top:16px;
   border-top:1px solid var(--border);
-  position:relative;z-index:1;
-  transition:border-color .35s;
+  transition:border-color .25s;
 }
-.sov-card:hover .sov-stat{border-color:rgba(249,115,22,.2);}
+.sov-card:hover .sov-stat{border-color:var(--orange-border);}
 .sov-stat-n{
-  font-size:2.1rem;font-weight:900;letter-spacing:-1.5px;line-height:1;
-  color:var(--t4);transition:color .35s;
+  font-size:1.7rem;font-weight:900;letter-spacing:-1px;line-height:1;
+  color:var(--t4);transition:color .25s;
 }
 .sov-card:hover .sov-stat-n{color:var(--orange);}
-.sov-stat-l{font-size:11.5px;font-weight:600;color:var(--t4);line-height:1.45;transition:color .35s;}
+.sov-stat-l{font-size:11px;font-weight:600;color:var(--t4);line-height:1.4;transition:color .25s;}
 .sov-card:hover .sov-stat-l{color:var(--t5);}
 
 /* Alerte et conformité */
-.sov-footer{display:flex;flex-direction:column;gap:12px;margin-top:20px;}
+.sov-footer{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
 
 .sov-legal{
   padding:14px 18px;
   background:var(--red-pale);border:1px solid var(--red-border);
   border-radius:var(--r);display:flex;align-items:flex-start;gap:10px;
 }
-.sov-legal svg{width:14px;height:14px;color:var(--red);flex-shrink:0;margin-top:2px;}
+.sov-legal svg{width:13px;height:13px;color:var(--red);flex-shrink:0;margin-top:2px;}
 .sov-legal-txt{font-size:12.5px;color:var(--t7);line-height:1.6;}
 .sov-legal-txt strong{color:var(--red);}
 .sov-legal-src{display:block;margin-top:6px;font-size:11px;color:var(--t4);}
 
 .sov-comply{
-  padding:13px 18px;background:var(--bg);border:1px solid var(--border);
+  padding:12px 18px;background:var(--bg);border:1px solid var(--border);
   border-radius:var(--r);display:flex;align-items:center;gap:14px;flex-wrap:wrap;
 }
 .sov-comply-lbl{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--t4);white-space:nowrap;}
@@ -170,7 +156,7 @@ h1.hero-h1 .line{display:block;}
 .ctag{display:inline-flex;align-items:center;gap:4px;padding:4px 11px;border-radius:var(--r-pill);font-size:12px;font-weight:600;background:var(--green-pale);border:1px solid var(--green-border);color:var(--green);}
 
 @media(max-width:900px){.sov-cards{grid-template-columns:1fr;}}
-@media(max-width:600px){.sov-card{padding:26px 20px;}.sov-num{font-size:90px;}}
+@media(max-width:600px){.sov-card{padding:20px 18px;}}
 
 /* ═══ BLOC 2 — AGNOSTIQUE ═══ */
 #agnostic{padding:96px 0;background:var(--bg);}
@@ -346,7 +332,6 @@ h1.hero-h1 .line{display:block;}
     <div class="sov-cards">
 
       <div class="sov-card">
-        <div class="sov-num">01</div>
         <div class="sov-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
@@ -360,7 +345,6 @@ h1.hero-h1 .line{display:block;}
       </div>
 
       <div class="sov-card">
-        <div class="sov-num">02</div>
         <div class="sov-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
@@ -374,7 +358,6 @@ h1.hero-h1 .line{display:block;}
       </div>
 
       <div class="sov-card">
-        <div class="sov-num">03</div>
         <div class="sov-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
