@@ -229,77 +229,44 @@ h1.hero-h1 .line{display:block;}
 
 /* ═══ BLOC 3 — TEMPS RÉEL ═══ */
 #rt{padding:96px 0;background:var(--card);}
-.rt-top{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;}
-.rt-bot{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.rt-head{text-align:center;margin-bottom:48px;}
+.rt-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.5px;line-height:1.12;color:var(--t9);margin-bottom:10px;}
+.rt-head h2 .o{color:var(--orange);}
+.rt-head p{font-size:15px;color:var(--t5);line-height:1.7;max-width:500px;margin:0 auto;}
 
-/* Grandes tuiles */
-.rt-tile{padding:40px 44px;border-radius:0;position:relative;overflow:hidden;}
-.rt-tile.tl{border-radius:var(--r-lg) 0 0 0;}
-.rt-tile.tr{border-radius:0 var(--r-lg) 0 0;}
-.rt-tile.bl{border-radius:0 0 0 var(--r-lg);}
-.rt-tile.br{border-radius:0 0 var(--r-lg) 0;}
+/* Grille 2x2 soudée */
+.rt-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);}
+.rt-cell{background:var(--bg);padding:32px 36px;}
+.rt-cell.accent{background:var(--orange-pale);}
 
-.rt-tile.dark{background:var(--bg);}
-.rt-tile.accent{background:var(--orange);color:white;}
-.rt-tile.muted{background:var(--section);}
+.rt-cell-tag{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--t4);margin-bottom:16px;display:block;}
+.rt-cell.accent .rt-cell-tag{color:var(--orange);}
 
-/* Tuile étiquette */
-.rt-tag{font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;opacity:.5;margin-bottom:16px;display:block;}
-.rt-tile.accent .rt-tag{opacity:.7;color:white;}
+.rt-cell-stat{font-size:clamp(2.8rem,5vw,4rem);font-weight:900;letter-spacing:-2px;line-height:1;color:var(--t9);display:block;margin-bottom:10px;}
+.rt-cell.accent .rt-cell-stat{color:var(--orange);}
 
-/* Grande stat */
-.rt-big{font-size:clamp(3.5rem,7vw,6rem);font-weight:900;letter-spacing:-3px;line-height:1;display:block;margin-bottom:8px;}
-.rt-tile.dark .rt-big{color:var(--t9);}
-.rt-tile.accent .rt-big{color:white;}
-.rt-tile.muted .rt-big{color:var(--t4);}
+.rt-cell-desc{font-size:13.5px;color:var(--t5);line-height:1.65;margin-bottom:20px;}
+.rt-cell.accent .rt-cell-desc{color:var(--t7);}
 
-.rt-sub{font-size:14px;line-height:1.6;max-width:320px;}
-.rt-tile.dark .rt-sub{color:var(--t5);}
-.rt-tile.accent .rt-sub{color:rgba(255,255,255,.8);}
-.rt-tile.muted .rt-sub{color:var(--t5);}
+/* Séquence de steps */
+.rt-seq{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-top:20px;}
+.rt-seq-box{padding:5px 11px;border-radius:var(--r-sm);font-size:11.5px;font-weight:600;border:1px solid;}
+.rt-seq-box.src{background:var(--blue-pale);border-color:rgba(37,99,235,.18);color:#2563EB;}
+.rt-seq-box.bad{background:var(--red-pale);border-color:var(--red-border);color:var(--red);}
+.rt-seq-box.ok{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);}
+.rt-seq-box.neu{background:var(--section);border-color:var(--border);color:var(--t5);}
+.rt-seq-arr{font-size:10px;color:var(--t4);}
 
-/* Tuile étapes */
-.rt-steps{display:flex;flex-direction:column;gap:8px;margin-top:20px;}
-.rt-step-row{display:flex;align-items:center;gap:8px;}
-.rt-step-box{padding:6px 12px;border-radius:var(--r-sm);font-size:12px;font-weight:600;border:1px solid;}
-.rt-step-box.src{background:var(--blue-pale);border-color:rgba(37,99,235,.18);color:#2563EB;}
-.rt-step-box.bad{background:rgba(220,38,38,.08);border-color:var(--red-border);color:var(--red);}
-.rt-step-box.good{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:white;}
-.rt-step-box.out{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.8);}
-.rt-arr{font-size:11px;color:var(--t4);flex-shrink:0;}
-.rt-arr.w{color:rgba(255,255,255,.4);}
-.rt-step-time{font-size:10px;font-weight:700;padding:3px 8px;border-radius:var(--r-pill);margin-left:auto;white-space:nowrap;}
-.rt-step-time.slow{background:rgba(220,38,38,.15);color:var(--red);}
-.rt-step-time.fast{background:rgba(255,255,255,.2);color:white;}
+/* Barre verdict */
+.rt-verdict{margin-top:1px;background:var(--bg);border-radius:0 0 var(--r-lg) var(--r-lg);padding:22px 36px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;border-top:1px solid var(--border);}
+.rt-v-pair{display:flex;align-items:baseline;gap:8px;}
+.rt-v-n{font-size:1.8rem;font-weight:900;letter-spacing:-1px;line-height:1;}
+.rt-v-n.bad{color:var(--red);}
+.rt-v-n.ok{color:var(--orange);}
+.rt-v-l{font-size:12px;color:var(--t5);line-height:1.4;}
+.rt-v-sep{font-size:1rem;font-weight:700;color:var(--border-s);padding:0 4px;}
 
-/* Halo accent tile */
-.rt-tile.accent::before{
-  content:'';position:absolute;top:-60px;right:-60px;
-  width:220px;height:220px;border-radius:50%;
-  background:rgba(255,255,255,.07);pointer-events:none;
-}
-.rt-tile.accent::after{
-  content:'';position:absolute;bottom:-40px;left:-40px;
-  width:160px;height:160px;border-radius:50%;
-  background:rgba(255,255,255,.05);pointer-events:none;
-}
-
-.rt-verdict-wrap{margin-top:2px;padding:28px 44px;background:var(--bg);border-radius:0 0 var(--r-lg) var(--r-lg);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
-.rt-vs-stat{display:flex;align-items:baseline;gap:8px;}
-.rt-vs-n{font-size:2rem;font-weight:900;letter-spacing:-1px;}
-.rt-vs-n.bad{color:var(--red);}
-.rt-vs-n.good{color:var(--orange);}
-.rt-vs-l{font-size:12px;color:var(--t5);}
-.rt-vs-divider{font-size:1.5rem;font-weight:900;color:var(--border);flex-shrink:0;}
-
-@media(max-width:760px){
-  .rt-top,.rt-bot{grid-template-columns:1fr;}
-  .rt-tile.tl{border-radius:var(--r-lg) var(--r-lg) 0 0;}
-  .rt-tile.tr,.rt-tile.bl{border-radius:0;}
-  .rt-tile.br{border-radius:0;}
-  .rt-tile{padding:28px 24px;}
-  .rt-verdict-wrap{padding:24px;}
-}
+@media(max-width:720px){.rt-grid2{grid-template-columns:1fr;}.rt-cell{padding:24px 20px;}}
 
 /* ═══ BLOC 4 — COMPARATIF ARCHI ═══ */
 #archi{padding:96px 0;background:var(--bg);}
@@ -591,74 +558,63 @@ h1.hero-h1 .line{display:block;}
 <section id="rt" class="reveal">
   <div class="wrap">
 
-    <!-- Ligne 1 : stat choc à gauche + étapes classiques à droite -->
-    <div class="rt-top">
+    <div class="rt-head">
+      <div class="pill">Temps Réel</div>
+      <h2>Pas de batch. Pas de latence.<br><span class="o">L'insight pendant le transit.</span></h2>
+      <p>Les architectures classiques accumulent les étapes et la latence. iD4Connect traite pendant le transit, sans jamais stocker.</p>
+    </div>
 
-      <div class="rt-tile dark tl">
-        <span class="rt-tag">Architecture classique</span>
-        <span class="rt-big">H+24</span>
-        <p class="rt-sub">4 étapes, 3 copies de vos données, des heures de latence avant le premier insight.</p>
-        <div class="rt-steps" style="margin-top:24px;">
-          <div class="rt-step-row">
-            <span class="rt-step-box src">Source</span>
-            <span class="rt-arr">→</span>
-            <span class="rt-step-box bad">ETL</span>
-            <span class="rt-arr">→</span>
-            <span class="rt-step-box bad">ODS</span>
-            <span class="rt-arr">→</span>
-            <span class="rt-step-box bad">DWH</span>
-            <span class="rt-arr">→</span>
-            <span class="rt-step-box bad">KPI</span>
-          </div>
+    <div class="rt-grid2">
+
+      <div class="rt-cell">
+        <span class="rt-cell-tag">Architecture classique</span>
+        <span class="rt-cell-stat">H+24</span>
+        <p class="rt-cell-desc">4 étapes, 3 copies de vos données, des heures de latence avant le premier insight.</p>
+        <div class="rt-seq">
+          <span class="rt-seq-box src">Source</span><span class="rt-seq-arr">→</span>
+          <span class="rt-seq-box bad">ETL</span><span class="rt-seq-arr">→</span>
+          <span class="rt-seq-box bad">ODS</span><span class="rt-seq-arr">→</span>
+          <span class="rt-seq-box bad">DWH</span><span class="rt-seq-arr">→</span>
+          <span class="rt-seq-box neu">KPI</span>
         </div>
       </div>
 
-      <div class="rt-tile accent tr">
-        <span class="rt-tag">iD4Connect · Stream</span>
-        <span class="rt-big">&lt;5ms</span>
-        <p class="rt-sub">Une seule étape. Zéro copie. L'insight arrive pendant que la donnée transite.</p>
-        <div class="rt-steps" style="margin-top:24px;">
-          <div class="rt-step-row">
-            <span class="rt-step-box src" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:white;">Source</span>
-            <span class="rt-arr w">→</span>
-            <span class="rt-step-box good">DataCell</span>
-            <span class="rt-arr w">→</span>
-            <span class="rt-step-box out">KPI</span>
-          </div>
+      <div class="rt-cell accent">
+        <span class="rt-cell-tag">iD4Connect · Stream</span>
+        <span class="rt-cell-stat">&lt;5ms</span>
+        <p class="rt-cell-desc">Une seule étape. Zéro copie. L'insight arrive pendant que la donnée transite.</p>
+        <div class="rt-seq">
+          <span class="rt-seq-box src">Source</span><span class="rt-seq-arr">→</span>
+          <span class="rt-seq-box ok">DataCell</span><span class="rt-seq-arr">→</span>
+          <span class="rt-seq-box neu">KPI</span>
         </div>
+      </div>
+
+      <div class="rt-cell" style="background:var(--section);">
+        <span class="rt-cell-tag">Pourquoi c'est important</span>
+        <p class="rt-cell-desc" style="margin-bottom:0;">Les architectures ETL stockent vos données à chaque étape. Plus de surface d'exposition, plus de coût, plus de latence. Chaque couche est un risque et un goulot d'étranglement.</p>
+      </div>
+
+      <div class="rt-cell" style="background:var(--section);">
+        <span class="rt-cell-tag" style="color:var(--orange);">Rupture architecturale</span>
+        <p style="font-size:14px;font-weight:700;color:var(--t9);margin-bottom:8px;line-height:1.4;">Ce n'est pas de l'optimisation.</p>
+        <p class="rt-cell-desc" style="margin-bottom:0;">iD4Connect élimine le pipeline. Aucune étape intermédiaire, aucune donnée dupliquée, aucune latence accumulée.</p>
       </div>
 
     </div>
 
-    <!-- Ligne 2 : contexte à gauche + message fort à droite -->
-    <div class="rt-bot">
-
-      <div class="rt-tile muted bl">
-        <span class="rt-tag">Pourquoi c'est important</span>
-        <p class="rt-sub" style="font-size:15px;color:var(--t7);line-height:1.75;">Les architectures ETL classiques stockent vos données à chaque étape. Plus de surface d'exposition, plus de coût, plus de latence. Chaque couche est un risque et un goulot d'étranglement.</p>
+    <div class="rt-verdict">
+      <div class="rt-v-pair">
+        <span class="rt-v-n bad">H+24</span>
+        <span class="rt-v-l">latence ETL classique</span>
       </div>
-
-      <div class="rt-tile dark br" style="background:var(--orange-pale);border:1px solid var(--orange-border);">
-        <span class="rt-tag" style="color:var(--orange);opacity:1;">Rupture architecturale</span>
-        <p style="font-size:1.1rem;font-weight:800;color:var(--orange);line-height:1.4;margin-bottom:12px;">Ce n'est pas de l'optimisation.</p>
-        <p class="rt-sub" style="color:var(--t7);">iD4Connect élimine le pipeline. Aucune étape intermédiaire, aucune donnée dupliquée, aucune latence accumulée. La conformité est structurelle.</p>
-      </div>
-
-    </div>
-
-    <!-- Verdict final -->
-    <div class="rt-verdict-wrap">
-      <div class="rt-vs-stat">
-        <span class="rt-vs-n bad">H+24</span>
-        <span class="rt-vs-l">latence moyenne<br>architecture ETL classique</span>
-      </div>
-      <span class="rt-vs-divider">vs</span>
-      <div class="rt-vs-stat">
-        <span class="rt-vs-n good">&lt;5ms</span>
-        <span class="rt-vs-l">latence iD4Connect<br>traitement en transit</span>
+      <span class="rt-v-sep">vs</span>
+      <div class="rt-v-pair">
+        <span class="rt-v-n ok">&lt;5ms</span>
+        <span class="rt-v-l">latence iD4Connect</span>
       </div>
       <div style="flex:1;display:flex;justify-content:flex-end;">
-        <a href="/architecture" class="btn-p">Voir l'architecture →</a>
+        <a href="/architecture" class="btn-g">Voir l'architecture →</a>
       </div>
     </div>
 
