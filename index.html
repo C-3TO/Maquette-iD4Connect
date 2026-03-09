@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iD4Connect — Vos données restent où elles sont.</title>
+<title>iD4Connect — En transit. En temps réel. Jamais stockées.</title>
 <meta name="description" content="iD4Connect traite vos données en transit, sans les stocker. Deep Tech européen, TRL 9.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -45,10 +45,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   content:'';position:absolute;bottom:0;left:0;right:0;height:80px;
   background:linear-gradient(transparent,var(--bg));pointer-events:none;
 }
-
 .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;}
-
-/* Texte */
 .hero-badge{
   display:inline-flex;align-items:center;gap:7px;
   padding:5px 13px 5px 8px;
@@ -56,81 +53,34 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   border-radius:var(--r-pill);font-size:12px;font-weight:600;color:var(--t7);
   margin-bottom:28px;box-shadow:var(--sh-sm);
 }
-.hero-badge .live-dot{
-  width:7px;height:7px;background:var(--orange);border-radius:50%;
-  animation:blink 2s ease-in-out infinite;
-}
+.hero-badge .live-dot{width:7px;height:7px;background:var(--orange);border-radius:50%;animation:blink 2s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.75);}}
 
-h1.hero-h1{
-  font-size:clamp(2.6rem,4.8vw,4rem);
-  font-weight:900;line-height:1.05;letter-spacing:-1.5px;
-  color:var(--t9);margin-bottom:22px;
-}
+h1.hero-h1{font-size:clamp(2.8rem,5.2vw,4.4rem);font-weight:900;line-height:1.0;letter-spacing:-2px;color:var(--t9);margin-bottom:22px;}
 h1.hero-h1 .o{color:var(--orange);}
+h1.hero-h1 .line{display:block;}
 
-.hero-desc{
-  font-size:16px;color:var(--t5);line-height:1.75;
-  margin-bottom:36px;max-width:480px;
-}
-
+.hero-desc{font-size:16px;color:var(--t5);line-height:1.75;margin-bottom:36px;max-width:480px;}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
 
 /* ── FLOW ANIMÉ ── */
-.flow-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r-lg);overflow:hidden;
-  box-shadow:var(--sh-lg);
-}
-
-.flow-card-head{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:11px 16px;border-bottom:1px solid var(--border);
-  background:var(--section);
-}
+.flow-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg);}
+.flow-card-head{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-bottom:1px solid var(--border);background:var(--section);}
 .fch-title{font-size:11px;font-weight:700;color:var(--t5);letter-spacing:.6px;text-transform:uppercase;}
 .fch-live{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--green);}
 .fch-live .ld{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 1.6s infinite;}
-
 .flow-card-body{padding:20px 16px;display:flex;flex-direction:column;gap:10px;}
-
-/* Chaque ligne de flux */
 .flow-row{display:flex;align-items:center;gap:0;position:relative;}
-
-.f-node{
-  padding:8px 13px;border-radius:var(--r-sm);
-  font-size:12px;font-weight:600;white-space:nowrap;
-  position:relative;z-index:1;
-}
+.f-node{padding:8px 13px;border-radius:var(--r-sm);font-size:12px;font-weight:600;white-space:nowrap;position:relative;z-index:1;}
 .f-node.src{background:var(--blue-pale);color:#2563EB;border:1px solid rgba(37,99,235,.18);}
-.f-node.cell{
-  background:var(--orange-pale);color:var(--orange);
-  border:1px solid var(--orange-border);
-  padding:8px 16px;
-}
+.f-node.cell{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);padding:8px 16px;}
 .f-node.out{background:var(--green-pale);color:var(--green);border:1px solid var(--green-border);}
-
-/* Connecteur animé */
-.f-conn{
-  flex:1;height:2px;position:relative;overflow:hidden;
-  background:var(--border);margin:0 4px;
-}
-.f-conn::after{
-  content:'';position:absolute;top:0;left:-100%;
-  width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,var(--orange),transparent);
-  animation:flow-pulse 2s ease-in-out infinite;
-}
+.f-conn{flex:1;height:2px;position:relative;overflow:hidden;background:var(--border);margin:0 4px;}
+.f-conn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,var(--orange),transparent);animation:flow-pulse 2s ease-in-out infinite;}
 .flow-row:nth-child(2) .f-conn::after{animation-delay:.65s;}
 .flow-row:nth-child(3) .f-conn::after{animation-delay:1.3s;}
 @keyframes flow-pulse{0%{left:-60%;}100%{left:100%;}}
-
-.flow-card-foot{
-  padding:11px 16px;border-top:1px solid var(--border);
-  background:var(--green-pale);
-  font-size:12px;font-weight:600;color:var(--green);
-  display:flex;align-items:center;gap:6px;
-}
+.flow-card-foot{padding:11px 16px;border-top:1px solid var(--border);background:var(--green-pale);font-size:12px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:6px;}
 
 @media(max-width:1020px){.hero-inner{grid-template-columns:1fr;gap:44px;}.flow-card{max-width:480px;}}
 @media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}.hero-ctas a{justify-content:center;}}
@@ -140,31 +90,18 @@ h1.hero-h1 .o{color:var(--orange);}
 ══════════════════════════════════════ */
 #sov{padding:96px 0;background:var(--card);}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
-
-.alert-box{
-  background:var(--red-pale);border:1px solid var(--red-border);
-  border-radius:var(--r);padding:16px 18px;margin-bottom:28px;
-}
-.alert-box .ab-head{
-  display:flex;align-items:center;gap:7px;
-  font-size:11px;font-weight:700;color:var(--red);
-  text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;
-}
+.alert-box{background:var(--red-pale);border:1px solid var(--red-border);border-radius:var(--r);padding:16px 18px;margin-bottom:28px;}
+.alert-box .ab-head{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;}
 .alert-box p{font-size:13px;color:var(--t7);line-height:1.65;}
 .alert-box strong{color:var(--red);}
-
+.alert-footnote{margin-top:9px;font-size:11px;color:var(--t4);line-height:1.5;border-top:1px solid var(--red-border);padding-top:8px;}
+.alert-footnote a{color:var(--t4);text-decoration:underline;}
 .feat-list{display:flex;flex-direction:column;gap:16px;margin-bottom:28px;}
 .feat{display:flex;gap:11px;align-items:flex-start;}
-.feat-ico{
-  width:34px;height:34px;flex-shrink:0;
-  background:var(--orange-pale);border:1px solid var(--orange-border);
-  border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;
-}
+.feat-ico{width:34px;height:34px;flex-shrink:0;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;}
 .feat-ico svg{width:16px;height:16px;color:var(--orange);}
 .feat h4{font-size:13.5px;font-weight:700;margin-bottom:3px;}
 .feat p{font-size:13px;color:var(--t5);line-height:1.6;}
-
-/* Visuel droite — souveraineté */
 .sov-visual{display:flex;flex-direction:column;gap:10px;}
 .vs-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;}
 .vs-row{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;}
@@ -177,12 +114,10 @@ h1.hero-h1 .o{color:var(--orange);}
 .vs-row.good .vs-txt{color:var(--green);}
 .vs-txt strong{display:block;font-weight:700;margin-bottom:3px;font-size:13.5px;}
 .vs-sep{text-align:center;padding:8px;font-size:11px;font-weight:700;color:var(--t4);letter-spacing:1px;text-transform:uppercase;background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-
 .comply-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;}
 .comply-lbl{font-size:10px;font-weight:700;color:var(--t4);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;}
 .ctags{display:flex;flex-wrap:wrap;gap:6px;}
 .ctag{display:inline-flex;align-items:center;gap:4px;padding:4px 11px;border-radius:var(--r-pill);font-size:12px;font-weight:600;background:var(--green-pale);border:1px solid var(--green-border);color:var(--green);}
-
 @media(max-width:900px){.two-col{grid-template-columns:1fr;gap:44px;}}
 
 /* ══════════════════════════════════════
@@ -191,40 +126,23 @@ h1.hero-h1 .o{color:var(--orange);}
 #agnostic{padding:96px 0;background:var(--bg);}
 .center-head{text-align:center;margin-bottom:48px;}
 .center-head .sec-sub{margin:10px auto 0;max-width:520px;}
-
 .tabs{display:flex;justify-content:center;gap:6px;margin-bottom:40px;flex-wrap:wrap;}
-.tab-btn{
-  display:flex;align-items:center;gap:7px;
-  padding:9px 20px;
-  font-size:13.5px;font-weight:500;font-family:var(--font);
-  border-radius:var(--r-pill);border:1px solid var(--border);
-  background:var(--card);color:var(--t5);
-  cursor:pointer;transition:all var(--tr);
-}
+.tab-btn{display:flex;align-items:center;gap:7px;padding:9px 20px;font-size:13.5px;font-weight:500;font-family:var(--font);border-radius:var(--r-pill);border:1px solid var(--border);background:var(--card);color:var(--t5);cursor:pointer;transition:all var(--tr);}
 .tab-btn svg{width:14px;height:14px;flex-shrink:0;}
 .tab-btn:hover{border-color:var(--border-s);color:var(--t7);}
 .tab-btn.active{background:var(--orange);color:white;border-color:var(--orange);font-weight:600;}
 .tab-btn.active svg{color:white;}
-
 .tab-panel{display:none;}
 .tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
-
 .panel-left h3{font-size:1.6rem;font-weight:800;color:var(--t9);margin-bottom:12px;letter-spacing:-.3px;}
 .panel-left p{font-size:14px;color:var(--t5);line-height:1.75;margin-bottom:22px;}
 .pfeats{display:flex;flex-direction:column;gap:9px;}
 .pf{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--t7);}
 .pf::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;}
-
-.panel-visual{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r-xl);padding:40px 32px;
-  display:flex;align-items:center;justify-content:center;
-  min-height:200px;box-shadow:var(--sh-sm);
-}
+.panel-visual{background:var(--card);border:1px solid var(--border);border-radius:var(--r-xl);padding:40px 32px;display:flex;align-items:center;justify-content:center;min-height:200px;box-shadow:var(--sh-sm);}
 .pv{text-align:center;}
 .pv svg{width:48px;height:48px;color:var(--orange);margin-bottom:14px;opacity:.8;}
 .pv p{font-size:13px;color:var(--t5);line-height:1.6;}
-
 @media(max-width:760px){.tab-panel.active{grid-template-columns:1fr;}.panel-visual{min-height:120px;padding:24px;}}
 
 /* ══════════════════════════════════════
@@ -232,13 +150,9 @@ h1.hero-h1 .o{color:var(--orange);}
 ══════════════════════════════════════ */
 #rt{padding:96px 0;background:var(--card);}
 .rt-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-
 .rt-compare{display:flex;flex-direction:column;gap:14px;}
 .rtc{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
-.rtc-head{
-  padding:9px 14px;border-bottom:1px solid var(--border);
-  font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
-}
+.rtc-head{padding:9px 14px;border-bottom:1px solid var(--border);font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;}
 .rtc-head.classic{color:var(--t4);}
 .rtc-head.id4c{color:var(--orange);}
 .rtc-body{padding:14px 16px;}
@@ -248,105 +162,64 @@ h1.hero-h1 .o{color:var(--orange);}
 .step.bad{background:var(--red-pale);color:var(--red);}
 .step.ok{background:var(--orange-pale);color:var(--orange);}
 .s-arr{color:var(--t4);font-size:10px;}
-.rtc-time{
-  margin-top:10px;display:inline-flex;align-items:center;gap:5px;
-  padding:4px 11px;border-radius:var(--r-pill);font-size:11.5px;font-weight:700;
-}
+.rtc-time{margin-top:10px;display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:var(--r-pill);font-size:11.5px;font-weight:700;}
 .rtc-time.slow{background:var(--red-pale);color:var(--red);}
 .rtc-time.fast{background:var(--green-pale);color:var(--green);}
-
+.rt-rupture{
+  margin-top:24px;padding:16px 18px;
+  background:var(--orange-pale);border:1px solid var(--orange-border);
+  border-radius:var(--r);
+}
+.rt-rupture p{font-size:13.5px;font-weight:700;color:var(--orange);line-height:1.5;}
+.rt-rupture span{font-weight:500;color:var(--t7);font-size:13px;display:block;margin-top:5px;}
 @media(max-width:900px){.rt-grid{grid-template-columns:1fr;}}
 
 /* ══════════════════════════════════════
    BLOC 4 — COMPARATIF ARCHITECTURE
 ══════════════════════════════════════ */
 #archi{padding:96px 0;background:var(--bg);}
-
-.archi-panel{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r-xl);padding:48px;
-  box-shadow:var(--sh-sm);
-}
+.archi-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r-xl);padding:48px;box-shadow:var(--sh-sm);}
 .archi-vs{display:grid;grid-template-columns:1fr 48px 1fr;gap:32px;align-items:start;}
-
-.side-lbl{
-  display:inline-flex;padding:4px 12px;border-radius:var(--r-pill);
-  font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
-  margin-bottom:16px;
-}
+.side-lbl{display:inline-flex;padding:4px 12px;border-radius:var(--r-pill);font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:16px;}
 .side-lbl.classic{background:var(--section);color:var(--t5);border:1px solid var(--border);}
 .side-lbl.id4c{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
-
 .flow-col{display:flex;flex-direction:column;align-items:stretch;gap:0;}
-.abox{
-  padding:10px 14px;border-radius:var(--r-sm);
-  font-size:12.5px;font-weight:600;text-align:center;border:1px solid;
-}
+.abox{padding:10px 14px;border-radius:var(--r-sm);font-size:12.5px;font-weight:600;text-align:center;border:1px solid;}
 .abox.src{background:var(--blue-pale);border-color:rgba(59,130,246,.2);color:#2563EB;}
 .abox.kpi{background:var(--green-pale);border-color:var(--green-border);color:var(--green);}
 .abox.etl{background:var(--section);border-color:var(--border);color:var(--t5);}
 .abox.cell{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);padding:22px 14px;}
 .a-arr{text-align:center;font-size:12px;color:var(--t4);padding:5px 0;}
-
-.etl-zone{
-  border:1.5px dashed var(--orange-border);border-radius:var(--r);
-  padding:10px;background:rgba(249,115,22,.03);
-  display:flex;flex-direction:column;gap:0;
-}
-.etl-zone-lbl{
-  text-align:center;font-size:9.5px;font-weight:700;
-  color:var(--orange);letter-spacing:.8px;text-transform:uppercase;
-  opacity:.75;margin-bottom:8px;
-}
-
+.etl-zone{border:1.5px dashed var(--orange-border);border-radius:var(--r);padding:10px;background:rgba(249,115,22,.03);display:flex;flex-direction:column;gap:0;}
+.etl-zone-lbl{text-align:center;font-size:9.5px;font-weight:700;color:var(--orange);letter-spacing:.8px;text-transform:uppercase;opacity:.75;margin-bottom:8px;}
 .vs-mid{display:flex;align-items:center;justify-content:center;padding-top:52px;}
-.vs-bubble{
-  width:40px;height:40px;border-radius:50%;
-  background:var(--section);border:1.5px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-size:10.5px;font-weight:800;color:var(--t5);
-}
-
+.vs-bubble{width:40px;height:40px;border-radius:50%;background:var(--section);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:800;color:var(--t5);}
 .bene-list{display:flex;flex-direction:column;gap:8px;margin-top:16px;}
 .bene{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--t7);}
 .bene .ck{color:var(--green);font-size:11px;font-weight:800;}
-
-.archi-note{
-  margin-top:28px;padding:14px 18px;
-  background:var(--orange-pale);border:1px solid var(--orange-border);
-  border-radius:var(--r-sm);font-size:13px;font-weight:500;color:var(--orange);
-  display:flex;align-items:center;gap:8px;
-}
-
+.archi-note{margin-top:28px;padding:14px 18px;background:var(--section);border:1px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-weight:500;color:var(--t5);display:flex;align-items:center;gap:8px;}
+.archi-note strong{color:var(--t9);}
 @media(max-width:860px){.archi-vs{grid-template-columns:1fr;}.vs-mid{display:none;}.archi-panel{padding:24px;}}
 
 /* ══════════════════════════════════════
    BLOC 5 — DEEP TECH
 ══════════════════════════════════════ */
 #dt{padding:96px 0;background:var(--card);}
-
 .trl{display:flex;align-items:baseline;gap:6px;margin-bottom:18px;}
 .trl-n{font-size:5rem;font-weight:900;color:var(--orange);line-height:1;letter-spacing:-3px;}
 .trl-l{font-size:10px;font-weight:700;color:var(--t4);letter-spacing:1px;text-transform:uppercase;line-height:1.5;}
-
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;}
-.pillar{
-  background:var(--bg);border:1px solid var(--border);
-  border-radius:var(--r);padding:16px;transition:border-color var(--tr);
-}
+.pillar{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;transition:border-color var(--tr);}
 .pillar:hover{border-color:var(--orange);}
 .pillar svg{width:18px;height:18px;color:var(--orange);margin-bottom:8px;}
 .pillar h4{font-size:13px;font-weight:700;margin-bottom:3px;}
 .pillar p{font-size:12px;color:var(--t5);line-height:1.6;}
-
-/* Timeline */
 .timeline{position:relative;padding-left:20px;}
 .timeline::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:1.5px;background:linear-gradient(to bottom,var(--orange),rgba(249,115,22,.08));}
 .tl-item{position:relative;padding:0 0 22px 16px;}
 .tl-item::before{content:'';position:absolute;left:-17px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--orange);border:2px solid var(--bg);}
 .tl-year{font-size:11px;font-weight:700;color:var(--orange);margin-bottom:3px;}
 .tl-desc{font-size:13px;color:var(--t5);line-height:1.6;}
-
 @media(max-width:900px){.pillars{grid-template-columns:1fr 1fr;}}
 
 /* ══════════════════════════════════════
@@ -355,12 +228,7 @@ h1.hero-h1 .o{color:var(--orange);}
 #partners{padding:72px 0;background:var(--bg);}
 .pt-head{text-align:center;margin-bottom:32px;}
 .pt-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
-.pt-chip{
-  display:flex;align-items:center;gap:10px;
-  padding:12px 20px;
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);transition:all var(--tr);text-decoration:none;
-}
+.pt-chip{display:flex;align-items:center;gap:10px;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);transition:all var(--tr);text-decoration:none;}
 .pt-chip:hover{border-color:var(--orange-border);background:var(--orange-pale);}
 .pt-chip svg{width:18px;height:18px;color:var(--t4);flex-shrink:0;}
 .pt-chip:hover svg{color:var(--orange);}
@@ -381,9 +249,20 @@ h1.hero-h1 .o{color:var(--orange);}
 .btn-wo{display:inline-flex;align-items:center;gap:6px;padding:12px 26px;background:transparent;color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:all var(--tr);}
 .btn-wo:hover{border-color:white;background:rgba(255,255,255,.1);}
 
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
-.reveal.visible{opacity:1;transform:none;}
+/* ── REVEAL BI-DIRECTIONNEL ── */
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .5s ease, transform .5s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.reveal.hidden{
+  opacity:0;
+  transform:translateY(-12px);
+}
 </style>
 </head>
 <body>
@@ -395,23 +274,22 @@ h1.hero-h1 .o{color:var(--orange);}
 <section id="hero">
   <div class="wrap">
     <div class="hero-inner">
-
       <div>
         <div class="hero-badge">
           <span class="live-dot"></span>
           Deep Tech Européen · TRL 9 · Stateless by Design
         </div>
         <h1 class="hero-h1">
-          Vos données restent<br>
-          où elles sont.<br>
-          <span class="o">L'intelligence, non.</span>
+          <span class="line">En transit.</span>
+          <span class="line">En temps réel.</span>
+          <span class="line o">Jamais stockées.</span>
         </h1>
         <p class="hero-desc">
           iD4Connect traite vos données pendant leur transit — sans les stocker, sans les dupliquer. Insights en temps réel, souveraineté garantie.
         </p>
         <div class="hero-ctas">
-          <a href="contact.html" class="btn-p">Demander une démo →</a>
-          <a href="architecture.html" class="btn-g">Voir l'architecture</a>
+          <a href="/contact" class="btn-p">Demander une démo →</a>
+          <a href="/architecture" class="btn-g">Voir l'architecture</a>
         </div>
       </div>
 
@@ -426,21 +304,21 @@ h1.hero-h1 .o{color:var(--orange);}
             <div class="flow-row">
               <div class="f-node src">ERP / SQL</div>
               <div class="f-conn"></div>
-              <div class="f-node cell">⚡ DataCell</div>
+              <div class="f-node cell">DataCell</div>
               <div class="f-conn"></div>
               <div class="f-node out">KPI Métier</div>
             </div>
             <div class="flow-row">
               <div class="f-node src">IoT / MQTT</div>
               <div class="f-conn"></div>
-              <div class="f-node cell">⚡ DataCell</div>
+              <div class="f-node cell">DataCell</div>
               <div class="f-conn"></div>
               <div class="f-node out">Alerte live</div>
             </div>
             <div class="flow-row">
               <div class="f-node src">API / SaaS</div>
               <div class="f-conn"></div>
-              <div class="f-node cell">⚡ DataCell</div>
+              <div class="f-node cell">DataCell</div>
               <div class="f-conn"></div>
               <div class="f-node out">Dashboard</div>
             </div>
@@ -451,7 +329,6 @@ h1.hero-h1 .o{color:var(--orange);}
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -468,7 +345,7 @@ h1.hero-h1 .o{color:var(--orange);}
           Vos données ne quittent jamais<br>votre infrastructure.
         </h2>
         <p class="sec-sub" style="margin-bottom:28px">
-          Dans un monde soumis à des lois d'accès extraterritorial, héberger vos données chez des acteurs hors UE crée un risque juridique réel. iD4Connect élimine ce risque.
+          Dans un monde soumis à des lois d'accès extraterritorial, héberger vos données chez des acteurs soumis au droit américain crée un risque juridique réel — même si leurs serveurs sont physiquement en Europe. iD4Connect élimine ce risque.
         </p>
 
         <div class="alert-box">
@@ -476,7 +353,8 @@ h1.hero-h1 .o{color:var(--orange);}
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 2L1.5 13.5h13L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="8" y1="7" x2="8" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="12" r=".8" fill="currentColor"/></svg>
             Risque juridique
           </div>
-          <p>Les données hébergées chez des acteurs hors UE sont <strong>juridiquement accessibles par des autorités étrangères</strong> sans notification préalable, même si les serveurs sont en Europe.</p>
+          <p>Les données hébergées chez des acteurs soumis au droit américain sont <strong>juridiquement accessibles par les autorités américaines sans notification préalable</strong>, même si les serveurs sont physiquement en Europe ou ailleurs.</p>
+          <div class="alert-footnote">Sources : CLOUD Act (2018) · FISA §702 · Arrêt Schrems II (CJUE 2020) · Rapport du ministère allemand de l'Intérieur (décembre 2025)</div>
         </div>
 
         <div class="feat-list">
@@ -494,8 +372,8 @@ h1.hero-h1 .o{color:var(--orange);}
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>
             </div>
             <div>
-              <h4>RGPD by design</h4>
-              <p>Aucune copie, aucun stockage intermédiaire. La conformité est l'architecture elle-même.</p>
+              <h4>Conformité by design</h4>
+              <p>Aucune copie, aucun stockage intermédiaire. La conformité est l'architecture elle-même — renforcée par des modèles accessibles par API lorsqu'une transformation est nécessaire dans le flux.</p>
             </div>
           </div>
           <div class="feat">
@@ -510,7 +388,7 @@ h1.hero-h1 .o{color:var(--orange);}
         </div>
 
         <div class="cs">
-          <span class="cs-item g">✓ RGPD natif</span>
+          <span class="cs-item g">✓ Conformité by design</span>
           <span class="cs-item r">✗ Zéro stockage intermédiaire</span>
           <span class="cs-item g">✓ Souveraineté garantie</span>
         </div>
@@ -670,7 +548,7 @@ h1.hero-h1 .o{color:var(--orange);}
             <div class="steps">
               <span class="step n">Source</span>
               <span class="s-arr">→</span>
-              <span class="step ok">⚡ DataCell</span>
+              <span class="step ok">DataCell</span>
               <span class="s-arr">→</span>
               <span class="step n">KPI</span>
             </div>
@@ -686,8 +564,12 @@ h1.hero-h1 .o{color:var(--orange);}
           <span class="o">L'insight pendant le transit.</span>
         </h2>
         <p class="sec-sub">
-          Les architectures traditionnelles extraient, stockent, transforment, puis restituent. iD4Connect produit l'insight <em>pendant que la donnée transite</em>. Ce n'est pas de l'optimisation — c'est une rupture architecturale.
+          Les architectures traditionnelles extraient, stockent, transforment, puis restituent — des heures plus tard. iD4Connect produit l'insight <em>pendant que la donnée transite</em>.
         </p>
+        <div class="rt-rupture">
+          <p>Ce n'est pas de l'optimisation — c'est une rupture architecturale.</p>
+          <span>Traitement stateless en-flux : aucun pipeline, aucun stockage intermédiaire, aucune latence accumulée.</span>
+        </div>
         <div class="cs">
           <span class="cs-item g">✓ &lt;5ms de latence</span>
           <span class="cs-item r">✗ Zéro stockage intermédiaire</span>
@@ -705,7 +587,7 @@ h1.hero-h1 .o{color:var(--orange);}
     <div class="center-head" style="margin-bottom:40px;">
       <div class="pill">Architecture Comparée</div>
       <h2 class="sec-title">DataCell vs Pipeline Classique</h2>
-      <p class="sec-sub" style="margin:10px auto 0;max-width:500px;">Un pipeline ETL classique enchaîne 4 à 6 étapes. Une seule DataCell les remplace toutes.</p>
+      <p class="sec-sub" style="margin:10px auto 0;max-width:500px;">Un pipeline ETL classique enchaîne 4 à 6 étapes avec stockage à chaque niveau. Une seule DataCell traite en transit, sans aucune étape intermédiaire.</p>
     </div>
 
     <div class="archi-panel">
@@ -750,13 +632,14 @@ h1.hero-h1 .o{color:var(--orange);}
             <div class="bene"><span class="ck">✓</span> Aucun stockage intermédiaire</div>
             <div class="bene"><span class="ck">✓</span> Latence &lt;5ms vs H+2 en batch</div>
             <div class="bene"><span class="ck">✓</span> 5× moins cher en TCO</div>
-            <div class="bene"><span class="ck">✓</span> RGPD by design</div>
+            <div class="bene"><span class="ck">✓</span> Conformité by design</div>
           </div>
         </div>
 
       </div>
       <div class="archi-note">
-        💡 iD4Connect remplace l'ETL là où la latence et le stockage coûtent le plus cher.
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="7" x2="8" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
+        <span>iD4Connect élimine ETL, ODS et DataWarehouse là où ils sont devenus <strong>le goulot d'étranglement de votre architecture</strong> — latence, coût, surface d'exposition. Il coexiste et s'intègre avec vos outils existants.</span>
       </div>
     </div>
   </div>
@@ -841,7 +724,7 @@ h1.hero-h1 .o{color:var(--orange);}
       <h2 style="font-size:1rem;font-weight:700;color:var(--t5)">Ils déploient iD4Connect</h2>
     </div>
     <div class="pt-row">
-      <a href="secteur-cyber.html" class="pt-chip">
+      <a href="/cybersecurite" class="pt-chip">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>
         <div><div class="pt-name">HELIAQ</div><div class="pt-tag">Cybersécurité · SIEM + EDR</div></div>
       </a>
@@ -853,11 +736,11 @@ h1.hero-h1 .o{color:var(--orange);}
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4"/></svg>
         <div><div class="pt-name">RevBits</div><div class="pt-tag">Cybersécurité · PAM/EDR</div></div>
       </a>
-      <a href="histoire.html" class="pt-chip">
+      <a href="/notre-histoire" class="pt-chip">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5L5 11M11 5l1.5-1.5"/></svg>
         <div><div class="pt-name">CETIC</div><div class="pt-tag">Centre R&D · Origine technologique</div></div>
       </a>
-      <a href="secteur-cyber.html" class="pt-chip">
+      <a href="/cybersecurite" class="pt-chip">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="12" height="8" rx="1"/><path d="M5 5V3.5a3 3 0 0 1 6 0V5"/></svg>
         <div><div class="pt-name">Seclab Security</div><div class="pt-tag">Hardware Security · OT/IT</div></div>
       </a>
@@ -873,8 +756,8 @@ h1.hero-h1 .o{color:var(--orange);}
     <h2>Prêt à reprendre le contrôle de vos données ?</h2>
     <p>Découvrez comment iD4Connect s'intègre à votre infrastructure en 30 minutes.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn-w">Demander une démo →</a>
-      <a href="architecture.html" class="btn-wo">Explorer l'architecture</a>
+      <a href="/contact" class="btn-w">Demander une démo →</a>
+      <a href="/architecture" class="btn-wo">Explorer l'architecture</a>
     </div>
   </div>
 </section>
@@ -921,15 +804,25 @@ window.addEventListener('load', async () => {
     document.body.setAttribute('data-theme', e.detail);
   });
 
-  /* Scroll reveal */
+  /* Scroll reveal BI-DIRECTIONNEL */
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
+        e.target.classList.remove('hidden');
         e.target.classList.add('visible');
-        io.unobserve(e.target);
+      } else {
+        /* Sort vers le haut → hidden, vers le bas → reset */
+        const rect = e.target.getBoundingClientRect();
+        if (rect.top < 0) {
+          e.target.classList.remove('visible');
+          e.target.classList.add('hidden');
+        } else {
+          e.target.classList.remove('visible','hidden');
+        }
       }
     });
   }, { threshold: 0.06 });
+
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 });
 </script>
