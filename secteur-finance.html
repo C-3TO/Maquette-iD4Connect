@@ -3,39 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Finance & Banque — iD4Connect</title>
-<meta name="description" content="iD4Connect pour les établissements financiers : conformité DORA, détection fraude temps réel, vision client unifiée — sans stocker une seule donnée.">
+<title>Finance & Banque · iD4Connect</title>
+<meta name="description" content="iD4Connect pour les établissements financiers : détection fraude temps réel, vision client unifiée, sans stocker une seule donnée.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--green-em:#10B981;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue:#2563EB;--blue-pale:#EFF6FF;--blue-border:rgba(37,99,235,.2);--purple:#8B5CF6;--purple-pale:#F5F3FF;--cyan:#06B6D4;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
+:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--green-em:#10B981;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue:#2563EB;--blue-pale:#EFF6FF;--purple:#8B5CF6;--purple-pale:#F5F3FF;--cyan:#06B6D4;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
 :root,[data-theme="light"]{--bg:#F5F4F0;--card:#FFFFFF;--section:#EEEDEA;--t9:#111827;--t7:#374151;--t5:#6B7280;--t4:#9CA3AF;--border:#E5E3DE;--border-s:#D1CFCA;--sh-sm:0 1px 3px rgba(0,0,0,.07);--sh:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.10);}
-[data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--sh-lg:0 12px 40px rgba(0,0,0,.4);--orange-pale:rgba(249,115,22,.09);--orange-border:rgba(249,115,22,.22);--green-pale:rgba(22,163,74,.09);--green-border:rgba(22,163,74,.22);--red-pale:rgba(220,38,38,.09);--red-border:rgba(220,38,38,.22);--blue-pale:rgba(37,99,235,.09);--blue-border:rgba(37,99,235,.18);--purple-pale:rgba(139,92,246,.09);}
+[data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--sh-lg:0 12px 40px rgba(0,0,0,.4);--orange-pale:rgba(249,115,22,.09);--orange-border:rgba(249,115,22,.22);--green-pale:rgba(22,163,74,.09);--green-border:rgba(22,163,74,.22);--red-pale:rgba(220,38,38,.09);--red-border:rgba(220,38,38,.22);--blue-pale:rgba(37,99,235,.09);--purple-pale:rgba(139,92,246,.09);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
-.wrap{max-width:1060px;margin:0 auto;padding:0 32px;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
 .pill{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
 .pill svg{width:12px;height:12px;}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
 
 /* ══ HERO ══ */
-#fin-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;}
-#fin-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
-.hero-inner{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;}
-.hero-inner h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--t9);margin-bottom:16px;}
-.hero-inner h1 .o{color:var(--orange);}
-.hero-inner p{font-size:15.5px;color:var(--t5);line-height:1.75;max-width:540px;margin:0 auto 36px;}
-.hero-stats{display:inline-flex;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);}
-.hstat{padding:18px 32px;text-align:center;border-right:1px solid var(--border);}
-.hstat:last-child{border-right:none;}
-.hstat-val{font-size:26px;font-weight:900;color:var(--orange);line-height:1;}
-.hstat-lbl{font-size:12px;font-weight:700;color:var(--t9);margin-top:3px;}
-.hstat-sub{font-size:10px;color:var(--t4);margin-top:1px;}
+#fin-hero{padding:64px 0 72px;background:var(--card);position:relative;overflow:hidden;}
+#fin-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
+
+.hero-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center;}
+
+.hero-visual{
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  min-height:320px;
+}
+.hero-visual::before{
+  content:'';position:absolute;
+  width:240px;height:240px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.hero-icon{
+  width:160px;height:160px;
+  color:var(--orange);
+  position:relative;z-index:1;
+  animation:iconFloat 3s ease-in-out infinite alternate;
+}
+@keyframes iconFloat{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
+
+.hero-right .pill{margin-bottom:14px;}
+.hero-right h1{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin-bottom:16px;}
+.hero-right h1 .o{color:var(--orange);}
+.hero-right>p{font-size:15px;color:var(--t5);line-height:1.75;max-width:480px;margin-bottom:28px;}
+
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-p{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
+.btn-p:hover{background:var(--orange-d);transform:translateY(-1px);}
+.btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
+.btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
+
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:200px;}}
+@media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}}
 
 /* ══ CAS D'USAGE ══ */
-#cas-usage{padding:0 0 96px;background:var(--bg);}
+#cas-usage{padding:96px 0;background:var(--bg);}
 .section-head{text-align:center;margin-bottom:44px;}
 .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
 .section-head h2 .o{color:var(--orange);}
@@ -56,19 +83,18 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .uc-title{font-size:13.5px;font-weight:800;color:var(--t9);margin-bottom:11px;}
 .uc-slbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:6px;}
 .uc-sources{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:11px;}
-.uc-src{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-xs);padding:3px 9px;font-size:10.5px;font-weight:600;color:var(--t7);}
-[data-theme="dark"] .uc-src{background:var(--section);}
+.uc-src{background:var(--section);border:1.5px solid var(--border);border-radius:var(--r-xs);padding:3px 9px;font-size:10.5px;font-weight:600;color:var(--t7);}
 .uc-ops{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;}
 .uc-op{display:flex;flex-direction:column;gap:1px;background:var(--section);border-radius:0 var(--r-xs) var(--r-xs) 0;padding:5px 10px;border-left:3px solid;}
-[data-theme="dark"] .uc-op{background:var(--bg);}
 .uc-op-name{font-size:10px;font-weight:700;color:var(--t9);}
 .uc-op-desc{font-size:9px;color:var(--t4);}
 .uc-arrow{display:flex;flex-direction:column;align-items:center;margin:6px 0;}
-.uc-arrow-line{width:2px;height:12px;opacity:.75;}
-.uc-arrow-tip{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;opacity:.75;}
 .uc-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
 .uc-output svg{width:11px;height:11px;flex-shrink:0;}
 .uc-output-lbl{font-size:11.5px;font-weight:700;color:var(--t9);}
+
+@media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.uc-grid{grid-template-columns:1fr;}}
 
 /* ══ CONFORMITÉ ══ */
 #conformite{padding:96px 0;background:var(--card);}
@@ -80,29 +106,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
 .conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
 
-/* ══ DORA ══ */
-#dora{padding:96px 0;background:var(--bg);}
-.dora-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
-.dora-text .dora-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:6px;}
-.dora-text .dora-label svg{width:12px;height:12px;}
-.dora-text h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:900;line-height:1.15;letter-spacing:-.5px;color:var(--t9);margin-bottom:14px;}
-.dora-text h2 .o{color:var(--orange);}
-.dora-text p{font-size:14px;color:var(--t5);line-height:1.7;margin-bottom:20px;}
-.dora-checks{display:flex;flex-direction:column;gap:8px;}
-.dora-check{display:flex;align-items:flex-start;gap:10px;padding:10px 13px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);}
-.dora-check svg{width:14px;height:14px;color:var(--green-em);flex-shrink:0;margin-top:1px;}
-.dora-check span{font-size:13px;color:var(--t7);font-weight:500;}
-.dora-regs{display:flex;flex-direction:column;gap:12px;}
-.reg-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:20px;}
-.reg-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.reg-badge{font-size:10px;font-weight:800;padding:4px 11px;border-radius:var(--r-pill);letter-spacing:.5px;}
-.reg-badge.orange{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
-.reg-badge.blue{background:var(--blue-pale);color:var(--blue);border:1px solid var(--blue-border);}
-.reg-badge.purple{background:var(--purple-pale);color:var(--purple);border:1px solid rgba(139,92,246,.2);}
-.reg-status{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;color:var(--green-em);}
-.reg-status svg{width:11px;height:11px;}
-.reg-title{font-size:13px;font-weight:700;color:var(--t9);margin-bottom:4px;}
-.reg-desc{font-size:11.5px;color:var(--t5);line-height:1.55;}
+@media(max-width:900px){.conf-grid{grid-template-columns:1fr;}}
 
 /* ══ CTA ══ */
 #fin-cta{padding:96px 0;background:var(--card);}
@@ -114,9 +118,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-primary:hover{background:var(--orange-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.3);}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:transparent;color:var(--t7);font-size:13.5px;font-weight:600;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;border:1.5px solid var(--border);cursor:pointer;transition:all var(--tr);}
 .btn-secondary:hover{border-color:var(--border-s);color:var(--t9);}
-
-@media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}.conf-grid{grid-template-columns:1fr;}.dora-inner{grid-template-columns:1fr;gap:40px;}}
-@media(max-width:600px){.uc-grid{grid-template-columns:1fr;}.wrap{padding:0 20px;}.hero-stats{flex-direction:column;}.hstat{border-right:none;border-bottom:1px solid var(--border);}.hstat:last-child{border-bottom:none;}}
 </style>
 </head>
 <body>
@@ -125,30 +126,35 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <!-- ══ HERO ══ -->
 <section id="fin-hero">
   <div class="wrap">
-    <div class="hero-inner">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M5 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><circle cx="8" cy="9" r="1.5"/><path d="M5.5 9h-1M11.5 9h-1"/></svg>
-        Finance & Banque
+    <div class="hero-grid">
+
+      <!-- GAUCHE : icône minimaliste coffre-fort -->
+      <div class="hero-visual">
+        <svg class="hero-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M50 12L14 32h72L50 12z"/>
+          <line x1="14" y1="32" x2="86" y2="32"/>
+          <line x1="24" y1="36" x2="24" y2="76"/>
+          <line x1="40" y1="36" x2="40" y2="76"/>
+          <line x1="60" y1="36" x2="60" y2="76"/>
+          <line x1="76" y1="36" x2="76" y2="76"/>
+          <rect x="10" y="76" width="80" height="8" rx="2"/>
+        </svg>
       </div>
-      <h1>Vos flux financiers transitent.<br><span class="o">Faites-les travailler.</span></h1>
-      <p>iD4Connect s'insère dans votre SI bancaire sans rien stocker. Détection fraude, vision client 360°, conformité DORA — traités en transit, en temps réel.</p>
-      <div class="hero-stats">
-        <div class="hstat">
-          <div class="hstat-val">0</div>
-          <div class="hstat-lbl">donnée stockée</div>
-          <div class="hstat-sub">stateless by design</div>
+
+      <!-- DROITE : texte -->
+      <div class="hero-right">
+        <div class="pill">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M5 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><circle cx="8" cy="9" r="1.5"/><path d="M5.5 9h-1M11.5 9h-1"/></svg>
+          Finance & Banque
         </div>
-        <div class="hstat">
-          <div class="hstat-val">&lt;1ms</div>
-          <div class="hstat-lbl">latence traitement</div>
-          <div class="hstat-sub">enrichissement en vol</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-val">DORA</div>
-          <div class="hstat-lbl">ready nativement</div>
-          <div class="hstat-sub">audit trail complet</div>
+        <h1>Vos flux financiers transitent.<br><span class="o">Faites-les travailler.</span></h1>
+        <p>iD4Connect s'insère dans votre SI bancaire sans rien stocker. Détection fraude, vision client 360°, conformité réglementaire, traités en transit, en temps réel.</p>
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn-p">Demander une démo →</a>
+          <a href="positionnement.html" class="btn-g">Voir le positionnement</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -184,90 +190,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
           <svg viewBox="0 0 20 20" fill="none" stroke="#2563EB" stroke-width="1.5"><path d="M3 5h14M3 10h14M3 15h8"/><circle cx="16" cy="15" r="3"/><path d="M14.5 15l1 1 2-2"/></svg>
         </div>
         <div class="conf-title">Audit trail natif</div>
-        <div class="conf-desc">Chaque transaction, chaque flux est horodaté et journalisé automatiquement. Conformité DORA et CRBF sans couche supplémentaire.</div>
+        <div class="conf-desc">Chaque transaction, chaque flux est horodaté et journalisé automatiquement. Conformité réglementaire du secteur financier sans couche supplémentaire.</div>
       </div>
       <div class="conf-card" style="border-top-color:#8B5CF6;">
         <div class="conf-ico" style="background:#F5F3FF;">
           <svg viewBox="0 0 20 20" fill="none" stroke="#8B5CF6" stroke-width="1.5"><rect x="4" y="2" width="12" height="16" rx="1.5"/><path d="M7 7h6M7 10h6M7 13h4"/><path d="M14 14l1.5 1.5L18 13"/></svg>
         </div>
         <div class="conf-title">Zéro donnée client stockée</div>
-        <div class="conf-desc">Les données sensibles (IBAN, KYC, transactions) transitent sans jamais être copiées. RGPD et secret bancaire respectés structurellement.</div>
+        <div class="conf-desc">Les données sensibles (IBAN, KYC, transactions) transitent sans jamais être copiées. Protection des données et secret bancaire respectés structurellement.</div>
       </div>
       <div class="conf-card" style="border-top-color:#10B981;">
         <div class="conf-ico" style="background:#F0FDF4;">
           <svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><path d="M10 2L3 5.5v5c0 4.1 3 7.5 7 8.5 4-1 7-4.4 7-8.5v-5L10 2z"/><path d="M7 10l2 2 4-4"/></svg>
         </div>
         <div class="conf-title">Résilience opérationnelle</div>
-        <div class="conf-desc">Architecture distribuée et stateless : aucun point de défaillance unique. Continuité de service et reporting incidents conformes DORA.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ DORA & RÉGLEMENTATIONS ══ -->
-<section id="dora" class="reveal">
-  <div class="wrap">
-    <div class="dora-inner">
-      <div class="dora-text">
-        <div class="dora-label">
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="10" height="8" rx="1"/><path d="M1 5h10M4 2v3M8 2v3"/></svg>
-          Réglementation
-        </div>
-        <h2>DORA, RGPD, DSP2.<br><span class="o">Prêt à l'emploi.</span></h2>
-        <p>Les établissements financiers font face à une pression réglementaire croissante. iD4Connect y répond structurellement — la conformité est dans l'architecture, pas dans la configuration.</p>
-        <div class="dora-checks">
-          <div class="dora-check">
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-6"/></svg>
-            <span>Journalisation des incidents en temps réel (DORA Art. 17)</span>
-          </div>
-          <div class="dora-check">
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-6"/></svg>
-            <span>Traçabilité complète des flux de données sensibles</span>
-          </div>
-          <div class="dora-check">
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-6"/></svg>
-            <span>Zéro transfert vers tiers non autorisés (DSP2 / PSD2)</span>
-          </div>
-          <div class="dora-check">
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-6"/></svg>
-            <span>Déploiement on-premise ou cloud souverain européen</span>
-          </div>
-        </div>
-      </div>
-      <div class="dora-regs">
-        <div class="reg-card">
-          <div class="reg-card-head">
-            <span class="reg-badge orange">DORA</span>
-            <div class="reg-status">
-              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg>
-              Couvert nativement
-            </div>
-          </div>
-          <div class="reg-title">Résilience opérationnelle numérique</div>
-          <div class="reg-desc">Supervision continue, audit trail, gestion des incidents — sans infrastructure dédiée supplémentaire.</div>
-        </div>
-        <div class="reg-card">
-          <div class="reg-card-head">
-            <span class="reg-badge blue">RGPD</span>
-            <div class="reg-status">
-              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg>
-              Couvert nativement
-            </div>
-          </div>
-          <div class="reg-title">Protection des données client</div>
-          <div class="reg-desc">Anonymisation en flux, zéro copie intermédiaire. Les données personnelles ne sont jamais exposées au repos.</div>
-        </div>
-        <div class="reg-card">
-          <div class="reg-card-head">
-            <span class="reg-badge purple">DSP2</span>
-            <div class="reg-status">
-              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg>
-              Couvert nativement
-            </div>
-          </div>
-          <div class="reg-title">Open Banking & APIs sécurisées</div>
-          <div class="reg-desc">Enrichissement des flux Open Banking en transit, contrôle des accès tiers, traçabilité des consentements.</div>
-        </div>
+        <div class="conf-desc">Architecture distribuée et stateless, aucun point de défaillance unique. Continuité de service et reporting incidents conformes aux exigences du secteur.</div>
       </div>
     </div>
   </div>
@@ -359,8 +296,8 @@ function renderUC() {
           </div>`).join('')}
         </div>
         <div class="uc-arrow">
-          <div class="uc-arrow-line" style="background:${uc.outColor};"></div>
-          <div class="uc-arrow-tip" style="border-top:7px solid ${uc.outColor};border-left:5px solid transparent;border-right:5px solid transparent;"></div>
+          <div style="background:${uc.outColor};height:12px;width:2px;opacity:.75;"></div>
+          <div style="width:0;height:0;border-top:7px solid ${uc.outColor};border-left:5px solid transparent;border-right:5px solid transparent;opacity:.75;"></div>
         </div>
         <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;">
           <svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg>
