@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Blog — iD4Connect</title>
+<title>Blog · iD4Connect</title>
 <meta name="description" content="Insights, analyses et retours d'expérience sur la data intelligence, la souveraineté numérique et l'Insight-as-a-Service.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -35,33 +35,23 @@ html{scroll-behavior:smooth;}
 body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
 a{text-decoration:none;color:inherit;}
 .wrap{max-width:1060px;margin:0 auto;padding:0 32px;}
-
-/* ══ PILL ══ */
 .pill{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--orange);}
 .pill-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);}
-
-/* ══ HERO ══ */
 .blog-hero{padding:72px 32px 60px;text-align:center;background:var(--bg);position:relative;overflow:hidden;}
 .blog-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.25;pointer-events:none;}
 .hero-content{position:relative;z-index:1;max-width:640px;margin:0 auto;}
 .blog-hero h1{font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin:18px 0 14px;}
 .blog-hero h1 em{font-style:normal;color:var(--orange);}
 .blog-hero p{font-size:15px;color:var(--t5);line-height:1.75;margin-bottom:36px;}
-
-/* ── Search ── */
 .search-bar{position:relative;max-width:560px;margin:0 auto 28px;}
 .search-bar svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--t4);pointer-events:none;}
 #search-input{width:100%;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-pill);padding:14px 22px 14px 48px;font-size:14px;font-family:var(--font);color:var(--t9);outline:none;box-shadow:var(--sh-sm);transition:border-color .2s,box-shadow .2s;}
 #search-input::placeholder{color:var(--t4);}
 #search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.1);}
-
-/* ── Filtres ── */
 .filter-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
 .ftag{padding:8px 18px;border-radius:var(--r-pill);font-size:13px;font-weight:600;font-family:var(--font);color:var(--t5);background:var(--card);border:1.5px solid var(--border);cursor:pointer;transition:all var(--tr);}
 .ftag:hover{color:var(--t9);border-color:var(--border-s);}
 .ftag.active{background:var(--orange);color:#fff;border-color:var(--orange);}
-
-/* ══ FEATURED ══ */
 .featured-section{padding:52px 0 0;}
 .section-eyebrow{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
 .eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.2);}
@@ -84,8 +74,6 @@ a{text-decoration:none;color:inherit;}
 .read-link{display:inline-flex;align-items:center;gap:6px;color:var(--orange);font-size:13.5px;font-weight:700;margin-top:22px;transition:gap .15s;}
 .read-link:hover{gap:10px;}
 .read-link svg{width:14px;height:14px;}
-
-/* ══ GRILLE ══ */
 .grid-section{padding:52px 0 88px;}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
 .blog-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:box-shadow .2s,transform .15s;}
@@ -117,14 +105,10 @@ a{text-decoration:none;color:inherit;}
 .bc-secteur{background:var(--green-pale);color:#16A34A;border:1px solid rgba(22,163,74,.2);}
 .bc-partner{background:var(--cyan-pale);color:#0891B2;border:1px solid rgba(8,145,178,.2);}
 .bc-actu{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);}
-
-/* ══ EMPTY ══ */
 .no-results{text-align:center;padding:72px 20px;display:none;}
 .no-results svg{width:44px;height:44px;color:var(--t4);margin:0 auto 14px;display:block;}
 .no-results h3{font-size:16px;font-weight:800;color:var(--t9);margin-bottom:6px;}
 .no-results p{font-size:13px;color:var(--t5);}
-
-/* ══ NEWSLETTER ══ */
 .nl-band{background:var(--card);border-top:1px solid var(--border);padding:52px 0;}
 .nl-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
 .nl-text h3{font-size:19px;font-weight:800;color:var(--t9);margin-bottom:5px;}
@@ -135,8 +119,6 @@ a{text-decoration:none;color:inherit;}
 .nl-input:focus{border-color:var(--orange);}
 .btn-o{display:inline-flex;align-items:center;padding:11px 22px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;font-family:var(--font);border-radius:var(--r-sm);border:none;cursor:pointer;transition:background var(--tr);}
 .btn-o:hover{background:var(--orange-d);}
-
-/* ══ RESPONSIVE ══ */
 @media(max-width:900px){
   .blog-grid{grid-template-columns:repeat(2,1fr);}
   .featured-card{grid-template-columns:1fr;}
@@ -156,7 +138,6 @@ a{text-decoration:none;color:inherit;}
 <body>
 <div id="hdr-ph"></div>
 
-<!-- ══ HERO ══ -->
 <section class="blog-hero">
   <div class="hero-content">
     <div class="pill"><span class="pill-dot"></span>Blog</div>
@@ -177,7 +158,6 @@ a{text-decoration:none;color:inherit;}
   </div>
 </section>
 
-<!-- ══ FEATURED ══ -->
 <section class="featured-section" id="featured-section">
   <div class="wrap">
     <div class="section-eyebrow"><span class="eyebrow-dot"></span>Article à la une</div>
@@ -195,7 +175,6 @@ a{text-decoration:none;color:inherit;}
   </div>
 </section>
 
-<!-- ══ GRILLE ══ -->
 <section class="grid-section">
   <div class="wrap">
     <div class="blog-grid" id="blog-grid"></div>
@@ -207,13 +186,12 @@ a{text-decoration:none;color:inherit;}
   </div>
 </section>
 
-<!-- ══ NEWSLETTER ══ -->
 <section class="nl-band">
   <div class="wrap">
     <div class="nl-inner">
       <div class="nl-text">
         <h3>Restez informé</h3>
-        <p>Les nouveaux articles directement dans votre boîte mail. Pas de spam — juste du signal.</p>
+        <p>Les nouveaux articles directement dans votre boîte mail. Pas de spam, juste du signal.</p>
       </div>
       <div class="nl-form">
         <input class="nl-input" type="email" placeholder="votre@email.com">
@@ -227,178 +205,31 @@ a{text-decoration:none;color:inherit;}
 
 <script>
 const ARTICLES = [
-  {
-    id:1, cat:'secteur', featured:true,
-    title:"Industrie 5.0 : Le rôle crucial de l'IoT intelligent",
-    excerpt:"L'industrie du futur nécessite un traitement des données en temps réel au plus près des capteurs. Retour d'expérience sur des déploiements concrets, entre efficacité opérationnelle et souveraineté des flux de données.",
-    catLabel:'Industrie', catBadgeClass:'bc-secteur', badgeClass:'badge-secteur', avClass:'av-secteur',
-    author:'Équipe iD4Connect', authorInit:'i', authorRole:'Rédaction',
-    date:'26 janvier 2026', read:'6 min',
-    img:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80',
-  },
-  {
-    id:2, cat:'securite', featured:false,
-    title:"Souveraineté des données : la promesse européenne",
-    excerpt:"Dans un contexte de tensions géopolitiques, la souveraineté des données devient un enjeu stratégique majeur pour les entreprises européennes.",
-    catLabel:'Conformité', catBadgeClass:'bc-secu', badgeClass:'badge-secu', avClass:'av-secu',
-    author:'Carlos Parrondo', authorInit:'C', authorRole:'Associé',
-    date:'26 janvier 2026', read:'7 min',
-    img:'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&q=80',
-  },
-  {
-    id:3, cat:'technique', featured:false,
-    title:"Edge Computing : traiter là où les données naissent",
-    excerpt:"Pourquoi rapprocher le traitement de la source révolutionne les architectures data. Avantages techniques et mise en œuvre avec DataCell.",
-    catLabel:'Technologie', catBadgeClass:'bc-tech', badgeClass:'badge-tech', avClass:'av-tech',
-    author:'Équipe iD4Connect', authorInit:'i', authorRole:'Rédaction',
-    date:'26 janvier 2026', read:'6 min',
-    img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80',
-  },
-  {
-    id:4, cat:'secteur', featured:false,
-    title:"Cas client : une banque européenne réduit son TCO data de 60%",
-    excerpt:"Étude de cas complète : comment un acteur bancaire majeur a transformé son infrastructure data avec iD4Connect, sans migration ni rupture opérationnelle.",
-    catLabel:'Industrie', catBadgeClass:'bc-secteur', badgeClass:'badge-secteur', avClass:'av-secteur',
-    author:'Équipe iD4Connect', authorInit:'i', authorRole:'Rédaction',
-    date:'3 février 2026', read:'10 min',
-    img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80',
-  },
-  {
-    id:5, cat:'securite', featured:false,
-    title:"Zéro stockage, conformité maximale : l'architecture qui change tout",
-    excerpt:"En ne stockant aucune donnée, iD4Connect évite structurellement les obligations de déclaration de violation — une garantie architecturale, pas contractuelle.",
-    catLabel:'Conformité', catBadgeClass:'bc-secu', badgeClass:'badge-secu', avClass:'av-secu',
-    author:'Équipe iD4Connect', authorInit:'i', authorRole:'Rédaction',
-    date:'2 décembre 2025', read:'6 min',
-    img:'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=80',
-  },
-  {
-    id:6, cat:'technique', featured:false,
-    title:"DataGraph : le chef d'orchestre qui ne centralise pas",
-    excerpt:"Le DataGraph coordonne l'ensemble des DataCells sans qu'aucune cellule ne communique directement avec une autre. Traçabilité totale sans point de centralisation.",
-    catLabel:'Technologie', catBadgeClass:'bc-tech', badgeClass:'badge-tech', avClass:'av-tech',
-    author:'Équipe iD4Connect', authorInit:'i', authorRole:'Rédaction',
-    date:'3 janvier 2026', read:'8 min',
-    img:'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80',
-  },
-  {
-    id:7, cat:'partenaires', featured:false,
-    title:"iD4Connect + NRB : une alliance stratégique pour le Benelux",
-    excerpt:"Le partenariat avec NRB ouvre une nouvelle dimension en Belgique et au Luxembourg. Tour d'horizon des opportunités et des premiers déploiements.",
-    catLabel:'Partenaires', catBadgeClass:'bc-partner', badgeClass:'badge-partner', avClass:'av-partner',
-    author:'Équipe iD4Connect', authorInit:'i', authorRole:'Rédaction',
-    date:'15 décembre 2025', read:'5 min',
-    img:'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80',
-  },
-  {
-    id:8, cat:'actu', featured:false,
-    title:"iD4Connect franchit le cap de la version 2.60",
-    excerpt:"Refonte complète de l'interface, nouveau wizard DataCell, centre de conformité intégré et support multilingue FR/EN/ES. Tour d'horizon des nouveautés de cette version majeure.",
-    catLabel:'Actualités', catBadgeClass:'bc-actu', badgeClass:'badge-actu', avClass:'av-actu',
-    author:'Équipe iD4Connect', authorInit:'i', authorRole:'Rédaction',
-    date:'10 janvier 2026', read:'4 min',
-    img:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80',
-  },
+  {id:1,cat:'secteur',featured:true,title:"Industrie 5.0 : Le rôle crucial de l'IoT intelligent",excerpt:"L'industrie du futur nécessite un traitement des données en temps réel au plus près des capteurs. Retour d'expérience sur des déploiements concrets, entre efficacité opérationnelle et souveraineté des flux de données.",catLabel:'Industrie',catBadgeClass:'bc-secteur',badgeClass:'badge-secteur',avClass:'av-secteur',author:'Équipe iD4Connect',authorInit:'i',authorRole:'Rédaction',date:'26 janvier 2026',read:'6 min',img:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80'},
+  {id:2,cat:'securite',featured:false,title:"Souveraineté des données : la promesse européenne",excerpt:"Dans un contexte de tensions géopolitiques, la souveraineté des données devient un enjeu stratégique majeur pour les entreprises européennes.",catLabel:'Conformité',catBadgeClass:'bc-secu',badgeClass:'badge-secu',avClass:'av-secu',author:'Carlos Parrondo',authorInit:'C',authorRole:'Associé',date:'26 janvier 2026',read:'7 min',img:'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&q=80'},
+  {id:3,cat:'technique',featured:false,title:"Edge Computing : traiter là où les données naissent",excerpt:"Pourquoi rapprocher le traitement de la source révolutionne les architectures data. Avantages techniques et mise en œuvre avec DataCell.",catLabel:'Technologie',catBadgeClass:'bc-tech',badgeClass:'badge-tech',avClass:'av-tech',author:'Équipe iD4Connect',authorInit:'i',authorRole:'Rédaction',date:'26 janvier 2026',read:'6 min',img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80'},
+  {id:4,cat:'secteur',featured:false,title:"Cas client : une banque européenne réduit son TCO data de 60%",excerpt:"Étude de cas complète : comment un acteur bancaire majeur a transformé son infrastructure data avec iD4Connect, sans migration ni rupture opérationnelle.",catLabel:'Industrie',catBadgeClass:'bc-secteur',badgeClass:'badge-secteur',avClass:'av-secteur',author:'Équipe iD4Connect',authorInit:'i',authorRole:'Rédaction',date:'3 février 2026',read:'10 min',img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80'},
+  {id:5,cat:'securite',featured:false,title:"Zéro stockage, conformité maximale : l'architecture qui change tout",excerpt:"En ne stockant aucune donnée, iD4Connect évite structurellement les obligations de déclaration de violation, une garantie architecturale, pas contractuelle.",catLabel:'Conformité',catBadgeClass:'bc-secu',badgeClass:'badge-secu',avClass:'av-secu',author:'Équipe iD4Connect',authorInit:'i',authorRole:'Rédaction',date:'2 décembre 2025',read:'6 min',img:'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=80'},
+  {id:6,cat:'technique',featured:false,title:"DataGraph : le chef d'orchestre qui ne centralise pas",excerpt:"Le DataGraph coordonne l'ensemble des DataCells sans qu'aucune cellule ne communique directement avec une autre. Traçabilité totale sans point de centralisation.",catLabel:'Technologie',catBadgeClass:'bc-tech',badgeClass:'badge-tech',avClass:'av-tech',author:'Équipe iD4Connect',authorInit:'i',authorRole:'Rédaction',date:'3 janvier 2026',read:'8 min',img:'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80'},
+  {id:7,cat:'partenaires',featured:false,title:"iD4Connect + NRB : une alliance stratégique pour le Benelux",excerpt:"Le partenariat avec NRB ouvre une nouvelle dimension en Belgique et au Luxembourg. Tour d'horizon des opportunités et des premiers déploiements.",catLabel:'Partenaires',catBadgeClass:'bc-partner',badgeClass:'badge-partner',avClass:'av-partner',author:'Équipe iD4Connect',authorInit:'i',authorRole:'Rédaction',date:'15 décembre 2025',read:'5 min',img:'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80'},
+  {id:8,cat:'actu',featured:false,title:"iD4Connect franchit le cap de la version 2.60",excerpt:"Refonte complète de l'interface, nouveau wizard DataCell, centre de conformité intégré et support multilingue FR/EN/ES. Tour d'horizon des nouveautés de cette version majeure.",catLabel:'Actualités',catBadgeClass:'bc-actu',badgeClass:'badge-actu',avClass:'av-actu',author:'Équipe iD4Connect',authorInit:'i',authorRole:'Rédaction',date:'10 janvier 2026',read:'4 min',img:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80'},
 ];
 
-let currentCat = 'all';
-let currentSearch = '';
-
-function getFiltered() {
-  return ARTICLES.filter(a => {
-    const matchCat = currentCat === 'all' || a.cat === currentCat;
-    const q = currentSearch.toLowerCase();
-    const matchSearch = !q || a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q) || a.catLabel.toLowerCase().includes(q);
-    return matchCat && matchSearch;
-  });
-}
-
-function metaIcons(date, read) {
-  return `<span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M5 1v4M11 1v4M2 7h12"/></svg>${date}</span>
-  <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg>${read}</span>`;
-}
-
-function renderFeatured() {
-  const sec = document.getElementById('featured-section');
-  const showFeat = currentCat === 'all' && !currentSearch;
-  const feat = ARTICLES.find(a => a.featured);
-  if (!showFeat || !feat) { sec.style.display = 'none'; return; }
-  sec.style.display = 'block';
-  document.getElementById('feat-img').innerHTML = `<img src="${feat.img}" alt="${feat.title}" loading="lazy">`;
-  document.getElementById('feat-badge').textContent = feat.catLabel;
-  document.getElementById('feat-badge').className = `feat-cat-badge ${feat.catBadgeClass}`;
-  document.getElementById('feat-meta').innerHTML = metaIcons(feat.date, feat.read);
-  document.getElementById('feat-title').textContent = feat.title;
-  document.getElementById('feat-excerpt').textContent = feat.excerpt;
-  document.getElementById('feat-author').innerHTML = `
-    <div class="feat-avatar ${feat.avClass}">${feat.authorInit.toUpperCase()}</div>
-    <div><div class="feat-author-name">${feat.author}</div><div class="feat-author-role">${feat.authorRole}</div></div>`;
-}
-
-function renderGrid() {
-  const grid = document.getElementById('blog-grid');
-  const noRes = document.getElementById('no-results');
-  const filtered = getFiltered();
-  const items = (currentCat === 'all' && !currentSearch) ? filtered.filter(a => !a.featured) : filtered;
-  if (!items.length) { grid.innerHTML = ''; noRes.style.display = 'block'; return; }
-  noRes.style.display = 'none';
-  grid.innerHTML = items.map(a => `
-    <article class="blog-card">
-      <div class="card-img">
-        <img src="${a.img}" alt="${a.title}" loading="lazy">
-        <span class="card-badge ${a.badgeClass}">${a.catLabel}</span>
-      </div>
-      <div class="card-body">
-        <div class="card-meta-row">${metaIcons(a.date, a.read)}</div>
-        <h3 class="card-title"><a href="article.html">${a.title}</a></h3>
-        <p class="card-excerpt">${a.excerpt}</p>
-        <div class="card-author">
-          <div class="card-avatar ${a.avClass}">${a.authorInit.toUpperCase()}</div>
-          <span class="card-author-name">${a.author}</span>
-        </div>
-      </div>
-    </article>`).join('');
-}
-
-function render() { renderFeatured(); renderGrid(); }
-
-document.getElementById('filter-row').addEventListener('click', e => {
-  const btn = e.target.closest('.ftag');
-  if (!btn) return;
-  document.querySelectorAll('.ftag').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  currentCat = btn.dataset.cat;
-  render();
-});
-
-document.getElementById('search-input').addEventListener('input', e => {
-  currentSearch = e.target.value.trim();
-  render();
-});
-
+let currentCat='all';let currentSearch='';
+function getFiltered(){return ARTICLES.filter(a=>{const matchCat=currentCat==='all'||a.cat===currentCat;const q=currentSearch.toLowerCase();const matchSearch=!q||a.title.toLowerCase().includes(q)||a.excerpt.toLowerCase().includes(q)||a.catLabel.toLowerCase().includes(q);return matchCat&&matchSearch;});}
+function metaIcons(date,read){return `<span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M5 1v4M11 1v4M2 7h12"/></svg>${date}</span><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg>${read}</span>`;}
+function renderFeatured(){const sec=document.getElementById('featured-section');const showFeat=currentCat==='all'&&!currentSearch;const feat=ARTICLES.find(a=>a.featured);if(!showFeat||!feat){sec.style.display='none';return;}sec.style.display='block';document.getElementById('feat-img').innerHTML=`<img src="${feat.img}" alt="${feat.title}" loading="lazy">`;document.getElementById('feat-badge').textContent=feat.catLabel;document.getElementById('feat-badge').className=`feat-cat-badge ${feat.catBadgeClass}`;document.getElementById('feat-meta').innerHTML=metaIcons(feat.date,feat.read);document.getElementById('feat-title').textContent=feat.title;document.getElementById('feat-excerpt').textContent=feat.excerpt;document.getElementById('feat-author').innerHTML=`<div class="feat-avatar ${feat.avClass}">${feat.authorInit.toUpperCase()}</div><div><div class="feat-author-name">${feat.author}</div><div class="feat-author-role">${feat.authorRole}</div></div>`;}
+function renderGrid(){const grid=document.getElementById('blog-grid');const noRes=document.getElementById('no-results');const filtered=getFiltered();const items=(currentCat==='all'&&!currentSearch)?filtered.filter(a=>!a.featured):filtered;if(!items.length){grid.innerHTML='';noRes.style.display='block';return;}noRes.style.display='none';grid.innerHTML=items.map(a=>`<article class="blog-card"><div class="card-img"><img src="${a.img}" alt="${a.title}" loading="lazy"><span class="card-badge ${a.badgeClass}">${a.catLabel}</span></div><div class="card-body"><div class="card-meta-row">${metaIcons(a.date,a.read)}</div><h3 class="card-title"><a href="article.html">${a.title}</a></h3><p class="card-excerpt">${a.excerpt}</p><div class="card-author"><div class="card-avatar ${a.avClass}">${a.authorInit.toUpperCase()}</div><span class="card-author-name">${a.author}</span></div></div></article>`).join('');}
+function render(){renderFeatured();renderGrid();}
+document.getElementById('filter-row').addEventListener('click',e=>{const btn=e.target.closest('.ftag');if(!btn)return;document.querySelectorAll('.ftag').forEach(t=>t.classList.remove('active'));btn.classList.add('active');currentCat=btn.dataset.cat;render();});
+document.getElementById('search-input').addEventListener('input',e=>{currentSearch=e.target.value.trim();render();});
 render();
 
-async function loadComp(id, file) {
-  try {
-    const r = await fetch(file);
-    const html = await r.text();
-    const el = document.getElementById(id);
-    el.innerHTML = html;
-    el.querySelectorAll('script').forEach(s => {
-      const ns = document.createElement('script');
-      ns.textContent = s.textContent;
-      document.head.appendChild(ns);
-    });
-    if (typeof initHeader === 'function') initHeader();
-  } catch(e) {}
-}
-window.addEventListener('load', async () => {
-  await loadComp('hdr-ph', 'header.html');
-  await loadComp('ftr-ph', 'footer.html');
-  document.addEventListener('themeChange', e => {
-    document.documentElement.setAttribute('data-theme', e.detail);
-    document.body.setAttribute('data-theme', e.detail);
-  });
+async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});if(typeof initHeader==='function')initHeader();}catch(e){}}
+window.addEventListener('load',async()=>{
+  await loadComp('hdr-ph','header.html');
+  await loadComp('ftr-ph','footer.html');
+  document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
 });
 </script>
 </body>
