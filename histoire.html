@@ -185,8 +185,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
-.fade-up.visible{opacity:1;transform:translateY(0);}
+.fade-up{animation:fadeUp .5s ease both;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:860px){
@@ -520,7 +519,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 const I18N={fr:{'nav.tech':'Technologie','nav.sectors':'Secteurs'},en:{'nav.tech':'Technology','nav.sectors':'Sectors'},es:{'nav.tech':'Tecnología','nav.sectors':'Sectores'}};
 let lang=localStorage.getItem('id4-lang')||'fr';
 let theme=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-function applyTheme(t){document.documentElement.setAttribute('data-theme',t);document.body.setAttribute('data-theme',t);theme=t;}
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);theme=t;}
 function toggleTheme(){const n=theme==='dark'?'light':'dark';localStorage.setItem('id4-theme',n);applyTheme(n);}
 function setLang(l){lang=l;localStorage.setItem('id4-lang',l);document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(I18N[l]?.[k])el.textContent=I18N[l][k];});const cl=document.getElementById('lang-cur');if(cl)cl.textContent=l.toUpperCase();document.querySelectorAll('.lang-opt').forEach(o=>{const m=o.getAttribute('onclick')?.match(/setLang\('(\w+)'\)/)?.[1];o.classList.toggle('active',m===l);});closeLang();}
 function toggleLangDrop(){document.getElementById('lang-wrap').classList.toggle('open');}
@@ -574,9 +573,8 @@ buildDots();
 // init visual bg
 document.getElementById('slide-visual').style.background=SLIDES[0].bg;
 
-// ── SCROLL FADE ──
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.12});
-document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+
 </script>
 </body>
 </html>
