@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Énergie — iD4Connect</title>
+<title>Énergie · iD4Connect</title>
 <meta name="description" content="iD4Connect agrège vos flux compteurs, capteurs et équipements de production sans les centraliser. Détection d'anomalies, prédiction de charge, pilotage RSE.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,30 +14,60 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
-.wrap{max-width:1060px;margin:0 auto;padding:0 32px;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
 .pill{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
 .pill svg{width:12px;height:12px;}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
-.s-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;}
-.s-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
-.hero-inner{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;}
-.hero-inner h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--t9);margin-bottom:16px;}
-.hero-inner h1 .o{color:var(--orange);}
-.hero-inner p{font-size:15.5px;color:var(--t5);line-height:1.75;max-width:540px;margin:0 auto 36px;}
-.hero-stats{display:inline-flex;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);}
-.hstat{padding:18px 32px;text-align:center;border-right:1px solid var(--border);}
-.hstat:last-child{border-right:none;}
-.hstat-val{font-size:26px;font-weight:900;color:var(--orange);line-height:1;}
-.hstat-lbl{font-size:12px;font-weight:700;color:var(--t9);margin-top:3px;}
-.hstat-sub{font-size:10px;color:var(--t4);margin-top:1px;}
-.s-uc{padding:80px 0;background:var(--bg);}
-.s-bloc{padding:80px 0;background:var(--card);}
-.s-cta{padding:80px 0;background:var(--card);}
+
+/* ══ HERO - ICÔNE GAUCHE + TEXTE DROITE ══ */
+#energy-hero{padding:64px 0 72px;background:var(--card);position:relative;overflow:hidden;}
+#energy-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
+
+.hero-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center;}
+
+.hero-visual{
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  min-height:320px;
+}
+.hero-visual::before{
+  content:'';position:absolute;
+  width:240px;height:240px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.hero-icon{
+  width:160px;height:160px;
+  color:var(--orange);
+  position:relative;z-index:1;
+  animation:iconFloat 3s ease-in-out infinite alternate;
+}
+@keyframes iconFloat{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
+
+.hero-right .pill{margin-bottom:14px;}
+.hero-right h1{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin-bottom:16px;}
+.hero-right h1 .o{color:var(--orange);}
+.hero-right>p{font-size:15px;color:var(--t5);line-height:1.75;max-width:480px;margin-bottom:28px;}
+
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-p{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
+.btn-p:hover{background:var(--orange-d);transform:translateY(-1px);}
+.btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
+.btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
+
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:200px;}}
+@media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}}
+
+/* ══ CAS D'USAGE ══ */
+.s-uc{padding:96px 0;background:var(--bg);}
 .section-head{text-align:center;margin-bottom:44px;}
 .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
 .section-head h2 .o{color:var(--orange);}
 .section-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
+
 .uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;}
 .uc-card:hover{border-color:var(--orange-border);box-shadow:var(--sh);transform:translateY(-2px);}
@@ -54,17 +84,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .uc-title{font-size:13.5px;font-weight:800;color:var(--t9);margin-bottom:11px;}
 .uc-slbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:6px;}
 .uc-sources{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:11px;}
-.uc-src{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-xs);padding:3px 9px;font-size:10.5px;font-weight:600;color:var(--t7);}
-[data-theme="dark"] .uc-src{background:var(--section);}
+.uc-src{background:var(--section);border:1.5px solid var(--border);border-radius:var(--r-xs);padding:3px 9px;font-size:10.5px;font-weight:600;color:var(--t7);}
 .uc-ops{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;}
 .uc-op{display:flex;flex-direction:column;gap:1px;background:var(--section);border-radius:0 var(--r-xs) var(--r-xs) 0;padding:5px 10px;border-left:3px solid;}
-[data-theme="dark"] .uc-op{background:var(--bg);}
 .uc-op-name{font-size:10px;font-weight:700;color:var(--t9);}
 .uc-op-desc{font-size:9px;color:var(--t4);}
 .uc-arrow{display:flex;flex-direction:column;align-items:center;margin:6px 0;}
-.uc-arrow-line{width:2px;height:12px;opacity:.75;}
 .uc-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
 .uc-output-lbl{font-size:11.5px;font-weight:700;color:var(--t9);}
+
+@media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.uc-grid{grid-template-columns:1fr;}}
+
+/* ══ ARCHITECTURE ══ */
+.s-bloc{padding:96px 0;background:var(--card);}
 .conf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .conf-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:24px;border-top-width:3px;transition:box-shadow .2s,transform .2s;}
 .conf-card:hover{box-shadow:var(--sh);transform:translateY(-2px);}
@@ -72,6 +105,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conf-ico svg{width:20px;height:20px;}
 .conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
 .conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
+
+@media(max-width:900px){.conf-grid{grid-template-columns:1fr;}}
+
+/* ══ CTA ══ */
+.s-cta{padding:96px 0;background:var(--card);}
 .cta-box{background:var(--bg);border:2px solid var(--orange-border);border-radius:var(--r-xl);padding:48px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(249,115,22,.08);}
 .cta-box h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:10px;}
 .cta-box p{font-size:13.5px;color:var(--t5);line-height:1.65;max-width:440px;}
@@ -80,29 +118,43 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-primary:hover{background:var(--orange-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.3);}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:transparent;color:var(--t7);font-size:13.5px;font-weight:600;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;border:1.5px solid var(--border);cursor:pointer;transition:all var(--tr);}
 .btn-secondary:hover{border-color:var(--border-s);color:var(--t9);}
-@media(max-width:900px){.uc-grid,.conf-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:600px){.uc-grid,.conf-grid{grid-template-columns:1fr;}.wrap{padding:0 20px;}.hero-stats{flex-direction:column;}.hstat{border-right:none;border-bottom:1px solid var(--border);}.hstat:last-child{border-bottom:none;}}
-
 </style>
 </head>
 <body>
 <div id="hdr-ph"></div>
 
-<section class="s-hero">
+<!-- ══ HERO ══ -->
+<section id="energy-hero">
   <div class="wrap">
-    <div class="hero-inner">
-      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><path d="M9 2L4 9h5l-2 5 7-8H9l2-4z"/></svg>Énergie</div>
-      <h1>Votre réseau produit des données en continu.<br><span class="o">Pilotez-le en temps réel.</span></h1>
-      <p>iD4Connect agrège vos flux compteurs, capteurs et équipements de production sans les centraliser. Détection d'anomalies, prédiction de charge, pilotage RSE — directement sur votre infrastructure.</p>
-      <div class="hero-stats"><div class="hstat"><div class="hstat-val">&lt; 1s</div><div class="hstat-lbl">détection anomalie</div><div class="hstat-sub">sur flux réseau</div></div><div class="hstat"><div class="hstat-val">0</div><div class="hstat-lbl">transfert externe</div><div class="hstat-sub">traitement sur site</div></div><div class="hstat"><div class="hstat-val">−30%</div><div class="hstat-lbl">coûts opérationnels</div><div class="hstat-sub">vs architecture classique</div></div></div>
+    <div class="hero-grid">
+
+      <!-- GAUCHE : icône minimaliste -->
+      <div class="hero-visual">
+        <svg class="hero-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M58 8L30 50h20L38 92l32-48H52L58 8z"/>
+        </svg>
+      </div>
+
+      <!-- DROITE : texte -->
+      <div class="hero-right">
+        <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2L4 9h5l-2 5 7-8H9l2-4z"/></svg>Énergie</div>
+        <h1>Votre réseau produit des données en continu.<br><span class="o">Pilotez-le en temps réel.</span></h1>
+        <p>iD4Connect agrège vos flux compteurs, capteurs et équipements de production sans les centraliser. Détection d'anomalies, prédiction de charge, pilotage RSE, directement sur votre infrastructure.</p>
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn-p">Demander une démo →</a>
+          <a href="positionnement.html" class="btn-g">Voir le positionnement</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
+<!-- ══ CAS D'USAGE ══ -->
 <section class="s-uc reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>Cas d'usage</div>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>Cas d'usage</div>
       <h2>Ce qu'iD4Connect fait concrètement<br><span class="o">sur votre infrastructure énergétique.</span></h2>
     </div>
     <div class="uc-grid" id="uc-grid"></div>
@@ -110,10 +162,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
+<!-- ══ ARCHITECTURE ══ -->
 <section class="s-bloc reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>Architecture</div>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>Architecture</div>
       <h2>Conçu pour les infrastructures critiques.<br><span class="o">Robuste et non intrusif.</span></h2>
     </div>
     <div class="conf-grid">
@@ -125,7 +178,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <div class="conf-card" style="border-top-color:#10B981;">
         <div class="conf-ico" style="background:rgba(16,185,129,.1);"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><path d="M2 7h16M2 12h10M2 17h6"/><circle cx="15" cy="14" r="4"/><path d="M15 12v2l1 1"/></svg></div>
         <div class="conf-title">Interopérabilité industrielle native</div>
-        <div class="conf-desc">Modbus, OPC-UA, MQTT, IEC 61850 — iD4Connect parle les protocoles du secteur énergie sans passerelle supplémentaire ni middleware dédié.</div>
+        <div class="conf-desc">Modbus, OPC-UA, MQTT et les protocoles du secteur énergie sont supportés nativement, sans passerelle supplémentaire ni middleware dédié.</div>
       </div>
       <div class="conf-card" style="border-top-color:#2563EB;">
         <div class="conf-ico" style="background:rgba(37,99,235,.1);"><svg viewBox="0 0 20 20" fill="none" stroke="#2563EB" stroke-width="1.5"><path d="M4 4h12M4 8h12M4 12h8"/><path d="M13 14l1.5 1.5L17 13"/></svg></div>
@@ -136,12 +189,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
+<!-- ══ CTA ══ -->
 <section class="s-cta reveal">
   <div class="wrap">
     <div class="cta-box">
       <div>
         <h2>Votre réseau est critique.<br>Votre data doit l'être aussi.</h2>
-        <p>Déployez iD4Connect sur votre infrastructure OT existante. Pas de remplacement SCADA, pas de migration — juste de l'intelligence en plus.</p>
+        <p>Déployez iD4Connect sur votre infrastructure OT existante. Pas de remplacement SCADA, pas de migration, juste de l'intelligence en plus.</p>
       </div>
       <div class="cta-btns">
         <a href="contact.html" class="btn-primary">Demander une démo →</a>
@@ -153,7 +207,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 <div id="ftr-ph"></div>
 <script>
-
 const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
 document.documentElement.setAttribute('data-theme',t0);
 document.body.setAttribute('data-theme',t0);
@@ -173,7 +226,7 @@ function initPage(DATA){
           <div class="uc-sources">${uc.sources.map(s=>`<span class="uc-src">${s}</span>`).join('')}</div>
           <div class="uc-slbl">Traitement</div>
           <div class="uc-ops">${uc.ops.map(op=>`<div class="uc-op" style="border-left-color:${op.c};background:${op.c}10;"><div class="uc-op-name">${op.n}</div><div class="uc-op-desc">${op.d}</div></div>`).join('')}</div>
-          <div class="uc-arrow"><div class="uc-arrow-line" style="background:${uc.oc};height:12px;width:2px;opacity:.75;"></div><div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.oc};opacity:.75;"></div></div>
+          <div class="uc-arrow"><div style="background:${uc.oc};height:12px;width:2px;opacity:.75;"></div><div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.oc};opacity:.75;"></div></div>
           <div class="uc-output" style="background:${uc.oc}14;border:1.5px solid ${uc.oc}40;">
             <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="${uc.oc}" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg>
             <span class="uc-output-lbl">${uc.out}</span>
