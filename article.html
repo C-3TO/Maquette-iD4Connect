@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DataCell vs ETL : pourquoi le traitement en transit change tout — iD4Connect Blog</title>
+<title>DataCell vs ETL : pourquoi le traitement en transit change tout · iD4Connect Blog</title>
 <meta name="description" content="Les ETL classiques copient et centralisent. Les DataCells traitent le flux à la source, sans stocker un seul octet.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* tokens fournis par header.html — on ne redéfinit que ce qui est spécifique à la page */
+/* tokens fournis par header.html */
 :root{--cyan:#0891B2;--cyan-pale:rgba(6,182,212,.08);--r-xl:22px;}
 a{text-decoration:none;color:inherit;}
 
@@ -108,19 +108,19 @@ a{text-decoration:none;color:inherit;}
 .share-btn:hover{border-color:var(--orange-border);color:var(--orange);background:var(--orange-pale);}
 .share-btn svg{width:13px;height:13px;}
 
-/* ══ PREV/NEXT ══ */
-.art-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;}
-.nav-btn{
+/* ══ PREV/NEXT (renamed from nav-btn/nav-dir to avoid header conflict) ══ */
+.art-pn{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;}
+.pn-btn{
   background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);
   padding:18px 20px;transition:all var(--tr);display:flex;flex-direction:column;gap:5px;
 }
-.nav-btn:hover{border-color:var(--orange-border);box-shadow:var(--sh);}
-.nav-btn.next{text-align:right;}
-.nav-dir{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t4);display:flex;align-items:center;gap:4px;}
-.nav-btn.next .nav-dir{justify-content:flex-end;}
-.nav-dir svg{width:12px;height:12px;}
-.nav-title{font-size:13px;font-weight:700;color:var(--t9);line-height:1.4;}
-.nav-cat{font-size:10px;color:var(--t4);margin-top:2px;}
+.pn-btn:hover{border-color:var(--orange-border);box-shadow:var(--sh);}
+.pn-btn.next{text-align:right;}
+.pn-dir{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t4);display:flex;align-items:center;gap:4px;}
+.pn-btn.next .pn-dir{justify-content:flex-end;}
+.pn-dir svg{width:12px;height:12px;}
+.pn-title{font-size:13px;font-weight:700;color:var(--t9);line-height:1.4;}
+.pn-cat{font-size:10px;color:var(--t4);margin-top:2px;}
 
 /* ══ SIDEBAR ══ */
 .art-sidebar{position:sticky;top:calc(var(--hh) + 24px);}
@@ -165,7 +165,7 @@ a{text-decoration:none;color:inherit;}
   .art-cover{height:220px;}
 }
 @media(max-width:600px){
-  .art-nav{grid-template-columns:1fr;}
+  .art-pn{grid-template-columns:1fr;}
   .wrap{padding:0 20px;}
 }
 </style>
@@ -221,34 +221,34 @@ a{text-decoration:none;color:inherit;}
         </div>
 
         <div class="art-body">
-          <p>Depuis vingt ans, l'architecture dominante du traitement des données repose sur un principe simple : <strong>extraire, transformer, charger</strong>. L'ETL. Copier les données depuis leur source, les faire transiter vers un moteur de transformation, puis les stocker dans un entrepôt centralisé. C'est robuste, c'est éprouvé — et c'est précisément ce qui pose problème en 2026.</p>
+          <p>Depuis vingt ans, l'architecture dominante du traitement des données repose sur un principe simple : <strong>extraire, transformer, charger</strong>. L'ETL. Copier les données depuis leur source, les faire transiter vers un moteur de transformation, puis les stocker dans un entrepôt centralisé. C'est robuste, c'est éprouvé, et c'est précisément ce qui pose problème en 2026.</p>
 
           <h2>Le paradoxe de la centralisation</h2>
           <p>L'ETL classique résout un problème des années 90 : rendre des données hétérogènes comparables dans un même endroit. Mais ce faisant, il crée trois nouveaux problèmes structurels.</p>
           <ul>
-            <li><strong>Latence</strong> — les données sont toujours "hier". Le cycle extract-transform-load introduit un délai incompatible avec les décisions en temps réel.</li>
-            <li><strong>Surface d'exposition</strong> — chaque copie est un risque. Un entrepôt centralisé, c'est une cible unique pour une fuite massive.</li>
-            <li><strong>Coût de compliance</strong> — les réglementations en vigueur imposent des obligations sur chaque donnée stockée. Plus vous centralisez, plus votre périmètre de conformité s'étend.</li>
+            <li><strong>Latence</strong> : les données sont toujours "hier". Le cycle extract-transform-load introduit un délai incompatible avec les décisions en temps réel.</li>
+            <li><strong>Surface d'exposition</strong> : chaque copie est un risque. Un entrepôt centralisé, c'est une cible unique pour une fuite massive.</li>
+            <li><strong>Coût de compliance</strong> : les réglementations en vigueur imposent des obligations sur chaque donnée stockée. Plus vous centralisez, plus votre périmètre de conformité s'étend.</li>
           </ul>
 
           <div class="callout">
-            <p>La vraie question n'est pas "comment stocker les données plus efficacement ?" — c'est "pourquoi les stocker du tout ?"</p>
+            <p>La vraie question n'est pas "comment stocker les données plus efficacement ?" mais "pourquoi les stocker du tout ?"</p>
           </div>
 
           <h2>Le traitement en transit : un changement de paradigme</h2>
-          <p>Une DataCell iD4Connect ne copie rien. Elle s'intercale sur le chemin naturel de la donnée — entre sa source et sa destination — et applique des transformations <strong>pendant le transit</strong>. La donnée entre, est traitée, sort enrichie. Elle ne réside nulle part.</p>
+          <p>Une DataCell iD4Connect ne copie rien. Elle s'intercale sur le chemin naturel de la donnée, entre sa source et sa destination, et applique des transformations <strong>pendant le transit</strong>. La donnée entre, est traitée, sort enrichie. Elle ne réside nulle part.</p>
           <p>Ce modèle stateless a des conséquences profondes :</p>
           <ul>
-            <li>Latence réduite à quelques millisecondes — la transformation est inline, pas batch</li>
-            <li>Conformité by design — pas de donnée stockée, pas d'obligation de déclaration de violation sur ce périmètre</li>
-            <li>Déploiement sur l'infrastructure existante — la DataCell s'intègre sans remplacer les systèmes en place</li>
+            <li>Latence réduite à quelques millisecondes, la transformation est inline, pas batch</li>
+            <li>Conformité by design : pas de donnée stockée, pas d'obligation de déclaration de violation sur ce périmètre</li>
+            <li>Déploiement sur l'infrastructure existante, la DataCell s'intègre sans remplacer les systèmes en place</li>
           </ul>
 
           <h2>Architecture comparée</h2>
           <p>Voici concrètement ce qui change à chaque étape du cycle de vie de la donnée :</p>
           <div class="art-code">ETL classique  :  Source → Copy → Transform → Store → Query
 DataCell iD4C  :  Source → [Transform in transit] → Destination</div>
-          <p>Dans le modèle ETL, chaque flèche représente un stockage intermédiaire. Dans le modèle DataCell, il n'y en a aucun. Le DataGraph orchestre l'ensemble des DataCells sans qu'aucune d'entre elles ne communique directement — une topologie en étoile qui garantit la traçabilité totale des flux sans créer de point de centralisation.</p>
+          <p>Dans le modèle ETL, chaque flèche représente un stockage intermédiaire. Dans le modèle DataCell, il n'y en a aucun. Le DataGraph orchestre l'ensemble des DataCells sans qu'aucune d'entre elles ne communique directement, une topologie en étoile qui garantit la traçabilité totale des flux sans créer de point de centralisation.</p>
 
           <h3>Impact sur les coûts</h3>
           <p>Supprimer l'entrepôt central ne supprime pas seulement les coûts de stockage. Cela supprime le pipeline d'alimentation, les jobs de maintenance, les équipes dédiées à la qualité des données "au repos", et le coût de mise en conformité de cet entrepôt. Dans nos retours clients, <strong>le TCO est typiquement 5 fois inférieur</strong> à une architecture ETL + Data Warehouse équivalente.</p>
@@ -256,8 +256,8 @@ DataCell iD4C  :  Source → [Transform in transit] → Destination</div>
           <div class="art-divider"></div>
 
           <h2>Quand l'ETL reste pertinent</h2>
-          <p>Soyons précis : l'ETL n'est pas mort. Pour les cas d'usage analytiques historiques — construire un modèle sur trois ans de données, entraîner un algorithme sur un corpus massif — la centralisation reste nécessaire. iD4Connect se positionne d'ailleurs comme complémentaire à ces outils, pas concurrent. <strong>L'un optimise le pipeline. iD4Connect l'élimine là où il n'est pas nécessaire.</strong></p>
-          <p>La bonne question à se poser : est-ce que cette donnée a besoin d'être stockée, ou juste traitée et transmise ? Dans la grande majorité des cas opérationnels — supervision, alertes, enrichissement, conformité — la réponse est non.</p>
+          <p>Soyons précis : l'ETL n'est pas mort. Pour les cas d'usage analytiques historiques (construire un modèle sur trois ans de données, entraîner un algorithme sur un corpus massif), la centralisation reste nécessaire. iD4Connect se positionne d'ailleurs comme complémentaire à ces outils, pas concurrent. <strong>L'un optimise le pipeline. iD4Connect l'élimine là où il n'est pas nécessaire.</strong></p>
+          <p>La bonne question à se poser : est-ce que cette donnée a besoin d'être stockée, ou juste traitée et transmise ? Dans la grande majorité des cas opérationnels (supervision, alertes, enrichissement, conformité), la réponse est non.</p>
         </div>
 
         <!-- SHARE -->
@@ -278,22 +278,22 @@ DataCell iD4C  :  Source → [Transform in transit] → Destination</div>
         </div>
 
         <!-- PREV / NEXT -->
-        <div class="art-nav">
-          <a href="article.html" class="nav-btn prev">
-            <div class="nav-dir">
+        <div class="art-pn">
+          <a href="article.html" class="pn-btn prev">
+            <div class="pn-dir">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 12L6 8l4-4"/></svg>
               Article précédent
             </div>
-            <div class="nav-title">Zéro stockage, conformité maximale : l'architecture qui change tout</div>
-            <div class="nav-cat">Conformité</div>
+            <div class="pn-title">Zéro stockage, conformité maximale : l'architecture qui change tout</div>
+            <div class="pn-cat">Conformité</div>
           </a>
-          <a href="article.html" class="nav-btn next">
-            <div class="nav-dir">
+          <a href="article.html" class="pn-btn next">
+            <div class="pn-dir">
               Article suivant
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12l4-4-4-4"/></svg>
             </div>
-            <div class="nav-title">DataGraph : le chef d'orchestre qui ne centralise pas</div>
-            <div class="nav-cat">Technologie</div>
+            <div class="pn-title">DataGraph : le chef d'orchestre qui ne centralise pas</div>
+            <div class="pn-cat">Technologie</div>
           </a>
         </div>
 
@@ -302,61 +302,30 @@ DataCell iD4C  :  Source → [Transform in transit] → Destination</div>
       <!-- ══ SIDEBAR ══ -->
       <aside class="art-sidebar">
 
-        <!-- À lire aussi -->
         <div class="sidebar-card">
           <div class="sidebar-head">
             <div class="sidebar-head-title">À lire aussi</div>
           </div>
           <div class="sidebar-articles">
-
             <a href="article.html" class="sidebar-art">
-              <div class="sidebar-thumb">
-                <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=96&q=70" alt="">
-              </div>
-              <div class="sidebar-art-info">
-                <div class="sidebar-art-cat">Conformité</div>
-                <div class="sidebar-art-title">Souveraineté des données : la promesse européenne</div>
-                <div class="sidebar-art-read">7 min de lecture</div>
-              </div>
+              <div class="sidebar-thumb"><img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=96&q=70" alt=""></div>
+              <div class="sidebar-art-info"><div class="sidebar-art-cat">Conformité</div><div class="sidebar-art-title">Souveraineté des données : la promesse européenne</div><div class="sidebar-art-read">7 min de lecture</div></div>
             </a>
-
             <a href="article.html" class="sidebar-art">
-              <div class="sidebar-thumb">
-                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=96&q=70" alt="">
-              </div>
-              <div class="sidebar-art-info">
-                <div class="sidebar-art-cat">Partenaires</div>
-                <div class="sidebar-art-title">iD4Connect + NRB : une alliance stratégique pour le Benelux</div>
-                <div class="sidebar-art-read">5 min de lecture</div>
-              </div>
+              <div class="sidebar-thumb"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=96&q=70" alt=""></div>
+              <div class="sidebar-art-info"><div class="sidebar-art-cat">Partenaires</div><div class="sidebar-art-title">iD4Connect + NRB : une alliance stratégique pour le Benelux</div><div class="sidebar-art-read">5 min de lecture</div></div>
             </a>
-
             <a href="article.html" class="sidebar-art">
-              <div class="sidebar-thumb">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=96&q=70" alt="">
-              </div>
-              <div class="sidebar-art-info">
-                <div class="sidebar-art-cat">Industrie</div>
-                <div class="sidebar-art-title">Cas client : une banque européenne réduit son TCO data de 60%</div>
-                <div class="sidebar-art-read">10 min de lecture</div>
-              </div>
+              <div class="sidebar-thumb"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=96&q=70" alt=""></div>
+              <div class="sidebar-art-info"><div class="sidebar-art-cat">Industrie</div><div class="sidebar-art-title">Cas client : une banque européenne réduit son TCO data de 60%</div><div class="sidebar-art-read">10 min de lecture</div></div>
             </a>
-
             <a href="article.html" class="sidebar-art">
-              <div class="sidebar-thumb">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=96&q=70" alt="">
-              </div>
-              <div class="sidebar-art-info">
-                <div class="sidebar-art-cat">Industrie</div>
-                <div class="sidebar-art-title">Industrie 5.0 : Le rôle crucial de l'IoT intelligent</div>
-                <div class="sidebar-art-read">6 min de lecture</div>
-              </div>
+              <div class="sidebar-thumb"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=96&q=70" alt=""></div>
+              <div class="sidebar-art-info"><div class="sidebar-art-cat">Industrie</div><div class="sidebar-art-title">Industrie 5.0 : Le rôle crucial de l'IoT intelligent</div><div class="sidebar-art-read">6 min de lecture</div></div>
             </a>
-
           </div>
         </div>
 
-        <!-- CTA -->
         <div class="sidebar-card">
           <div class="sidebar-cta">
             <div class="pill-sm">
@@ -377,7 +346,6 @@ DataCell iD4C  :  Source → [Transform in transit] → Destination</div>
 <div id="ftr-ph"></div>
 
 <script>
-/* Applique le thème AVANT le fetch pour éviter le flash sombre */
 (function(){
   const t = localStorage.getItem('id4-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
