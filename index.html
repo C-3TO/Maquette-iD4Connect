@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iD4Connect — En transit. En temps réel. Jamais stockées.</title>
+<title>iD4Connect · En transit. En temps réel. Jamais stockées.</title>
 <meta name="description" content="iD4Connect traite vos données en transit, sans les stocker. Deep Tech européen, TRL 9.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -240,42 +240,18 @@ h1.hero-h1 .line{display:block;}
 
 @media(max-width:700px){.rt-row{grid-template-columns:1fr;gap:12px;}.rt-row-time{text-align:left;}}
 
-#archi{padding:96px 0;background:var(--bg);}
-.ac-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh-sm);}
-.ac-table thead tr th{padding:14px 20px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;background:var(--section);border-bottom:1px solid var(--border);}
-.ac-table thead th:first-child{text-align:left;color:var(--t5);width:36%;}
-.ac-table thead th.col-classic{text-align:center;color:var(--t5);}
-.ac-table thead th.col-id4c{text-align:center;color:var(--orange);background:var(--orange-pale);border-left:1px solid var(--orange-border);}
-.ac-table tbody tr td{padding:16px 20px;font-size:13.5px;border-bottom:1px solid var(--border);vertical-align:middle;}
-.ac-table tbody tr:last-child td{border-bottom:none;}
-.ac-table tbody tr:hover td{background:var(--section);}
-.ac-table tbody tr:hover td.col-id4c{background:var(--orange-pale);}
-.ac-table td:first-child{font-weight:600;color:var(--t7);background:var(--card);}
-.ac-table td.col-classic{text-align:center;color:var(--t5);background:var(--bg);}
-.ac-table td.col-id4c{text-align:center;background:var(--orange-pale);border-left:1px solid var(--orange-border);}
-.ac-val{display:inline-flex;align-items:center;gap:6px;font-size:13px;}
-.ac-val.bad{color:var(--red);}
-.ac-val.ok{color:var(--orange);font-weight:700;}
-.ac-val.neu{color:var(--t5);}
-.ac-ico{width:14px;height:14px;flex-shrink:0;}
-.ac-note{margin-top:12px;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);font-size:13px;color:var(--t5);display:flex;align-items:center;gap:10px;line-height:1.6;}
-.ac-note svg{flex-shrink:0;color:var(--t4);}
-.ac-note strong{color:var(--t9);}
-
-@media(max-width:680px){.ac-table thead th:first-child,.ac-table tbody td:first-child{display:none;}}
-
 #dt{padding:96px 0;background:var(--card);}
 .dt-head{text-align:center;margin-bottom:56px;}
 .dt-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);margin-bottom:10px;}
 .dt-head h2 .o{color:var(--orange);}
 .dt-head p{font-size:15px;color:var(--t5);max-width:540px;margin:0 auto;line-height:1.7;}
-.dt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;}
-.dt-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);}
+.dt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
+.dt-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);}
 .dt-card:hover{border-color:var(--orange-border);box-shadow:0 8px 28px rgba(249,115,22,.09);transform:translateY(-2px);}
 .dt-card-top{padding:20px 18px 16px;}
 .dt-card-meta{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--t4);margin-bottom:14px;}
 .dt-tool{display:flex;align-items:center;gap:10px;margin-bottom:0;}
-.dt-tool-ico{width:34px;height:34px;border-radius:var(--r-sm);background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dt-tool-ico{width:34px;height:34px;border-radius:var(--r-sm);background:var(--section);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .dt-tool-ico svg{width:16px;height:16px;color:var(--t5);}
 .dt-tool-name{font-size:14px;font-weight:800;color:var(--t9);line-height:1.2;}
 .dt-tool-sub{font-size:11px;color:var(--t4);margin-top:2px;line-height:1.4;}
@@ -286,11 +262,7 @@ h1.hero-h1 .line{display:block;}
 .dt-result-lbl{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:6px;color:var(--t4);}
 .dt-result-title{font-size:15px;font-weight:800;color:var(--t9);margin-bottom:4px;line-height:1.3;}
 .dt-result-sub{font-size:12px;color:var(--t5);line-height:1.55;}
-.dt-card.replaces .dt-plus{background:var(--red-pale);border-color:var(--red-border);}
-.dt-card.replaces .dt-plus svg{color:var(--red);}
-.dt-card.replaces .dt-plus-lbl{color:var(--red);}
-.dt-card.replaces:hover{border-color:var(--red-border);}
-.dt-note{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 18px;font-size:13px;color:var(--t5);display:flex;align-items:center;gap:10px;line-height:1.6;}
+.dt-note{background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 18px;font-size:13px;color:var(--t5);display:flex;align-items:center;gap:10px;line-height:1.6;}
 .dt-note svg{flex-shrink:0;color:var(--t4);width:14px;height:14px;}
 .dt-note strong{color:var(--t9);}
 
@@ -504,7 +476,7 @@ h1.hero-h1 .line{display:block;}
         <p>Combinez on-premise et cloud selon la sensibilité de vos données. Une seule orchestration via DataGraph, plusieurs environnements.</p>
         <div class="pfeats"><div class="pf">DataGraph unifié sur tous les environnements</div><div class="pf">Politique de données granulaire</div><div class="pf">Migration progressive, sans coupure</div><div class="pf">Données sensibles on-premise, flux légers en cloud</div></div>
       </div>
-      <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="18" height="14" rx="2"/><rect x="26" y="26" width="18" height="14" rx="2"/><path d="M22 15h4l-3 3M26 33h-4l3-3" stroke-linecap="round" stroke-linejoin="round"/><line x1="24" y1="15" x2="24" y2="33"/></svg><p>Orchestration unifiée<br>Multi-environnements</p></div></div>
+      <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 14a5 5 0 0 0-4.9-4 8 8 0 0 0-15 2.5A4 4 0 0 0 12 17h22a3.5 3.5 0 0 0 0-3z"/><rect x="8" y="32" width="14" height="8" rx="1.5"/><rect x="26" y="32" width="14" height="8" rx="1.5"/><circle cx="37" cy="36" r="1.2" fill="currentColor" stroke="none"/><circle cx="37" cy="38" r=".6" fill="currentColor" stroke="none"/><path d="M15 24v8" stroke-dasharray="2 2"/><path d="M33 24v8" stroke-dasharray="2 2"/><path d="M22 36h4"/><path d="M24 17v3M20 20l4 3 4-3"/></svg><p>Cloud + On-Premise<br>Orchestration unifiée</p></div></div>
     </div>
     <div class="tab-panel" id="tab-onprem">
       <div class="panel-left">
@@ -564,61 +536,6 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
-<section id="archi" class="reveal">
-  <div class="wrap">
-    <div class="center-head" style="margin-bottom:40px;">
-      <div class="pill">Architecture Comparée</div>
-      <h2 class="sec-title">Ce que iD4Connect élimine</h2>
-      <p class="sec-sub" style="margin:10px auto 0;max-width:480px;">Moins d'étapes, moins de surface d'exposition, moins de coût. La simplicité n'est pas un compromis.</p>
-    </div>
-    <table class="ac-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th class="col-classic">Architecture de plateforme data</th>
-          <th class="col-id4c">iD4Connect</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Étapes de traitement</td>
-          <td class="col-classic"><span class="ac-val bad"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>4 à 6 étapes</span></td>
-          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>1 seule étape</span></td>
-        </tr>
-        <tr>
-          <td>Copies de la donnée</td>
-          <td class="col-classic"><span class="ac-val bad"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>3 à 4 copies</span></td>
-          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>Zéro copie</span></td>
-        </tr>
-        <tr>
-          <td>Latence insight</td>
-          <td class="col-classic"><span class="ac-val bad"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>H+2 à H+24</span></td>
-          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>&lt; 5ms</span></td>
-        </tr>
-        <tr>
-          <td>Stockage intermédiaire</td>
-          <td class="col-classic"><span class="ac-val bad"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>ODS + DataWarehouse</span></td>
-          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>Aucun</span></td>
-        </tr>
-        <tr>
-          <td>Conformité RGPD / NIS2</td>
-          <td class="col-classic"><span class="ac-val neu">Efforts manuels requis</span></td>
-          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>By design</span></td>
-        </tr>
-        <tr>
-          <td>TCO relatif</td>
-          <td class="col-classic"><span class="ac-val neu">Référence</span></td>
-          <td class="col-id4c"><span class="ac-val ok"><svg class="ac-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,8 7,12 13,4"/></svg>5× moins cher</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="ac-note">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="7" x2="8" y2="11" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
-      <span>iD4Connect <strong>coexiste avec votre infrastructure existante</strong>. Il n'impose pas de remplacement global, il élimine les goulots d'étranglement là où ils coûtent le plus.</span>
-    </div>
-  </div>
-</section>
-
 <section id="dt" class="reveal">
   <div class="wrap">
     <div class="dt-head">
@@ -628,96 +545,34 @@ h1.hero-h1 .line{display:block;}
     </div>
     <div class="dt-grid">
       <div class="dt-card reveal">
-        <div class="dt-card-top">
-          <div class="dt-card-meta">Vous avez</div>
-          <div class="dt-tool">
-            <div class="dt-tool-ico">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/><path d="M2 9L6 6l4 1 4-4"/></svg>
-            </div>
-            <div>
-              <div class="dt-tool-name">Votre outil BI</div>
-              <div class="dt-tool-sub">Tableaux de bord alimentés en batch</div>
-            </div>
-          </div>
-        </div>
-        <div class="dt-plus">
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
-          <span class="dt-plus-lbl">iD4Connect</span>
-        </div>
-        <div class="dt-result">
-          <div class="dt-result-lbl">Résultat</div>
-          <div class="dt-result-title">BI temps réel</div>
-          <div class="dt-result-sub">Dashboards live, sans DWH ni pipeline à maintenir en amont</div>
-        </div>
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/><path d="M2 9L6 6l4 1 4-4"/></svg></div><div><div class="dt-tool-name">Votre outil BI</div><div class="dt-tool-sub">Tableaux de bord alimentés en batch</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">BI temps réel</div><div class="dt-result-sub">Dashboards live, sans DWH ni pipeline à maintenir en amont</div></div>
       </div>
       <div class="dt-card reveal">
-        <div class="dt-card-top">
-          <div class="dt-card-meta">Vous avez</div>
-          <div class="dt-tool">
-            <div class="dt-tool-ico">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>
-            </div>
-            <div>
-              <div class="dt-tool-name">Votre SIEM / EDR</div>
-              <div class="dt-tool-sub">Logs bruts, corrélation limitée</div>
-            </div>
-          </div>
-        </div>
-        <div class="dt-plus">
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
-          <span class="dt-plus-lbl">iD4Connect</span>
-        </div>
-        <div class="dt-result">
-          <div class="dt-result-lbl">Résultat</div>
-          <div class="dt-result-title">Détection enrichie</div>
-          <div class="dt-result-sub">Contexte métier sur chaque alerte, corrélation cross-sources en transit</div>
-        </div>
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg></div><div><div class="dt-tool-name">Votre SIEM / EDR</div><div class="dt-tool-sub">Logs bruts, corrélation limitée</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Détection enrichie</div><div class="dt-result-sub">Contexte métier sur chaque alerte, corrélation cross-sources en transit</div></div>
       </div>
       <div class="dt-card reveal">
-        <div class="dt-card-top">
-          <div class="dt-card-meta">Vous avez</div>
-          <div class="dt-tool">
-            <div class="dt-tool-ico">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="5" height="4" rx="1"/><rect x="9" y="3" width="5" height="4" rx="1"/><rect x="2" y="9" width="5" height="4" rx="1"/><rect x="9" y="9" width="5" height="4" rx="1"/><path d="M4.5 7v2M11.5 7v2M7 5h2M7 11h2"/></svg>
-            </div>
-            <div>
-              <div class="dt-tool-name">Votre CRM / ERP</div>
-              <div class="dt-tool-sub">Données cloisonnées par outil</div>
-            </div>
-          </div>
-        </div>
-        <div class="dt-plus">
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
-          <span class="dt-plus-lbl">iD4Connect</span>
-        </div>
-        <div class="dt-result">
-          <div class="dt-result-lbl">Résultat</div>
-          <div class="dt-result-title">Vision unifiée</div>
-          <div class="dt-result-sub">Croisement multi-sources instantané, sans duplication ni migration</div>
-        </div>
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="5" height="4" rx="1"/><rect x="9" y="3" width="5" height="4" rx="1"/><rect x="2" y="9" width="5" height="4" rx="1"/><rect x="9" y="9" width="5" height="4" rx="1"/><path d="M4.5 7v2M11.5 7v2M7 5h2M7 11h2"/></svg></div><div><div class="dt-tool-name">Votre CRM / ERP</div><div class="dt-tool-sub">Données cloisonnées par outil</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Vision unifiée</div><div class="dt-result-sub">Croisement multi-sources instantané, sans duplication ni migration</div></div>
       </div>
       <div class="dt-card reveal">
-        <div class="dt-card-top">
-          <div class="dt-card-meta">Vous avez</div>
-          <div class="dt-tool">
-            <div class="dt-tool-ico">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h3v8H2zM7 2h3v12H7zM12 6h2v6h-2z"/></svg>
-            </div>
-            <div>
-              <div class="dt-tool-name">Votre ETL</div>
-              <div class="dt-tool-sub">Batch, staging, latence accumulée</div>
-            </div>
-          </div>
-        </div>
-        <div class="dt-plus">
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg>
-          <span class="dt-plus-lbl">iD4Connect</span>
-        </div>
-        <div class="dt-result">
-          <div class="dt-result-lbl">Résultat</div>
-          <div class="dt-result-title">Pipeline allégé</div>
-          <div class="dt-result-sub">iD4Connect absorbe les flux temps réel, votre ETL garde les traitements batch complexes</div>
-        </div>
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h3v8H2zM7 2h3v12H7zM12 6h2v6h-2z"/></svg></div><div><div class="dt-tool-name">Votre ETL</div><div class="dt-tool-sub">Batch, staging, latence accumulée</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Pipeline allégé</div><div class="dt-result-sub">iD4Connect absorbe les flux temps réel, votre ETL garde les traitements batch complexes</div></div>
+      </div>
+      <div class="dt-card reveal">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="8" cy="4" rx="5" ry="1.8"/><path d="M3 4v3c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V4"/><path d="M3 7v3c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V7"/><path d="M3 10v2c0 1 2.2 1.8 5 1.8s5-.8 5-1.8v-2"/></svg></div><div><div class="dt-tool-name">Votre Data Warehouse</div><div class="dt-tool-sub">Données centralisées, schéma figé</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Insights à la source</div><div class="dt-result-sub">Données vivantes interrogées directement, sans centralisation</div></div>
+      </div>
+      <div class="dt-card reveal">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="6" width="4" height="4" rx="1"/><rect x="11" y="6" width="4" height="4" rx="1"/><rect x="6" y="3" width="4" height="4" rx="1"/><rect x="6" y="9" width="4" height="4" rx="1"/><path d="M5 8h1M10 8h1M8 7V5M8 9v2"/></svg></div><div><div class="dt-tool-name">Votre ESB / Middleware</div><div class="dt-tool-sub">Transport applicatif, sans intelligence data</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Transport intelligent</div><div class="dt-result-sub">Transformation sémantique en transit, logique métier embarquée</div></div>
       </div>
     </div>
     <div class="dt-note">
