@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Santé — iD4Connect</title>
-<meta name="description" content="iD4Connect traite les données médicales en transit, sans les centraliser. Dossier patient, qualité des soins, coordination — protection des données by design.">
+<title>Santé · iD4Connect</title>
+<meta name="description" content="iD4Connect traite les données médicales en transit, sans les centraliser. Dossier patient, qualité des soins, coordination, protection des données by design.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -14,32 +14,60 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
-.wrap{max-width:1060px;margin:0 auto;padding:0 32px;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
 .pill{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
 .pill svg{width:12px;height:12px;}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
 
-/* HERO */
-#sante-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;}
-#sante-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
-.hero-inner{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;}
-.hero-inner h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--t9);margin-bottom:16px;}
-.hero-inner h1 .o{color:var(--orange);}
-.hero-inner p{font-size:15.5px;color:var(--t5);line-height:1.75;max-width:540px;margin:0 auto 36px;}
-.hero-stats{display:inline-flex;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);}
-.hstat{padding:18px 32px;text-align:center;border-right:1px solid var(--border);}
-.hstat:last-child{border-right:none;}
-.hstat-val{font-size:26px;font-weight:900;color:var(--orange);line-height:1;}
-.hstat-lbl{font-size:12px;font-weight:700;color:var(--t9);margin-top:3px;}
-.hstat-sub{font-size:10px;color:var(--t4);margin-top:1px;}
+/* ══ HERO ══ */
+#sante-hero{padding:64px 0 72px;background:var(--card);position:relative;overflow:hidden;}
+#sante-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
 
-/* CAS D'USAGE */
-#cas-usage{padding:0 0 96px;background:var(--bg);}
+.hero-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center;}
+
+.hero-visual{
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  min-height:320px;
+}
+.hero-visual::before{
+  content:'';position:absolute;
+  width:240px;height:240px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.hero-icon{
+  width:160px;height:160px;
+  color:var(--orange);
+  position:relative;z-index:1;
+  animation:iconFloat 3s ease-in-out infinite alternate;
+}
+@keyframes iconFloat{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
+
+.hero-right .pill{margin-bottom:14px;}
+.hero-right h1{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin-bottom:16px;}
+.hero-right h1 .o{color:var(--orange);}
+.hero-right>p{font-size:15px;color:var(--t5);line-height:1.75;max-width:480px;margin-bottom:28px;}
+
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-p{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
+.btn-p:hover{background:var(--orange-d);transform:translateY(-1px);}
+.btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
+.btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
+
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:200px;}}
+@media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}}
+
+/* ══ CAS D'USAGE ══ */
+#cas-usage{padding:96px 0;background:var(--bg);}
 .section-head{text-align:center;margin-bottom:44px;}
 .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
 .section-head h2 .o{color:var(--orange);}
 .section-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
+
 .uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;}
 .uc-card:hover{border-color:var(--orange-border);box-shadow:var(--sh);transform:translateY(-2px);}
@@ -56,21 +84,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .uc-title{font-size:13.5px;font-weight:800;color:var(--t9);margin-bottom:11px;}
 .uc-slbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:6px;}
 .uc-sources{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:11px;}
-.uc-src{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-xs);padding:3px 9px;font-size:10.5px;font-weight:600;color:var(--t7);}
-[data-theme="dark"] .uc-src{background:var(--section);}
+.uc-src{background:var(--section);border:1.5px solid var(--border);border-radius:var(--r-xs);padding:3px 9px;font-size:10.5px;font-weight:600;color:var(--t7);}
 .uc-ops{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;}
 .uc-op{display:flex;flex-direction:column;gap:1px;background:var(--section);border-radius:0 var(--r-xs) var(--r-xs) 0;padding:5px 10px;border-left:3px solid;}
-[data-theme="dark"] .uc-op{background:var(--bg);}
 .uc-op-name{font-size:10px;font-weight:700;color:var(--t9);}
 .uc-op-desc{font-size:9px;color:var(--t4);}
 .uc-arrow{display:flex;flex-direction:column;align-items:center;margin:6px 0;}
-.uc-arrow-line{width:2px;height:12px;opacity:.75;}
-.uc-arrow-tip{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;opacity:.75;}
 .uc-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
 .uc-output svg{width:11px;height:11px;flex-shrink:0;}
 .uc-output-lbl{font-size:11.5px;font-weight:700;color:var(--t9);}
 
-/* PROTECTION */
+@media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.uc-grid{grid-template-columns:1fr;}}
+
+/* ══ PROTECTION ══ */
 #protection{padding:96px 0;background:var(--card);}
 .conf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .conf-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:24px;border-top-width:3px;transition:box-shadow .2s,transform .2s;}
@@ -80,7 +107,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
 .conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
 
-/* CTA */
+@media(max-width:900px){.conf-grid{grid-template-columns:1fr;}}
+
+/* ══ CTA ══ */
 #sante-cta{padding:96px 0;background:var(--card);}
 .cta-box{background:var(--bg);border:2px solid var(--orange-border);border-radius:var(--r-xl);padding:48px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(249,115,22,.08);}
 .cta-box h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:10px;}
@@ -90,46 +119,42 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-primary:hover{background:var(--orange-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.3);}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:transparent;color:var(--t7);font-size:13.5px;font-weight:600;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;border:1.5px solid var(--border);cursor:pointer;transition:all var(--tr);}
 .btn-secondary:hover{border-color:var(--border-s);color:var(--t9);}
-
-@media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}.conf-grid{grid-template-columns:1fr;}}
-@media(max-width:600px){.uc-grid{grid-template-columns:1fr;}.wrap{padding:0 20px;}.hero-stats{flex-direction:column;}.hstat{border-right:none;border-bottom:1px solid var(--border);}.hstat:last-child{border-bottom:none;}}
 </style>
 </head>
 <body>
 <div id="hdr-ph"></div>
 
-<!-- HERO -->
+<!-- ══ HERO ══ -->
 <section id="sante-hero">
   <div class="wrap">
-    <div class="hero-inner">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 14s-5.5-3.8-5.5-8a5 5 0 0 1 5.5-1.5A5 5 0 0 1 13.5 6c0 4.2-5.5 8-5.5 8z"/><path d="M6 8h4M8 6v4"/></svg>
-        Santé
+    <div class="hero-grid">
+
+      <!-- GAUCHE : croix médicale minimaliste -->
+      <div class="hero-visual">
+        <svg class="hero-icon" viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 40h24l8-20 10 40 10-30 8 10h52"/>
+        </svg>
       </div>
-      <h1>Les données de santé sont sensibles.<br><span class="o">Traitez-les sans les exposer.</span></h1>
-      <p>iD4Connect traite les données médicales en transit, sans les centraliser. Dossier patient, qualité des soins, coordination — tout en temps réel, avec une protection des données personnelles by design.</p>
-      <div class="hero-stats">
-        <div class="hstat">
-          <div class="hstat-val">0</div>
-          <div class="hstat-lbl">donnée copiée</div>
-          <div class="hstat-sub">anonymisation à la source</div>
+
+      <!-- DROITE : texte -->
+      <div class="hero-right">
+        <div class="pill">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 14s-5.5-3.8-5.5-8a5 5 0 0 1 5.5-1.5A5 5 0 0 1 13.5 6c0 4.2-5.5 8-5.5 8z"/><path d="M6 8h4M8 6v4"/></svg>
+          Santé
         </div>
-        <div class="hstat">
-          <div class="hstat-val">100%</div>
-          <div class="hstat-lbl">traçable</div>
-          <div class="hstat-sub">audit trail natif</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-val">Sur site</div>
-          <div class="hstat-lbl">déployé</div>
-          <div class="hstat-sub">dans votre infrastructure</div>
+        <h1>Les données de santé sont sensibles.<br><span class="o">Traitez-les sans les exposer.</span></h1>
+        <p>iD4Connect traite les données médicales en transit, sans les centraliser. Dossier patient, qualité des soins, coordination : tout en temps réel, avec une protection des données personnelles by design.</p>
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn-p">Demander une démo →</a>
+          <a href="positionnement.html" class="btn-g">Voir le positionnement</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- CAS D'USAGE -->
+<!-- ══ CAS D'USAGE ══ -->
 <section id="cas-usage" class="reveal">
   <div class="wrap">
     <div class="section-head">
@@ -144,7 +169,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
-<!-- PROTECTION -->
+<!-- ══ PROTECTION ══ -->
 <section id="protection" class="reveal">
   <div class="wrap">
     <div class="section-head">
@@ -155,36 +180,26 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <h2>La protection des patients<br><span class="o">gravée dans l'architecture.</span></h2>
     </div>
     <div class="conf-grid">
-
       <div class="conf-card" style="border-top-color:#8B5CF6;">
-        <div class="conf-ico" style="background:var(--purple-pale);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="#8B5CF6" stroke-width="1.5"><rect x="4" y="8" width="12" height="10" rx="1.5"/><path d="M7 8V6a3 3 0 0 1 6 0v2"/><circle cx="10" cy="13" r="1.5"/></svg>
-        </div>
+        <div class="conf-ico" style="background:var(--purple-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#8B5CF6" stroke-width="1.5"><rect x="4" y="8" width="12" height="10" rx="1.5"/><path d="M7 8V6a3 3 0 0 1 6 0v2"/><circle cx="10" cy="13" r="1.5"/></svg></div>
         <div class="conf-title">Données de santé jamais exposées</div>
-        <div class="conf-desc">Les données patients transitent sans être copiées ni centralisées. Pas de base intermédiaire, pas d'exposition supplémentaire — conformité by design.</div>
+        <div class="conf-desc">Les données patients transitent sans être copiées ni centralisées. Pas de base intermédiaire, pas d'exposition supplémentaire, conformité structurelle.</div>
       </div>
-
       <div class="conf-card" style="border-top-color:#06B6D4;">
-        <div class="conf-ico" style="background:rgba(6,182,212,.09);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="#06B6D4" stroke-width="1.5"><path d="M10 2a8 8 0 1 0 0 16A8 8 0 0 0 10 2z"/><path d="M10 6v4l2.5 2"/><path d="M6 3.5l1.5 1.5M12 2.5l1 1.5"/></svg>
-        </div>
+        <div class="conf-ico" style="background:rgba(6,182,212,.09);"><svg viewBox="0 0 20 20" fill="none" stroke="#06B6D4" stroke-width="1.5"><path d="M10 2a8 8 0 1 0 0 16A8 8 0 0 0 10 2z"/><path d="M10 6v4l2.5 2"/></svg></div>
         <div class="conf-title">Anonymisation à la source</div>
         <div class="conf-desc">La pseudonymisation et l'anonymisation s'appliquent dès la collecte, avant tout traitement. Vos équipes travaillent sur des données protégées dès le départ.</div>
       </div>
-
       <div class="conf-card" style="border-top-color:#10B981;">
-        <div class="conf-ico" style="background:var(--green-pale);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><path d="M3 4h14M3 9h14M3 14h8"/><path d="M15 12l2 2 3-2.5"/></svg>
-        </div>
+        <div class="conf-ico" style="background:var(--green-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><path d="M3 4h14M3 9h14M3 14h8"/><path d="M15 12l2 2 3-2.5"/></svg></div>
         <div class="conf-title">Hébergement sur votre infrastructure</div>
         <div class="conf-desc">iD4Connect se déploie dans votre environnement hospitalier, sur site ou sur votre cloud privé. Aucune donnée de santé ne quitte votre périmètre de contrôle.</div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- ══ CTA ══ -->
 <section id="sante-cta" class="reveal">
   <div class="wrap">
     <div class="cta-box">
@@ -212,10 +227,10 @@ const USE_CASES=[
     id:'dossier',
     svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="16" height="18" rx="1.5"/><path d="M7 7h8M7 10.5h8M7 14h5"/><path d="M14 13l1.5 1.5L18 12"/></svg>`,
     title:'Dossier patient unifié',
-    sources:['SIH / DPI','Données labo HL7','Imagerie DICOM'],
+    sources:['SIH / DPI','Données labo','Imagerie médicale'],
     ops:[
       {label:'Anonymisation', desc:'Pseudonymisation des données personnelles à la source', color:'#8B5CF6'},
-      {label:'Normalisation', desc:'Unification des formats hétérogènes HL7, FHIR, CSV', color:'#3B82F6'},
+      {label:'Normalisation', desc:'Unification des formats hétérogènes entre systèmes', color:'#3B82F6'},
       {label:'Enrichissement', desc:'Croisement résultats labo et antécédents patient', color:'#10B981'},
     ],
     output:'Vue 360° patient sécurisée', outColor:'#8B5CF6',
@@ -234,7 +249,7 @@ const USE_CASES=[
   },
   {
     id:'flux',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="3"/><path d="M11 4v4M11 14v4M4 11h4M14 11h4"/><path d="M6.3 6.3l2.8 2.8M12.9 12.9l2.8 2.8M6.3 15.7l2.8-2.8M12.9 9.1l2.8-2.8"/></svg>`,
+    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="3"/><path d="M11 4v4M11 14v4M4 11h4M14 11h4"/></svg>`,
     title:'Coordination des soins',
     sources:['Prescriptions','Résultats examens','Agenda soignants'],
     ops:[
@@ -269,8 +284,8 @@ function renderUC(){
           </div>`).join('')}
         </div>
         <div class="uc-arrow">
-          <div class="uc-arrow-line" style="background:${uc.outColor};"></div>
-          <div class="uc-arrow-tip" style="border-top:7px solid ${uc.outColor};border-left:5px solid transparent;border-right:5px solid transparent;"></div>
+          <div style="background:${uc.outColor};height:12px;width:2px;opacity:.75;"></div>
+          <div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.outColor};opacity:.75;"></div>
         </div>
         <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;">
           <svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg>
