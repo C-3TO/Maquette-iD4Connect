@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secteur Public — iD4Connect</title>
+<title>Secteur Public · iD4Connect</title>
 <meta name="description" content="iD4Connect unifie vos systèmes d'information sans les remplacer. Interopérabilité native, souveraineté garantie, données citoyens protégées.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,32 +14,60 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
-.wrap{max-width:1060px;margin:0 auto;padding:0 32px;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
 .pill{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
 .pill svg{width:12px;height:12px;}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
 
-/* HERO */
-#pub-hero{padding:72px 0 64px;background:var(--bg);position:relative;overflow:hidden;}
-#pub-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
-.hero-inner{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;}
-.hero-inner h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--t9);margin-bottom:16px;}
-.hero-inner h1 .o{color:var(--orange);}
-.hero-inner p{font-size:15.5px;color:var(--t5);line-height:1.75;max-width:540px;margin:0 auto 36px;}
-.hero-stats{display:inline-flex;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);}
-.hstat{padding:18px 32px;text-align:center;border-right:1px solid var(--border);}
-.hstat:last-child{border-right:none;}
-.hstat-val{font-size:26px;font-weight:900;color:var(--orange);line-height:1;}
-.hstat-lbl{font-size:12px;font-weight:700;color:var(--t9);margin-top:3px;}
-.hstat-sub{font-size:10px;color:var(--t4);margin-top:1px;}
+/* ══ HERO - ICONE GAUCHE + TEXTE DROITE ══ */
+#pub-hero{padding:64px 0 72px;background:var(--card);position:relative;overflow:hidden;}
+#pub-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
 
-/* CAS D'USAGE */
-#cas-usage{padding:0 0 96px;background:var(--bg);}
+.hero-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center;}
+
+.hero-visual{
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  min-height:320px;
+}
+.hero-visual::before{
+  content:'';position:absolute;
+  width:240px;height:240px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.hero-icon{
+  width:160px;height:160px;
+  color:var(--orange);
+  position:relative;z-index:1;
+  animation:iconFloat 3s ease-in-out infinite alternate;
+}
+@keyframes iconFloat{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
+
+.hero-right .pill{margin-bottom:14px;}
+.hero-right h1{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin-bottom:16px;}
+.hero-right h1 .o{color:var(--orange);}
+.hero-right>p{font-size:15px;color:var(--t5);line-height:1.75;max-width:480px;margin-bottom:28px;}
+
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-p{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
+.btn-p:hover{background:var(--orange-d);transform:translateY(-1px);}
+.btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
+.btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
+
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:200px;}}
+@media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}}
+
+/* ══ CAS D'USAGE ══ */
+#cas-usage{padding:96px 0;background:var(--bg);}
 .section-head{text-align:center;margin-bottom:44px;}
 .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
 .section-head h2 .o{color:var(--orange);}
 .section-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
+
 .uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;}
 .uc-card:hover{border-color:var(--orange-border);box-shadow:var(--sh);transform:translateY(-2px);}
@@ -56,21 +84,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .uc-title{font-size:13.5px;font-weight:800;color:var(--t9);margin-bottom:11px;}
 .uc-slbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:6px;}
 .uc-sources{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:11px;}
-.uc-src{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-xs);padding:3px 9px;font-size:10.5px;font-weight:600;color:var(--t7);}
-[data-theme="dark"] .uc-src{background:var(--section);}
+.uc-src{background:var(--section);border:1.5px solid var(--border);border-radius:var(--r-xs);padding:3px 9px;font-size:10.5px;font-weight:600;color:var(--t7);}
 .uc-ops{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;}
 .uc-op{display:flex;flex-direction:column;gap:1px;background:var(--section);border-radius:0 var(--r-xs) var(--r-xs) 0;padding:5px 10px;border-left:3px solid;}
-[data-theme="dark"] .uc-op{background:var(--bg);}
 .uc-op-name{font-size:10px;font-weight:700;color:var(--t9);}
 .uc-op-desc{font-size:9px;color:var(--t4);}
 .uc-arrow{display:flex;flex-direction:column;align-items:center;margin:6px 0;}
-.uc-arrow-line{width:2px;height:12px;opacity:.75;}
-.uc-arrow-tip{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;opacity:.75;}
 .uc-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
 .uc-output svg{width:11px;height:11px;flex-shrink:0;}
 .uc-output-lbl{font-size:11.5px;font-weight:700;color:var(--t9);}
 
-/* SOUVERAINETÉ */
+@media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.uc-grid{grid-template-columns:1fr;}}
+
+/* ══ SOUVERAINETÉ ══ */
 #souverainete{padding:96px 0;background:var(--card);}
 .conf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .conf-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:24px;border-top-width:3px;transition:box-shadow .2s,transform .2s;}
@@ -80,7 +107,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
 .conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
 
-/* CTA */
+@media(max-width:900px){.conf-grid{grid-template-columns:1fr;}}
+
+/* ══ CTA ══ */
 #pub-cta{padding:96px 0;background:var(--card);}
 .cta-box{background:var(--bg);border:2px solid var(--orange-border);border-radius:var(--r-xl);padding:48px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(249,115,22,.08);}
 .cta-box h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:10px;}
@@ -90,46 +119,72 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-primary:hover{background:var(--orange-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.3);}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:transparent;color:var(--t7);font-size:13.5px;font-weight:600;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;border:1.5px solid var(--border);cursor:pointer;transition:all var(--tr);}
 .btn-secondary:hover{border-color:var(--border-s);color:var(--t9);}
-
-@media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}.conf-grid{grid-template-columns:1fr;}}
-@media(max-width:600px){.uc-grid{grid-template-columns:1fr;}.wrap{padding:0 20px;}.hero-stats{flex-direction:column;}.hstat{border-right:none;border-bottom:1px solid var(--border);}.hstat:last-child{border-bottom:none;}}
 </style>
 </head>
 <body>
 <div id="hdr-ph"></div>
 
-<!-- HERO -->
+<!-- ══ HERO ══ -->
 <section id="pub-hero">
   <div class="wrap">
-    <div class="hero-inner">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 14h14M3 14V7M13 14V7M6 14V7M10 14V7M1 7l7-5 7 5"/></svg>
-        Secteur Public
+    <div class="hero-grid">
+
+      <!-- GAUCHE : bâtiment public minimaliste (fronton + colonnes) -->
+      <div class="hero-visual">
+        <svg class="hero-icon" viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Clocher central -->
+          <rect x="52" y="8" width="16" height="20" rx="1"/>
+          <path d="M52 8l8-6 8 6"/>
+          <line x1="60" y1="2" x2="60" y2="0"/>
+          <!-- Horloge -->
+          <circle cx="60" cy="18" r="4"/>
+          <line x1="60" y1="16" x2="60" y2="18"/>
+          <line x1="60" y1="18" x2="62" y2="19"/>
+          <!-- Façade principale -->
+          <rect x="10" y="28" width="100" height="54" rx="2"/>
+          <!-- Bandeau MAIRIE -->
+          <line x1="10" y1="40" x2="110" y2="40"/>
+          <!-- Entrée centrale avec fronton -->
+          <rect x="44" y="52" width="32" height="30" rx="2"/>
+          <path d="M42 52h36l-18-10z"/>
+          <!-- Colonnes entrée -->
+          <line x1="48" y1="52" x2="48" y2="82"/>
+          <line x1="72" y1="52" x2="72" y2="82"/>
+          <!-- Fenêtres gauche -->
+          <rect x="16" y="46" width="10" height="14" rx="1"/>
+          <rect x="30" y="46" width="10" height="14" rx="1"/>
+          <!-- Fenêtres droite -->
+          <rect x="80" y="46" width="10" height="14" rx="1"/>
+          <rect x="94" y="46" width="10" height="14" rx="1"/>
+          <!-- Fenêtres étage bas -->
+          <rect x="16" y="66" width="10" height="14" rx="1"/>
+          <rect x="30" y="66" width="10" height="14" rx="1"/>
+          <rect x="80" y="66" width="10" height="14" rx="1"/>
+          <rect x="94" y="66" width="10" height="14" rx="1"/>
+          <!-- Sol -->
+          <line x1="4" y1="82" x2="116" y2="82"/>
+        </svg>
       </div>
-      <h1>Des données publiques nombreuses.<br><span class="o">Enfin pilotables en temps réel.</span></h1>
-      <p>iD4Connect unifie vos systèmes d'information sans les remplacer. Interopérabilité native, souveraineté garantie, données citoyens protégées — sans infrastructure cloud externe.</p>
-      <div class="hero-stats">
-        <div class="hstat">
-          <div class="hstat-val">100%</div>
-          <div class="hstat-lbl">souverain</div>
-          <div class="hstat-sub">infrastructure maîtrisée</div>
+
+      <!-- DROITE : texte -->
+      <div class="hero-right">
+        <div class="pill">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 14h14M3 14V7M13 14V7M6 14V7M10 14V7M1 7l7-5 7 5"/></svg>
+          Secteur Public
         </div>
-        <div class="hstat">
-          <div class="hstat-val">0</div>
-          <div class="hstat-lbl">donnée exposée</div>
-          <div class="hstat-sub">anonymisation by design</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-val">J+1</div>
-          <div class="hstat-lbl">interopérabilité</div>
-          <div class="hstat-sub">sans refonte SI</div>
+        <h1>Des données publiques nombreuses.<br><span class="o">Enfin pilotables en temps réel.</span></h1>
+        <p>iD4Connect unifie vos systèmes d'information sans les remplacer. Interopérabilité native, souveraineté garantie, données citoyens protégées, sans infrastructure cloud externe.</p>
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn-p">Demander une démo →</a>
+          <a href="positionnement.html" class="btn-g">Voir le positionnement</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- CAS D'USAGE -->
+<!-- ══ CAS D'USAGE ══ -->
 <section id="cas-usage" class="reveal">
   <div class="wrap">
     <div class="section-head">
@@ -144,7 +199,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
-<!-- SOUVERAINETÉ -->
+<!-- ══ SOUVERAINETÉ ══ -->
 <section id="souverainete" class="reveal">
   <div class="wrap">
     <div class="section-head">
@@ -155,42 +210,32 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <h2>Une solution européenne,<br><span class="o">pensée pour la donnée publique.</span></h2>
     </div>
     <div class="conf-grid">
-
       <div class="conf-card" style="border-top-color:#2563EB;">
-        <div class="conf-ico" style="background:var(--blue-pale);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="#2563EB" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="1.5"/><path d="M2 8h16"/><path d="M6 12h3M12 12h2"/></svg>
-        </div>
+        <div class="conf-ico" style="background:var(--blue-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#2563EB" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="1.5"/><path d="M2 8h16"/><path d="M6 12h3M12 12h2"/></svg></div>
         <div class="conf-title">Souveraineté numérique</div>
         <div class="conf-desc">iD4Connect est une solution européenne, déployable sur votre infrastructure ou sur un cloud souverain. Vos données publiques ne quittent jamais votre périmètre.</div>
       </div>
-
       <div class="conf-card" style="border-top-color:#8B5CF6;">
-        <div class="conf-ico" style="background:var(--purple-pale);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="#8B5CF6" stroke-width="1.5"><rect x="4" y="8" width="12" height="10" rx="1.5"/><path d="M7 8V6a3 3 0 0 1 6 0v2"/><circle cx="10" cy="13" r="1.5"/></svg>
-        </div>
+        <div class="conf-ico" style="background:var(--purple-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#8B5CF6" stroke-width="1.5"><rect x="4" y="8" width="12" height="10" rx="1.5"/><path d="M7 8V6a3 3 0 0 1 6 0v2"/><circle cx="10" cy="13" r="1.5"/></svg></div>
         <div class="conf-title">Données citoyens protégées by design</div>
-        <div class="conf-desc">Aucune donnée personnelle n'est copiée ni centralisée. L'anonymisation s'applique dès la collecte — pas besoin de la configurer après coup.</div>
+        <div class="conf-desc">Aucune donnée personnelle n'est copiée ni centralisée. L'anonymisation s'applique dès la collecte, pas besoin de la configurer après coup.</div>
       </div>
-
       <div class="conf-card" style="border-top-color:#10B981;">
-        <div class="conf-ico" style="background:var(--green-pale);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><path d="M4 4h12M4 8h12M4 12h8"/><path d="M13 14l1.5 1.5L17 13"/></svg>
-        </div>
+        <div class="conf-ico" style="background:var(--green-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><path d="M4 4h12M4 8h12M4 12h8"/><path d="M13 14l1.5 1.5L17 13"/></svg></div>
         <div class="conf-title">Audit & transparence natifs</div>
         <div class="conf-desc">Chaque flux est journalisé et auditable. Vos équipes conformité et vos contrôleurs ont une traçabilité complète sans outillage supplémentaire.</div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- ══ CTA ══ -->
 <section id="pub-cta" class="reveal">
   <div class="wrap">
     <div class="cta-box">
       <div>
         <h2>La donnée publique a une valeur.<br>Il est temps de l'activer.</h2>
-        <p>Déployez iD4Connect sur votre infrastructure sans refonte. Vos systèmes existants restent en place — iD4Connect les fait collaborer.</p>
+        <p>Déployez iD4Connect sur votre infrastructure sans refonte. Vos systèmes existants restent en place, iD4Connect les fait collaborer.</p>
       </div>
       <div class="cta-btns">
         <a href="contact.html" class="btn-primary">Demander une démo →</a>
@@ -212,7 +257,7 @@ const USE_CASES=[
     id:'interop',
     svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="11" r="2.5"/><circle cx="17" cy="5" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M7.5 11h7M14.5 5.8l-5.5 4M14.5 16.2l-5.5-4"/></svg>`,
     title:'Interopérabilité des systèmes',
-    sources:['SI métiers','Bases de données territoriales','API d\'État'],
+    sources:['SI métiers','Bases territoriales','API d\'État'],
     ops:[
       {label:'Normalisation', desc:'Unification des formats hétérogènes entre systèmes', color:'#3B82F6'},
       {label:'Orchestration', desc:'DataGraph coordonne les échanges inter-services', color:'#F97316'},
@@ -269,8 +314,8 @@ function renderUC(){
           </div>`).join('')}
         </div>
         <div class="uc-arrow">
-          <div class="uc-arrow-line" style="background:${uc.outColor};"></div>
-          <div class="uc-arrow-tip" style="border-top:7px solid ${uc.outColor};border-left:5px solid transparent;border-right:5px solid transparent;"></div>
+          <div style="background:${uc.outColor};height:12px;width:2px;opacity:.75;"></div>
+          <div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.outColor};opacity:.75;"></div>
         </div>
         <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;">
           <svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg>
