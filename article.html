@@ -8,33 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ══ TOKENS (identiques blog.html) ══ */
-:root{
-  --orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;
-  --blue:#2563EB;--blue-pale:#EFF6FF;--purple:#8B5CF6;--purple-pale:#F5F3FF;
-  --green:#16A34A;--green-pale:#F0FDF4;--cyan:#0891B2;--cyan-pale:rgba(6,182,212,.08);
-  --font:'Inter',sans-serif;--r-xs:4px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:22px;--r-pill:100px;
-  --tr:.16s ease;--hh:64px;
-}
-:root,[data-theme="light"]{
-  --bg:#F5F4F0;--card:#FFFFFF;--section:#EEEDEA;
-  --t9:#111827;--t7:#374151;--t5:#6B7280;--t4:#9CA3AF;
-  --border:#E5E3DE;--border-s:#D1CFCA;
-  --sh-sm:0 1px 3px rgba(0,0,0,.07);--sh:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 14px 44px rgba(0,0,0,.11);
-}
-[data-theme="dark"]{
-  --bg:#0C1221;--card:#162032;--section:#0A0E1A;
-  --t9:#F9FAFB;--t7:#D1D5DB;--t5:#9CA3AF;--t4:#4B5563;
-  --border:#1F2D3D;--border-s:#2D3F52;
-  --sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--sh-lg:0 12px 40px rgba(0,0,0,.4);
-  --orange-pale:rgba(249,115,22,.10);--orange-border:rgba(249,115,22,.22);
-  --blue-pale:rgba(37,99,235,.10);--purple-pale:rgba(139,92,246,.10);--green-pale:rgba(22,163,74,.10);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;transition:background .25s,color .25s;}
+/* tokens fournis par header.html — on ne redéfinit que ce qui est spécifique à la page */
+:root{--cyan:#0891B2;--cyan-pale:rgba(6,182,212,.08);--r-xl:22px;}
 a{text-decoration:none;color:inherit;}
-.wrap{max-width:1060px;margin:0 auto;padding:0 32px;}
 
 /* ══ ARTICLE HERO ══ */
 .art-hero{
