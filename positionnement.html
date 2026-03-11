@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Positionnement — iD4Connect</title>
-<meta name="description" content="iD4Connect vs ETL, DWH, Data Lake, ESB, BI — une architecture pensée différemment.">
+<title>Positionnement · iD4Connect</title>
+<meta name="description" content="iD4Connect vs ETL, DWH, Data Lake, ESB, BI, SIEM. Une architecture pensée différemment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -27,7 +27,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .hero-text h1 .o{color:var(--orange);}
 .hero-text p{font-size:15px;color:var(--t5);line-height:1.75;max-width:540px;margin:0 auto;}
 
-/* BLOC 1 — COMPARATIF */
+/* BLOC 1 - COMPARATIF */
 #comparatif{padding:0 0 96px;background:var(--bg);}
 .cmp-outer{max-width:1000px;margin:0 auto;padding:0 32px;}
 .cmp-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:40px;flex-wrap:wrap;}
@@ -75,15 +75,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .sp.g{background:var(--green-pale);color:var(--green);}
 .sp.o{background:var(--orange-pale);color:var(--orange);}
 
-/* BLOC 2 — COMPLÉMENTARITÉ */
+/* BLOC 2 - COMPLÉMENTARITÉ */
 #complementarite{padding:96px 0;background:var(--card);}
 .comp-head{text-align:center;margin-bottom:56px;}
 .comp-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;line-height:1.1;letter-spacing:-.5px;color:var(--t9);margin-bottom:12px;}
 .comp-head h2 .o{color:var(--orange);}
 .comp-head p{font-size:15px;color:var(--t5);max-width:560px;margin:0 auto;line-height:1.7;}
 .comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:28px;}
-
-/* Cards blanches avec bordures */
 .comp-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:box-shadow .2s,border-color .2s,transform .2s;}
 .comp-card:hover{border-color:var(--orange-border);box-shadow:0 8px 28px rgba(249,115,22,.1);transform:translateY(-3px);}
 .comp-card-top{padding:20px 18px 0;}
@@ -108,7 +106,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .comp-banner p{font-size:14px;color:var(--t5);line-height:1.6;}
 .comp-banner strong{color:var(--t9);}
 
-/* BLOC 3 — RÉSULTATS */
+/* BLOC 3 - RÉSULTATS */
 #resultats{padding:96px 0;background:var(--bg);}
 .res-head{text-align:center;margin-bottom:56px;}
 .res-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;line-height:1.1;letter-spacing:-.5px;color:var(--t9);margin-bottom:10px;}
@@ -154,12 +152,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
     <div class="hero-text">
       <div class="pill">Positionnement</div>
       <h1>Une architecture<br>pensée différemment.<br><span class="o">Pas un outil de plus.</span></h1>
-      <p>Comparez iD4Connect aux architectures que vous connaissez déjà — et découvrez ce que ça change concrètement pour votre SI.</p>
+      <p>Comparez iD4Connect aux architectures que vous connaissez déjà, et découvrez ce que ça change concrètement pour votre SI.</p>
     </div>
   </div>
 </section>
 
-<!-- BLOC 1 — COMPARATIF -->
+<!-- BLOC 1 - COMPARATIF -->
 <section id="comparatif">
   <div class="cmp-outer">
     <div class="cmp-tabs">
@@ -183,6 +181,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/><path d="M2 9L6 6l4 1 4-4"/></svg>
         Outils BI
       </button>
+      <button class="cmp-tab" data-cat="siem">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/><path d="M5.5 8l2 2 3-3"/></svg>
+        SIEM / Cyber
+      </button>
     </div>
 
     <div id="cmp-panel"></div>
@@ -197,7 +199,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
-<!-- BLOC 2 — COMPLÉMENTARITÉ -->
+<!-- BLOC 2 - COMPLÉMENTARITÉ -->
 <section id="complementarite" class="reveal">
   <div class="wrap">
     <div class="comp-head">
@@ -312,7 +314,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </section>
 
-<!-- BLOC 3 — CE QUE ÇA CHANGE -->
+<!-- BLOC 3 - CE QUE ÇA CHANGE -->
 <section id="resultats" class="reveal">
   <div class="wrap">
     <div class="res-head">
@@ -325,12 +327,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <div class="res-card green reveal">
         <div class="res-metric">5×</div>
         <div class="res-label">moins cher</div>
-        <div class="res-sub">que les architectures ETL / DWH traditionnelles, coût total d'exploitation inclus</div>
+        <div class="res-sub">que les architectures data traditionnelles, coût total d'exploitation inclus</div>
       </div>
       <div class="res-card cyan reveal">
         <div class="res-metric">0</div>
         <div class="res-label">donnée stockée</div>
-        <div class="res-sub">zéro risque de fuite, conformité RGPD native — pas à certifier après coup</div>
+        <div class="res-sub">zéro risque de fuite, conformité native, pas à certifier après coup</div>
       </div>
       <div class="res-card orange reveal">
         <div class="res-metric">200+</div>
@@ -340,7 +342,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <div class="res-card purple reveal">
         <div class="res-metric">J+1</div>
         <div class="res-label">time-to-value</div>
-        <div class="res-sub">premiers insights en jours, pas en mois — déploiement progressif sans migration</div>
+        <div class="res-sub">premiers insights en jours, pas en mois, déploiement progressif sans migration</div>
       </div>
     </div>
 
@@ -348,7 +350,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <div class="strip">
         <div class="sp r">✕ Aucun stockage intermédiaire</div>
         <div class="sp g">✓ Souveraineté des données</div>
-        <div class="sp o">✓ Conformité RGPD by design</div>
+        <div class="sp o">✓ Conformité by design</div>
       </div>
     </div>
   </div>
@@ -359,7 +361,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   <div class="pos-cta-inner">
     <div class="pill">Passez à l'action</div>
     <h2>Prêt à voir iD4Connect<br>dans <span class="o">votre contexte</span> ?</h2>
-    <p>Nous vous montrons en 30 minutes comment iD4Connect s'insère dans votre infrastructure existante — sans migration, sans risque.</p>
+    <p>Nous vous montrons en 30 minutes comment iD4Connect s'insère dans votre infrastructure existante, sans migration, sans risque.</p>
     <div class="cta-btns">
       <a href="contact.html" class="btn-primary">Demander une démo →</a>
       <a href="architecture.html" class="btn-secondary">Voir l'architecture</a>
@@ -374,18 +376,18 @@ const t0 = localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme
 document.documentElement.setAttribute('data-theme',t0);
 document.body.setAttribute('data-theme',t0);
 
-/* SVG icons par catégorie */
 const CAT_ICONS = {
   etl: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h4v12H3zM10 3h4v18h-4zM18 9h3v9h-3z"/></svg>`,
   dwh: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="8" ry="2.5"/><path d="M4 5v5c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5V5"/><path d="M4 10v5c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-5"/><path d="M4 15v4c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-4"/></svg>`,
   lake: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 16c2-3 4-4.5 6-4s5 2.5 6 1 3-4 6-3M2 20c2-3 4-4.5 6-4s5 2.5 6 1 3-4 6-3M12 4v8M9 7l3-3 3 3"/></svg>`,
   esb: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="17" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="4" width="6" height="6" rx="1.5"/><rect x="9" y="14" width="6" height="6" rx="1.5"/><path d="M7 12h2M15 12h2M12 10V7M12 14v3"/></svg>`,
   bi:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="13" width="4" height="8" rx=".5"/><rect x="10" y="8" width="4" height="13" rx=".5"/><rect x="17" y="3" width="4" height="18" rx=".5"/><path d="M3 13L9 9l5 2 7-6"/></svg>`,
+  siem:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>`,
 };
 
 const CATS = {
   etl:{
-    label:'ETL classique', tag:'Copie, transforme, charge — en batch',
+    label:'ETL classique', tag:'Copie, transforme, charge, en batch',
     them:[
       {type:'bad',   text:'Données copiées et déplacées à chaque traitement'},
       {type:'bad',   text:'Traitement en batch, latence élevée'},
@@ -398,7 +400,7 @@ const CATS = {
       {type:'good',  text:'Aucune zone intermédiaire requise'},
       {type:'good',  text:'Configuration métier visuelle, no-code'},
     ],
-    verdict:'iD4Connect remplace l\'ETL là où la latence et le stockage coûtent cher.',
+    verdict:'iD4Connect traite en transit là où le batch et le stockage coûtent cher.',
   },
   dwh:{
     label:'Data Warehouse', tag:'Centralise tout pour analyser ensuite',
@@ -421,13 +423,13 @@ const CATS = {
     them:[
       {type:'bad',   text:'Accumulation de données brutes non qualifiées'},
       {type:'bad',   text:'Coût de stockage croissant, data swamp garanti'},
-      {type:'bad',   text:'Gouvernance et conformité RGPD complexes'},
+      {type:'bad',   text:'Gouvernance et conformité complexes'},
       {type:'bad',   text:'Valeur métier tardive, pipeline long'},
     ],
     us:[
       {type:'good',  text:'Traitement à la volée, sans accumulation'},
       {type:'good',  text:'Zéro coût de stockage intermédiaire'},
-      {type:'good',  text:'Conformité RGPD by design, à chaque flux'},
+      {type:'good',  text:'Conformité by design, à chaque flux'},
       {type:'good',  text:'Valeur métier immédiate dès le premier flux'},
     ],
     verdict:'Fini le swamp. Les données sont qualifiées avant même d\'atteindre leur destination.',
@@ -451,7 +453,7 @@ const CATS = {
   bi:{
     label:'Outils BI', tag:'Visualise des données déjà préparées',
     them:[
-      {type:'bad',   text:'Dépend d\'un DWH ou d\'un ETL en amont'},
+      {type:'bad',   text:'Dépend d\'un DWH ou d\'un pipeline en amont'},
       {type:'bad',   text:'Données en batch, tableaux de bord figés'},
       {type:'bad',   text:'Préparation data = projet à part entière'},
       {type:'bad',   text:'Silos analytiques par outil'},
@@ -462,14 +464,29 @@ const CATS = {
       {type:'good',  text:'Données propres et qualifiées en amont, automatiquement'},
       {type:'good',  text:'Couche data unifiée pour tous vos outils BI'},
     ],
-    verdict:'iD4Connect est la couche data que votre BI attendait — sans pipeline à maintenir.',
+    verdict:'iD4Connect est la couche data que votre BI attendait, sans pipeline à maintenir.',
+  },
+  siem:{
+    label:'SIEM / Stack Cyber', tag:'Détecte les menaces, protège le périmètre',
+    them:[
+      {type:'neutral', text:'Protection périmètre et détection comportementale'},
+      {type:'bad',     text:'Logs bruts sans contexte métier sur les alertes'},
+      {type:'bad',     text:'Assets non couverts : IoT, imprimantes, caméras'},
+      {type:'bad',     text:'Corrélation limitée aux événements de sécurité'},
+    ],
+    us:[
+      {type:'good',  text:'Enrichissement contextuel métier sur chaque alerte'},
+      {type:'good',  text:'Couverture des assets non EDR (IoT, OT, périphériques)'},
+      {type:'good',  text:'Corrélation cross-sources en transit, temps réel'},
+      {type:'good',  text:'Architecture stateless = zéro surface d\'attaque centralisée'},
+    ],
+    verdict:'Votre stack cyber protège le périmètre. iD4Connect gouverne ce qui circule et élimine les angles morts.',
   },
 };
 
 const SVG_CHECK = `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg>`;
 const SVG_CROSS = `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg>`;
 const SVG_ARR   = `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>`;
-const SVG_BULB  = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2a4 4 0 0 1 2.5 7.1V11a.5.5 0 0 1-.5.5h-4A.5.5 0 0 1 5.5 11V9.1A4 4 0 0 1 8 2z"/><path d="M6 13h4M6.5 14.5h3"/></svg>`;
 
 function iconSvg(type){
   if(type==='bad') return SVG_CROSS;
