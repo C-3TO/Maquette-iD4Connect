@@ -30,25 +30,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 /* Zone icône gauche */
 .hero-visual{
-  background:var(--bg);
-  border:1.5px solid var(--border);
-  border-radius:var(--r-xl);
-  padding:48px 32px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;
-  position:relative;overflow:hidden;
-  min-height:360px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  min-height:320px;
 }
 .hero-visual::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 80% at 50% 40%, rgba(249,115,22,.06) 0%, transparent 70%);
+  content:'';position:absolute;
+  width:240px;height:240px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 70%);
   pointer-events:none;
 }
 
-/* Grand bouclier SVG animé */
+/* Bouclier SVG */
 .hero-shield{
-  width:120px;height:120px;
-  margin-bottom:28px;
+  width:160px;height:160px;
   color:var(--orange);
   position:relative;z-index:1;
   animation:shieldFloat 3s ease-in-out infinite alternate;
@@ -157,17 +153,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
       <!-- GAUCHE : grand visuel -->
       <div class="hero-visual">
-        <svg class="hero-shield" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M60 8L16 28v28c0 26 18 48 44 56 26-8 44-30 44-56V28L60 8z" stroke-width="3" opacity=".15" fill="currentColor"/>
-          <path d="M60 8L16 28v28c0 26 18 48 44 56 26-8 44-30 44-56V28L60 8z"/>
-          <path d="M44 60l10 10 22-22" stroke-width="4"/>
-          <circle cx="60" cy="52" r="24" stroke-dasharray="4 4" opacity=".2"/>
+        <svg class="hero-shield" viewBox="0 0 100 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M50 4L8 24v30c0 28 18 52 42 62 24-10 42-34 42-62V24L50 4z" stroke-width="2"/>
+          <circle cx="50" cy="52" r="8" stroke-width="2"/>
+          <line x1="50" y1="60" x2="50" y2="72" stroke-width="2"/>
         </svg>
-        <div class="hero-badges">
-          <span class="hb red">✕ Zéro stockage</span>
-          <span class="hb green">✓ Stateless</span>
-          <span class="hb orange">✓ Souverain</span>
-        </div>
       </div>
 
       <!-- DROITE : texte -->
@@ -178,23 +168,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         </div>
         <h1>Vos logs transitent déjà.<br><span class="o">Faites-les parler.</span></h1>
         <p>iD4Connect enrichit votre stack cyber sans rien remplacer. Données traitées en transit, jamais stockées, zéro surface d'attaque supplémentaire.</p>
-        <div class="hero-stats">
-          <div class="hstat">
-            <div class="hstat-val">0</div>
-            <div class="hstat-lbl">donnée stockée</div>
-            <div class="hstat-sub">architecture stateless</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-val">J+1</div>
-            <div class="hstat-lbl">déploiement</div>
-            <div class="hstat-sub">sans migration</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-val">100%</div>
-            <div class="hstat-lbl">souverain</div>
-            <div class="hstat-sub">on-premise possible</div>
-          </div>
-        </div>
         <div class="hero-ctas">
           <a href="contact.html" class="btn-p">Demander une démo →</a>
           <a href="positionnement.html" class="btn-g">Voir le positionnement</a>
