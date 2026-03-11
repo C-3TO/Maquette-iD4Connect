@@ -377,7 +377,13 @@ DataCell iD4C  :  Source → [Transform in transit] → Destination</div>
 <div id="ftr-ph"></div>
 
 <script>
-async function loadComp(id, file) {
+/* Applique le thème AVANT le fetch pour éviter le flash sombre */
+(function(){
+  const t = localStorage.getItem('id4-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+})();
+
+async function loadComp(id, file, runInit) {
   try {
     const r = await fetch(file);
     const html = await r.text();
@@ -388,12 +394,12 @@ async function loadComp(id, file) {
       ns.textContent = s.textContent;
       document.head.appendChild(ns);
     });
-    if (typeof initHeader === 'function') initHeader();
+    if (runInit && typeof initHeader === 'function') initHeader();
   } catch(e) {}
 }
 window.addEventListener('load', async () => {
-  await loadComp('hdr-ph', 'header.html');
-  await loadComp('ftr-ph', 'footer.html');
+  await loadComp('hdr-ph', 'header.html', true);
+  await loadComp('ftr-ph', 'footer.html', false);
   document.addEventListener('themeChange', e => {
     document.documentElement.setAttribute('data-theme', e.detail);
     document.body.setAttribute('data-theme', e.detail);
