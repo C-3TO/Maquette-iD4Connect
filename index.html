@@ -30,7 +30,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
 
 /* ═══ HERO ═══ */
-/* ── Lumière ambiante globale ── */
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
@@ -53,7 +52,6 @@ body::before{
 #hero{padding:96px 0 88px;background:transparent;position:relative;overflow:hidden;}
 #hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,var(--bg));pointer-events:none;}
 
-/* Halo orange derrière la flow-card */
 #hero .hero-inner > div:last-child{position:relative;}
 #hero .hero-inner > div:last-child::before{
   content:'';position:absolute;inset:-60px;
@@ -85,7 +83,6 @@ h1.hero-h1 .line{display:block;}
 .f-node.out{background:var(--green-pale);color:var(--green);border:1px solid var(--green-border);}
 .f-conn{flex:1;height:2px;position:relative;overflow:hidden;background:var(--border);margin:0 4px;}
 
-/* Flux BIDIRECTIONNEL tout orange */
 .f-conn::after{
   content:'';position:absolute;top:-1px;width:55%;height:4px;border-radius:2px;
   background:linear-gradient(90deg,transparent,var(--orange),transparent);
@@ -109,21 +106,12 @@ h1.hero-h1 .line{display:block;}
 @media(max-width:1020px){.hero-inner{grid-template-columns:1fr;gap:44px;}.flow-card{max-width:480px;}}
 @media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}.hero-ctas a{justify-content:center;}}
 
-/* ═══════════════════════════════════════════
-   BLOC 1 — SOUVERAINETÉ — LAYOUT ASYMÉTRIQUE
-═══════════════════════════════════════════ */
 #sov{padding:96px 0;background:var(--card);}
-
-/* Layout principal — hauteurs égales */
 .sov-layout{display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:stretch;}
-
-/* ── COL GAUCHE ── */
 .sov-left{display:flex;flex-direction:column;}
 .sov-left .pill{margin-bottom:14px;align-self:flex-start;}
 .sov-left h2{font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.12;margin-bottom:10px;color:var(--t9);}
 .sov-left .sov-intro{font-size:14px;color:var(--t5);line-height:1.7;margin-bottom:20px;max-width:480px;}
-
-/* Liste d'arguments — flex:1 pour remplir la hauteur */
 .sov-args{display:flex;flex-direction:column;gap:10px;flex:1;}
 .sov-arg{
   display:flex;align-items:flex-start;gap:16px;
@@ -159,10 +147,7 @@ h1.hero-h1 .line{display:block;}
 .sov-arg-stat .n{display:block;font-size:1.5rem;font-weight:900;letter-spacing:-1px;line-height:1;color:var(--orange);}
 .sov-arg-stat .l{display:block;font-size:10px;font-weight:600;color:var(--t4);line-height:1.4;margin-top:3px;}
 
-/* ── COL DROITE — même hauteur que gauche ── */
 .sov-right{display:flex;flex-direction:column;gap:8px;}
-
-/* Alerte juridique — prend tout l'espace disponible */
 .sov-alert{
   background:var(--red-pale);border:1px solid var(--red-border);
   border-radius:var(--r);padding:16px;
@@ -171,11 +156,8 @@ h1.hero-h1 .line{display:block;}
 .sov-alert-head{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
 .sov-alert-head svg{width:13px;height:13px;color:var(--red);flex-shrink:0;}
 .sov-alert-head span{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--red);}
-
 .sov-alert-body{font-size:12.5px;color:var(--t7);line-height:1.65;margin-bottom:14px;}
 .sov-alert-body strong{color:var(--red);}
-
-/* Sources cliquables */
 .sov-sources{display:flex;flex-direction:column;gap:5px;flex:1;justify-content:space-between;}
 .sov-src{
   display:flex;align-items:center;gap:10px;
@@ -195,8 +177,6 @@ h1.hero-h1 .line{display:block;}
 .sov-src-ref{display:block;font-size:11px;color:rgba(220,38,38,.6);line-height:1.35;margin-top:2px;}
 .sov-src-arrow{color:rgba(220,38,38,.4);flex-shrink:0;}
 .sov-src-arrow svg{width:10px;height:10px;}
-
-/* Bandeau conformité */
 .sov-comply{
   padding:12px 14px;background:var(--bg);border:1px solid var(--border);
   border-radius:var(--r);
@@ -208,7 +188,6 @@ h1.hero-h1 .line{display:block;}
 @media(max-width:960px){.sov-layout{grid-template-columns:1fr;gap:40px;}.sov-right{position:static;}}
 @media(max-width:600px){.sov-arg{gap:12px;}.sov-arg-stat{width:60px;}}
 
-/* ═══ BLOC 2 — AGNOSTIQUE ═══ */
 #agnostic{padding:96px 0;background:var(--bg);}
 .center-head{text-align:center;margin-bottom:48px;}
 .center-head .sec-sub{margin:10px auto 0;max-width:520px;}
@@ -231,22 +210,16 @@ h1.hero-h1 .line{display:block;}
 .pv p{font-size:13px;color:var(--t5);line-height:1.6;}
 @media(max-width:760px){.tab-panel.active{grid-template-columns:1fr;}.panel-visual{min-height:120px;padding:24px;}}
 
-/* ═══ BLOC 3 — TEMPS RÉEL ═══ */
 #rt{padding:96px 0;background:var(--card);}
 .rt-head{text-align:center;margin-bottom:64px;}
 .rt-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.5px;line-height:1.12;color:var(--t9);margin-bottom:10px;}
 .rt-head h2 .o{color:var(--orange);}
 .rt-head p{font-size:15px;color:var(--t5);line-height:1.7;max-width:480px;margin:0 auto;}
-
-/* Deux lignes de comparaison */
 .rt-compare{display:flex;flex-direction:column;gap:12px;margin-bottom:40px;}
-
 .rt-row{display:grid;grid-template-columns:160px 1fr auto;align-items:center;gap:24px;padding:24px 28px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);}
 .rt-row.highlight{border-color:var(--orange-border);background:var(--orange-pale);}
-
 .rt-row-label{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--t4);}
 .rt-row.highlight .rt-row-label{color:var(--orange);}
-
 .rt-row-flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
 .rt-fbox{padding:5px 12px;border-radius:var(--r-sm);font-size:12px;font-weight:600;border:1px solid;}
 .rt-fbox.src{background:var(--blue-pale);border-color:rgba(37,99,235,.18);color:#2563EB;}
@@ -254,14 +227,11 @@ h1.hero-h1 .line{display:block;}
 .rt-fbox.ok{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);}
 .rt-fbox.neu{background:var(--section);border-color:var(--border);color:var(--t5);}
 .rt-farr{font-size:11px;color:var(--t4);}
-
 .rt-row-time{text-align:right;white-space:nowrap;}
 .rt-row-time .n{display:block;font-size:1.6rem;font-weight:900;letter-spacing:-1px;line-height:1;}
 .rt-row-time .n.bad{color:var(--red);}
 .rt-row-time .n.ok{color:var(--orange);}
 .rt-row-time .l{display:block;font-size:11px;color:var(--t4);margin-top:2px;}
-
-/* Message en bas */
 .rt-note{padding:20px 24px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;gap:16px;}
 .rt-note-ico{width:32px;height:32px;border-radius:var(--r-sm);background:var(--orange-pale);border:1px solid var(--orange-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .rt-note-ico svg{width:14px;height:14px;color:var(--orange);}
@@ -270,53 +240,38 @@ h1.hero-h1 .line{display:block;}
 
 @media(max-width:700px){.rt-row{grid-template-columns:1fr;gap:12px;}.rt-row-time{text-align:left;}}
 
-/* ═══ BLOC 4 — COMPARATIF ARCHI ═══ */
 #archi{padding:96px 0;background:var(--bg);}
-
-/* Tableau comparatif */
 .ac-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh-sm);}
 .ac-table thead tr th{padding:14px 20px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;background:var(--section);border-bottom:1px solid var(--border);}
 .ac-table thead th:first-child{text-align:left;color:var(--t5);width:36%;}
 .ac-table thead th.col-classic{text-align:center;color:var(--t5);}
 .ac-table thead th.col-id4c{text-align:center;color:var(--orange);background:var(--orange-pale);border-left:1px solid var(--orange-border);}
-
 .ac-table tbody tr td{padding:16px 20px;font-size:13.5px;border-bottom:1px solid var(--border);vertical-align:middle;}
 .ac-table tbody tr:last-child td{border-bottom:none;}
 .ac-table tbody tr:hover td{background:var(--section);}
 .ac-table tbody tr:hover td.col-id4c{background:var(--orange-pale);}
-
 .ac-table td:first-child{font-weight:600;color:var(--t7);background:var(--card);}
 .ac-table td.col-classic{text-align:center;color:var(--t5);background:var(--bg);}
 .ac-table td.col-id4c{text-align:center;background:var(--orange-pale);border-left:1px solid var(--orange-border);}
-
-/* Valeurs dans le tableau */
 .ac-val{display:inline-flex;align-items:center;gap:6px;font-size:13px;}
 .ac-val.bad{color:var(--red);}
 .ac-val.ok{color:var(--orange);font-weight:700;}
 .ac-val.neu{color:var(--t5);}
 .ac-ico{width:14px;height:14px;flex-shrink:0;}
-
-/* Note bas de tableau */
 .ac-note{margin-top:12px;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);font-size:13px;color:var(--t5);display:flex;align-items:center;gap:10px;line-height:1.6;}
 .ac-note svg{flex-shrink:0;color:var(--t4);}
 .ac-note strong{color:var(--t9);}
 
 @media(max-width:680px){.ac-table thead th:first-child,.ac-table tbody td:first-child{display:none;}}
 
-/* ═══ BLOC 5 — COMPLÉMENTARITÉ ═══ */
 #dt{padding:96px 0;background:var(--card);}
 .dt-head{text-align:center;margin-bottom:56px;}
 .dt-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);margin-bottom:10px;}
 .dt-head h2 .o{color:var(--orange);}
 .dt-head p{font-size:15px;color:var(--t5);max-width:540px;margin:0 auto;line-height:1.7;}
-
-/* Grille 4 cards */
 .dt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;}
-
 .dt-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);}
 .dt-card:hover{border-color:var(--orange-border);box-shadow:0 8px 28px rgba(249,115,22,.09);transform:translateY(-2px);}
-
-/* Partie haute — l'outil existant */
 .dt-card-top{padding:20px 18px 16px;}
 .dt-card-meta{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--t4);margin-bottom:14px;}
 .dt-tool{display:flex;align-items:center;gap:10px;margin-bottom:0;}
@@ -324,25 +279,17 @@ h1.hero-h1 .line{display:block;}
 .dt-tool-ico svg{width:16px;height:16px;color:var(--t5);}
 .dt-tool-name{font-size:14px;font-weight:800;color:var(--t9);line-height:1.2;}
 .dt-tool-sub{font-size:11px;color:var(--t4);margin-top:2px;line-height:1.4;}
-
-/* Bande "+" */
 .dt-plus{display:flex;align-items:center;gap:8px;padding:9px 18px;background:var(--orange-pale);border-top:1px solid var(--orange-border);border-bottom:1px solid var(--orange-border);}
 .dt-plus svg{width:11px;height:11px;color:var(--orange);}
 .dt-plus-lbl{font-size:11.5px;font-weight:700;color:var(--orange);}
-
-/* Résultat */
 .dt-result{padding:14px 18px 20px;flex:1;}
 .dt-result-lbl{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:6px;color:var(--t4);}
 .dt-result-title{font-size:15px;font-weight:800;color:var(--t9);margin-bottom:4px;line-height:1.3;}
 .dt-result-sub{font-size:12px;color:var(--t5);line-height:1.55;}
-
-/* ETL card — cas différent : remplacement */
 .dt-card.replaces .dt-plus{background:var(--red-pale);border-color:var(--red-border);}
 .dt-card.replaces .dt-plus svg{color:var(--red);}
 .dt-card.replaces .dt-plus-lbl{color:var(--red);}
 .dt-card.replaces:hover{border-color:var(--red-border);}
-
-/* Note bas */
 .dt-note{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 18px;font-size:13px;color:var(--t5);display:flex;align-items:center;gap:10px;line-height:1.6;}
 .dt-note svg{flex-shrink:0;color:var(--t4);width:14px;height:14px;}
 .dt-note strong{color:var(--t9);}
@@ -350,7 +297,6 @@ h1.hero-h1 .line{display:block;}
 @media(max-width:900px){.dt-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:540px){.dt-grid{grid-template-columns:1fr;}}
 
-/* ═══ BLOC 6 — PARTENAIRES ═══ */
 #partners{padding:80px 0;background:var(--bg);}
 .pt-head{text-align:center;margin-bottom:52px;}
 .pt-head h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;letter-spacing:-.5px;color:var(--t9);margin-bottom:8px;}
@@ -365,7 +311,6 @@ h1.hero-h1 .line{display:block;}
 .pt-name{font-size:14px;font-weight:700;color:var(--t9);}
 .pt-tag{font-size:11px;color:var(--t4);margin-top:1px;}
 
-/* ═══ CTA FINAL ═══ */
 #cta{padding:88px 0;background:var(--orange);text-align:center;position:relative;overflow:hidden;}
 #cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px;}
 #cta .wrap{position:relative;z-index:1;}
@@ -377,7 +322,6 @@ h1.hero-h1 .line{display:block;}
 .btn-wo{display:inline-flex;align-items:center;gap:6px;padding:12px 26px;background:transparent;color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:all var(--tr);}
 .btn-wo:hover{border-color:white;background:rgba(255,255,255,.1);}
 
-/* ═══ REVEAL BI-DIRECTIONNEL ═══ */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal.hidden{opacity:0;transform:translateY(-12px);}
@@ -386,7 +330,6 @@ h1.hero-h1 .line{display:block;}
 <body>
 <div id="hdr-ph"></div>
 
-<!-- ═══ HERO ═══ -->
 <section id="hero">
   <div class="wrap">
     <div class="hero-inner">
@@ -424,18 +367,14 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
-<!-- ═══ BLOC 1 — SOUVERAINETÉ ═══ -->
 <section id="sov" class="reveal">
   <div class="wrap">
     <div class="sov-layout">
-
-      <!-- COL GAUCHE -->
       <div class="sov-left">
         <div class="pill">Souveraineté & Gouvernance</div>
         <h2>Vos données ne quittent<br>jamais votre infrastructure.</h2>
         <p class="sov-intro">Dans un monde soumis aux lois d'accès extraterritorial, l'hébergement chez des acteurs soumis au droit américain crée un risque juridique réel, même si leurs serveurs sont physiquement en Europe.</p>
         <div class="sov-args">
-
           <div class="sov-arg">
             <div class="sov-arg-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -450,7 +389,6 @@ h1.hero-h1 .line{display:block;}
               <span class="l">octet stocké hors de votre SI</span>
             </div>
           </div>
-
           <div class="sov-arg">
             <div class="sov-arg-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
@@ -462,10 +400,9 @@ h1.hero-h1 .line{display:block;}
             </div>
             <div class="sov-arg-stat">
               <span class="n">5×</span>
-              <span class="l">moins cher qu'un ETL classique</span>
+              <span class="l">moins cher qu'une plateforme data classique</span>
             </div>
           </div>
-
           <div class="sov-arg">
             <div class="sov-arg-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -480,13 +417,9 @@ h1.hero-h1 .line{display:block;}
               <span class="l">maturité industrielle maximale</span>
             </div>
           </div>
-
         </div>
       </div>
-
-      <!-- COL DROITE : alerte sticky -->
       <div class="sov-right">
-
         <div class="sov-alert">
           <div class="sov-alert-head">
             <svg viewBox="0 0 16 16" fill="none"><path d="M8 2L1.5 13.5h13L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="8" y1="7" x2="8" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="12" r=".8" fill="currentColor"/></svg>
@@ -496,7 +429,6 @@ h1.hero-h1 .line{display:block;}
             Les données hébergées chez des acteurs soumis au droit américain sont <strong>juridiquement accessibles par les autorités américaines sans notification préalable</strong>, même si les serveurs sont physiquement en Europe.
           </p>
           <div class="sov-sources">
-
             <a class="sov-src" href="https://www.justice.gov/d9/pages/attachments/2019/04/09/cloud_act.pdf" target="_blank" rel="noopener">
               <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 1h6l4 4v10H4V1z"/><polyline points="10 1 10 5 14 5"/></svg></div>
               <div class="sov-src-text">
@@ -505,7 +437,6 @@ h1.hero-h1 .line{display:block;}
               </div>
               <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
             </a>
-
             <a class="sov-src" href="https://www.law.cornell.edu/uscode/text/50/1881a" target="_blank" rel="noopener">
               <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="1" width="12" height="14" rx="1"/><line x1="5" y1="6" x2="11" y2="6"/><line x1="5" y1="9" x2="9" y2="9"/></svg></div>
               <div class="sov-src-text">
@@ -514,7 +445,6 @@ h1.hero-h1 .line{display:block;}
               </div>
               <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
             </a>
-
             <a class="sov-src" href="https://curia.europa.eu/juris/document/document.jsf?text=&docid=228677&pageIndex=0&doclang=FR" target="_blank" rel="noopener">
               <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><line x1="5" y1="8" x2="11" y2="8"/><line x1="8" y1="5" x2="8" y2="11"/></svg></div>
               <div class="sov-src-text">
@@ -523,7 +453,6 @@ h1.hero-h1 .line{display:block;}
               </div>
               <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
             </a>
-
             <a class="sov-src" href="https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2025/12/cloud-act-gutachten.html" target="_blank" rel="noopener">
               <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5z"/></svg></div>
               <div class="sov-src-text">
@@ -532,10 +461,8 @@ h1.hero-h1 .line{display:block;}
               </div>
               <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
             </a>
-
           </div>
         </div>
-
         <div class="sov-comply">
           <span class="sov-comply-lbl">Conformité couverte</span>
           <div class="sov-comply-tags">
@@ -546,13 +473,11 @@ h1.hero-h1 .line{display:block;}
             <span class="ctag">✓ Sécurité de l'information</span>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ BLOC 2 — AGNOSTIQUE ═══ -->
 <section id="agnostic" class="reveal">
   <div class="wrap">
     <div class="center-head">
@@ -595,18 +520,14 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
-<!-- ═══ BLOC 3 — TEMPS RÉEL ═══ -->
 <section id="rt" class="reveal">
   <div class="wrap">
-
     <div class="rt-head">
       <div class="pill">Temps Réel</div>
       <h2>Pas de batch. Pas de latence.<br><span class="o">L'insight pendant le transit.</span></h2>
       <p>Deux architectures, deux résultats. La différence tient à une seule décision de conception.</p>
     </div>
-
     <div class="rt-compare">
-
       <div class="rt-row">
         <span class="rt-row-label">Architecture classique</span>
         <div class="rt-row-flow">
@@ -621,7 +542,6 @@ h1.hero-h1 .line{display:block;}
           <span class="l">latence</span>
         </div>
       </div>
-
       <div class="rt-row highlight">
         <span class="rt-row-label">iD4Connect</span>
         <div class="rt-row-flow">
@@ -634,34 +554,28 @@ h1.hero-h1 .line{display:block;}
           <span class="l">latence</span>
         </div>
       </div>
-
     </div>
-
     <div class="rt-note">
       <div class="rt-note-ico">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5 6.5 5z"/></svg>
       </div>
       <p class="rt-note-text"><strong>Ce n'est pas de l'optimisation, c'est une rupture architecturale.</strong> iD4Connect élimine ETL, ODS et DataWarehouse. La donnée transite, l'insight arrive. Zéro stockage intermédiaire, zéro latence accumulée.</p>
     </div>
-
   </div>
 </section>
 
-<!-- ═══ BLOC 4 — COMPARATIF ARCHI ═══ -->
 <section id="archi" class="reveal">
   <div class="wrap">
-
     <div class="center-head" style="margin-bottom:40px;">
       <div class="pill">Architecture Comparée</div>
       <h2 class="sec-title">Ce que iD4Connect élimine</h2>
       <p class="sec-sub" style="margin:10px auto 0;max-width:480px;">Moins d'étapes, moins de surface d'exposition, moins de coût. La simplicité n'est pas un compromis.</p>
     </div>
-
     <table class="ac-table">
       <thead>
         <tr>
           <th></th>
-          <th class="col-classic">Architecture ETL classique</th>
+          <th class="col-classic">Architecture de plateforme data</th>
           <th class="col-id4c">iD4Connect</th>
         </tr>
       </thead>
@@ -698,28 +612,21 @@ h1.hero-h1 .line{display:block;}
         </tr>
       </tbody>
     </table>
-
     <div class="ac-note">
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="7" x2="8" y2="11" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
       <span>iD4Connect <strong>coexiste avec votre infrastructure existante</strong>. Il n'impose pas de remplacement global, il élimine les goulots d'étranglement là où ils coûtent le plus.</span>
     </div>
-
   </div>
 </section>
 
-<!-- ═══ BLOC 5 — COMPLÉMENTARITÉ ═══ -->
 <section id="dt" class="reveal">
   <div class="wrap">
-
     <div class="dt-head">
       <div class="pill">Complémentarité</div>
       <h2>iD4Connect ne remplace pas vos outils.<br><span class="o">Il les rend meilleurs.</span></h2>
       <p>Vous avez déjà une infrastructure en place. iD4Connect s'y insère sans tout réarchitecturer, sans formation longue, sans migration de données.</p>
     </div>
-
     <div class="dt-grid">
-
-      <!-- BI -->
       <div class="dt-card reveal">
         <div class="dt-card-top">
           <div class="dt-card-meta">Vous avez</div>
@@ -743,8 +650,6 @@ h1.hero-h1 .line{display:block;}
           <div class="dt-result-sub">Dashboards live, sans DWH ni pipeline à maintenir en amont</div>
         </div>
       </div>
-
-      <!-- SIEM -->
       <div class="dt-card reveal">
         <div class="dt-card-top">
           <div class="dt-card-meta">Vous avez</div>
@@ -768,8 +673,6 @@ h1.hero-h1 .line{display:block;}
           <div class="dt-result-sub">Contexte métier sur chaque alerte, corrélation cross-sources en transit</div>
         </div>
       </div>
-
-      <!-- CRM / ERP -->
       <div class="dt-card reveal">
         <div class="dt-card-top">
           <div class="dt-card-meta">Vous avez</div>
@@ -793,8 +696,6 @@ h1.hero-h1 .line{display:block;}
           <div class="dt-result-sub">Croisement multi-sources instantané, sans duplication ni migration</div>
         </div>
       </div>
-
-      <!-- ETL -->
       <div class="dt-card reveal">
         <div class="dt-card-top">
           <div class="dt-card-meta">Vous avez</div>
@@ -818,18 +719,14 @@ h1.hero-h1 .line{display:block;}
           <div class="dt-result-sub">iD4Connect absorbe les flux temps réel, votre ETL garde les traitements batch complexes</div>
         </div>
       </div>
-
     </div>
-
     <div class="dt-note">
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="7" x2="8" y2="11" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
       <span><strong>Votre équipe garde ses outils.</strong> iD4Connect s'intègre en quelques jours, sans migration de données, sans formation longue, sans risque.</span>
     </div>
-
   </div>
 </section>
 
-<!-- ═══ BLOC 6 — PARTENAIRES ═══ -->
 <section id="partners" class="reveal">
   <div class="wrap">
     <div class="pt-head">
@@ -862,7 +759,6 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
-<!-- ═══ CTA FINAL ═══ -->
 <section id="cta">
   <div class="wrap">
     <h2>Prêt à reprendre le contrôle de vos données ?</h2>
