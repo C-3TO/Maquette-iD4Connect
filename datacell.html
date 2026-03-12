@@ -29,7 +29,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 /* ══ BLOC 1 - SCHEMA ══ */
 #schema{padding:0 0 96px;background:var(--bg);}
-.schema-wrap{max-width:1120px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 44px 400px 44px 1fr;align-items:center;gap:0;margin-bottom:28px;}
+.schema-wrap{max-width:1120px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 80px 380px 80px 1fr;align-items:center;gap:0;margin-bottom:28px;}
 
 .s-panel{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:18px;box-shadow:var(--sh-sm);}
 .s-panel.right{border-color:rgba(16,185,129,.3);box-shadow:0 2px 8px rgba(16,185,129,.08);}
@@ -55,30 +55,30 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 [data-theme="dark"] .dst-chip{color:var(--green-em);}
 
 /* ══ ANIMATED FLOW CONNECTORS ══ */
-.s-flow{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 2px;}
-.s-flow-lbl{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
+.s-flow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:0 4px;}
+.s-flow-lbl{font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;}
 .s-flow-lbl.in{color:var(--orange);}
 .s-flow-lbl.out{color:var(--green-em);}
-.s-flow-line{width:100%;height:3px;position:relative;overflow:hidden;border-radius:2px;}
-.s-flow-line.in{background:rgba(249,115,22,.15);}
-.s-flow-line.out{background:rgba(16,185,129,.15);}
+.s-flow-line{width:100%;height:4px;position:relative;overflow:hidden;border-radius:2px;}
+.s-flow-line.in{background:rgba(249,115,22,.12);}
+.s-flow-line.out{background:rgba(16,185,129,.12);}
 
 .s-flow-line::after{
-  content:'';position:absolute;top:-1px;width:55%;height:5px;border-radius:3px;
-  animation:dc-flow-fwd 2s ease-in-out infinite;
+  content:'';position:absolute;top:-1px;width:60%;height:6px;border-radius:3px;
+  animation:dc-flow-fwd 2.2s ease-in-out infinite;
 }
 .s-flow-line::before{
-  content:'';position:absolute;top:-1px;width:35%;height:5px;border-radius:3px;
-  animation:dc-flow-bwd 2s ease-in-out infinite;
-  animation-delay:1s;
+  content:'';position:absolute;top:-1px;width:40%;height:6px;border-radius:3px;
+  animation:dc-flow-bwd 2.2s ease-in-out infinite;
+  animation-delay:1.1s;
 }
 .s-flow-line.in::after{background:linear-gradient(90deg,transparent,var(--orange),transparent);}
 .s-flow-line.in::before{background:linear-gradient(270deg,transparent,rgba(249,115,22,.5),transparent);}
 .s-flow-line.out::after{background:linear-gradient(90deg,transparent,var(--green-em),transparent);}
 .s-flow-line.out::before{background:linear-gradient(270deg,transparent,rgba(16,185,129,.5),transparent);}
 
-@keyframes dc-flow-fwd{0%{left:-55%;opacity:0;}10%{opacity:1;}90%{opacity:1;}100%{left:100%;opacity:0;}}
-@keyframes dc-flow-bwd{0%{right:-35%;left:auto;opacity:0;}10%{opacity:.7;}90%{opacity:.7;}100%{right:100%;left:auto;opacity:0;}}
+@keyframes dc-flow-fwd{0%{left:-60%;opacity:0;}10%{opacity:1;}90%{opacity:1;}100%{left:100%;opacity:0;}}
+@keyframes dc-flow-bwd{0%{right:-40%;left:auto;opacity:0;}10%{opacity:.7;}90%{opacity:.7;}100%{right:100%;left:auto;opacity:0;}}
 
 /* ══ DATACELL CENTRAL ══ */
 .dc-card{background:var(--card);border:2px solid var(--orange);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);animation:glowPulse 3s ease-in-out infinite;}
@@ -121,8 +121,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .sbp.g{background:var(--green-pale);color:var(--green);}
 .schema-hint{text-align:center;font-size:11px;color:var(--t4);margin-top:10px;}
 
-@media(max-width:1020px){.schema-wrap{grid-template-columns:1fr;gap:0;}.s-flow{flex-direction:row;padding:6px 0;}.s-flow-line{width:60px;height:3px;}}
-@media(max-width:600px){.schema-wrap,.schema-bottom{padding:0 20px;}}
+@media(max-width:1020px){
+  .schema-wrap{grid-template-columns:1fr;gap:0;max-width:480px;}
+  .s-flow{flex-direction:row;padding:12px 0;gap:8px;}
+  .s-flow-line{width:80px;height:4px;}
+}
+@media(max-width:600px){.schema-wrap,.schema-bottom{padding:0 20px;}.s-flow-line{width:60px;}}
 
 /* ══ BLOC 2 - 5 PRINCIPES ══ */
 #principes{padding:96px 0;background:var(--card);}
