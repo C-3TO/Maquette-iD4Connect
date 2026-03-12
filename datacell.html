@@ -132,17 +132,23 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 /* ══ BLOC 2 - 5 PRINCIPES ══ */
 #principes{padding:96px 0;background:var(--card);}
-.pr-head{text-align:center;margin-bottom:52px;}
+.pr-head{text-align:center;margin-bottom:56px;}
 .pr-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
-.pr-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
-.pr-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 20px;text-align:center;transition:all .2s;}
-.pr-card:hover{border-color:var(--orange-border);transform:translateY(-3px);box-shadow:var(--sh);}
-.pr-ico{width:52px;height:52px;border-radius:var(--r);margin:0 auto 18px;display:flex;align-items:center;justify-content:center;}
-.pr-ico svg{width:24px;height:24px;}
-.pr-card h3{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:10px;}
-.pr-card p{font-size:13px;color:var(--t5);line-height:1.65;}
-@media(max-width:900px){.pr-grid{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:600px){.pr-grid{grid-template-columns:1fr 1fr;}.pr-grid .pr-card:last-child{grid-column:1/-1;}}
+.pr-head .sub{font-size:15px;color:var(--t5);margin-top:10px;line-height:1.7;}
+.pr-head .sub em{font-style:normal;color:var(--orange);font-weight:700;}
+.cap-list{display:flex;flex-direction:column;gap:0;}
+.cap-item{display:grid;grid-template-columns:64px 1fr;gap:0;border-bottom:1px solid var(--border);padding:32px 0;align-items:start;transition:all var(--tr);cursor:default;}
+.cap-item:last-child{border-bottom:none;}
+.cap-item:hover .cap-ico{border-color:var(--orange-border);background:var(--orange-pale);}
+.cap-item:hover .cap-ico svg{color:var(--orange);}
+.cap-num{font-size:11px;font-weight:800;color:var(--orange);opacity:.4;letter-spacing:1px;padding-top:2px;}
+.cap-right{padding-left:28px;}
+.cap-right h3{font-size:1.15rem;font-weight:800;color:var(--t9);margin-bottom:8px;letter-spacing:-.2px;}
+.cap-right h3 .o{color:var(--orange);}
+.cap-right p{font-size:14.5px;color:var(--t5);line-height:1.75;max-width:680px;}
+.cap-ico{width:48px;height:48px;border-radius:var(--r);background:var(--section);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all var(--tr);flex-shrink:0;}
+.cap-ico svg{width:22px;height:22px;color:var(--t5);transition:color var(--tr);}
+@media(max-width:600px){.cap-item{grid-template-columns:1fr;gap:16px;}.cap-right{padding-left:0;}}
 
 /* ══ BLOC 3 - CITATION ══ */
 #quote{padding:96px 0;background:var(--bg);}
@@ -166,7 +172,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-w:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15);}
 .btn-wo{display:inline-flex;align-items:center;gap:6px;padding:12px 26px;background:transparent;color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:all var(--tr);}
 .btn-wo:hover{border-color:white;background:rgba(255,255,255,.1);}
-@media(max-width:600px){.wrap,.schema-wrap,.schema-bottom{padding:0 20px;}.quote-inner{padding:36px 24px;}.pr-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.wrap,.schema-wrap,.schema-bottom{padding:0 20px;}.quote-inner{padding:36px 24px;}}
 </style>
 </head>
 <body>
@@ -269,32 +275,63 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
     <div class="pr-head">
       <div class="pill">Architecture</div>
       <h2>Les 5 principes fondamentaux</h2>
+      <p class="sub">Chaque DataCell repose sur ces principes. Ils ne sont pas des options, ce sont des <em>décisions de conception</em>.</p>
     </div>
-    <div class="pr-grid">
-      <div class="pr-card">
-        <div class="pr-ico" style="background:#FEF2F2;"><svg viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-        <h3>Autonomie</h3>
-        <p>Chaque DataCell fonctionne de manière indépendante, comme une cellule vivante</p>
+
+    <div class="cap-list">
+      <div class="cap-item">
+        <div>
+          <div class="cap-num">01</div>
+          <div class="cap-ico" style="margin-top:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        </div>
+        <div class="cap-right">
+          <h3><span class="o">Autonomie</span></h3>
+          <p>Chaque DataCell fonctionne de manière indépendante. Elle porte ses propres sources, ses propres règles et ses propres destinations, comme une cellule vivante.</p>
+        </div>
       </div>
-      <div class="pr-card">
-        <div class="pr-ico" style="background:#EFF6FF;"><svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="10" height="10" rx="1"/><rect x="10" y="10" width="4" height="4"/></svg></div>
-        <h3>Imbrication</h3>
-        <p>Une DataCell peut contenir d'autres DataCells (architecture fractale)</p>
+
+      <div class="cap-item">
+        <div>
+          <div class="cap-num">02</div>
+          <div class="cap-ico" style="margin-top:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="10" height="10" rx="1"/><rect x="10" y="10" width="4" height="4"/></svg></div>
+        </div>
+        <div class="cap-right">
+          <h3><span class="o">Imbrication</span></h3>
+          <p>Une DataCell peut contenir d'autres DataCells. Cette architecture fractale permet de composer des traitements complexes à partir de briques simples.</p>
+        </div>
       </div>
-      <div class="pr-card">
-        <div class="pr-ico" style="background:#F5F3FF;"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3L5 7l4 4M15 3l4 4-4 4"/><path d="M5 17l4 4 4-4M19 17l-4 4-4-4"/></svg></div>
-        <h3>Stateless</h3>
-        <p>Pas de stockage permanent, traitement à la volée uniquement</p>
+
+      <div class="cap-item">
+        <div>
+          <div class="cap-num">03</div>
+          <div class="cap-ico" style="margin-top:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3L5 7l4 4M15 3l4 4-4 4"/><path d="M5 17l4 4 4-4M19 17l-4 4-4-4"/></svg></div>
+        </div>
+        <div class="cap-right">
+          <h3><span class="o">Stateless</span></h3>
+          <p>Aucun stockage permanent. La donnée transite, est traitée et ressort qualifiée. Rien ne persiste, rien ne s'accumule.</p>
+        </div>
       </div>
-      <div class="pr-card">
-        <div class="pr-ico" style="background:#ECFDF5;"><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 11l6-3.5M9 13l6 3.5"/></svg></div>
-        <h3>Communication</h3>
-        <p>Les DataCells communiquent entre elles via le DataGraph</p>
+
+      <div class="cap-item">
+        <div>
+          <div class="cap-num">04</div>
+          <div class="cap-ico" style="margin-top:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 11l6-3.5M9 13l6 3.5"/></svg></div>
+        </div>
+        <div class="cap-right">
+          <h3><span class="o">Communication</span></h3>
+          <p>Les DataCells communiquent entre elles via le DataGraph. Chaque flux est orchestré, tracé et gouverné de manière centralisée.</p>
+        </div>
       </div>
-      <div class="pr-card">
-        <div class="pr-ico" style="background:#FFF7ED;"><svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg></div>
-        <h3>Spécialisation</h3>
-        <p>Chaque DataCell utilise les fonctionnalités dont elle a besoin</p>
+
+      <div class="cap-item">
+        <div>
+          <div class="cap-num">05</div>
+          <div class="cap-ico" style="margin-top:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg></div>
+        </div>
+        <div class="cap-right">
+          <h3><span class="o">Spécialisation</span></h3>
+          <p>Chaque DataCell active uniquement les fonctionnalités dont elle a besoin. Pas de surcharge, pas de configuration inutile.</p>
+        </div>
       </div>
     </div>
   </div>
