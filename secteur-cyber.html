@@ -20,66 +20,25 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
 
-/* ══════════════════════════════════════
-   HERO - ICÔNE GAUCHE + TEXTE DROITE
-══════════════════════════════════════ */
+/* ══ HERO ══ */
 #cyber-hero{padding:64px 0 72px;background:var(--card);position:relative;overflow:hidden;}
 #cyber-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
-
 .hero-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center;}
-
-/* Zone icône gauche */
-.hero-visual{
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-  min-height:320px;
-}
-.hero-visual::before{
-  content:'';position:absolute;
-  width:240px;height:240px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 70%);
-  pointer-events:none;
-}
-
-/* Bouclier SVG */
-.hero-shield{
-  width:160px;height:160px;
-  color:var(--orange);
-  position:relative;z-index:1;
-  animation:shieldFloat 3s ease-in-out infinite alternate;
-}
+.hero-visual{display:flex;align-items:center;justify-content:center;position:relative;min-height:320px;}
+.hero-visual::before{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;}
+.hero-shield{width:160px;height:160px;color:var(--orange);position:relative;z-index:1;animation:shieldFloat 3s ease-in-out infinite alternate;}
 @keyframes shieldFloat{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
-
-/* Mini badges sous l'icône */
-.hero-badges{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;position:relative;z-index:1;}
-.hb{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:var(--r-pill);font-size:10.5px;font-weight:700;border:1px solid;}
-.hb.red{background:var(--red-pale);border-color:var(--red-border);color:var(--red);}
-.hb.green{background:var(--green-pale);border-color:var(--green-border);color:var(--green-em);}
-.hb.orange{background:var(--orange-pale);border-color:var(--orange-border);color:var(--orange);}
-
-/* Zone texte droite */
 .hero-right .pill{margin-bottom:14px;}
 .hero-right h1{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin-bottom:16px;}
 .hero-right h1 .o{color:var(--orange);}
 .hero-right>p{font-size:15px;color:var(--t5);line-height:1.75;max-width:480px;margin-bottom:28px;}
-
-/* Stats row */
-.hero-stats{display:flex;gap:10px;margin-bottom:28px;}
-.hstat{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r);padding:14px 18px;flex:1;transition:border-color var(--tr);}
-.hstat:hover{border-color:var(--orange-border);}
-.hstat-val{font-size:22px;font-weight:900;color:var(--orange);line-height:1;}
-.hstat-lbl{font-size:11px;font-weight:700;color:var(--t9);margin-top:4px;}
-.hstat-sub{font-size:10px;color:var(--t4);margin-top:1px;}
-
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
 .btn-p{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
 .btn-p:hover{background:var(--orange-d);transform:translateY(-1px);}
 .btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
 .btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
-
-@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:240px;padding:36px 24px;}}
-@media(max-width:600px){.wrap{padding:0 20px;}.hero-stats{flex-direction:column;}.hero-ctas{flex-direction:column;}}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:240px;}}
+@media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}}
 
 /* ══ CAS D'USAGE ══ */
 #cas-usage{padding:96px 0;background:var(--bg);}
@@ -87,18 +46,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
 .section-head h2 .o{color:var(--orange);}
 .section-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
-
 .uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;}
 .uc-card:hover{border-color:var(--orange-border);box-shadow:var(--sh);transform:translateY(-2px);}
-.uc-card.active{border-color:var(--orange);box-shadow:0 8px 28px rgba(249,115,22,.15);}
 .uc-head{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;border-bottom:1px solid var(--border);background:var(--section);}
-.uc-card.active .uc-head{background:var(--orange-pale);border-color:var(--orange-border);}
 .uc-head-left{display:flex;align-items:center;gap:8px;}
 .uc-head-ico{width:22px;height:22px;color:var(--t5);}
-.uc-card.active .uc-head-ico{color:var(--orange);}
 .uc-head-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t4);}
-.uc-card.active .uc-head-lbl{color:var(--orange);}
 .uc-dot{width:8px;height:8px;border-radius:50%;background:var(--green-em);box-shadow:0 0 0 3px rgba(16,185,129,.2);}
 .uc-body{padding:14px;}
 .uc-title{font-size:13.5px;font-weight:800;color:var(--t9);margin-bottom:11px;}
@@ -115,9 +69,86 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .uc-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
 .uc-output svg{width:11px;height:11px;flex-shrink:0;}
 .uc-output-lbl{font-size:11.5px;font-weight:700;color:var(--t9);}
-
 @media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.uc-grid{grid-template-columns:1fr;}}
+
+/* ══ MODAL ══ */
+.md-overlay{position:fixed;inset:0;background:rgba(15,23,42,0);display:none;align-items:center;justify-content:center;z-index:1000;padding:16px;transition:background .3s ease;}
+.md-overlay.open{display:flex;}
+.md-overlay.active{background:rgba(15,23,42,.55);backdrop-filter:blur(6px);}
+.md-modal{background:var(--card);border-radius:var(--r-xl);width:100%;max-width:760px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;transform:scale(.93) translateY(24px);opacity:0;transition:all .28s cubic-bezier(.4,0,.2,1);box-shadow:var(--sh-lg);}
+.md-overlay.active .md-modal{transform:scale(1) translateY(0);opacity:1;}
+.md-header{padding:24px 28px 0;flex-shrink:0;}
+.md-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:12px;}
+.md-title-area{display:flex;align-items:center;gap:14px;}
+.md-icon{width:46px;height:46px;border-radius:var(--r);background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.md-icon svg{width:22px;height:22px;color:white;}
+.md-badge{font-size:10px;font-weight:700;color:var(--orange);letter-spacing:1px;text-transform:uppercase;}
+.md-modal h2{font-size:20px;font-weight:800;color:var(--t9);margin:2px 0 0;}
+.md-desc{font-size:13.5px;color:var(--t5);line-height:1.65;margin:0 0 16px;}
+.md-close{width:36px;height:36px;border-radius:50%;border:none;background:var(--section);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--t5);transition:all .2s;flex-shrink:0;font-family:var(--font);}
+.md-close:hover{background:var(--red-pale);color:var(--red);}
+.md-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.md-tabs::-webkit-scrollbar{display:none;}
+.md-tab{padding:10px 16px;border:none;background:transparent;cursor:pointer;font-family:var(--font);font-weight:600;font-size:12.5px;color:var(--t4);border-bottom:2px solid transparent;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0;}
+.md-tab:hover{color:var(--t7);}
+.md-tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+.md-tab svg{width:13px;height:13px;}
+.md-body{overflow-y:auto;flex:1;padding:20px 28px 28px;}
+.md-body::-webkit-scrollbar{width:5px;}
+.md-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+
+/* Modal cards */
+.md-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;transition:border-color .2s;}
+.md-card:hover{border-color:var(--orange-border);}
+.md-card:last-child{margin-bottom:0;}
+.md-card-head{display:flex;align-items:center;gap:9px;margin-bottom:7px;flex-wrap:wrap;}
+.md-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.md-card-name{font-size:14px;font-weight:700;color:var(--t9);}
+.md-tag{display:inline-flex;padding:2px 9px;border-radius:var(--r-pill);font-size:10px;font-weight:600;background:var(--section);color:var(--t5);border:1px solid var(--border);}
+.md-card p{font-size:12.5px;color:var(--t5);line-height:1.6;margin:0 0 8px;}
+.md-protos{display:flex;flex-wrap:wrap;gap:5px;}
+.md-proto{font-size:10px;padding:2px 7px;border-radius:var(--r-xs);background:var(--card);border:1px solid var(--border);color:var(--t5);font-weight:500;}
+
+/* Treatment cards */
+.md-tcard{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;border-left:3px solid;}
+.md-tcard:last-child{margin-bottom:0;}
+.md-tcard:hover{border-color:var(--orange-border);border-left-color:inherit;}
+.md-tcard-name{font-size:14px;font-weight:700;color:var(--t9);margin-bottom:4px;}
+.md-tcard p{font-size:12px;color:var(--t5);margin:0 0 8px;}
+.md-detail{display:flex;align-items:flex-start;gap:7px;font-size:11.5px;color:var(--t7);line-height:1.5;margin-bottom:3px;}
+.md-bullet{font-weight:700;flex-shrink:0;margin-top:1px;}
+
+/* KPIs */
+.md-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+.md-kpi{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center;}
+.md-kpi-ico{width:28px;height:28px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;background:var(--orange-pale);border-radius:var(--r-sm);border:1px solid var(--orange-border);}
+.md-kpi-ico svg{width:14px;height:14px;color:var(--orange);}
+.md-kpi-val{font-size:18px;font-weight:900;color:var(--orange);line-height:1;}
+.md-kpi-lbl{font-size:10px;font-weight:600;color:var(--t4);margin-top:3px;}
+
+/* Destination rows */
+.md-dest{display:flex;align-items:center;padding:9px 13px;border-radius:var(--r-sm);background:var(--bg);border:1px solid var(--border);gap:9px;margin-bottom:6px;flex-wrap:wrap;transition:border-color .2s;}
+.md-dest:hover{border-color:var(--orange-border);}
+.md-dest-name{font-weight:700;font-size:13px;color:var(--t9);min-width:90px;}
+.md-dest-fmt{font-size:10px;font-weight:600;color:var(--t4);margin-left:auto;}
+
+/* Arch rows */
+.md-arch{display:flex;align-items:center;padding:9px 13px;border-radius:var(--r-sm);background:var(--bg);border:1px solid var(--border);gap:8px;margin-bottom:6px;}
+.md-arch-lbl{font-weight:600;font-size:12px;color:var(--t5);min-width:110px;}
+.md-arch-val{font-weight:700;font-size:12px;color:var(--t9);}
+
+/* Section label */
+.md-slbl{font-size:10px;font-weight:700;color:var(--t4);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:block;}
+
+/* Callout */
+.md-callout{padding:14px 18px;border-radius:var(--r);background:var(--orange-pale);border:1px solid var(--orange-border);margin-top:18px;}
+.md-callout-title{font-weight:700;font-size:12px;color:var(--orange-d);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.md-callout-title svg{width:14px;height:14px;color:var(--orange);}
+.md-callout-text{font-size:12px;color:var(--t7);line-height:1.7;}
+.md-callout-text strong{color:var(--t9);}
+
+@media(max-width:600px){.md-modal{max-height:95vh;border-radius:var(--r-lg);}.md-header{padding:16px 16px 0;}.md-body{padding:14px 16px 20px;}.md-kpis{grid-template-columns:1fr;}}
 
 /* ══ CONFORMITÉ ══ */
 #conformite{padding:96px 0;background:var(--card);}
@@ -128,7 +159,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conf-ico svg{width:20px;height:20px;}
 .conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
 .conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
-
 @media(max-width:900px){.conf-grid{grid-template-columns:1fr;}}
 
 /* ══ CTA ══ */
@@ -150,8 +180,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <section id="cyber-hero">
   <div class="wrap">
     <div class="hero-grid">
-
-      <!-- GAUCHE : grand visuel -->
       <div class="hero-visual">
         <svg class="hero-shield" viewBox="0 0 100 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
           <path d="M50 4L8 24v30c0 28 18 52 42 62 24-10 42-34 42-62V24L50 4z" stroke-width="2"/>
@@ -159,21 +187,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
           <line x1="50" y1="60" x2="50" y2="72" stroke-width="2"/>
         </svg>
       </div>
-
-      <!-- DROITE : texte -->
       <div class="hero-right">
-        <div class="pill">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/><path d="M5.5 8l2 2 3-3"/></svg>
-          Cybersécurité
-        </div>
+        <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/><path d="M5.5 8l2 2 3-3"/></svg>Cybersécurité</div>
         <h1>Vos logs transitent déjà.<br><span class="o">Faites-les parler.</span></h1>
         <p>iD4Connect enrichit votre stack cyber sans rien remplacer. Données traitées en transit, jamais stockées, zéro surface d'attaque supplémentaire.</p>
-        <div class="hero-ctas">
-          <a href="contact.html" class="btn-p">Demander une démo →</a>
-          <a href="positionnement.html" class="btn-g">Voir le positionnement</a>
-        </div>
+        <div class="hero-ctas"><a href="contact.html" class="btn-p">Demander une démo →</a><a href="positionnement.html" class="btn-g">Voir le positionnement</a></div>
       </div>
-
     </div>
   </div>
 </section>
@@ -182,43 +201,43 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <section id="cas-usage" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>
-        Cas d'usage
-      </div>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>Cas d'usage</div>
       <h2>Ce qu'iD4Connect fait concrètement<br><span class="o">dans votre environnement SOC.</span></h2>
     </div>
     <div class="uc-grid" id="uc-grid"></div>
-    <p class="section-hint">Cliquez sur une DataCell pour la mettre en avant</p>
+    <p class="section-hint">Cliquez sur une DataCell pour explorer le détail</p>
   </div>
 </section>
+
+<!-- ══ MODAL ══ -->
+<div class="md-overlay" id="md-overlay">
+  <div class="md-modal">
+    <div class="md-header">
+      <div class="md-top">
+        <div class="md-title-area">
+          <div class="md-icon" id="md-icon"></div>
+          <div><div class="md-badge">DataCell</div><h2 id="md-title"></h2></div>
+        </div>
+        <button class="md-close" onclick="closeModal()">✕</button>
+      </div>
+      <p class="md-desc" id="md-desc"></p>
+      <div class="md-tabs" id="md-tabs"></div>
+    </div>
+    <div class="md-body" id="md-body"></div>
+  </div>
+</div>
 
 <!-- ══ CONFORMITÉ ══ -->
 <section id="conformite" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/><path d="M5 8l2 2 4-4"/></svg>
-        Conformité
-      </div>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/><path d="M5 8l2 2 4-4"/></svg>Conformité</div>
       <h2>La conformité par architecture,<br><span class="o">pas par configuration.</span></h2>
     </div>
     <div class="conf-grid">
-      <div class="conf-card" style="border-top-color:#DC2626;">
-        <div class="conf-ico" style="background:#FEF2F2;"><svg viewBox="0 0 20 20" fill="none" stroke="#DC2626" stroke-width="1.5"><path d="M10 2L3 5.5v5c0 4.1 3 7.5 7 8.5 4-1 7-4.4 7-8.5v-5L10 2z"/><path d="M7 10l2 2 4-4"/></svg></div>
-        <div class="conf-title">Traçabilité native</div>
-        <div class="conf-desc">Chaque flux est horodaté, journalisé et auditable sans configuration supplémentaire. Votre équipe conformité a une vue complète de ce qui circule.</div>
-      </div>
-      <div class="conf-card" style="border-top-color:#8B5CF6;">
-        <div class="conf-ico" style="background:#F5F3FF;"><svg viewBox="0 0 20 20" fill="none" stroke="#8B5CF6" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><line x1="4" y1="4" x2="16" y2="16"/><path d="M10 6v4M8 10h4"/></svg></div>
-        <div class="conf-title">Zéro donnée stockée</div>
-        <div class="conf-desc">Les données transitent sans jamais être copiées ni centralisées. Pas de surface d'attaque supplémentaire. Rien à exfiltrer.</div>
-      </div>
-      <div class="conf-card" style="border-top-color:#10B981;">
-        <div class="conf-ico" style="background:#F0FDF4;"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M2 8h16M6 3v5M10 3v5M14 3v5"/></svg></div>
-        <div class="conf-title">Souveraineté totale</div>
-        <div class="conf-desc">Déploiement sur votre infrastructure, on-premise ou cloud privé. Vos données ne quittent jamais votre périmètre de contrôle.</div>
-      </div>
+      <div class="conf-card" style="border-top-color:#DC2626;"><div class="conf-ico" style="background:#FEF2F2;"><svg viewBox="0 0 20 20" fill="none" stroke="#DC2626" stroke-width="1.5"><path d="M10 2L3 5.5v5c0 4.1 3 7.5 7 8.5 4-1 7-4.4 7-8.5v-5L10 2z"/><path d="M7 10l2 2 4-4"/></svg></div><div class="conf-title">Traçabilité native</div><div class="conf-desc">Chaque flux est horodaté, journalisé et auditable sans configuration supplémentaire. Votre équipe conformité a une vue complète de ce qui circule.</div></div>
+      <div class="conf-card" style="border-top-color:#8B5CF6;"><div class="conf-ico" style="background:#F5F3FF;"><svg viewBox="0 0 20 20" fill="none" stroke="#8B5CF6" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><line x1="4" y1="4" x2="16" y2="16"/><path d="M10 6v4M8 10h4"/></svg></div><div class="conf-title">Zéro donnée stockée</div><div class="conf-desc">Les données transitent sans jamais être copiées ni centralisées. Pas de surface d'attaque supplémentaire. Rien à exfiltrer.</div></div>
+      <div class="conf-card" style="border-top-color:#10B981;"><div class="conf-ico" style="background:#F0FDF4;"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M2 8h16M6 3v5M10 3v5M14 3v5"/></svg></div><div class="conf-title">Souveraineté totale</div><div class="conf-desc">Déploiement sur votre infrastructure, on-premise ou cloud privé. Vos données ne quittent jamais votre périmètre de contrôle.</div></div>
     </div>
   </div>
 </section>
@@ -227,14 +246,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <section id="cyber-cta" class="reveal">
   <div class="wrap">
     <div class="cta-box">
-      <div>
-        <h2>Vous avez un SOC.<br>On a ce qu'il lui manque.</h2>
-        <p>Déployez une DataCell sur votre environnement en moins d'une journée. Pas de migration, pas d'agent lourd.</p>
-      </div>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-primary">Demander une démo →</a>
-        <a href="#" class="btn-secondary">Télécharger la fiche</a>
-      </div>
+      <div><h2>Vous avez un SOC.<br>On a ce qu'il lui manque.</h2><p>Déployez une DataCell sur votre environnement en moins d'une journée. Pas de migration, pas d'agent lourd.</p></div>
+      <div class="cta-btns"><a href="contact.html" class="btn-primary">Demander une démo →</a><a href="#" class="btn-secondary">Télécharger la fiche</a></div>
     </div>
   </div>
 </section>
@@ -242,88 +255,181 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <div id="ftr-ph"></div>
 
 <script>
-const t0 = localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-document.documentElement.setAttribute('data-theme',t0);
-document.body.setAttribute('data-theme',t0);
+const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+document.documentElement.setAttribute('data-theme',t0);document.body.setAttribute('data-theme',t0);
 
-const USE_CASES = [
-  {
-    id:'siem',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2L3 5.5v5c0 4.5 3.4 8.3 8 9.5 4.6-1.2 8-5 8-9.5v-5L11 2z"/><path d="M7.5 11l2.5 2.5 4.5-4.5"/></svg>`,
-    title:'Enrichissement SIEM',
-    sources:['Logs firewall','Syslog','Active Directory'],
-    ops:[
-      {label:'Corrélation', desc:'Croisement logs multi-sources en temps réel', color:'#EF4444'},
-      {label:'Contextualisation', desc:'Ajout contexte métier sur chaque événement', color:'#F97316'},
-      {label:'Filtrage', desc:'Élimination des faux positifs avant injection SIEM', color:'#8B5CF6'},
-    ],
-    output:'Alertes SIEM enrichies', outColor:'#EF4444',
-  },
-  {
-    id:'detection',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/><path d="M15 15l4 4"/><path d="M7 10h6M10 7v6"/></svg>`,
-    title:'Détection comportementale',
-    sources:['EDR events','API réseau','Logs applicatifs'],
-    ops:[
-      {label:'Analyse relationnelle', desc:'DataGraph détecte les patterns anormaux', color:'#EF4444'},
-      {label:'Scoring risque', desc:'Qualification automatique par seuils', color:'#06B6D4'},
-      {label:'Traçabilité', desc:'Audit complet de chaque flux analysé', color:'#10B981'},
-    ],
-    output:'Score de risque temps réel', outColor:'#8B5CF6',
-  },
-  {
-    id:'assets',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="3"/><path d="M11 2v3M11 17v3M2 11h3M17 11h3"/><path d="M4.9 4.9l2.1 2.1M14.9 14.9l2.1 2.1M4.9 17.1l2.1-2.1M14.9 7.1l2.1-2.1"/></svg>`,
-    title:'Actifs non couverts',
-    sources:['IoT / OT','Imprimantes','Caméras IP'],
-    ops:[
-      {label:'Collecte', desc:'DataCell déployée sur actifs sans agent', color:'#F59E0B'},
-      {label:'Normalisation', desc:'Formats hétérogènes unifiés à la volée', color:'#F97316'},
-      {label:'Remontée', desc:'Événements qualifiés vers votre SOC', color:'#EF4444'},
-    ],
-    output:'Couverture SOC étendue', outColor:'#10B981',
-  },
+/* ══ TAB ICONS (SVG, no emojis) ══ */
+const TAB_ICONS={
+  sources:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 2v2M8 12v2M2 8h2M12 8h2"/></svg>',
+  traitement:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.5"/></svg>',
+  sortie:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2v12M9 6l4 4-4 4"/><line x1="6" y1="10" x2="13" y2="10"/></svg>',
+  technique:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>'
+};
+const KPI_ICONS={
+  target:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.5"/><circle cx="8" cy="8" r=".8" fill="currentColor"/></svg>',
+  chart:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/></svg>',
+  bolt:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg>',
+  shield:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>',
+  search:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>',
+  filter:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h12l-4.5 5.5V13l-3 1.5V8.5L2 3z"/></svg>',
+  clock:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 1.5"/></svg>',
+  money:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="8" y1="1" x2="8" y2="15"/><path d="M11.5 4.5H6.5a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4H4.5"/></svg>'
+};
+
+/* ══ USE CASES DATA (cards) ══ */
+const USE_CASES=[
+  {id:'siem',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2L3 5.5v5c0 4.5 3.4 8.3 8 9.5 4.6-1.2 8-5 8-9.5v-5L11 2z"/><path d="M7.5 11l2.5 2.5 4.5-4.5"/></svg>',
+    title:'Enrichissement SIEM',sources:['Logs firewall','Syslog','Active Directory'],
+    ops:[{label:'Corrélation',desc:'Croisement logs multi-sources en temps réel',color:'#EF4444'},{label:'Contextualisation',desc:'Ajout contexte métier sur chaque événement',color:'#F97316'},{label:'Filtrage',desc:'Élimination des faux positifs avant injection SIEM',color:'#8B5CF6'}],
+    output:'Alertes SIEM enrichies',outColor:'#EF4444'},
+  {id:'detection',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/><path d="M15 15l4 4"/><path d="M7 10h6M10 7v6"/></svg>',
+    title:'Détection comportementale',sources:['EDR events','API réseau','Logs applicatifs'],
+    ops:[{label:'Analyse relationnelle',desc:'DataGraph détecte les patterns anormaux',color:'#EF4444'},{label:'Scoring risque',desc:'Qualification automatique par seuils',color:'#06B6D4'},{label:'Traçabilité',desc:'Audit complet de chaque flux analysé',color:'#10B981'}],
+    output:'Score de risque temps réel',outColor:'#8B5CF6'},
+  {id:'assets',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="3"/><path d="M11 2v3M11 17v3M2 11h3M17 11h3"/><path d="M4.9 4.9l2.1 2.1M14.9 14.9l2.1 2.1M4.9 17.1l2.1-2.1M14.9 7.1l2.1-2.1"/></svg>',
+    title:'Actifs non couverts',sources:['IoT / OT','Imprimantes','Caméras IP'],
+    ops:[{label:'Collecte',desc:'DataCell déployée sur actifs sans agent',color:'#F59E0B'},{label:'Normalisation',desc:'Formats hétérogènes unifiés à la volée',color:'#F97316'},{label:'Remontée',desc:'Événements qualifiés vers votre SOC',color:'#EF4444'}],
+    output:'Couverture SOC étendue',outColor:'#10B981'}
 ];
 
-let activeUC = null;
+/* ══ POPUP DATA ══ */
+const POPUP_DATA={
+  siem:{
+    desc:"DataCell autonome de pré-traitement des logs de sécurité. Collecte, corrèle, contextualise et filtre les événements avant injection dans votre SIEM, réduisant le bruit de 60 à 80% tout en enrichissant chaque alerte de contexte métier.",
+    sources:[
+      {name:'Logs Firewall',format:'CEF / Syslog',desc:'Collecte des événements de sécurité périmétrique (Palo Alto, Fortinet, Check Point). Parsing automatique des formats CEF et LEEF.',protocols:['Syslog UDP/TCP','CEF','LEEF'],color:'#EF4444'},
+      {name:'Syslog',format:'RFC 5424 / RFC 3164',desc:'Agrégation de tous les logs système et applicatifs via protocole Syslog standard. Support multi-facility et multi-severity.',protocols:['UDP 514','TCP 514','TLS 6514'],color:'#F97316'},
+      {name:'Active Directory',format:'LDAP / WinEvent',desc:"Intégration native avec l'annuaire AD pour l'enrichissement contextuel : identité utilisateur, groupe, OU, dernière connexion.",protocols:['LDAP/LDAPS','WMI','Windows Event Log'],color:'#F59E0B'},
+      {name:'EDR / XDR Events',format:'REST API / JSON',desc:'Corrélation avec les alertes endpoint (CrowdStrike, SentinelOne, Microsoft Defender) pour enrichir le contexte de menace.',protocols:['REST API','Webhook','JSON Streaming'],color:'#8B5CF6'}
+    ],
+    traitements:[
+      {name:'Corrélation',color:'#EF4444',desc:'Croisement logs multi-sources en temps réel',details:['Moteur de règles de corrélation configurable','Fenêtres temporelles glissantes (1s à 24h)','Détection de séquences d\'événements (chaînes d\'attaque)','Corrélation par adresse IP, utilisateur, session, asset','Scoring de risque dynamique basé sur la criticité','Support des règles Sigma converties automatiquement']},
+      {name:'Contextualisation',color:'#F59E0B',desc:'Ajout contexte métier sur chaque événement',details:['Enrichissement identité via Active Directory / LDAP','Résolution DNS inversée automatique','Géolocalisation des adresses IP','Tagging automatique par criticité d\'asset (CMDB)','Classification MITRE ATT&CK automatique','Ajout du contexte métier (département, rôle, sensibilité)']},
+      {name:'Filtrage',color:'#8B5CF6',desc:'Élimination des faux positifs avant injection SIEM',details:['Règles de whitelisting par source / IP / utilisateur','Déduplication intelligente (fenêtre configurable)','Suppression du bruit (heartbeats, health checks, scans autorisés)','Taux de réduction moyen : 60-80% du volume brut','Filtrage par sévérité, catégorie, confiance','Économie directe sur la licence SIEM (EPS réduits)']},
+      {name:'Normalisation',color:'#06B6D4',desc:'Uniformisation des formats hétérogènes',details:['Mapping vers schéma unifié (OCSF / ECS compatible)','Normalisation des timestamps multi-fuseaux','Standardisation des noms de champs inter-vendeurs','Extraction de champs structurés depuis logs bruts','Conversion de sévérités disparates vers échelle unifiée','Enrichissement de métadonnées (source_type, vendor, version)']}
+    ],
+    sortie:{desc:'Les événements sortants sont prêts à être injectés dans votre SIEM avec un contexte métier complet, un scoring de risque et une classification automatique.',
+      destinations:[{name:'Splunk',protocol:'HEC',format:'JSON'},{name:'QRadar',protocol:'Syslog / REST',format:'LEEF'},{name:'Sentinel',protocol:'Azure Monitor API',format:'CEF'},{name:'Elastic SIEM',protocol:'Logstash / API',format:'ECS JSON'},{name:'Wazuh',protocol:'Syslog / API',format:'JSON'}],
+      kpis:[{label:'Réduction faux positifs',value:'60-80%',icon:'target'},{label:'Enrichissement contexte',value:'+12 champs',icon:'chart'},{label:'Latence traitement',value:'< 200ms',icon:'bolt'},{label:'Économie licence SIEM',value:'40-60%',icon:'money'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Mode',value:'Stateless, temps réel'},{label:'Protocole interne',value:'DataGraph event bus'},{label:'Scalabilité',value:'Horizontale (N DataCells parallèles)'},{label:'Isolation',value:'Zero Trust natif'},{label:'Déploiement',value:'On-premise / Cloud / Hybride'}],
+      callout:{title:'Principes DataCell',text:'<strong>Autonome</strong> : fonctionne indépendamment. <strong>Stateless</strong> : aucun stockage permanent, traitement à la volée. <strong>Isolée</strong> : Zero Trust natif, chaque flux vérifié. <strong>Scalable</strong> : parallélisable à l\'infini via le DataGraph.'}}
+  },
+  detection:{
+    desc:"DataCell dédiée à l'analyse comportementale en temps réel. Croise les flux EDR, réseau et applicatifs pour détecter les patterns anormaux, qualifier les menaces par scoring dynamique et fournir un audit complet de chaque analyse.",
+    sources:[
+      {name:'EDR Events',format:'REST API / JSON',desc:'Collecte des événements endpoint : exécutions process, connexions réseau, modifications registre. Intégration CrowdStrike, SentinelOne, Defender.',protocols:['REST API','Webhook','JSON Streaming','CEF'],color:'#EF4444'},
+      {name:'API Réseau',format:'NetFlow / sFlow',desc:'Analyse des flux réseau pour identifier les communications latérales suspectes, exfiltrations de données, connexions C2.',protocols:['NetFlow v5/v9','sFlow','IPFIX','SPAN/TAP'],color:'#06B6D4'},
+      {name:'Logs Applicatifs',format:'JSON / Syslog',desc:'Intégration des logs métier pour corréler les comportements utilisateur : connexions inhabituelles, escalades de privilèges, accès hors périmètre.',protocols:['REST API','Syslog','Windows Event Log','JDBC'],color:'#8B5CF6'},
+      {name:'Threat Intelligence',format:'STIX / TAXII',desc:'Enrichissement par feeds de threat intelligence : IoC, signatures, réputation IP/domaine, campagnes actives.',protocols:['STIX 2.1','TAXII','MISP','REST API'],color:'#F59E0B'}
+    ],
+    traitements:[
+      {name:'Analyse relationnelle',color:'#EF4444',desc:'DataGraph détecte les patterns anormaux',details:['Modélisation du comportement normal par utilisateur / asset','Détection d\'écarts statistiques sur fenêtres glissantes','Corrélation cross-source : EDR + réseau + applicatif','Graphe de relations : qui communique avec qui, comment','Détection de mouvements latéraux et pivots','Identification de chaînes d\'attaque multi-étapes']},
+      {name:'Scoring risque',color:'#06B6D4',desc:'Qualification automatique par seuils',details:['Score composite basé sur criticité asset + comportement + contexte','Seuils dynamiques auto-calibrés par apprentissage','Classification automatique : critique / élevé / moyen / faible','Enrichissement MITRE ATT&CK sur chaque détection','Taux de faux positifs < 5% après calibration','Escalade automatique selon politique définie']},
+      {name:'Traçabilité',color:'#10B981',desc:'Audit complet de chaque flux analysé',details:['Journal d\'audit horodaté pour chaque décision de scoring','Conservation du contexte de détection complet','Reconstruction de la timeline d\'incident','Export forensic compatible (JSON, STIX)','Chaîne de preuve intacte pour investigation','Conformité auditeur : chaque action traçée et signée']}
+    ],
+    sortie:{desc:'Chaque alerte sortante contient un score de risque, le contexte complet de détection, la timeline reconstructée et les recommandations de réponse.',
+      destinations:[{name:'SIEM / SOAR',protocol:'REST / Syslog',format:'Alertes scorées'},{name:'Ticketing',protocol:'REST API',format:'Incidents qualifiés'},{name:'Dashboard SOC',protocol:'WebSocket',format:'Scores live'},{name:'EDR',protocol:'API bidirectionnelle',format:'Actions de remédiation'},{name:'Reporting',protocol:'REST / SMTP',format:'Rapports périodiques'}],
+      kpis:[{label:'Détection menaces',value:'+85%',icon:'shield'},{label:'Faux positifs',value:'< 5%',icon:'target'},{label:'Temps de détection',value:'< 30s',icon:'bolt'},{label:'Couverture MITRE',value:'92%',icon:'chart'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Mode',value:'Stateless, temps réel'},{label:'Analyse',value:'Comportementale + relationnelle'},{label:'Scalabilité',value:'Horizontale (N DataCells)'},{label:'Isolation',value:'Zero Trust natif'},{label:'Déploiement',value:'On-premise / Cloud / Hybride'}],
+      callout:{title:'Pourquoi l\'analyse comportementale en transit',text:'Les approches classiques nécessitent de stocker des semaines de données pour détecter les anomalies. iD4Connect analyse <strong>pendant le transit</strong> : le comportement est évalué en temps réel, sans stockage, sans latence, sans surface d\'attaque supplémentaire.'}}
+  },
+  assets:{
+    desc:"DataCell dédiée à l'intégration des actifs invisibles aux solutions EDR/SIEM traditionnelles. Collecte sans agent les événements des équipements IoT, OT, imprimantes et caméras IP, les normalise et les qualifie avant remontée vers votre SOC.",
+    sources:[
+      {name:'IoT / OT',format:'MQTT / OPC-UA / Modbus',desc:'Collecte passive des flux issus d\'équipements industriels et IoT : automates (PLC/SCADA), capteurs environnementaux, actionneurs, compteurs intelligents.',protocols:['MQTT','OPC-UA','Modbus TCP/RTU','BACnet','LoRaWAN'],color:'#10B981'},
+      {name:'Imprimantes',format:'SNMP / Syslog / JetDirect',desc:'Supervision des imprimantes réseau et multifonctions. Détection d\'activités anormales : impressions hors horaires, volumes inhabituels, accès admin non autorisés.',protocols:['SNMP v2c/v3','Syslog','IPP/JetDirect','REST API'],color:'#06B6D4'},
+      {name:'Caméras IP',format:'ONVIF / RTSP / Syslog',desc:'Intégration des caméras de vidéosurveillance IP. Surveillance des connexions, détection de flux vidéo exfiltrés, identification de firmwares obsolètes.',protocols:['ONVIF','RTSP','SNMP','Syslog','REST API'],color:'#8B5CF6'},
+      {name:'Équipements non managés',format:'Scan passif / ARP / DHCP',desc:'Découverte et surveillance d\'actifs connectés au réseau sans supervision : bornes Wi-Fi, switches non managés, badges NFC, devices BYOD.',protocols:['ARP Scan','DHCP Snooping','NetFlow passif','mDNS/SSDP'],color:'#F59E0B'}
+    ],
+    traitements:[
+      {name:'Collecte',color:'#F59E0B',desc:'DataCell déployée sur actifs sans agent',details:['Collecte passive sans installation d\'agent (agentless)','Support multi-protocoles natif : MQTT, OPC-UA, Modbus, SNMP, ONVIF','Découverte automatique des actifs connectés par scan réseau passif','Extraction de métadonnées : firmware, version, ports ouverts, services actifs','Fréquence de collecte configurable par type d\'actif','Mode edge : traitement local au plus près des équipements']},
+      {name:'Normalisation',color:'#06B6D4',desc:'Formats hétérogènes unifiés à la volée',details:['Mapping automatique des formats propriétaires vers schéma unifié','Parsing natif de 30+ formats constructeurs','Normalisation des identifiants : MAC, IP, hostname, serial number','Enrichissement contextuel : localisation physique, zone réseau, criticité','Conversion des sévérités vers échelle unifiée','Dédoublonnage intelligent multi-sources']},
+      {name:'Remontée',color:'#EF4444',desc:'Événements qualifiés vers votre SOC',details:['Qualification automatique : seuls les événements pertinents remontés','Scoring de pertinence par événement','Formatage adapté à la destination : CEF, HEC JSON, ECS','Ajout systématique du contexte : type d\'actif, zone, criticité','Taux de compression : 85-95% du volume brut filtré','File d\'attente résiliente : aucune perte si SIEM temporairement indisponible']},
+      {name:'Inventaire & Classification',color:'#8B5CF6',desc:'Cartographie automatique des actifs non managés',details:['Inventaire temps réel avec fingerprinting passif','Classification automatique : IoT, OT, périphérique, BYOD, shadow IT','Détection de nouveaux actifs (rogue devices) avec alerte immédiate','Suivi du cycle de vie : première apparition, dernière activité','Cartographie des flux réseau par actif','Scoring de vulnérabilité basé sur firmware et historique CVE']}
+    ],
+    sortie:{desc:'Votre SOC gagne en visibilité sur l\'ensemble des actifs connectés, y compris ceux traditionnellement invisibles aux solutions EDR. Chaque événement remonté est qualifié, contextualisé et prêt à l\'investigation.',
+      destinations:[{name:'SIEM / SOC',protocol:'Syslog / CEF / REST',format:'Événements qualifiés'},{name:'CMDB',protocol:'REST API',format:'Inventaire temps réel'},{name:'Vuln. Scanner',protocol:'API / CSV',format:'Actifs à scanner'},{name:'NAC',protocol:'RADIUS / REST',format:'Politique d\'accès'},{name:'Dashboard SOC',protocol:'WebSocket / REST',format:'Couverture live'}],
+      kpis:[{label:'Actifs découverts',value:'+40%',icon:'search'},{label:'Couverture SOC',value:'98%',icon:'shield'},{label:'Bruit filtré',value:'85-95%',icon:'filter'},{label:'Temps inventaire',value:'< 5 min',icon:'clock'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Collecte',value:'Agentless, scan passif'},{label:'Protocoles',value:'MQTT, OPC-UA, Modbus, SNMP, ONVIF'},{label:'Déploiement',value:'Edge computing, local'},{label:'Mode',value:'Stateless, temps réel'},{label:'Scalabilité',value:'1 DataCell / segment réseau'},{label:'Isolation',value:'Zero Trust natif'}],
+      callout:{title:'Pourquoi les actifs non couverts sont critiques',text:'Les équipements IoT, OT, imprimantes et caméras IP représentent en moyenne <strong>40% des actifs connectés</strong> d\'une entreprise, mais restent invisibles aux solutions EDR traditionnelles. Cette DataCell comble cet angle mort en déployant une collecte <strong>agentless</strong> directement sur le segment réseau.'}}
+  }
+};
 
-function renderUC() {
-  const grid = document.getElementById('uc-grid');
-  grid.innerHTML = USE_CASES.map(uc => `
-    <div class="uc-card ${activeUC === uc.id ? 'active' : ''}" onclick="toggleUC('${uc.id}')">
-      <div class="uc-head">
-        <div class="uc-head-left">
-          <span class="uc-head-ico">${uc.svgIcon}</span>
-          <span class="uc-head-lbl">DataCell</span>
-        </div>
-        <div class="uc-dot"></div>
-      </div>
+/* ══ RENDER CARDS ══ */
+function renderUC(){
+  const grid=document.getElementById('uc-grid');
+  grid.innerHTML=USE_CASES.map(uc=>`
+    <div class="uc-card" onclick="openModal('${uc.id}')">
+      <div class="uc-head"><div class="uc-head-left"><span class="uc-head-ico">${uc.icon}</span><span class="uc-head-lbl">DataCell</span></div><div class="uc-dot"></div></div>
       <div class="uc-body">
         <div class="uc-title">${uc.title}</div>
         <div class="uc-slbl">Sources</div>
-        <div class="uc-sources">${uc.sources.map(s=>`<span class="uc-src">${s}</span>`).join('')}</div>
+        <div class="uc-sources">${uc.sources.map(s=>'<span class="uc-src">'+s+'</span>').join('')}</div>
         <div class="uc-slbl">Traitement</div>
-        <div class="uc-ops">${uc.ops.map(op=>`<div class="uc-op" style="border-left-color:${op.color};background:${op.color}08;"><div class="uc-op-name">${op.label}</div><div class="uc-op-desc">${op.desc}</div></div>`).join('')}</div>
-        <div class="uc-arrow"><div class="uc-arrow-line" style="background:${uc.outColor};"></div><div class="uc-arrow-tip" style="border-top:7px solid ${uc.outColor};border-left:5px solid transparent;border-right:5px solid transparent;"></div></div>
+        <div class="uc-ops">${uc.ops.map(op=>'<div class="uc-op" style="border-left-color:'+op.color+';background:'+op.color+'08;"><div class="uc-op-name">'+op.label+'</div><div class="uc-op-desc">'+op.desc+'</div></div>').join('')}</div>
+        <div class="uc-arrow"><div class="uc-arrow-line" style="background:${uc.outColor};"></div><div class="uc-arrow-tip" style="border-top:7px solid ${uc.outColor};"></div></div>
         <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;"><svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg><span class="uc-output-lbl">${uc.output}</span></div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
-function toggleUC(id) { activeUC = activeUC === id ? null : id; renderUC(); }
+/* ══ MODAL LOGIC ══ */
+let currentPopup=null, currentTab='sources';
+
+function openModal(id){
+  currentPopup=id; currentTab='sources';
+  const ov=document.getElementById('md-overlay');
+  ov.classList.add('open');
+  renderModal();
+  requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('active')));
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  const ov=document.getElementById('md-overlay');
+  ov.classList.remove('active');
+  setTimeout(()=>{ov.classList.remove('open');document.body.style.overflow='';},280);
+}
+document.getElementById('md-overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+function renderModal(){
+  const uc=USE_CASES.find(u=>u.id===currentPopup);
+  const data=POPUP_DATA[currentPopup];
+  if(!uc||!data)return;
+  document.getElementById('md-icon').innerHTML=uc.icon.replace('stroke="currentColor"','stroke="white"');
+  document.getElementById('md-title').textContent=uc.title;
+  document.getElementById('md-desc').textContent=data.desc;
+  const tabs=['sources','traitement','sortie','technique'];
+  const tabLabels={sources:'Sources',traitement:'Traitement',sortie:'Sortie',technique:'Technique'};
+  document.getElementById('md-tabs').innerHTML=tabs.map(t=>'<button class="md-tab'+(currentTab===t?' active':'')+'" onclick="switchTab(\''+t+'\')">'+TAB_ICONS[t]+tabLabels[t]+'</button>').join('');
+  renderTabContent();
+}
+
+function switchTab(t){currentTab=t;renderModal();}
+
+function renderTabContent(){
+  const data=POPUP_DATA[currentPopup];
+  const body=document.getElementById('md-body');
+  if(currentTab==='sources'){
+    body.innerHTML=data.sources.map(s=>'<div class="md-card"><div class="md-card-head"><div class="md-dot" style="background:'+s.color+'"></div><span class="md-card-name">'+s.name+'</span><span class="md-tag">'+s.format+'</span></div><p>'+s.desc+'</p><div class="md-protos">'+s.protocols.map(p=>'<span class="md-proto">'+p+'</span>').join('')+'</div></div>').join('');
+  } else if(currentTab==='traitement'){
+    body.innerHTML=data.traitements.map(t=>'<div class="md-tcard" style="border-left-color:'+t.color+'"><div class="md-tcard-name">'+t.name+'</div><p>'+t.desc+'</p>'+t.details.map(d=>'<div class="md-detail"><span class="md-bullet" style="color:'+t.color+'">›</span><span>'+d+'</span></div>').join('')+'</div>').join('');
+  } else if(currentTab==='sortie'){
+    const s=data.sortie;
+    body.innerHTML='<div class="md-kpis">'+s.kpis.map(k=>'<div class="md-kpi"><div class="md-kpi-ico">'+(KPI_ICONS[k.icon]||KPI_ICONS.chart)+'</div><div class="md-kpi-val">'+k.value+'</div><div class="md-kpi-lbl">'+k.label+'</div></div>').join('')+'</div><p style="font-size:12.5px;color:var(--t5);line-height:1.65;margin-bottom:16px;">'+s.desc+'</p><span class="md-slbl">Destinations & intégrations</span>'+s.destinations.map(d=>'<div class="md-dest"><span class="md-dest-name">'+d.name+'</span><span class="md-tag">'+d.protocol+'</span><span class="md-dest-fmt">'+d.format+'</span></div>').join('');
+  } else if(currentTab==='technique'){
+    const t=data.technique;
+    body.innerHTML='<span class="md-slbl">Architecture DataCell</span>'+t.architecture.map(a=>'<div class="md-arch"><span class="md-arch-lbl">'+a.label+'</span><span class="md-arch-val">'+a.value+'</span></div>').join('')+'<div class="md-callout"><div class="md-callout-title"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="5" x2="8" y2="8.5" stroke-linecap="round"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg>'+t.callout.title+'</div><div class="md-callout-text">'+t.callout.text+'</div></div>';
+  }
+}
+
+/* ══ INIT ══ */
 renderUC();
-
-async function loadComp(id, file) {
-  try { const r = await fetch(file); const html = await r.text(); const el = document.getElementById(id); el.innerHTML = html; el.querySelectorAll('script').forEach(s => { const ns = document.createElement('script'); ns.textContent = s.textContent; document.head.appendChild(ns); }); } catch(e){}
-}
-
-window.addEventListener('load', async () => {
-  await loadComp('hdr-ph','header.html');
-  await loadComp('ftr-ph','footer.html');
-  document.addEventListener('themeChange', e => { document.documentElement.setAttribute('data-theme',e.detail); document.body.setAttribute('data-theme',e.detail); });
-  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } }); }, {threshold:.06});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
+window.addEventListener('load',async()=>{
+  await loadComp('hdr-ph','header.html');await loadComp('ftr-ph','footer.html');
+  document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 });
 </script>
 </body>
