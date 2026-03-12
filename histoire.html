@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Notre Histoire — iD4Connect</title>
+<title>Notre Histoire · iD4Connect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -13,67 +13,11 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
-
-/* HEADER */
-#hdr{position:fixed;top:0;left:0;right:0;height:var(--hh);background:var(--card);border-bottom:1px solid var(--border);z-index:1000;transition:background .25s,border-color .25s;}
-#hdr.scrolled{box-shadow:var(--sh-sm);}
-.hdr-in{max-width:1160px;margin:0 auto;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:8px;}
-.hdr-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
-.logo-word{font-size:17px;font-weight:800;letter-spacing:-.4px;color:var(--orange);}
-.hdr-nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
-.nav-item{position:relative;}
-.nav-btn{display:flex;align-items:center;gap:4px;padding:6px 11px;font-size:13.5px;font-weight:500;font-family:var(--font);color:var(--t7);background:none;border:none;border-radius:var(--r-sm);cursor:pointer;text-decoration:none;white-space:nowrap;transition:all var(--tr);}
-.nav-btn:hover,.nav-item:hover>.nav-btn{color:var(--t9);background:var(--section);}
-.chev{width:11px;height:11px;flex-shrink:0;transition:transform var(--tr);color:var(--t4);}
-.nav-item:hover .chev{transform:rotate(180deg);}
-.drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-4px);background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:5px;padding-top:11px;min-width:188px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity var(--tr),transform var(--tr);box-shadow:var(--sh);margin-top:-5px;}
-.drop::before{content:'';position:absolute;top:0;left:0;right:0;height:10px;background:transparent;}
-.nav-item:hover .drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
-.drop.wide{min-width:300px;display:grid;grid-template-columns:1fr 1fr;gap:1px;}
-.drop-lbl{grid-column:1/-1;padding:5px 9px 2px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);opacity:.7;}
-.drop-item{display:flex;align-items:center;gap:7px;padding:7px 9px;font-size:13px;font-weight:500;font-family:var(--font);color:var(--t7);text-decoration:none;border-radius:var(--r-xs);transition:all var(--tr);}
-.drop-item:hover{background:var(--orange-pale);color:var(--orange);}
-.di-svg{width:14px;height:14px;flex-shrink:0;color:var(--t4);}
-.drop-item:hover .di-svg{color:var(--orange);}
-.hdr-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.lang-wrap{position:relative;}
-.lang-trigger{display:flex;align-items:center;gap:4px;padding:5px 9px;background:none;border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:12px;font-weight:700;font-family:var(--font);color:var(--t5);letter-spacing:.5px;transition:all var(--tr);}
-.lang-trigger:hover{border-color:var(--border-s);color:var(--t9);}
-.lang-trigger .lchev{width:10px;height:10px;color:var(--t4);transition:transform var(--tr);flex-shrink:0;}
-.lang-wrap.open .lang-trigger .lchev{transform:rotate(180deg);}
-.lang-drop{position:absolute;top:calc(100% + 5px);right:0;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:4px;min-width:90px;opacity:0;visibility:hidden;pointer-events:none;transition:all var(--tr);box-shadow:var(--sh);}
-.lang-wrap.open .lang-drop{opacity:1;visibility:visible;pointer-events:auto;}
-.lang-opt{display:block;padding:7px 12px;border-radius:var(--r-xs);font-size:12px;font-weight:600;font-family:var(--font);letter-spacing:.4px;color:var(--t7);cursor:pointer;transition:all var(--tr);}
-.lang-opt:hover{background:var(--section);color:var(--t9);}
-.lang-opt.active{color:var(--orange);}
-.theme-btn{width:32px;height:32px;background:var(--section);border:1px solid var(--border);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--tr);color:var(--t5);}
-.theme-btn:hover{border-color:var(--border-s);color:var(--t9);}
-.theme-btn svg{width:15px;height:15px;}
-.icon-moon,.icon-sun{display:none;}
-[data-theme="light"] .icon-moon{display:block;}
-[data-theme="dark"] .icon-sun{display:block;}
-.hdr-cta{display:flex;align-items:center;gap:5px;padding:8px 16px;background:var(--orange);color:white;font-size:13px;font-weight:600;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;transition:all var(--tr);border:none;cursor:pointer;}
-.hdr-cta:hover{background:var(--orange-d);}
-.burger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:7px;background:none;border:none;}
-.burger span{display:block;width:19px;height:1.5px;background:var(--t7);border-radius:2px;}
-.mob-menu{display:none;position:fixed;top:var(--hh);left:0;right:0;bottom:0;background:var(--card);padding:16px 20px;overflow-y:auto;z-index:999;border-top:1px solid var(--border);}
-.mob-menu.open{display:block;}
-.mob-lnk{display:block;padding:10px 11px;font-size:14.5px;font-weight:500;font-family:var(--font);color:var(--t7);text-decoration:none;border-radius:var(--r-sm);margin-bottom:2px;transition:all var(--tr);cursor:pointer;background:none;border:none;width:100%;text-align:left;}
-.mob-lnk:hover{background:var(--section);color:var(--t9);}
-.mob-sub{padding-left:10px;display:none;margin-bottom:6px;}
-.mob-sub.open{display:block;}
-.mob-sub a{display:flex;align-items:center;gap:7px;padding:7px 11px;font-size:13px;font-weight:500;font-family:var(--font);color:var(--t5);text-decoration:none;border-radius:var(--r-xs);transition:all var(--tr);}
-.mob-sub a:hover{color:var(--orange);background:var(--orange-pale);}
-.mob-cta{display:block;text-align:center;margin-top:18px;padding:12px;background:var(--orange);color:white;font-size:14px;font-weight:600;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;}
-@media(max-width:960px){.hdr-nav,.hdr-cta{display:none;}.burger{display:flex;}}
-@media(max-width:600px){.hdr-in{padding:0 20px;}}
-
-/* PAGE */
 .wrap{max-width:1040px;margin:0 auto;padding:0 32px;}
 .pill{display:inline-flex;align-items:center;background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:var(--r-pill);}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* HERO */
+/* ══ HERO ══ */
 .hero{padding:64px 32px 56px;max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;animation:fadeIn .5s ease both;}
 .hero-text .pill{margin-bottom:18px;}
 .hero-text h1{font-size:clamp(28px,3.2vw,40px);font-weight:900;color:var(--t9);line-height:1.18;margin-bottom:18px;}
@@ -84,18 +28,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .hstat:last-child{border-right:none;}
 .hstat-val{font-size:20px;font-weight:900;color:var(--orange);}
 .hstat-lbl{font-size:11px;color:var(--t5);margin-top:2px;}
-.hero-visual{border-radius:18px;background:linear-gradient(135deg,#0F172A,#1B2E4A,#0F172A);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.hero-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(249,115,22,.14) 0%,transparent 60%);}
-.hvi{text-align:center;position:relative;z-index:1;}
-.hvi-icon{font-size:52px;margin-bottom:10px;}
-.hvi-title{color:#fff;font-weight:800;font-size:15px;margin-bottom:4px;}
-.hvi-sub{color:rgba(255,255,255,.35);font-size:11px;line-height:1.6;}
-.vtags{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:14px;}
-.vtag{background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.3);color:var(--orange);font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--r-pill);}
+.hero-img{border-radius:18px;overflow:hidden;aspect-ratio:4/3;position:relative;}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(249,115,22,.12) 0%,transparent 60%);pointer-events:none;}
 
-
-
-/* RECHERCHE */
+/* ══ RECHERCHE ══ */
 .rech-sec{padding:56px 0;}
 .rech-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
 .rech-text .pill{margin-bottom:14px;}
@@ -103,31 +40,29 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .rech-text h2 em{font-style:normal;color:var(--orange);}
 .rech-text p{color:var(--t5);font-size:14.5px;line-height:1.8;margin-bottom:12px;}
 .callout{background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r);padding:13px 16px;display:flex;gap:10px;align-items:flex-start;margin-top:4px;}
+.callout svg{width:16px;height:16px;color:var(--orange);flex-shrink:0;margin-top:2px;}
 .callout p{color:#92400E;font-size:13px;line-height:1.6;margin:0;}
 [data-theme="dark"] .callout p{color:#FDBA74;}
-.rech-card{background:var(--card);border:1.5px solid var(--border);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:18px;}
-.rech-card-icon{font-size:38px;}
-.rech-card h3{font-size:16px;font-weight:800;color:var(--t9);}
-.rech-card p{font-size:13.5px;color:var(--t5);line-height:1.7;}
-.rbadges{display:flex;gap:6px;flex-wrap:wrap;}
-.rbadge{background:var(--section);border:1px solid var(--border);color:var(--t5);font-size:11px;font-weight:700;padding:4px 10px;border-radius:var(--r-pill);}
+.rech-img{border-radius:18px;overflow:hidden;aspect-ratio:4/3;position:relative;}
+.rech-img img{width:100%;height:100%;object-fit:cover;display:block;}
 
-
-
-/* MISSIONS */
+/* ══ MISSIONS ══ */
 .miss-sec{padding:56px 0;}
 .miss-head{text-align:center;margin-bottom:36px;}
 .miss-head .pill{margin-bottom:12px;}
 .miss-head h2{font-size:clamp(19px,2.3vw,25px);font-weight:900;color:var(--t9);max-width:460px;margin:0 auto;line-height:1.35;}
 .miss-head h2 em{font-style:normal;color:var(--orange);}
 .miss-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-.mcard{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:22px 18px;transition:all var(--tr);}
+.mcard{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all var(--tr);}
 .mcard:hover{border-color:var(--orange-border);box-shadow:var(--sh);}
-.mcard-icon{font-size:24px;margin-bottom:10px;}
+.mcard-img{height:120px;overflow:hidden;}
+.mcard-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+.mcard:hover .mcard-img img{transform:scale(1.05);}
+.mcard-body{padding:18px 16px;}
 .mcard-title{font-size:13px;font-weight:800;color:var(--orange);margin-bottom:7px;}
 .mcard-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
 
-/* CTA */
+/* ══ CTA ══ */
 .cta-sec{padding:0 32px 64px;}
 .cta-band{background:var(--card);border:1.5px solid var(--orange-border);border-radius:var(--r-xl);padding:40px 44px;max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;box-shadow:0 4px 20px rgba(249,115,22,.07);}
 .cta-band h3{font-size:21px;font-weight:900;color:var(--t9);margin-bottom:6px;}
@@ -138,121 +73,22 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-g{display:inline-flex;align-items:center;padding:12px 22px;background:transparent;color:var(--t5);font-size:13px;font-weight:700;font-family:var(--font);border-radius:var(--r);text-decoration:none;border:1.5px solid var(--border);cursor:pointer;transition:all var(--tr);}
 .btn-g:hover{border-color:var(--border-s);color:var(--t9);}
 
-/* FOOTER */
-#ftr{font-family:var(--font);background:#0F172A;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 0;}
-.ftr-in{max-width:1160px;margin:0 auto;padding:0 32px;}
-.ftr-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06);}
-.ftr-brand .ftr-logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-bottom:14px;}
-.ftr-logo-word{font-size:16px;font-weight:800;color:#F97316;letter-spacing:-.3px;}
-.ftr-tagline{font-size:13px;color:#4B5563;line-height:1.7;max-width:240px;}
-.ftr-col h4{font-size:10px;font-weight:700;color:#6B7280;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px;}
-.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
-.ftr-col ul li a{font-size:13px;color:#4B5563;text-decoration:none;transition:color .16s;}
-.ftr-col ul li a:hover{color:#F97316;}
-.ftr-bottom{display:flex;align-items:center;justify-content:space-between;padding:18px 0;flex-wrap:wrap;gap:12px;}
-.ftr-copy{font-size:12px;color:#374151;}
-.ftr-links{display:flex;gap:16px;}
-.ftr-links a{font-size:12px;color:#374151;text-decoration:none;transition:color .16s;}
-.ftr-links a:hover{color:#F97316;}
-
 @media(max-width:900px){
-  .hero,.rech-grid,.pres-grid{grid-template-columns:1fr;gap:28px;}
-  .hero-visual,.fcard-visual{aspect-ratio:16/7;}
+  .hero,.rech-grid{grid-template-columns:1fr;gap:28px;}
+  .hero-img{aspect-ratio:16/7;}
   .miss-grid{grid-template-columns:1fr 1fr;}
-  .fcard{grid-template-columns:1fr;}
-  .ftab-lbl{display:none;}
-  .ftr-top{grid-template-columns:1fr 1fr;}
-  .ftr-brand{grid-column:1/-1;}
   .cta-band{flex-direction:column;align-items:flex-start;padding:28px 24px;}
 }
 @media(max-width:600px){
   .wrap,.hero,.cta-sec{padding-left:20px;padding-right:20px;}
   .miss-grid{grid-template-columns:1fr;}
-  .ftabs{display:grid;grid-template-columns:1fr 1fr;}
-  .ftab{border-bottom:1px solid var(--border);}
-  .ftr-top{grid-template-columns:1fr;}
-  .ftr-in{padding:0 20px;}
 }
 </style>
 </head>
 <body>
+<div id="hdr-ph"></div>
 
-<!-- HEADER -->
-<header id="hdr">
-  <div class="hdr-in">
-    <a href="index.html" class="hdr-logo">
-      <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
-        <circle cx="20" cy="20" r="4.5" fill="#F97316"/>
-        <ellipse cx="20" cy="5.5" rx="3.2" ry="3.8" fill="#F97316"/>
-        <ellipse cx="32" cy="10.5" rx="2.8" ry="3.2" fill="#F97316" opacity=".85"/>
-        <ellipse cx="35.5" cy="22" rx="2.2" ry="2.8" fill="#F97316" opacity=".7"/>
-        <ellipse cx="29" cy="33.5" rx="3" ry="2.5" fill="#F97316" opacity=".9"/>
-        <ellipse cx="11" cy="34" rx="2.4" ry="2.4" fill="#F97316" opacity=".75"/>
-        <ellipse cx="4.5" cy="23" rx="2" ry="2.5" fill="#F97316" opacity=".65"/>
-        <ellipse cx="7" cy="11" rx="2.5" ry="3" fill="#F97316" opacity=".8"/>
-        <circle cx="27" cy="6.5" r="1.5" fill="#F97316" opacity=".6"/>
-        <circle cx="34.5" cy="15" r="1.2" fill="#F97316" opacity=".5"/>
-        <circle cx="15" cy="36" r="1.4" fill="#F97316" opacity=".6"/>
-      </svg>
-      <span class="logo-word">iD4Connect</span>
-    </a>
-    <nav class="hdr-nav">
-      <div class="nav-item">
-        <button class="nav-btn"><span data-i18n="nav.tech">Technologie</span><svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="drop">
-          <a href="datacell.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/></svg>DataCell</a>
-          <a href="datagraph.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><circle cx="2.5" cy="4" r="1.5"/><circle cx="13.5" cy="4" r="1.5"/><circle cx="2.5" cy="12" r="1.5"/><circle cx="13.5" cy="12" r="1.5"/><line x1="4" y1="4.5" x2="6" y2="7"/><line x1="12" y1="4.5" x2="10" y2="7"/><line x1="4" y1="11.5" x2="6" y2="9"/><line x1="12" y1="11.5" x2="10" y2="9"/></svg>DataGraph</a>
-          <a href="architecture.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>Architecture</a>
-          <a href="positionnement.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><circle cx="8" cy="8" r="3"/><line x1="8" y1="1.5" x2="8" y2="4.5"/><line x1="8" y1="11.5" x2="8" y2="14.5"/><line x1="1.5" y1="8" x2="4.5" y2="8"/><line x1="11.5" y1="8" x2="14.5" y2="8"/></svg>Positionnement</a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-btn"><span data-i18n="nav.sectors">Secteurs</span><svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="drop wide">
-          <div class="drop-lbl">Secteurs</div>
-          <a href="secteur-cyber.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>Cybersécurité</a>
-          <a href="secteur-finance.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M5 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><circle cx="8" cy="9" r="1.5"/></svg>Finance & Banque</a>
-          <a href="secteur-iot.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="12" height="8" rx="1"/><path d="M5 5V3.5a3 3 0 0 1 6 0V5"/></svg>Industrie & IoT</a>
-          <a href="secteur-smartbuilding.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="10" height="13" rx="1"/><line x1="6" y1="5" x2="6" y2="5.5"/><line x1="10" y1="5" x2="10" y2="5.5"/><rect x="6" y="11" width="4" height="4"/></svg>Smart Building</a>
-          <a href="secteur-sante.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 14s-5.5-3.8-5.5-8a5 5 0 0 1 5.5-1.5A5 5 0 0 1 13.5 6c0 4.2-5.5 8-5.5 8z"/><path d="M6 8h4M8 6v4"/></svg>Santé</a>
-          <a href="secteur-public.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 14h14M3 14V7M13 14V7M6 14V7M10 14V7M1 7l7-5 7 5"/></svg>Secteur Public</a>
-          <a href="secteur-energie.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg>Énergie</a>
-          <a href="secteur-retail.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 2h1.5l1.5 7h7l1.5-5H5"/><circle cx="7" cy="13" r="1"/><circle cx="12" cy="13" r="1"/></svg>Retail</a>
-          <a href="secteur-logistique.html" class="drop-item"><svg class="di-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="5" width="10" height="8" rx="1"/><path d="M11 7h2.5L15 11v2h-4V7z"/><circle cx="4" cy="13.5" r="1"/><circle cx="12" cy="13.5" r="1"/></svg>Logistique</a>
-        </div>
-      </div>
-      <div class="nav-item"><a href="blog.html" class="nav-btn">Blog</a></div>
-      <div class="nav-item"><a href="histoire.html" class="nav-btn" style="color:var(--orange)">Notre histoire</a></div>
-    </nav>
-    <div class="hdr-right">
-      <div class="lang-wrap" id="lang-wrap">
-        <button class="lang-trigger" onclick="toggleLangDrop()"><span id="lang-cur">FR</span><svg class="lchev" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="lang-drop" id="lang-drop">
-          <div class="lang-opt active" onclick="setLang('fr')">Français</div>
-          <div class="lang-opt" onclick="setLang('en')">English</div>
-          <div class="lang-opt" onclick="setLang('es')">Español</div>
-        </div>
-      </div>
-      <button class="theme-btn" onclick="toggleTheme()">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      </button>
-      <a href="contact.html" class="hdr-cta">Demander une démo</a>
-      <button class="burger" onclick="toggleMob()"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mob-menu" id="mob-menu">
-  <button class="mob-lnk" onclick="toggleSub('ms1')">Technologie</button>
-  <div class="mob-sub" id="ms1"><a href="datacell.html">DataCell</a><a href="datagraph.html">DataGraph</a><a href="architecture.html">Architecture</a><a href="positionnement.html">Positionnement</a></div>
-  <button class="mob-lnk" onclick="toggleSub('ms2')">Secteurs</button>
-  <div class="mob-sub" id="ms2"><a href="secteur-cyber.html">Cybersécurité</a><a href="secteur-finance.html">Finance & Banque</a><a href="secteur-iot.html">Industrie & IoT</a><a href="secteur-smartbuilding.html">Smart Building</a><a href="secteur-sante.html">Santé</a><a href="secteur-public.html">Secteur Public</a><a href="secteur-energie.html">Énergie</a><a href="secteur-retail.html">Retail</a><a href="secteur-logistique.html">Logistique</a></div>
-  <a href="blog.html" class="mob-lnk">Blog</a>
-  <a href="histoire.html" class="mob-lnk">Notre histoire</a>
-  <a href="contact.html" class="mob-cta">Demander une démo →</a>
-</div>
-
-<!-- HERO -->
+<!-- ══ HERO ══ -->
 <section>
   <div class="hero">
     <div class="hero-text">
@@ -265,20 +101,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         <div class="hstat"><div class="hstat-val">0</div><div class="hstat-lbl">Donnée stockée</div></div>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hvi">
-        <div class="hvi-icon">🔗</div>
-        <div class="hvi-title">Intelligence Data</div>
-        <div class="hvi-sub">Traitement en transit<br>Souveraineté by design</div>
-        <div class="vtags"><span class="vtag">Recherche</span><span class="vtag">Terrain</span><span class="vtag">Souveraineté</span></div>
-      </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="Data intelligence" loading="lazy">
     </div>
   </div>
 </section>
 
-
-
-<!-- ANCRAGE SCIENTIFIQUE -->
+<!-- ══ ANCRAGE SCIENTIFIQUE ══ -->
 <section class="rech-sec">
   <div class="wrap">
     <div class="rech-grid">
@@ -286,22 +115,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         <div class="pill">Ancrage scientifique</div>
         <h2>Une technologie issue<br><em>de la recherche appliquée.</em></h2>
         <p>iD4Connect est née d'un partenariat avec un centre de recherche européen reconnu, actif depuis plus de 20 ans dans l'intégration des technologies émergentes au sein des entreprises industrielles et de services.</p>
-        <p>Cette collaboration nous permet de construire une architecture fondamentalement différente — validée scientifiquement, éprouvée opérationnellement.</p>
-        <div class="callout"><span>💡</span><p>La rigueur scientifique de la recherche, au service des contraintes opérationnelles réelles des entreprises.</p></div>
+        <p>Cette collaboration nous permet de construire une architecture fondamentalement différente, validée scientifiquement, éprouvée opérationnellement.</p>
+        <div class="callout">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 5v3l2 1.5"/></svg>
+          <p>La rigueur scientifique de la recherche, au service des contraintes opérationnelles réelles des entreprises.</p>
+        </div>
       </div>
-      <div class="rech-card">
-        <div class="rech-card-icon">🏛️</div>
-        <h3>Centre de recherche européen reconnu</h3>
-        <p>Partenaire technologique fondateur, actif depuis plus de 20 ans. Ses innovations sont validées à l'échelle européenne, à la croisée de l'IA, de l'architecture distribuée et de l'intégration de données.</p>
-        <div class="rbadges"><span class="rbadge">R&D</span><span class="rbadge">IA</span><span class="rbadge">Architecture</span><span class="rbadge">Data</span><span class="rbadge">20+ ans</span></div>
+      <div class="rech-img">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Recherche et innovation" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
-
-
-<!-- MISSIONS -->
+<!-- ══ MISSIONS ══ -->
 <section class="miss-sec">
   <div class="wrap">
     <div class="miss-head">
@@ -309,15 +136,27 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <h2>Maîtrise, optimisation et <em>exploitation de vos données.</em></h2>
     </div>
     <div class="miss-grid">
-      <div class="mcard"><div class="mcard-icon">🔬</div><div class="mcard-title">Excellence & Innovation</div><p class="mcard-desc">Repousser les limites du traitement de la donnée, sans compromis sur la fiabilité.</p></div>
-      <div class="mcard"><div class="mcard-icon">🏛️</div><div class="mcard-title">Agilité & Souveraineté</div><p class="mcard-desc">Déployable partout — on-premise, cloud privé, hybride — sans dépendance externe.</p></div>
-      <div class="mcard"><div class="mcard-icon">🔒</div><div class="mcard-title">Fiabilité & Gouvernance</div><p class="mcard-desc">Traçabilité et conformité intégrées par architecture, pas par configuration.</p></div>
-      <div class="mcard"><div class="mcard-icon">🤝</div><div class="mcard-title">Collaboration & Proximité</div><p class="mcard-desc">Nous apportons la technologie, nos partenaires apportent la proximité terrain.</p></div>
+      <div class="mcard">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=75" alt="Innovation" loading="lazy"></div>
+        <div class="mcard-body"><div class="mcard-title">Excellence & Innovation</div><p class="mcard-desc">Repousser les limites du traitement de la donnée, sans compromis sur la fiabilité.</p></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=75" alt="Souveraineté" loading="lazy"></div>
+        <div class="mcard-body"><div class="mcard-title">Agilité & Souveraineté</div><p class="mcard-desc">Déployable partout, on-premise, cloud privé, hybride, sans dépendance externe.</p></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=400&q=75" alt="Gouvernance" loading="lazy"></div>
+        <div class="mcard-body"><div class="mcard-title">Fiabilité & Gouvernance</div><p class="mcard-desc">Traçabilité et conformité intégrées par architecture, pas par configuration.</p></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&q=75" alt="Collaboration" loading="lazy"></div>
+        <div class="mcard-body"><div class="mcard-title">Collaboration & Proximité</div><p class="mcard-desc">Nous apportons la technologie, nos partenaires apportent la proximité terrain.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- ══ CTA ══ -->
 <div class="cta-sec">
   <div class="cta-band">
     <div><h3>Vous voulez en savoir plus ?</h3><p>Notre équipe vous répond sous 24h avec des réponses concrètes, pas des brochures.</p></div>
@@ -325,42 +164,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer id="ftr">
-  <div class="ftr-in">
-    <div class="ftr-top">
-      <div class="ftr-brand">
-        <a href="index.html" class="ftr-logo"><svg width="28" height="28" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="4.5" fill="#F97316"/><ellipse cx="20" cy="5.5" rx="3.2" ry="3.8" fill="#F97316"/><ellipse cx="32" cy="10.5" rx="2.8" ry="3.2" fill="#F97316" opacity=".85"/><ellipse cx="35.5" cy="22" rx="2.2" ry="2.8" fill="#F97316" opacity=".7"/><ellipse cx="29" cy="33.5" rx="3" ry="2.5" fill="#F97316" opacity=".9"/><ellipse cx="11" cy="34" rx="2.4" ry="2.4" fill="#F97316" opacity=".75"/><ellipse cx="4.5" cy="23" rx="2" ry="2.5" fill="#F97316" opacity=".65"/><ellipse cx="7" cy="11" rx="2.5" ry="3" fill="#F97316" opacity=".8"/></svg><span class="ftr-logo-word">iD4Connect</span></a>
-        <p class="ftr-tagline">La donnée utile à votre métier, traitée en transit. Zéro stockage. Souveraineté by design.</p>
-      </div>
-      <div class="ftr-col"><h4>Technologie</h4><ul><li><a href="datacell.html">DataCell</a></li><li><a href="datagraph.html">DataGraph</a></li><li><a href="architecture.html">Architecture</a></li><li><a href="positionnement.html">Positionnement</a></li></ul></div>
-      <div class="ftr-col"><h4>Secteurs</h4><ul><li><a href="secteur-cyber.html">Cybersécurité</a></li><li><a href="secteur-finance.html">Finance & Banque</a></li><li><a href="secteur-iot.html">Industrie & IoT</a></li><li><a href="secteur-smartbuilding.html">Smart Building</a></li><li><a href="secteur-sante.html">Santé</a></li><li><a href="secteur-energie.html">Énergie</a></li></ul></div>
-      <div class="ftr-col"><h4>Société</h4><ul><li><a href="histoire.html">Notre histoire</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="contact.html">Demander une démo</a></li></ul></div>
-    </div>
-    <div class="ftr-bottom">
-      <div class="ftr-copy">© 2026 iD4Connect France SAS — Tous droits réservés</div>
-      <div class="ftr-links"><a href="#">Confidentialité</a><a href="#">Mentions légales</a><a href="#">Cookies</a></div>
-    </div>
-  </div>
-</footer>
+<div id="ftr-ph"></div>
 
 <script>
-/* ── JS HEADER v3 — copie exacte du fichier fourni ── */
-const I18N={fr:{'nav.tech':'Technologie','nav.sectors':'Secteurs'},en:{'nav.tech':'Technology','nav.sectors':'Sectors'},es:{'nav.tech':'Tecnología','nav.sectors':'Sectores'}};
-let lang=localStorage.getItem('id4-lang')||'fr';
-let theme=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-function applyTheme(t){document.documentElement.setAttribute('data-theme',t);document.body&&document.body.setAttribute('data-theme',t);theme=t;}
-function toggleTheme(){const n=theme==='dark'?'light':'dark';localStorage.setItem('id4-theme',n);applyTheme(n);document.dispatchEvent(new CustomEvent('themeChange',{detail:n}));}
-function setLang(l){lang=l;localStorage.setItem('id4-lang',l);document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(I18N[l]?.[k])el.textContent=I18N[l][k];});const cl=document.getElementById('lang-cur');if(cl)cl.textContent=l.toUpperCase();document.querySelectorAll('.lang-opt').forEach(o=>{const m=o.getAttribute('onclick')?.match(/setLang\('(\w+)'\)/)?.[1];o.classList.toggle('active',m===l);});closeLang();document.dispatchEvent(new CustomEvent('langChange',{detail:l}));}
-function toggleLangDrop(){document.getElementById('lang-wrap').classList.toggle('open');}
-function closeLang(){document.getElementById('lang-wrap').classList.remove('open');}
-document.addEventListener('click',e=>{if(!e.target.closest('#lang-wrap'))closeLang();});
-function toggleMob(){document.getElementById('mob-menu').classList.toggle('open');}
-function toggleSub(id){document.getElementById(id).classList.toggle('open');}
-function initHeader(){applyTheme(theme);setLang(lang);window.addEventListener('scroll',()=>document.getElementById('hdr')?.classList.toggle('scrolled',scrollY>20));}
-document.addEventListener('DOMContentLoaded',initHeader);
+const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+document.documentElement.setAttribute('data-theme',t0);
+document.body.setAttribute('data-theme',t0);
 
-
+async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});if(typeof initHeader==='function')initHeader();}catch(e){}}
+window.addEventListener('load',async()=>{
+  await loadComp('hdr-ph','header.html');
+  await loadComp('ftr-ph','footer.html');
+  document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
+});
 </script>
 </body>
 </html>
