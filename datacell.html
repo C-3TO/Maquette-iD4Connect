@@ -122,11 +122,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .schema-hint{text-align:center;font-size:11px;color:var(--t4);margin-top:10px;}
 
 @media(max-width:1020px){
-  .schema-wrap{grid-template-columns:1fr;gap:0;max-width:480px;}
-  .s-flow{flex-direction:row;padding:12px 0;gap:8px;}
-  .s-flow-line{width:80px;height:4px;}
+  .schema-wrap{grid-template-columns:1fr;gap:0;max-width:420px;}
+  .s-panel{padding:14px;}
+  .s-flow{flex-direction:row;padding:8px 0;gap:6px;justify-content:center;}
+  .s-flow-line{width:60px;height:4px;}
+  .dc-card{max-width:100%;}
 }
-@media(max-width:600px){.schema-wrap,.schema-bottom{padding:0 20px;}.s-flow-line{width:60px;}}
+@media(max-width:600px){.schema-wrap,.schema-bottom{padding:0 16px;}.schema-wrap{max-width:360px;}.s-flow-line{width:48px;}.s-panel{padding:12px;}.dc-grid{grid-template-columns:1fr;}}
 
 /* ══ BLOC 2 - 5 PRINCIPES ══ */
 #principes{padding:96px 0;background:var(--card);}
