@@ -108,15 +108,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .pr-head{margin-bottom:52px;}
 .pr-head .pr-num{font-size:11px;font-weight:800;color:var(--orange);letter-spacing:1px;margin-bottom:8px;}
 .pr-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
-.pr-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
-.pr-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 20px;text-align:center;transition:all .2s;}
-.pr-card:hover{border-color:var(--orange-border);transform:translateY(-3px);box-shadow:var(--sh);}
-.pr-ico{width:54px;height:54px;border-radius:var(--r);margin:0 auto 18px;display:flex;align-items:center;justify-content:center;}
-.pr-ico svg{width:24px;height:24px;}
-.pr-card h3{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:10px;}
-.pr-card p{font-size:12.5px;color:var(--t5);line-height:1.65;}
-@media(max-width:900px){.pr-grid{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:560px){.pr-grid{grid-template-columns:1fr 1fr;}.pr-grid .pr-card:last-child{grid-column:1/-1;}}
+.cap-list{display:flex;flex-direction:column;gap:0;}
+.cap-item{display:grid;grid-template-columns:64px 1fr;gap:0;border-bottom:1px solid var(--border);padding:32px 0;align-items:start;transition:all var(--tr);cursor:default;}
+.cap-item:last-child{border-bottom:none;}
+.cap-item:hover .cap-ico{border-color:var(--orange-border);background:var(--orange-pale);}
+.cap-item:hover .cap-ico svg{color:var(--orange);}
+.cap-num{font-size:11px;font-weight:800;color:var(--orange);opacity:.4;letter-spacing:1px;padding-top:2px;}
+.cap-right{padding-left:28px;}
+.cap-right h3{font-size:1.15rem;font-weight:800;color:var(--t9);margin-bottom:8px;letter-spacing:-.2px;}
+.cap-right h3 .o{color:var(--orange);}
+.cap-right p{font-size:14.5px;color:var(--t5);line-height:1.75;max-width:680px;}
+.cap-ico{width:48px;height:48px;border-radius:var(--r);background:var(--section);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all var(--tr);flex-shrink:0;}
+.cap-ico svg{width:22px;height:22px;color:var(--t5);transition:color var(--tr);}
+@media(max-width:600px){.cap-item{grid-template-columns:1fr;gap:16px;}.cap-right{padding-left:0;}}
 #connect{padding:96px 0;background:var(--bg);}
 .conn-head{text-align:center;margin-bottom:48px;}
 .conn-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
@@ -230,12 +234,27 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <section id="principes" class="reveal">
   <div class="wrap">
     <div class="pr-head"><div class="pr-num">01</div><h2 id="txt-pr-title">Principes fondamentaux</h2></div>
-    <div class="pr-grid">
-      <div class="pr-card"><div class="pr-ico" style="background:#FFF7ED;"><svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3 id="txt-pr1-title">Stateless</h3><p id="txt-pr1-p">Aucun stockage permanent. Traitement à la volée, insights en temps réel.</p></div>
-      <div class="pr-card"><div class="pr-ico" style="background:#ECFEFF;"><svg viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Zero Trust</h3><p id="txt-pr2-p">Vérification à chaque flux. Sécurité by design sans point unique de défaillance.</p></div>
-      <div class="pr-card"><div class="pr-ico" style="background:#EFF6FF;"><svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3 id="txt-pr3-title">Cloud Agnostic</h3><p id="txt-pr3-p">Déployable partout : cloud public, privé, on-premise ou hybride.</p></div>
-      <div class="pr-card"><div class="pr-ico" style="background:#F0FDF4;"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><h3 id="txt-pr4-title">Souveraineté</h3><p id="txt-pr4-p">100% européen. Vos données restent dans votre périmètre, toujours.</p></div>
-      <div class="pr-card"><div class="pr-ico" style="background:#F5F3FF;"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><h3 id="txt-pr5-title">Résilience</h3><p id="txt-pr5-p">Auto-healing et re-routage automatique en cas d'échec.</p></div>
+    <div class="cap-list">
+      <div class="cap-item">
+        <div><div class="cap-num">01</div><div class="cap-ico" style="margin-top:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div></div>
+        <div class="cap-right"><h3><span class="o" id="txt-pr1-title">Stateless</span></h3><p id="txt-pr1-p">Aucun stockage permanent. La donnée transite, est traitée et ressort qualifiée. Rien ne persiste, rien ne s'accumule.</p></div>
+      </div>
+      <div class="cap-item">
+        <div><div class="cap-num">02</div><div class="cap-ico" style="margin-top:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div></div>
+        <div class="cap-right"><h3><span class="o">Zero Trust</span></h3><p id="txt-pr2-p">Vérification à chaque flux. Sécurité by design, sans point unique de défaillance. Chaque transit est authentifié et chiffré.</p></div>
+      </div>
+      <div class="cap-item">
+        <div><div class="cap-num">03</div><div class="cap-ico" style="margin-top:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div></div>
+        <div class="cap-right"><h3><span class="o" id="txt-pr3-title">Cloud Agnostic</span></h3><p id="txt-pr3-p">Déployable partout : cloud public, privé, on-premise ou hybride. Un seul modèle, zéro dépendance à un fournisseur.</p></div>
+      </div>
+      <div class="cap-item">
+        <div><div class="cap-num">04</div><div class="cap-ico" style="margin-top:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div></div>
+        <div class="cap-right"><h3><span class="o" id="txt-pr4-title">Souveraineté</span></h3><p id="txt-pr4-p">100% européen. Vos données restent dans votre périmètre, toujours. Aucune juridiction étrangère n'y accède.</p></div>
+      </div>
+      <div class="cap-item">
+        <div><div class="cap-num">05</div><div class="cap-ico" style="margin-top:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div></div>
+        <div class="cap-right"><h3><span class="o" id="txt-pr5-title">Résilience</span></h3><p id="txt-pr5-p">Auto-healing et re-routage automatique en cas de défaillance. Le système se répare sans intervention manuelle.</p></div>
+      </div>
     </div>
   </div>
 </section>
