@@ -20,65 +20,37 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
 
-/* ══ HERO - ICONE GAUCHE + TEXTE DROITE ══ */
 #iot-hero{padding:64px 0 72px;background:var(--card);position:relative;overflow:hidden;}
 #iot-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
-
 .hero-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center;}
-
-.hero-visual{
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-  min-height:320px;
-}
-.hero-visual::before{
-  content:'';position:absolute;
-  width:240px;height:240px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 70%);
-  pointer-events:none;
-}
-
-.hero-icon{
-  width:160px;height:160px;
-  color:var(--orange);
-  position:relative;z-index:1;
-  animation:iconFloat 3s ease-in-out infinite alternate;
-}
+.hero-visual{display:flex;align-items:center;justify-content:center;position:relative;min-height:320px;}
+.hero-visual::before{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;}
+.hero-icon{width:160px;height:160px;color:var(--orange);position:relative;z-index:1;animation:iconFloat 3s ease-in-out infinite alternate;}
 @keyframes iconFloat{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
-
 .hero-right .pill{margin-bottom:14px;}
 .hero-right h1{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin-bottom:16px;}
 .hero-right h1 .o{color:var(--orange);}
 .hero-right>p{font-size:15px;color:var(--t5);line-height:1.75;max-width:480px;margin-bottom:28px;}
-
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
 .btn-p{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
 .btn-p:hover{background:var(--orange-d);transform:translateY(-1px);}
 .btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
 .btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
-
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:200px;}}
 @media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}}
 
-/* ══ CAS D'USAGE ══ */
 #cas-usage{padding:96px 0;background:var(--bg);}
 .section-head{text-align:center;margin-bottom:44px;}
 .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
 .section-head h2 .o{color:var(--orange);}
 .section-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
-
 .uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;}
-.uc-card:hover{border-color:var(--orange-border);box-shadow:var(--sh);transform:translateY(-2px);}
-.uc-card.active{border-color:var(--orange);box-shadow:0 8px 28px rgba(249,115,22,.15);}
+.uc-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.12),0 8px 28px rgba(249,115,22,.10);transform:translateY(-3px);}
 .uc-head{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;border-bottom:1px solid var(--border);background:var(--section);}
-.uc-card.active .uc-head{background:var(--orange-pale);border-color:var(--orange-border);}
 .uc-head-left{display:flex;align-items:center;gap:8px;}
 .uc-head-ico{width:22px;height:22px;color:var(--t5);}
-.uc-card.active .uc-head-ico{color:var(--orange);}
 .uc-head-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t4);}
-.uc-card.active .uc-head-lbl{color:var(--orange);}
 .uc-dot{width:8px;height:8px;border-radius:50%;background:var(--green-em);box-shadow:0 0 0 3px rgba(16,185,129,.2);}
 .uc-body{padding:14px;}
 .uc-title{font-size:13.5px;font-weight:800;color:var(--t9);margin-bottom:11px;}
@@ -93,9 +65,71 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .uc-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
 .uc-output svg{width:11px;height:11px;flex-shrink:0;}
 .uc-output-lbl{font-size:11.5px;font-weight:700;color:var(--t9);}
-
 @media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.uc-grid{grid-template-columns:1fr;}}
+
+/* ══ MODAL (same as cyber) ══ */
+.md-overlay{position:fixed;inset:0;background:rgba(15,23,42,0);display:none;align-items:center;justify-content:center;z-index:1000;padding:16px;transition:background .3s ease;}
+.md-overlay.open{display:flex;}
+.md-overlay.active{background:rgba(15,23,42,.55);backdrop-filter:blur(6px);}
+.md-modal{background:var(--card);border-radius:var(--r-xl);width:100%;max-width:760px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;transform:scale(.93) translateY(24px);opacity:0;transition:all .28s cubic-bezier(.4,0,.2,1);box-shadow:var(--sh-lg);}
+.md-overlay.active .md-modal{transform:scale(1) translateY(0);opacity:1;}
+.md-header{padding:24px 28px 0;flex-shrink:0;}
+.md-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:12px;}
+.md-title-area{display:flex;align-items:center;gap:14px;}
+.md-icon{width:46px;height:46px;border-radius:var(--r);background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.md-icon svg{width:22px;height:22px;color:white;}
+.md-badge{font-size:10px;font-weight:700;color:var(--orange);letter-spacing:1px;text-transform:uppercase;}
+.md-modal h2{font-size:20px;font-weight:800;color:var(--t9);margin:2px 0 0;}
+.md-desc{font-size:13.5px;color:var(--t5);line-height:1.65;margin:0 0 16px;}
+.md-close{width:36px;height:36px;border-radius:50%;border:none;background:var(--section);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--t5);transition:all .2s;flex-shrink:0;font-family:var(--font);}
+.md-close:hover{background:var(--red-pale);color:var(--red);}
+.md-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.md-tabs::-webkit-scrollbar{display:none;}
+.md-tab{padding:10px 16px;border:none;background:transparent;cursor:pointer;font-family:var(--font);font-weight:600;font-size:12.5px;color:var(--t4);border-bottom:2px solid transparent;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0;}
+.md-tab:hover{color:var(--t7);}
+.md-tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+.md-tab svg{width:13px;height:13px;}
+.md-body{overflow-y:auto;flex:1;padding:20px 28px 28px;}
+.md-body::-webkit-scrollbar{width:5px;}
+.md-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+.md-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;transition:border-color .2s;}
+.md-card:hover{border-color:var(--orange-border);}
+.md-card:last-child{margin-bottom:0;}
+.md-card-head{display:flex;align-items:center;gap:9px;margin-bottom:7px;flex-wrap:wrap;}
+.md-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.md-card-name{font-size:14px;font-weight:700;color:var(--t9);}
+.md-tag{display:inline-flex;padding:2px 9px;border-radius:var(--r-pill);font-size:10px;font-weight:600;background:var(--section);color:var(--t5);border:1px solid var(--border);}
+.md-card p{font-size:12.5px;color:var(--t5);line-height:1.6;margin:0 0 8px;}
+.md-protos{display:flex;flex-wrap:wrap;gap:5px;}
+.md-proto{font-size:10px;padding:2px 7px;border-radius:var(--r-xs);background:var(--card);border:1px solid var(--border);color:var(--t5);font-weight:500;}
+.md-tcard{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;border-left:3px solid;}
+.md-tcard:last-child{margin-bottom:0;}
+.md-tcard:hover{border-color:var(--orange-border);border-left-color:inherit;}
+.md-tcard-name{font-size:14px;font-weight:700;color:var(--t9);margin-bottom:4px;}
+.md-tcard p{font-size:12px;color:var(--t5);margin:0 0 8px;}
+.md-detail{display:flex;align-items:flex-start;gap:7px;font-size:11.5px;color:var(--t7);line-height:1.5;margin-bottom:3px;}
+.md-bullet{font-weight:700;flex-shrink:0;margin-top:1px;}
+.md-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+.md-kpi{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center;}
+.md-kpi-ico{width:28px;height:28px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;background:var(--orange-pale);border-radius:var(--r-sm);border:1px solid var(--orange-border);}
+.md-kpi-ico svg{width:14px;height:14px;color:var(--orange);}
+.md-kpi-val{font-size:18px;font-weight:900;color:var(--orange);line-height:1;}
+.md-kpi-lbl{font-size:10px;font-weight:600;color:var(--t4);margin-top:3px;}
+.md-dest{display:flex;align-items:center;padding:9px 13px;border-radius:var(--r-sm);background:var(--bg);border:1px solid var(--border);gap:9px;margin-bottom:6px;flex-wrap:wrap;transition:border-color .2s;}
+.md-dest:hover{border-color:var(--orange-border);}
+.md-dest-name{font-weight:700;font-size:13px;color:var(--t9);min-width:90px;}
+.md-dest-fmt{font-size:10px;font-weight:600;color:var(--t4);margin-left:auto;}
+.md-arch{display:flex;align-items:center;padding:9px 13px;border-radius:var(--r-sm);background:var(--bg);border:1px solid var(--border);gap:8px;margin-bottom:6px;}
+.md-arch-lbl{font-weight:600;font-size:12px;color:var(--t5);min-width:110px;}
+.md-arch-val{font-weight:700;font-size:12px;color:var(--t9);}
+.md-slbl{font-size:10px;font-weight:700;color:var(--t4);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:block;}
+.md-callout{padding:14px 18px;border-radius:var(--r);background:var(--orange-pale);border:1px solid var(--orange-border);margin-top:18px;}
+.md-callout-title{font-weight:700;font-size:12px;color:var(--orange-d);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.md-callout-title svg{width:14px;height:14px;color:var(--orange);}
+.md-callout-text{font-size:12px;color:var(--t7);line-height:1.7;}
+.md-callout-text strong{color:var(--t9);}
+@media(max-width:600px){.md-modal{max-height:95vh;border-radius:var(--r-lg);}.md-header{padding:16px 16px 0;}.md-body{padding:14px 16px 20px;}.md-kpis{grid-template-columns:1fr;}}
 
 /* ══ ARCHITECTURE ══ */
 #archi{padding:96px 0;background:var(--card);}
@@ -106,10 +140,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conf-ico svg{width:20px;height:20px;}
 .conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
 .conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
-
 @media(max-width:900px){.conf-grid{grid-template-columns:1fr;}}
 
-/* ══ CTA ══ */
 #iot-cta{padding:96px 0;background:var(--card);}
 .cta-box{background:var(--bg);border:2px solid var(--orange-border);border-radius:var(--r-xl);padding:48px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(249,115,22,.08);}
 .cta-box h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:10px;}
@@ -124,112 +156,73 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <body>
 <div id="hdr-ph"></div>
 
-<!-- ══ HERO ══ -->
 <section id="iot-hero">
   <div class="wrap">
     <div class="hero-grid">
-
-      <!-- GAUCHE : icone engrenage minimaliste -->
       <div class="hero-visual">
         <svg class="hero-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="30" y="30" width="40" height="40" rx="6"/>
-          <line x1="40" y1="30" x2="40" y2="20"/>
-          <line x1="50" y1="30" x2="50" y2="20"/>
-          <line x1="60" y1="30" x2="60" y2="20"/>
-          <line x1="40" y1="70" x2="40" y2="80"/>
-          <line x1="50" y1="70" x2="50" y2="80"/>
-          <line x1="60" y1="70" x2="60" y2="80"/>
-          <line x1="30" y1="40" x2="20" y2="40"/>
-          <line x1="30" y1="50" x2="20" y2="50"/>
-          <line x1="30" y1="60" x2="20" y2="60"/>
-          <line x1="70" y1="40" x2="80" y2="40"/>
-          <line x1="70" y1="50" x2="80" y2="50"/>
-          <line x1="70" y1="60" x2="80" y2="60"/>
+          <line x1="40" y1="30" x2="40" y2="20"/><line x1="50" y1="30" x2="50" y2="20"/><line x1="60" y1="30" x2="60" y2="20"/>
+          <line x1="40" y1="70" x2="40" y2="80"/><line x1="50" y1="70" x2="50" y2="80"/><line x1="60" y1="70" x2="60" y2="80"/>
+          <line x1="30" y1="40" x2="20" y2="40"/><line x1="30" y1="50" x2="20" y2="50"/><line x1="30" y1="60" x2="20" y2="60"/>
+          <line x1="70" y1="40" x2="80" y2="40"/><line x1="70" y1="50" x2="80" y2="50"/><line x1="70" y1="60" x2="80" y2="60"/>
           <circle cx="50" cy="50" r="6"/>
         </svg>
       </div>
-
-      <!-- DROITE : texte -->
       <div class="hero-right">
-        <div class="pill">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="14" height="9" rx="1.5"/><path d="M4 4V2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V4"/><circle cx="8" cy="8.5" r="1.5"/><path d="M5 8.5H4M12 8.5h-1"/></svg>
-          Industrie & IoT
-        </div>
+        <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="14" height="9" rx="1.5"/><path d="M4 4V2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V4"/><circle cx="8" cy="8.5" r="1.5"/><path d="M5 8.5H4M12 8.5h-1"/></svg>Industrie & IoT</div>
         <h1>Vos machines parlent déjà.<br><span class="o">Il est temps de les écouter.</span></h1>
         <p>iD4Connect collecte et traite vos flux industriels en temps réel, directement sur site. Maintenance prédictive, qualité en ligne, pilotage énergétique, sans transférer vos données de production.</p>
-        <div class="hero-ctas">
-          <a href="contact.html" class="btn-p">Demander une démo →</a>
-          <a href="positionnement.html" class="btn-g">Voir le positionnement</a>
-        </div>
+        <div class="hero-ctas"><a href="contact.html" class="btn-p">Demander une démo →</a><a href="positionnement.html" class="btn-g">Voir le positionnement</a></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══ CAS D'USAGE ══ -->
 <section id="cas-usage" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>
-        Cas d'usage
-      </div>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>Cas d'usage</div>
       <h2>Ce qu'iD4Connect fait concrètement<br><span class="o">sur votre plancher de production.</span></h2>
     </div>
     <div class="uc-grid" id="uc-grid"></div>
-    <p class="section-hint">Cliquez sur une DataCell pour la mettre en avant</p>
+    <p class="section-hint">Cliquez sur une DataCell pour explorer le détail</p>
   </div>
 </section>
 
-<!-- ══ ARCHITECTURE ══ -->
+<div class="md-overlay" id="md-overlay">
+  <div class="md-modal">
+    <div class="md-header">
+      <div class="md-top">
+        <div class="md-title-area"><div class="md-icon" id="md-icon"></div><div><div class="md-badge">DataCell</div><h2 id="md-title"></h2></div></div>
+        <button class="md-close" onclick="closeModal()">✕</button>
+      </div>
+      <p class="md-desc" id="md-desc"></p>
+      <div class="md-tabs" id="md-tabs"></div>
+    </div>
+    <div class="md-body" id="md-body"></div>
+  </div>
+</div>
+
 <section id="archi" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
-        Architecture
-      </div>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>Architecture</div>
       <h2>Conçu pour l'environnement industriel.<br><span class="o">Non intrusif par nature.</span></h2>
     </div>
     <div class="conf-grid">
-      <div class="conf-card" style="border-top-color:#F97316;">
-        <div class="conf-ico" style="background:var(--orange-pale);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="#F97316" stroke-width="1.5"><circle cx="5" cy="10" r="2.5"/><circle cx="15" cy="5" r="2.5"/><circle cx="15" cy="15" r="2.5"/><path d="M7.5 10h5M12.5 5.8l-5 3.5M12.5 14.2l-5-3.5"/></svg>
-        </div>
-        <div class="conf-title">Interopérabilité native</div>
-        <div class="conf-desc">OPC-UA, MQTT, Modbus, BACnet et tous les protocoles industriels sont supportés nativement, sans passerelle supplémentaire ni conversion de format.</div>
-      </div>
-      <div class="conf-card" style="border-top-color:#2563EB;">
-        <div class="conf-ico" style="background:var(--blue-pale);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="#2563EB" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M6 7h8M6 10h5M2 7h2M2 10h2"/><circle cx="15" cy="13" r="2.5"/><path d="M13.5 13h1.5M15 11.5v1.5"/></svg>
-        </div>
-        <div class="conf-title">Déployé sur site, proche des machines</div>
-        <div class="conf-desc">Les DataCells s'installent directement dans votre environnement OT, sans transférer vos données de production vers un cloud externe.</div>
-      </div>
-      <div class="conf-card" style="border-top-color:#10B981;">
-        <div class="conf-ico" style="background:var(--green-pale);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l2.5 2.5"/></svg>
-        </div>
-        <div class="conf-title">Zéro impact sur les systèmes existants</div>
-        <div class="conf-desc">Architecture stateless et non intrusive. iD4Connect observe et traite les flux sans modifier vos automates, vos PLC ni vos systèmes de contrôle.</div>
-      </div>
+      <div class="conf-card" style="border-top-color:#F97316;"><div class="conf-ico" style="background:var(--orange-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#F97316" stroke-width="1.5"><circle cx="5" cy="10" r="2.5"/><circle cx="15" cy="5" r="2.5"/><circle cx="15" cy="15" r="2.5"/><path d="M7.5 10h5M12.5 5.8l-5 3.5M12.5 14.2l-5-3.5"/></svg></div><div class="conf-title">Interopérabilité native</div><div class="conf-desc">OPC-UA, MQTT, Modbus, BACnet et tous les protocoles industriels sont supportés nativement, sans passerelle supplémentaire ni conversion de format.</div></div>
+      <div class="conf-card" style="border-top-color:#2563EB;"><div class="conf-ico" style="background:var(--blue-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#2563EB" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M6 7h8M6 10h5M2 7h2M2 10h2"/><circle cx="15" cy="13" r="2.5"/><path d="M13.5 13h1.5M15 11.5v1.5"/></svg></div><div class="conf-title">Déployé sur site, proche des machines</div><div class="conf-desc">Les DataCells s'installent directement dans votre environnement OT, sans transférer vos données de production vers un cloud externe.</div></div>
+      <div class="conf-card" style="border-top-color:#10B981;"><div class="conf-ico" style="background:var(--green-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l2.5 2.5"/></svg></div><div class="conf-title">Zéro impact sur les systèmes existants</div><div class="conf-desc">Architecture stateless et non intrusive. iD4Connect observe et traite les flux sans modifier vos automates, vos PLC ni vos systèmes de contrôle.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ CTA ══ -->
 <section id="iot-cta" class="reveal">
   <div class="wrap">
     <div class="cta-box">
-      <div>
-        <h2>Vos machines génèrent de la valeur.<br>Pas encore vos données.</h2>
-        <p>Déployez une DataCell directement sur votre infrastructure OT. Résultats visibles en moins d'une semaine.</p>
-      </div>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-primary">Demander une démo →</a>
-        <a href="#" class="btn-secondary">Télécharger la fiche</a>
-      </div>
+      <div><h2>Vos machines génèrent de la valeur.<br>Pas encore vos données.</h2><p>Déployez une DataCell directement sur votre infrastructure OT. Résultats visibles en moins d'une semaine.</p></div>
+      <div class="cta-btns"><a href="contact.html" class="btn-primary">Demander une démo →</a><a href="#" class="btn-secondary">Télécharger la fiche</a></div>
     </div>
   </div>
 </section>
@@ -238,90 +231,158 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 <script>
 const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-document.documentElement.setAttribute('data-theme',t0);
-document.body.setAttribute('data-theme',t0);
+document.documentElement.setAttribute('data-theme',t0);document.body.setAttribute('data-theme',t0);
+
+const TAB_ICONS={
+  sources:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 2v2M8 12v2M2 8h2M12 8h2"/></svg>',
+  traitement:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.5"/></svg>',
+  sortie:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2v12M9 6l4 4-4 4"/><line x1="6" y1="10" x2="13" y2="10"/></svg>',
+  technique:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>'
+};
+const KPI_ICONS={
+  factory:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="8" width="14" height="6" rx="1"/><path d="M3 8V4l4 2V4l4 2V4l2 1v3"/></svg>',
+  target:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.5"/><circle cx="8" cy="8" r=".8" fill="currentColor"/></svg>',
+  chart:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2 12 6 6 10 9 14 3"/><polyline points="11 3 14 3 14 6"/></svg>',
+  bolt:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg>',
+  shield:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>',
+  leaf:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14C2 14 3 4 14 2c0 0-2 10-12 12z"/><path d="M2 14l5.5-5.5"/></svg>',
+  money:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="8" y1="1" x2="8" y2="15"/><path d="M11.5 4.5H6.5a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4H4.5"/></svg>',
+  down:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2 4 6 10 10 7 14 13"/><polyline points="11 13 14 13 14 10"/></svg>',
+  clock:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 1.5"/></svg>',
+  star:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l1.8 3.7 4 .6-2.9 2.8.7 4L8 10.8 4.4 12.6l.7-4L2.2 5.8l4-.6z"/></svg>'
+};
 
 const USE_CASES=[
-  {
-    id:'supervision',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="18" height="12" rx="1.5"/><path d="M7 6V4M11 6V3M15 6V5"/><path d="M6 13l3-3 2 2 4-4"/></svg>`,
-    title:'Supervision chaîne de production',
-    sources:['OPC-UA capteurs','MQTT automates','GMAO / MES'],
-    ops:[
-      {label:'Collecte temps réel', desc:'Agrégation multi-protocoles sans conversion', color:'#F97316'},
-      {label:'Détection anomalies', desc:'Seuils dynamiques par ligne et par machine', color:'#EF4444'},
-      {label:'Corrélation', desc:'Croisement données terrain et historique GMAO', color:'#3B82F6'},
-    ],
-    output:'Alerte maintenance prédictive', outColor:'#EF4444',
-  },
-  {
-    id:'qualite',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L11 14l-4.8 2.5.9-5.2L3.3 7.6l5.3-.8z"/></svg>`,
-    title:'Contrôle qualité en ligne',
-    sources:['Capteurs vision','PLC / Automates','ERP production'],
-    ops:[
-      {label:'Filtrage', desc:'Élimination du bruit sur flux capteurs', color:'#06B6D4'},
-      {label:'Scoring qualité', desc:'Calcul indice qualité par lot en temps réel', color:'#10B981'},
-      {label:'Traçabilité', desc:'Historisation complète par pièce produite', color:'#8B5CF6'},
-    ],
-    output:'Indice qualité temps réel', outColor:'#10B981',
-  },
-  {
-    id:'energie',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L6 12h6l-2 8 8-10h-6l2-8z" stroke-linejoin="round"/></svg>`,
-    title:'Pilotage énergétique',
-    sources:['Compteurs intelligents','Capteurs IoT','Données météo API'],
-    ops:[
-      {label:'Consolidation', desc:'Agrégation consommation multi-sites', color:'#F59E0B'},
-      {label:'Prédiction', desc:'IA embarquée sur patterns de consommation', color:'#8B5CF6'},
-      {label:'Alertes', desc:'Dépassement seuil notifié en moins d\'1 seconde', color:'#EF4444'},
-    ],
-    output:'Optimisation consommation', outColor:'#F59E0B',
-  },
+  {id:'supervision',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="18" height="12" rx="1.5"/><path d="M7 6V4M11 6V3M15 6V5"/><path d="M6 13l3-3 2 2 4-4"/></svg>',
+    title:'Supervision chaîne de production',sources:['OPC-UA capteurs','MQTT automates','GMAO / MES'],
+    ops:[{label:'Collecte temps réel',desc:'Agrégation multi-protocoles sans conversion',color:'#F97316'},{label:'Détection anomalies',desc:'Seuils dynamiques par ligne et par machine',color:'#EF4444'},{label:'Corrélation',desc:'Croisement données terrain et historique GMAO',color:'#3B82F6'}],
+    output:'Alerte maintenance prédictive',outColor:'#EF4444'},
+  {id:'qualite',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L11 14l-4.8 2.5.9-5.2L3.3 7.6l5.3-.8z"/></svg>',
+    title:'Contrôle qualité en ligne',sources:['Capteurs vision','PLC / Automates','ERP production'],
+    ops:[{label:'Filtrage',desc:'Élimination du bruit sur flux capteurs',color:'#06B6D4'},{label:'Scoring qualité',desc:'Calcul indice qualité par lot en temps réel',color:'#10B981'},{label:'Traçabilité',desc:'Historisation complète par pièce produite',color:'#8B5CF6'}],
+    output:'Indice qualité temps réel',outColor:'#10B981'},
+  {id:'energie',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L6 12h6l-2 8 8-10h-6l2-8z" stroke-linejoin="round"/></svg>',
+    title:'Pilotage énergétique',sources:['Compteurs intelligents','Capteurs IoT','Données météo API'],
+    ops:[{label:'Consolidation',desc:'Agrégation consommation multi-sites',color:'#F59E0B'},{label:'Prédiction',desc:'IA embarquée sur patterns de consommation',color:'#8B5CF6'},{label:'Alertes',desc:"Dépassement seuil notifié en moins d'1 seconde",color:'#EF4444'}],
+    output:'Optimisation consommation',outColor:'#F59E0B'}
 ];
 
-let activeUC=null;
+const POPUP_DATA={
+  supervision:{
+    desc:"DataCell industrielle de supervision temps réel des lignes de production. Agrège les données OPC-UA, MQTT et GMAO/MES, détecte les anomalies par seuils dynamiques auto-appris, et corrèle les mesures terrain avec l'historique de maintenance pour des alertes prédictives contextualisées.",
+    sources:[
+      {name:'OPC-UA Capteurs',format:'OPC-UA / OPC-DA',desc:'Connexion native aux serveurs OPC-UA des capteurs de ligne : température, pression, vibration, débit, niveau. Lecture temps réel sans impact sur l\'automate.',protocols:['OPC-UA Binary','OPC-UA HTTPS','OPC-DA (via gateway)','OPC-HDA historique'],color:'#F97316'},
+      {name:'MQTT Automates',format:'MQTT v3.1.1 / v5.0',desc:'Collecte des données automates (PLC) via brokers MQTT. Intégration Siemens S7, Schneider M580, Rockwell CompactLogix, Beckhoff TwinCAT.',protocols:['MQTT v3.1.1','MQTT v5.0','MQTT-SN','Sparkplug B'],color:'#8B5CF6'},
+      {name:'GMAO / MES',format:'REST API / SQL / CSV',desc:'Intégration des données de maintenance (SAP PM, Maximo, Carl Source) et de production (Wonderware, AVEVA, Opcenter). Corrélation terrain / historique maintenance.',protocols:['REST API','JDBC/ODBC','CSV/FTP','OData'],color:'#0EA5E9'},
+      {name:'SCADA / Historiens',format:'API propriétaire / SQL',desc:'Connexion aux SCADA (Ignition, WinCC, FactoryTalk) et historiens (OSIsoft PI, InfluxDB). Baselines longue durée pour détection d\'anomalies.',protocols:['PI Web API','Historian REST','InfluxDB Line Protocol','SQL'],color:'#10B981'}
+    ],
+    traitements:[
+      {name:'Collecte temps réel',color:'#F59E0B',desc:'Agrégation multi-protocoles sans conversion',details:['Agrégation simultanée OPC-UA + MQTT + REST dans un flux unifié','Adaptation automatique au débit de chaque source (100ms à 60s)','Chaque source lue dans son format natif par la DataCell','Buffering local edge pour zéro perte en cas de coupure réseau','Tag management : association automatique des variables à la ligne et machine','Support des données en rafale (burst) typiques des automates industriels']},
+      {name:'Détection anomalies',color:'#EF4444',desc:'Seuils dynamiques par ligne et par machine',details:['Seuils auto-appris sur 30 jours glissants par machine et variable','Détection multi-critères : dérive lente, pic brutal, oscillation, plateau atypique','Seuils adaptatifs au régime machine (démarrage, nominal, arrêt)','Modèle ML embarqué : prédiction de défaillance sur patterns vibratoires et thermiques','Corrélation inter-capteurs : anomalie isolée vs pattern multi-capteurs (panne réelle)','Scoring de criticité 0-100 combinant sévérité, récurrence et impact ligne']},
+      {name:'Corrélation',color:'#3B82F6',desc:'Croisement données terrain et historique GMAO',details:['Corrélation temps réel capteurs × historique GMAO','Détection proactive : anomalie capteur + pièce en fin de vie = alerte maintenance','Analyse des causes racines : corrélation événements process / arrêts production','Fenêtres multi-échelles : micro (cycle), méso (équipe), macro (semaine)','Enrichissement contexte MES : lot en cours, cadence, opérateur, gamme','Historisation automatique pour entraîner le modèle prédictif en continu']},
+      {name:'Calcul KPIs industriels',color:'#10B981',desc:'TRS, OEE et indicateurs de performance en temps réel',details:['TRS/OEE temps réel : disponibilité × performance × qualité, mis à jour chaque cycle','Décomposition automatique des arrêts : planifiés vs non planifiés, micro-arrêts','KPIs par granularité : machine, ligne, atelier, usine avec drill-down instantané','Comparaison shift/équipe avec benchmarks automatiques','Alertes contextuelles : un TRS de 75% est normal en changement de série, anormal en nominal','Export natif vers BI (Grafana, Power BI) et ERP (SAP, Oracle)']}
+    ],
+    sortie:{desc:'Chaque machine supervisée bénéficie d\'un scoring prédictif continu. Les alertes sont contextualisées avec l\'historique GMAO, le lot en cours (MES) et les KPIs de ligne.',
+      destinations:[{name:'GMAO / SAP PM',protocol:'REST API / OData',format:'Ordre de travail'},{name:'MES / SCADA',protocol:'OPC-UA / REST',format:'Alerte process'},{name:'Dashboard Grafana',protocol:'InfluxDB / REST',format:'KPIs temps réel'},{name:'ERP (SAP / Oracle)',protocol:'REST / RFC',format:'Impact production'},{name:'Notification équipe',protocol:'Webhook / MQTT',format:'Teams / Slack / SMS'}],
+      kpis:[{label:'Arrêts non planifiés',value:'-45%',icon:'factory'},{label:'Précision prédictive',value:'92%',icon:'target'},{label:'TRS moyen',value:'+12pts',icon:'chart'},{label:'Latence détection',value:'< 500ms',icon:'bolt'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Stream processing temps réel'},{label:'IA embarquée',value:'ML prédictif (vibrations, thermique)'},{label:'Protocoles',value:'OPC-UA, MQTT, Modbus, Sparkplug B'},{label:'Déploiement',value:'Edge computing, au plus près des machines'},{label:'Mode',value:'Stateless, zéro latence'},{label:'Scalabilité',value:'1 DataCell par ligne de production'}],
+      callout:{title:'De la supervision à la maintenance prédictive',text:'Cette DataCell transforme vos données terrain en intelligence opérationnelle. En croisant les <strong>mesures temps réel</strong> (vibrations, température, pression) avec l\'<strong>historique GMAO</strong> et le <strong>contexte MES</strong>, elle identifie les défaillances <strong>avant qu\'elles ne surviennent</strong>, réduisant les arrêts non planifiés de 45% en moyenne et augmentant le TRS de 12 points.'}}
+  },
+  qualite:{
+    desc:"DataCell de contrôle qualité en ligne temps réel. Agrège les résultats de vision industrielle, les données process PLC et le contexte ERP pour calculer un indice qualité composite par pièce et par lot, avec traçabilité unitaire, SPC automatisé et corrélation process-défauts.",
+    sources:[
+      {name:'Capteurs vision',format:'GigE Vision / GenICam / REST',desc:'Intégration des systèmes de vision industrielle (Cognex, Keyence, SICK, Basler) pour l\'inspection automatique en ligne : défauts dimensionnels, de surface, d\'assemblage et de marquage.',protocols:['GigE Vision','GenICam','REST API','TCP/IP propriétaire'],color:'#6366F1'},
+      {name:'PLC / Automates',format:'OPC-UA / MQTT / Modbus',desc:'Collecte des données process depuis les automates de ligne (Siemens S7, Schneider M580, Rockwell, Beckhoff) : paramètres de réglage, compteurs pièces, temps de cycle.',protocols:['OPC-UA','MQTT / Sparkplug B','Modbus TCP','S7comm'],color:'#0EA5E9'},
+      {name:'ERP Production',format:'REST API / JDBC / OData',desc:'Connexion aux modules production ERP (SAP PP/QM, Oracle Manufacturing) pour enrichir chaque pièce : ordre de fabrication, gamme, nomenclature, spécifications client.',protocols:['SAP RFC/OData','REST API','JDBC/ODBC','CSV/FTP'],color:'#F97316'},
+      {name:'Instruments de mesure',format:'RS-232 / USB / API',desc:'Collecte depuis les instruments de métrologie connectés : MMT, micromètres, rugosimètres, spectromètres. Support DMIS et Q-DAS pour les données SPC.',protocols:['RS-232/485','USB HID','DMIS','Q-DAS / AQDEF'],color:'#10B981'}
+    ],
+    traitements:[
+      {name:'Filtrage',color:'#8B5CF6',desc:'Élimination du bruit sur flux capteurs',details:['Filtrage intelligent des faux défauts vision : artefacts éclairage, poussière, reflets','Algorithme de lissage adaptatif sur mesures dimensionnelles','Seuils de tolérance dynamiques ajustés par référence produit et gamme','Déduplication multi-vues quand une pièce passe devant plusieurs caméras','Détection et exclusion automatique des mesures aberrantes','Réduction du volume de données de 60-80% en ne conservant que les événements significatifs']},
+      {name:'Scoring qualité',color:'#10B981',desc:'Calcul indice qualité par lot en temps réel',details:['Indice qualité composite (IQC) 0-100 calculé par pièce, lot, OF et ligne','Pondération multi-critères configurable : dimensionnel 40%, aspect 25%, fonctionnel 20%, marquage 15%','SPC automatisé : Cp/Cpk/Pp/Ppk en continu avec alertes dérive (règles Western Electric)','Carte de contrôle temps réel : détection tendances, runs, patterns cycliques','Scoring prédictif : probabilité de non-conformité basée sur paramètres process courants','Classification automatique des défauts : critique / majeur / mineur selon AQL']},
+      {name:'Traçabilité',color:'#3B82F6',desc:'Historisation complète par pièce produite',details:['Dossier de lot électronique (eDHR) généré automatiquement','Traçabilité unitaire : numéro de série vers OF, lot matière, paramètres process, résultats','Lien capteur vers mesure vers décision : chaque verdict OK/NOK traçable','Horodatage précis (ms) de chaque étape du contrôle','Archivage conforme aux exigences réglementaires sectorielles','Export natif : 8D report, PPAP, certificat de conformité, COA']},
+      {name:'Corrélation process-qualité',color:'#F59E0B',desc:'Lien entre paramètres machine et défauts observés',details:['Corrélation automatique paramètres process PLC (température, pression, vitesse) et résultats qualité','Détection des dérives process qui précèdent l\'apparition de défauts','Analyse multi-variée : combinaisons de paramètres générant des non-conformités','Fenêtres de corrélation ajustées au temps de cycle','Enrichissement contexte ERP : lot matière première, fournisseur, opérateur, équipe','Boucle retour GMAO : pattern de défaut récurrent déclenche une demande de maintenance']}
+    ],
+    sortie:{desc:'Chaque lot et chaque pièce reçoivent un indice qualité composite en temps réel, enrichi du contexte de fabrication complet. Alertes proactives sur dérive process.',
+      destinations:[{name:'ERP Qualité (SAP QM)',protocol:'OData / RFC',format:'Non-conformité auto'},{name:'MES / SCADA',protocol:'OPC-UA / REST',format:'Verdict temps réel'},{name:'SPC Software',protocol:'Q-DAS / REST',format:'Données SPC'},{name:'Dashboard qualité',protocol:'WebSocket / REST',format:'IQC & Cpk live'},{name:'Dossier de lot (eDHR)',protocol:'PDF / REST API',format:'Certificat auto'}],
+      kpis:[{label:'Taux de rebut',value:'-35%',icon:'down'},{label:'Détection défauts',value:'99.7%',icon:'target'},{label:'Temps contrôle',value:'÷ 4',icon:'bolt'},{label:'Cpk moyen',value:'+0.5',icon:'star'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Stream processing temps réel'},{label:'IA embarquée',value:'Scoring prédictif qualité + SPC'},{label:'Protocoles',value:'GigE Vision, OPC-UA, MQTT, Q-DAS'},{label:'Déploiement',value:'Edge, au plus près de la ligne'},{label:'Mode',value:'Stateless, zéro latence'},{label:'Scalabilité',value:'1 DataCell par poste de contrôle'}],
+      callout:{title:'Du contrôle réactif au prédictif',text:'Cette DataCell transforme le contrôle qualité en boucle fermée intelligente. En corrélant les <strong>résultats de vision</strong> avec les <strong>paramètres process PLC</strong> et l\'<strong>historique ERP</strong>, elle identifie les dérives <strong>avant</strong> qu\'elles ne génèrent des non-conformités. Le scoring prédictif anticipe les défauts, réduisant le taux de rebut de <strong>35%</strong> en moyenne.'}}
+  },
+  energie:{
+    desc:"DataCell de pilotage énergétique temps réel multi-sites et multi-fluides. Consolide les compteurs intelligents, capteurs IoT et données météo, prédit la consommation par IA embarquée, et génère des alertes proactives sur dépassement de seuil en moins d'une seconde.",
+    sources:[
+      {name:'Compteurs intelligents',format:'Modbus / DLMS-COSEM / MQTT',desc:'Collecte temps réel depuis les compteurs communicants (Schneider, Siemens, Socomec, ABB) : puissance active/réactive, tension, intensité, facteur de puissance. Support multi-énergie : électricité, gaz, eau, air comprimé.',protocols:['Modbus TCP/RTU','DLMS-COSEM','MQTT','M-Bus / wM-Bus'],color:'#F59E0B'},
+      {name:'Capteurs IoT',format:'MQTT / LoRaWAN / Zigbee',desc:'Capteurs environnementaux : température, humidité, CO2, luminosité, présence. Corrélation conditions ambiantes et consommation pour identifier les gisements d\'économie.',protocols:['MQTT v5.0','LoRaWAN','Zigbee','BACnet','EnOcean'],color:'#8B5CF6'},
+      {name:'Données météo API',format:'REST API / JSON',desc:'Enrichissement automatique avec données météorologiques externes : température, ensoleillement, vent, prévisions J+3. Facteur clé pour la modélisation prévisionnelle.',protocols:['REST API','JSON / GeoJSON','Webhook push','MQTT bridge'],color:'#0EA5E9'},
+      {name:'GTB / GTC / SCADA',format:'BACnet / OPC-UA / REST',desc:'Connexion aux systèmes de gestion technique du bâtiment et SCADA industriels : états équipements CVC, plannings, consignes, alarmes techniques.',protocols:['BACnet/IP','OPC-UA','LonWorks','KNX','REST API'],color:'#10B981'}
+    ],
+    traitements:[
+      {name:'Consolidation',color:'#F59E0B',desc:'Agrégation consommation multi-sites',details:['Agrégation temps réel multi-compteurs, multi-fluides dans un tableau de bord unifié','Normalisation automatique des unités : kWh, kVAh, m3, Nm3 vers kWh éq. ou euros/unité','Consolidation hiérarchique : compteur vers zone vers bâtiment vers site vers groupe','Détection incohérences de comptage : dérive, trou de données, compteur bloqué','Répartition analytique par m2, par occupant, par usage (CVC, éclairage, process)','Vue multi-sites temps réel avec classement par performance énergétique']},
+      {name:'Prédiction',color:'#6366F1',desc:'IA embarquée sur patterns de consommation',details:['Modèle prédictif ML auto-appris sur 12 mois : prédiction J+1, J+7, M+1','Intégration variables exogènes : météo (DJU), calendrier, occupation réelle','Détection surconsommation : écart > seuil entre réel et prédiction = alerte','Identification automatique des profils de charge : base, pointe, heures creuses','Scoring d\'efficacité énergétique mis à jour en continu (benchmark interne)','Simulation what-if : estimation d\'économie si décalage en heures creuses']},
+      {name:'Alertes',color:'#EF4444',desc:"Dépassement seuil notifié en moins d'1 seconde",details:['Alertes multi-seuils temps réel : dépassement puissance souscrite, surconsommation, dérive talon','Notification < 1 seconde via multicanal : email, SMS, Teams, Slack, webhook, GTB','Alertes contextualisées avec météo et occupation pour éviter les faux positifs','Escalade automatique : info vers warning (15 min) vers critique (1h) vers responsable','Alertes prédictives : dépassement anticipé si tendance continue','Historisation complète avec accusé de réception et action corrective tracée']},
+      {name:'Optimisation tarifaire',color:'#10B981',desc:'Pilotage des coûts en fonction des tarifs dynamiques',details:['Intégration des grilles tarifaires fournisseur : pointe/HP/HC, acheminement','Calcul du coût réel par kWh en fonction du moment et de la puissance','Optimisation puissance souscrite : simulation multi-scénarios sur courbe de charge','Détection automatique de la répartition pointe/hors-pointe','Suivi facture temps réel : projection mensuelle budget vs réel','Alerte dépassement tarifaire imminent avec action recommandée']}
+    ],
+    sortie:{desc:'Chaque site reçoit un scoring d\'efficacité énergétique temps réel, des prévisions de consommation et des alertes proactives. Vue consolidée multi-sites avec simulation de scénarios d\'optimisation.',
+      destinations:[{name:'Dashboard énergie',protocol:'WebSocket / REST',format:'KPIs live'},{name:'GTB / GTC',protocol:'BACnet / REST',format:'Consignes adaptatives'},{name:'ERP / Facture',protocol:'REST / OData',format:'Coûts temps réel'},{name:'Plateforme reporting',protocol:'REST API / CSV',format:'Reporting carbone'},{name:'Notification équipe',protocol:'Webhook / MQTT',format:'Teams / Slack / SMS'}],
+      kpis:[{label:'Économie énergie',value:'15-25%',icon:'money'},{label:'Précision prédiction',value:'94%',icon:'target'},{label:'Latence alerte',value:'< 1s',icon:'bolt'},{label:'Empreinte carbone',value:'-20%',icon:'leaf'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Stream processing + ML prédictif'},{label:'IA embarquée',value:'Prévision conso, détection anomalies'},{label:'Protocoles',value:'Modbus, BACnet, MQTT, LoRa, OPC-UA'},{label:'Déploiement',value:'Edge / Cloud hybride'},{label:'Mode',value:'Stateless, temps réel continu'},{label:'Scalabilité',value:'1 DataCell par site ou par zone'}],
+      callout:{title:'De la mesure à l\'intelligence énergétique',text:'Cette DataCell transforme vos compteurs en levier d\'optimisation. En corrélant la <strong>consommation temps réel</strong> avec les <strong>données météo</strong>, l\'<strong>occupation des bâtiments</strong> et les <strong>tarifs dynamiques</strong>, elle identifie les gisements d\'économie invisibles. Le modèle prédictif ML anticipe la consommation et détecte les surconsommations <strong>avant qu\'elles n\'impactent la facture</strong>, générant 15 à 25% d\'économie en moyenne.'}}
+  }
+};
+
 function renderUC(){
   document.getElementById('uc-grid').innerHTML=USE_CASES.map(uc=>`
-    <div class="uc-card ${activeUC===uc.id?'active':''}" onclick="toggleUC('${uc.id}')">
-      <div class="uc-head">
-        <div class="uc-head-left">
-          <span class="uc-head-ico">${uc.svgIcon}</span>
-          <span class="uc-head-lbl">DataCell</span>
-        </div>
-        <div class="uc-dot"></div>
-      </div>
+    <div class="uc-card" onclick="openModal('${uc.id}')">
+      <div class="uc-head"><div class="uc-head-left"><span class="uc-head-ico">${uc.icon}</span><span class="uc-head-lbl">DataCell</span></div><div class="uc-dot"></div></div>
       <div class="uc-body">
         <div class="uc-title">${uc.title}</div>
         <div class="uc-slbl">Sources</div>
-        <div class="uc-sources">${uc.sources.map(s=>`<span class="uc-src">${s}</span>`).join('')}</div>
+        <div class="uc-sources">${uc.sources.map(s=>'<span class="uc-src">'+s+'</span>').join('')}</div>
         <div class="uc-slbl">Traitement</div>
-        <div class="uc-ops">${uc.ops.map(op=>`
-          <div class="uc-op" style="border-left-color:${op.color};background:${op.color}08;">
-            <div class="uc-op-name">${op.label}</div>
-            <div class="uc-op-desc">${op.desc}</div>
-          </div>`).join('')}
-        </div>
-        <div class="uc-arrow">
-          <div style="background:${uc.outColor};height:12px;width:2px;opacity:.75;"></div>
-          <div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.outColor};opacity:.75;"></div>
-        </div>
-        <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;">
-          <svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg>
-          <span class="uc-output-lbl">${uc.output}</span>
-        </div>
+        <div class="uc-ops">${uc.ops.map(op=>'<div class="uc-op" style="border-left-color:'+op.color+';background:'+op.color+'08;"><div class="uc-op-name">'+op.label+'</div><div class="uc-op-desc">'+op.desc+'</div></div>').join('')}</div>
+        <div class="uc-arrow"><div style="background:${uc.outColor};height:12px;width:2px;opacity:.75;"></div><div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.outColor};opacity:.75;"></div></div>
+        <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;"><svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg><span class="uc-output-lbl">${uc.output}</span></div>
       </div>
     </div>`).join('');
 }
-function toggleUC(id){activeUC=activeUC===id?null:id;renderUC();}
-renderUC();
 
+let currentPopup=null,currentTab='sources';
+function openModal(id){currentPopup=id;currentTab='sources';const ov=document.getElementById('md-overlay');ov.classList.add('open');renderModal();requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('active')));document.body.style.overflow='hidden';}
+function closeModal(){const ov=document.getElementById('md-overlay');ov.classList.remove('active');setTimeout(()=>{ov.classList.remove('open');document.body.style.overflow='';},280);}
+document.getElementById('md-overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+function renderModal(){
+  const uc=USE_CASES.find(u=>u.id===currentPopup),data=POPUP_DATA[currentPopup];
+  if(!uc||!data)return;
+  document.getElementById('md-icon').innerHTML=uc.icon.replace('stroke="currentColor"','stroke="white"');
+  document.getElementById('md-title').textContent=uc.title;
+  document.getElementById('md-desc').textContent=data.desc;
+  const tabs=['sources','traitement','sortie','technique'],labels={sources:'Sources',traitement:'Traitement',sortie:'Sortie',technique:'Technique'};
+  document.getElementById('md-tabs').innerHTML=tabs.map(t=>'<button class="md-tab'+(currentTab===t?' active':'')+'" onclick="switchTab(\''+t+'\')">'+TAB_ICONS[t]+labels[t]+'</button>').join('');
+  renderTabContent();
+}
+function switchTab(t){currentTab=t;renderModal();}
+function renderTabContent(){
+  const data=POPUP_DATA[currentPopup],body=document.getElementById('md-body');
+  if(currentTab==='sources'){
+    body.innerHTML=data.sources.map(s=>'<div class="md-card"><div class="md-card-head"><div class="md-dot" style="background:'+s.color+'"></div><span class="md-card-name">'+s.name+'</span><span class="md-tag">'+s.format+'</span></div><p>'+s.desc+'</p><div class="md-protos">'+s.protocols.map(p=>'<span class="md-proto">'+p+'</span>').join('')+'</div></div>').join('');
+  }else if(currentTab==='traitement'){
+    body.innerHTML=data.traitements.map(t=>'<div class="md-tcard" style="border-left-color:'+t.color+'"><div class="md-tcard-name">'+t.name+'</div><p>'+t.desc+'</p>'+t.details.map(d=>'<div class="md-detail"><span class="md-bullet" style="color:'+t.color+'">›</span><span>'+d+'</span></div>').join('')+'</div>').join('');
+  }else if(currentTab==='sortie'){
+    const s=data.sortie;
+    body.innerHTML='<div class="md-kpis">'+s.kpis.map(k=>'<div class="md-kpi"><div class="md-kpi-ico">'+(KPI_ICONS[k.icon]||KPI_ICONS.chart)+'</div><div class="md-kpi-val">'+k.value+'</div><div class="md-kpi-lbl">'+k.label+'</div></div>').join('')+'</div><p style="font-size:12.5px;color:var(--t5);line-height:1.65;margin-bottom:16px;">'+s.desc+'</p><span class="md-slbl">Destinations & intégrations</span>'+s.destinations.map(d=>'<div class="md-dest"><span class="md-dest-name">'+d.name+'</span><span class="md-tag">'+d.protocol+'</span><span class="md-dest-fmt">'+d.format+'</span></div>').join('');
+  }else if(currentTab==='technique'){
+    const t=data.technique;
+    body.innerHTML='<span class="md-slbl">Architecture DataCell</span>'+t.architecture.map(a=>'<div class="md-arch"><span class="md-arch-lbl">'+a.label+'</span><span class="md-arch-val">'+a.value+'</span></div>').join('')+'<div class="md-callout"><div class="md-callout-title"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="5" x2="8" y2="8.5" stroke-linecap="round"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg>'+t.callout.title+'</div><div class="md-callout-text">'+t.callout.text+'</div></div>';
+  }
+}
+
+renderUC();
 async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
 window.addEventListener('load',async()=>{
-  await loadComp('hdr-ph','header.html');
-  await loadComp('ftr-ph','footer.html');
+  await loadComp('hdr-ph','header.html');await loadComp('ftr-ph','footer.html');
   document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
-  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 });
 </script>
