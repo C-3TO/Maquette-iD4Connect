@@ -3,210 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n-attr="title" data-i18n="404.meta.title">404 — Page introuvable — iD4Connect</title>
+<title>404 · Page introuvable · iD4Connect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green-em:#10B981;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
-:root,[data-theme="light"]{--bg:#F5F4F0;--card:#FFFFFF;--section:#EEEDEA;--t9:#111827;--t7:#374151;--t5:#6B7280;--t4:#9CA3AF;--border:#E5E3DE;--border-s:#D1CFCA;--sh-sm:0 1px 3px rgba(0,0,0,.07);--sh:0 4px 16px rgba(0,0,0,.08);}
-[data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--orange-pale:rgba(249,115,22,.09);--orange-border:rgba(249,115,22,.22);}
+:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--font:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--hh:64px;}
+:root,[data-theme="light"]{--bg:#F5F4F0;--card:#FFFFFF;--section:#EEEDEA;--t9:#111827;--t7:#374151;--t5:#6B7280;--t4:#9CA3AF;--border:#E5E3DE;--border-s:#D1CFCA;--glow:rgba(249,115,22,.07);--line-c:rgba(249,115,22,.06);}
+[data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--orange-pale:rgba(249,115,22,.09);--orange-border:rgba(249,115,22,.22);--glow:rgba(249,115,22,.04);--line-c:rgba(249,115,22,.04);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;}
 body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
-.scene{min-height:calc(100vh - var(--hh));display:flex;align-items:center;justify-content:center;padding:48px 32px;position:relative;overflow:hidden;}
-.scene::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;opacity:.28;pointer-events:none;}
-.orbit-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.12;}
-[data-theme="dark"] .orbit-bg{opacity:.18;}
-.orbit-bg svg{width:min(700px,90vw);height:min(700px,90vw);}
-.content{position:relative;z-index:1;text-align:center;max-width:560px;}
-.lost-cell{margin:0 auto 40px;width:180px;height:180px;position:relative;}
-.lost-cell svg{width:100%;height:100%;}
-.four-o-four{font-size:clamp(6rem,18vw,10rem);font-weight:900;line-height:1;letter-spacing:-6px;color:transparent;background:linear-gradient(135deg,var(--orange) 0%,#FB923C 50%,var(--orange-d) 100%);-webkit-background-clip:text;background-clip:text;margin-bottom:8px;position:relative;}
-.four-o-four::after{content:'404';position:absolute;inset:0;color:var(--border);-webkit-background-clip:unset;background-clip:unset;background:none;z-index:-1;transform:translate(3px,3px);}
-.error-label{display:inline-flex;align-items:center;gap:7px;padding:4px 14px;background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
-.error-label svg{width:11px;height:11px;}
-.content h1{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:12px;letter-spacing:-.4px;}
-.content p{font-size:15px;color:var(--t5);line-height:1.75;max-width:420px;margin:0 auto 36px;}
-.content p strong{color:var(--orange);font-weight:700;}
-.quick-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:36px;}
-.ql{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-weight:600;color:var(--t7);text-decoration:none;transition:all var(--tr);}
-.ql:hover{border-color:var(--orange-border);color:var(--orange);background:var(--orange-pale);transform:translateY(-1px);}
-.ql svg{width:13px;height:13px;flex-shrink:0;}
-.btn-home{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--orange);color:white;font-size:14px;font-weight:700;font-family:var(--font);border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
-.btn-home:hover{background:var(--orange-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.3);}
-@keyframes float{0%,100%{transform:translateY(0) rotate(0deg);}33%{transform:translateY(-12px) rotate(2deg);}66%{transform:translateY(-6px) rotate(-1.5deg);}}
-@keyframes spin-slow{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-@keyframes spin-rev{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
-.lost-cell{animation:float 4s ease-in-out infinite;}
-.ring1{transform-origin:90px 90px;animation:spin-slow 12s linear infinite;}
-.ring2{transform-origin:90px 90px;animation:spin-rev 8s linear infinite;}
-.dot-pulse{animation:blink 2s ease-in-out infinite;}
-.dot-pulse2{animation:blink 2s ease-in-out infinite .6s;}
-.dot-pulse3{animation:blink 2s ease-in-out infinite 1.2s;}
-.orbit-ring1{transform-origin:350px 350px;animation:spin-slow 30s linear infinite;}
-.orbit-ring2{transform-origin:350px 350px;animation:spin-rev 20s linear infinite;}
-.orbit-ring3{transform-origin:350px 350px;animation:spin-slow 45s linear infinite;}
-@media(max-width:600px){.four-o-four{letter-spacing:-2px;}.quick-links{gap:8px;}.ql{padding:8px 14px;font-size:12px;}}
+
+.scene{min-height:calc(100vh - var(--hh));display:flex;align-items:center;justify-content:center;padding:40px 24px;position:relative;overflow:hidden;}
+.scene::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(var(--line-c) 1px,transparent 1px),linear-gradient(90deg,var(--line-c) 1px,transparent 1px);
+  background-size:48px 48px;pointer-events:none;}
+.scene::after{content:'';position:absolute;width:900px;height:900px;border-radius:50%;
+  background:radial-gradient(circle,var(--glow) 0%,transparent 65%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+
+/* DataCell card */
+.dc{position:relative;z-index:1;width:100%;max-width:520px;background:var(--card);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.06);}
+.dc-head{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--border);background:var(--section);}
+.dc-head-l{display:flex;align-items:center;gap:8px;}
+.dc-head-ico{width:20px;height:20px;color:var(--t4);}
+.dc-head-lbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);}
+.dc-dot{width:8px;height:8px;border-radius:50%;background:#EF4444;box-shadow:0 0 0 3px rgba(239,68,68,.2);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(239,68,68,.2);}50%{box-shadow:0 0 0 6px rgba(239,68,68,0);}}
+
+.dc-body{padding:32px 28px 28px;text-align:center;}
+
+/* 404 number */
+.num-wrap{position:relative;margin-bottom:8px;overflow:hidden;}
+.num{font-family:var(--mono);font-size:clamp(6rem,18vw,9rem);font-weight:700;line-height:.9;letter-spacing:-6px;color:var(--orange);user-select:none;}
+.num span{display:inline-block;opacity:0;animation:pop .5s cubic-bezier(.16,1,.3,1) forwards;}
+.num span:nth-child(1){animation-delay:.3s;}
+.num span:nth-child(2){animation-delay:.5s;}
+.num span:nth-child(3){animation-delay:.7s;}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.8);filter:blur(8px);}to{opacity:1;transform:none;filter:blur(0);}}
+.scan-line{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:.6;animation:scan 2.5s ease-in-out infinite;pointer-events:none;}
+@keyframes scan{0%{top:0;opacity:0;}10%{opacity:.6;}90%{opacity:.6;}100%{top:100%;opacity:0;}}
+
+/* Terminal */
+.term{margin:20px auto 28px;max-width:380px;background:var(--section);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-align:left;}
+.term-row{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--t5);opacity:0;animation:tfade .4s ease forwards;}
+.term-row:nth-child(1){animation-delay:1s;}
+.term-row:nth-child(2){animation-delay:1.8s;}
+.term-row:nth-child(3){animation-delay:2.6s;}
+.term-row:nth-child(4){animation-delay:3.4s;}
+@keyframes tfade{from{opacity:0;transform:translateX(-8px);}to{opacity:1;transform:none;}}
+.tp{color:var(--orange);font-weight:600;flex-shrink:0;}
+.tok{color:#10B981;}.terr{color:#EF4444;}
+.cur{display:inline-block;width:7px;height:13px;background:var(--orange);margin-left:2px;animation:blink .8s step-end infinite;vertical-align:middle;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* Message */
+.msg{opacity:0;animation:fadein .6s ease forwards;animation-delay:3.8s;}
+@keyframes fadein{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+.msg h1{font-size:clamp(1.1rem,2.8vw,1.5rem);font-weight:800;line-height:1.3;color:var(--t9);margin-bottom:8px;letter-spacing:-.3px;}
+.msg h1 .o{color:var(--orange);}
+.msg p{font-size:13px;color:var(--t5);line-height:1.7;max-width:360px;margin:0 auto 24px;}
+
+/* Links */
+.links{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:20px;opacity:0;animation:fadein .5s ease forwards;animation-delay:4.2s;}
+.lk{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;font-size:11.5px;font-weight:600;color:var(--t7);text-decoration:none;transition:all .2s;}
+.lk:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px);box-shadow:0 4px 16px rgba(249,115,22,.12);}
+.lk svg{width:11px;height:11px;flex-shrink:0;}
+
+/* CTA */
+.cta-wrap{opacity:0;animation:fadein .5s ease forwards;animation-delay:4.5s;}
+.btn-back{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--orange);color:white;font-size:13.5px;font-weight:700;font-family:var(--font);border-radius:8px;text-decoration:none;transition:all .16s ease;}
+.btn-back:hover{background:var(--orange-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,115,22,.3);}
+
+/* Footer stats */
+.dc-foot{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;border-top:1px solid var(--border);background:var(--section);}
+.dc-foot-l{display:flex;align-items:center;gap:12px;}
+.dc-stat{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:9px;font-weight:600;color:var(--t4);letter-spacing:.5px;}
+.dc-stat-dot{width:5px;height:5px;border-radius:50%;}
+.dc-foot-r{font-family:var(--mono);font-size:9px;color:var(--t4);letter-spacing:.5px;}
+
+/* Particles */
+.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.pt{position:absolute;width:3px;height:3px;background:var(--orange);border-radius:50%;opacity:0;animation:fl 7s ease-in-out infinite;}
+.pt:nth-child(1){left:15%;top:25%;animation-delay:0s;}
+.pt:nth-child(2){left:80%;top:40%;animation-delay:1.5s;animation-duration:9s;}
+.pt:nth-child(3){left:50%;top:80%;animation-delay:3s;animation-duration:6s;width:4px;height:4px;}
+.pt:nth-child(4){left:90%;top:15%;animation-delay:2s;animation-duration:8s;}
+.pt:nth-child(5){left:10%;top:70%;animation-delay:4s;animation-duration:10s;width:2px;height:2px;}
+@keyframes fl{0%{opacity:0;transform:translateY(0) scale(.5);}25%{opacity:.3;}50%{transform:translateY(-30px) scale(1);}75%{opacity:.25;}100%{opacity:0;transform:translateY(-60px) scale(.3);}}
+
+/* Orbites */
+.orb{position:absolute;border:1px dashed var(--orange);border-radius:50%;opacity:.06;pointer-events:none;}
+.orb-1{width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);animation:spin 60s linear infinite;}
+.orb-2{width:380px;height:380px;top:50%;left:50%;transform:translate(-50%,-50%);animation:spin 35s linear infinite reverse;}
+@keyframes spin{from{transform:translate(-50%,-50%) rotate(0);}to{transform:translate(-50%,-50%) rotate(360deg);}}
+
+@media(max-width:560px){
+  .scene{padding:24px 16px;}
+  .dc-body{padding:24px 20px 20px;}
+  .num{letter-spacing:-3px;}
+  .term{padding:10px 12px;}
+  .term-row{font-size:10px;}
+  .lk{padding:6px 10px;font-size:10.5px;}
+  .dc-foot{flex-wrap:wrap;gap:6px;}
+}
 </style>
 </head>
 <body>
 <div id="hdr-ph"></div>
 
 <div class="scene">
-  <div class="orbit-bg">
-    <svg viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g class="orbit-ring1">
-        <circle cx="350" cy="350" r="280" stroke="#F97316" stroke-width="1" stroke-dasharray="8 14"/>
-        <circle cx="350" cy="70" r="10" fill="#F97316" opacity=".7"/>
-        <circle cx="612" cy="490" r="7" fill="#F97316" opacity=".5"/>
-        <circle cx="88" cy="490" r="7" fill="#F97316" opacity=".5"/>
-      </g>
-      <g class="orbit-ring2">
-        <circle cx="350" cy="350" r="190" stroke="#F97316" stroke-width="1" stroke-dasharray="4 10"/>
-        <circle cx="350" cy="160" r="7" fill="#F97316" opacity=".6"/>
-        <circle cx="524" cy="445" r="6" fill="#F97316" opacity=".4"/>
-        <circle cx="176" cy="445" r="6" fill="#F97316" opacity=".4"/>
-      </g>
-      <g class="orbit-ring3">
-        <circle cx="350" cy="350" r="320" stroke="#F97316" stroke-width=".5" stroke-dasharray="2 18" opacity=".5"/>
-      </g>
-      <circle cx="350" cy="350" r="5" fill="#F97316" opacity=".4"/>
-    </svg>
-  </div>
+  <div class="particles"><div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
-  <div class="content">
-    <div class="lost-cell">
-      <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g class="ring1">
-          <circle cx="90" cy="90" r="72" stroke="#F97316" stroke-width="1.5" stroke-dasharray="6 10" opacity=".35"/>
-          <circle cx="90" cy="18" r="7" fill="#F97316" opacity=".6"/>
-          <circle class="dot-pulse" cx="152" cy="126" r="5" fill="#F97316" opacity=".5"/>
-          <circle class="dot-pulse2" cx="28" cy="126" r="5" fill="#F97316" opacity=".5"/>
-        </g>
-        <g class="ring2">
-          <circle cx="90" cy="90" r="48" stroke="#F97316" stroke-width="1" stroke-dasharray="4 7" opacity=".25"/>
-          <circle class="dot-pulse3" cx="90" cy="42" r="4" fill="#F97316" opacity=".4"/>
-        </g>
-        <polygon points="90,52 122,71 122,109 90,128 58,109 58,71" fill="var(--orange-pale)" stroke="#F97316" stroke-width="2"/>
-        <line x1="78" y1="78" x2="102" y2="102" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="102" y1="78" x2="78" y2="102" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="90" cy="148" r="6" fill="none" stroke="#F97316" stroke-width="1.5" opacity=".4"/>
-        <line x1="90" y1="128" x2="90" y2="140" stroke="#F97316" stroke-width="1.5" stroke-dasharray="3 3" opacity=".4"/>
-      </svg>
+  <div class="dc">
+    <div class="dc-head">
+      <div class="dc-head-l">
+        <svg class="dc-head-ico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="10,1 19,5.5 19,14.5 10,19 1,14.5 1,5.5"/><circle cx="10" cy="10" r="3"/></svg>
+        <span class="dc-head-lbl">DataCell</span>
+      </div>
+      <div class="dc-dot"></div>
     </div>
 
-    <div class="four-o-four">404</div>
+    <div class="dc-body">
+      <div class="num-wrap">
+        <div class="num"><span>4</span><span>0</span><span>4</span></div>
+        <div class="scan-line"></div>
+      </div>
 
-    <div class="error-label">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>
-      <span data-i18n="404.label">DataCell introuvable</span>
+      <div class="term">
+        <div class="term-row"><span class="tp">$</span> datacell --route <span id="typed-url"></span></div>
+        <div class="term-row"><span class="tok">~</span> Scanning flux entrants...</div>
+        <div class="term-row"><span class="tok">~</span> 847 routes actives analysees</div>
+        <div class="term-row"><span class="terr">x</span> ERR_NOT_FOUND : aucune route<span class="cur"></span></div>
+      </div>
+
+      <div class="msg">
+        <h1>Ce flux n'existe pas.<br><span class="o">Mais les autres, oui.</span></h1>
+        <p>La page demandee ne fait pas partie de nos routes actives. Voici les chemins que nos DataCells connaissent.</p>
+      </div>
+
+      <div class="links">
+        <a href="index.html" class="lk"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8L8 2l6 6"/><path d="M4 7v6h3v-3h2v3h3V7"/></svg>Accueil</a>
+        <a href="datacell.html" class="lk"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/></svg>DataCell</a>
+        <a href="architecture.html" class="lk"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><circle cx="3" cy="4" r="1.3"/><circle cx="13" cy="4" r="1.3"/><circle cx="3" cy="12" r="1.3"/><circle cx="13" cy="12" r="1.3"/><line x1="4" y1="5" x2="6" y2="7"/><line x1="12" y1="5" x2="10" y2="7"/><line x1="4" y1="11" x2="6" y2="9"/><line x1="12" y1="11" x2="10" y2="9"/></svg>Architecture</a>
+        <a href="blog.html" class="lk"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 7h9M2 10h6"/></svg>Blog</a>
+        <a href="contact.html" class="lk"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 4l6 5 6-5"/></svg>Contact</a>
+      </div>
+
+      <div class="cta-wrap">
+        <a href="index.html" class="btn-back">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 12L6 8l4-4"/></svg>
+          Retour a l'accueil
+        </a>
+      </div>
     </div>
 
-    <h1 data-i18n="404.h1">Cette page n'est pas<br>dans le flux de données.</h1>
-    <p data-i18n="404.p">La donnée que vous cherchez a peut-être changé d'adresse, ou n'a jamais existé. <strong>Pas de panique</strong> — contrairement à un ETL, rien n'a été perdu en route.</p>
-
-    <div class="quick-links">
-      <a href="index.html" class="ql">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8L8 2l6 6"/><path d="M4 6v7h3v-4h2v4h3V6"/></svg>
-        <span data-i18n="404.nav.home">Accueil</span>
-      </a>
-      <a href="datacell.html" class="ql">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/></svg>
-        DataCell
-      </a>
-      <a href="datagraph.html" class="ql">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><circle cx="2.5" cy="4" r="1.5"/><circle cx="13.5" cy="4" r="1.5"/><circle cx="2.5" cy="12" r="1.5"/><circle cx="13.5" cy="12" r="1.5"/><line x1="4" y1="4.5" x2="6" y2="7"/><line x1="12" y1="4.5" x2="10" y2="7"/><line x1="4" y1="11.5" x2="6" y2="9"/><line x1="12" y1="11.5" x2="10" y2="9"/></svg>
-        DataGraph
-      </a>
-      <a href="blog.html" class="ql">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 7h9M2 10h7M2 13h5"/></svg>
-        Blog
-      </a>
-      <a href="contact.html" class="ql">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 3h11a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M2 4l6 5 6-5"/></svg>
-        <span data-i18n="404.nav.contact">Contact</span>
-      </a>
+    <div class="dc-foot">
+      <div class="dc-foot-l">
+        <div class="dc-stat"><div class="dc-stat-dot" style="background:#10B981;"></div>FLUX OK</div>
+        <div class="dc-stat"><div class="dc-stat-dot" style="background:#EF4444;"></div>ROUTE 404</div>
+        <div class="dc-stat"><div class="dc-stat-dot" style="background:#F59E0B;"></div>0ms</div>
+      </div>
+      <div class="dc-foot-r" id="ts"></div>
     </div>
-
-    <a href="index.html" class="btn-home">
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 12L6 8l4-4"/></svg>
-      <span data-i18n="404.cta">Retour à l'accueil</span>
-    </a>
   </div>
 </div>
 
 <div id="ftr-ph"></div>
 
 <script>
-const I18N_404 = {
-  fr: {
-    'meta.title':   '404 — Page introuvable — iD4Connect',
-    'label':        'DataCell introuvable',
-    'h1':           "Cette page n'est pas<br>dans le flux de données.",
-    'p':            "La donnée que vous cherchez a peut-être changé d'adresse, ou n'a jamais existé. <strong>Pas de panique</strong> — contrairement à un ETL, rien n'a été perdu en route.",
-    'nav.home':     'Accueil',
-    'nav.contact':  'Contact',
-    'cta':          "Retour à l'accueil",
-  },
-  en: {
-    'meta.title':   '404 — Page not found — iD4Connect',
-    'label':        'DataCell not found',
-    'h1':           "This page isn't<br>in the data stream.",
-    'p':            "The data you're looking for may have moved, or never existed. <strong>Don't worry</strong> — unlike an ETL, nothing was lost along the way.",
-    'nav.home':     'Home',
-    'nav.contact':  'Contact',
-    'cta':          'Back to home',
-  },
-  es: {
-    'meta.title':   '404 — Página no encontrada — iD4Connect',
-    'label':        'DataCell no encontrada',
-    'h1':           'Esta página no está<br>en el flujo de datos.',
-    'p':            'Los datos que buscas quizás cambiaron de dirección, o nunca existieron. <strong>Sin pánico</strong> — a diferencia de un ETL, nada se perdió en el camino.',
-    'nav.home':     'Inicio',
-    'nav.contact':  'Contacto',
-    'cta':          'Volver al inicio',
-  },
-};
+const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+document.documentElement.setAttribute('data-theme',t0);document.body.setAttribute('data-theme',t0);
 
-function applyLang(lang) {
-  const t = I18N_404[lang] || I18N_404.fr;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n').replace('404.', '');
-    if (t[key] !== undefined) el.innerHTML = t[key];
-  });
-  if (t['meta.title']) document.title = t['meta.title'];
-  document.documentElement.lang = lang;
-}
+// Type current URL into terminal
+const urlEl=document.getElementById('typed-url');
+const path=window.location.pathname||'/unknown';
+let i=0;
+function typeUrl(){if(i<path.length){urlEl.textContent+=path[i];i++;setTimeout(typeUrl,40);}}
+setTimeout(typeUrl,1200);
 
-async function loadComp(id, file) {
-  try {
-    const r = await fetch(file);
-    const html = await r.text();
-    const el = document.getElementById(id);
-    el.innerHTML = html;
-    el.querySelectorAll('script').forEach(s => {
-      const ns = document.createElement('script');
-      ns.textContent = s.textContent;
-      document.head.appendChild(ns);
-    });
-    if (typeof initHeader === 'function') initHeader();
-  } catch(e) { console.error('loadComp:', file, e); }
-}
+// Live timestamp
+function tick(){document.getElementById('ts').textContent=new Date().toISOString().replace('T',' ').substring(0,19)+' UTC';}
+tick();setInterval(tick,1000);
 
-window.addEventListener('load', async () => {
-  await loadComp('hdr-ph', 'header.html');
-  await loadComp('ftr-ph', 'footer.html');
-
-  // Appliquer la langue sauvegardée
-  const lang = localStorage.getItem('id4-lang') || 'fr';
-  applyLang(lang);
-
-  document.addEventListener('themeChange', e => {
-    document.documentElement.setAttribute('data-theme', e.detail);
-    document.body.setAttribute('data-theme', e.detail);
-  });
-  document.addEventListener('langChange', e => applyLang(e.detail));
+// Header/footer
+async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
+window.addEventListener('load',async()=>{
+  await loadComp('hdr-ph','header.html');
+  await loadComp('ftr-ph','footer.html');
+  document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
 });
 </script>
 </body>
