@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logistique · iD4Connect</title>
-<meta name="description" content="iD4Connect unifie vos flux logistiques en temps réel, flotte, entrepôt, transporteurs, sans entrepôt de données central.">
+<meta name="description" content="iD4Connect orchestre vos flux logistiques en temps réel. Tracking, optimisation, entrepôt : des insights immédiats sans centraliser vos données.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-em:#10B981;--red:#DC2626;--blue:#2563EB;--blue-pale:#EFF6FF;--purple:#8B5CF6;--purple-pale:#F5F3FF;--cyan:#06B6D4;--amber:#F59E0B;--amber-pale:#FFFBEB;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
+:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--green-em:#10B981;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue:#2563EB;--blue-pale:#EFF6FF;--purple:#8B5CF6;--purple-pale:#F5F3FF;--cyan:#06B6D4;--amber:#F59E0B;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
 :root,[data-theme="light"]{--bg:#F5F4F0;--card:#FFFFFF;--section:#EEEDEA;--t9:#111827;--t7:#374151;--t5:#6B7280;--t4:#9CA3AF;--border:#E5E3DE;--border-s:#D1CFCA;--sh-sm:0 1px 3px rgba(0,0,0,.07);--sh:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.10);}
-[data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--sh-lg:0 12px 40px rgba(0,0,0,.4);--orange-pale:rgba(249,115,22,.09);--orange-border:rgba(249,115,22,.22);--green-pale:rgba(22,163,74,.09);--blue-pale:rgba(37,99,235,.09);--purple-pale:rgba(139,92,246,.09);--amber-pale:rgba(245,158,11,.09);}
+[data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--sh-lg:0 12px 40px rgba(0,0,0,.4);--orange-pale:rgba(249,115,22,.09);--orange-border:rgba(249,115,22,.22);--green-pale:rgba(22,163,74,.09);--green-border:rgba(22,163,74,.22);--red-pale:rgba(220,38,38,.09);--red-border:rgba(220,38,38,.22);--blue-pale:rgba(37,99,235,.09);--purple-pale:rgba(139,92,246,.09);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-smoothing:antialiased;padding-top:var(--hh);transition:background .25s,color .25s;}
@@ -19,66 +19,36 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .pill svg{width:12px;height:12px;}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
-
-/* ══ HERO - ICONE GAUCHE + TEXTE DROITE ══ */
 #log-hero{padding:64px 0 72px;background:var(--card);position:relative;overflow:hidden;}
 #log-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
-
 .hero-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center;}
-
-.hero-visual{
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-  min-height:320px;
-}
-.hero-visual::before{
-  content:'';position:absolute;
-  width:240px;height:240px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 70%);
-  pointer-events:none;
-}
-
-.hero-icon{
-  width:160px;height:160px;
-  color:var(--orange);
-  position:relative;z-index:1;
-  animation:iconFloat 3s ease-in-out infinite alternate;
-}
+.hero-visual{display:flex;align-items:center;justify-content:center;position:relative;min-height:320px;}
+.hero-visual::before{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;}
+.hero-icon{width:160px;height:160px;color:var(--orange);position:relative;z-index:1;animation:iconFloat 3s ease-in-out infinite alternate;}
 @keyframes iconFloat{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
-
 .hero-right .pill{margin-bottom:14px;}
 .hero-right h1{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin-bottom:16px;}
 .hero-right h1 .o{color:var(--orange);}
 .hero-right>p{font-size:15px;color:var(--t5);line-height:1.75;max-width:480px;margin-bottom:28px;}
-
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
 .btn-p{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
 .btn-p:hover{background:var(--orange-d);transform:translateY(-1px);}
 .btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
 .btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
-
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:200px;}}
 @media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}}
-
-/* ══ CAS D'USAGE ══ */
-.s-uc{padding:96px 0;background:var(--bg);}
+#cas-usage{padding:96px 0;background:var(--bg);}
 .section-head{text-align:center;margin-bottom:44px;}
 .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
 .section-head h2 .o{color:var(--orange);}
 .section-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
-
 .uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;}
-.uc-card:hover{border-color:var(--orange-border);box-shadow:var(--sh);transform:translateY(-2px);}
-.uc-card.active{border-color:var(--orange);box-shadow:0 8px 28px rgba(249,115,22,.15);}
+.uc-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.12),0 8px 28px rgba(249,115,22,.10);transform:translateY(-3px);}
 .uc-head{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;border-bottom:1px solid var(--border);background:var(--section);}
-.uc-card.active .uc-head{background:var(--orange-pale);border-color:var(--orange-border);}
 .uc-head-left{display:flex;align-items:center;gap:8px;}
 .uc-head-ico{width:22px;height:22px;color:var(--t5);}
-.uc-card.active .uc-head-ico{color:var(--orange);}
 .uc-head-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t4);}
-.uc-card.active .uc-head-lbl{color:var(--orange);}
 .uc-dot{width:8px;height:8px;border-radius:50%;background:var(--green-em);box-shadow:0 0 0 3px rgba(16,185,129,.2);}
 .uc-body{padding:14px;}
 .uc-title{font-size:13.5px;font-weight:800;color:var(--t9);margin-bottom:11px;}
@@ -91,13 +61,72 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .uc-op-desc{font-size:9px;color:var(--t4);}
 .uc-arrow{display:flex;flex-direction:column;align-items:center;margin:6px 0;}
 .uc-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
+.uc-output svg{width:11px;height:11px;flex-shrink:0;}
 .uc-output-lbl{font-size:11.5px;font-weight:700;color:var(--t9);}
-
 @media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.uc-grid{grid-template-columns:1fr;}}
-
-/* ══ AVANTAGES ══ */
-.s-bloc{padding:96px 0;background:var(--card);}
+.md-overlay{position:fixed;inset:0;background:rgba(15,23,42,0);display:none;align-items:center;justify-content:center;z-index:1000;padding:16px;transition:background .3s ease;}
+.md-overlay.open{display:flex;}
+.md-overlay.active{background:rgba(15,23,42,.55);backdrop-filter:blur(6px);}
+.md-modal{background:var(--card);border-radius:var(--r-xl);width:100%;max-width:760px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;transform:scale(.93) translateY(24px);opacity:0;transition:all .28s cubic-bezier(.4,0,.2,1);box-shadow:var(--sh-lg);}
+.md-overlay.active .md-modal{transform:scale(1) translateY(0);opacity:1;}
+.md-header{padding:24px 28px 0;flex-shrink:0;}
+.md-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:12px;}
+.md-title-area{display:flex;align-items:center;gap:14px;}
+.md-icon{width:46px;height:46px;border-radius:var(--r);background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.md-icon svg{width:22px;height:22px;color:white;}
+.md-badge{font-size:10px;font-weight:700;color:var(--orange);letter-spacing:1px;text-transform:uppercase;}
+.md-modal h2{font-size:20px;font-weight:800;color:var(--t9);margin:2px 0 0;}
+.md-desc{font-size:13.5px;color:var(--t5);line-height:1.65;margin:0 0 16px;}
+.md-close{width:36px;height:36px;border-radius:50%;border:none;background:var(--section);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--t5);transition:all .2s;flex-shrink:0;font-family:var(--font);}
+.md-close:hover{background:var(--red-pale);color:var(--red);}
+.md-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.md-tabs::-webkit-scrollbar{display:none;}
+.md-tab{padding:10px 16px;border:none;background:transparent;cursor:pointer;font-family:var(--font);font-weight:600;font-size:12.5px;color:var(--t4);border-bottom:2px solid transparent;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0;}
+.md-tab:hover{color:var(--t7);}
+.md-tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+.md-tab svg{width:13px;height:13px;}
+.md-body{overflow-y:auto;flex:1;padding:20px 28px 28px;}
+.md-body::-webkit-scrollbar{width:5px;}
+.md-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+.md-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;transition:border-color .2s;}
+.md-card:hover{border-color:var(--orange-border);}
+.md-card:last-child{margin-bottom:0;}
+.md-card-head{display:flex;align-items:center;gap:9px;margin-bottom:7px;flex-wrap:wrap;}
+.md-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.md-card-name{font-size:14px;font-weight:700;color:var(--t9);}
+.md-tag{display:inline-flex;padding:2px 9px;border-radius:var(--r-pill);font-size:10px;font-weight:600;background:var(--section);color:var(--t5);border:1px solid var(--border);}
+.md-card p{font-size:12.5px;color:var(--t5);line-height:1.6;margin:0 0 8px;}
+.md-protos{display:flex;flex-wrap:wrap;gap:5px;}
+.md-proto{font-size:10px;padding:2px 7px;border-radius:var(--r-xs);background:var(--card);border:1px solid var(--border);color:var(--t5);font-weight:500;}
+.md-tcard{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;border-left:3px solid;}
+.md-tcard:last-child{margin-bottom:0;}
+.md-tcard:hover{border-color:var(--orange-border);border-left-color:inherit;}
+.md-tcard-name{font-size:14px;font-weight:700;color:var(--t9);margin-bottom:4px;}
+.md-tcard p{font-size:12px;color:var(--t5);margin:0 0 8px;}
+.md-detail{display:flex;align-items:flex-start;gap:7px;font-size:11.5px;color:var(--t7);line-height:1.5;margin-bottom:3px;}
+.md-bullet{font-weight:700;flex-shrink:0;margin-top:1px;}
+.md-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+.md-kpi{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center;}
+.md-kpi-ico{width:28px;height:28px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;background:var(--orange-pale);border-radius:var(--r-sm);border:1px solid var(--orange-border);}
+.md-kpi-ico svg{width:14px;height:14px;color:var(--orange);}
+.md-kpi-val{font-size:18px;font-weight:900;color:var(--orange);line-height:1;}
+.md-kpi-lbl{font-size:10px;font-weight:600;color:var(--t4);margin-top:3px;}
+.md-dest{display:flex;align-items:center;padding:9px 13px;border-radius:var(--r-sm);background:var(--bg);border:1px solid var(--border);gap:9px;margin-bottom:6px;flex-wrap:wrap;transition:border-color .2s;}
+.md-dest:hover{border-color:var(--orange-border);}
+.md-dest-name{font-weight:700;font-size:13px;color:var(--t9);min-width:90px;}
+.md-dest-fmt{font-size:10px;font-weight:600;color:var(--t4);margin-left:auto;}
+.md-arch{display:flex;align-items:center;padding:9px 13px;border-radius:var(--r-sm);background:var(--bg);border:1px solid var(--border);gap:8px;margin-bottom:6px;}
+.md-arch-lbl{font-weight:600;font-size:12px;color:var(--t5);min-width:110px;}
+.md-arch-val{font-weight:700;font-size:12px;color:var(--t9);}
+.md-slbl{font-size:10px;font-weight:700;color:var(--t4);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:block;}
+.md-callout{padding:14px 18px;border-radius:var(--r);background:var(--orange-pale);border:1px solid var(--orange-border);margin-top:18px;}
+.md-callout-title{font-weight:700;font-size:12px;color:var(--orange-d);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.md-callout-title svg{width:14px;height:14px;color:var(--orange);}
+.md-callout-text{font-size:12px;color:var(--t7);line-height:1.7;}
+.md-callout-text strong{color:var(--t9);}
+@media(max-width:600px){.md-modal{max-height:95vh;border-radius:var(--r-lg);}.md-header{padding:16px 16px 0;}.md-body{padding:14px 16px 20px;}.md-kpis{grid-template-columns:1fr;}}
+#archi{padding:96px 0;background:var(--card);}
 .conf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .conf-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:24px;border-top-width:3px;transition:box-shadow .2s,transform .2s;}
 .conf-card:hover{box-shadow:var(--sh);transform:translateY(-2px);}
@@ -105,11 +134,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conf-ico svg{width:20px;height:20px;}
 .conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
 .conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
-
 @media(max-width:900px){.conf-grid{grid-template-columns:1fr;}}
-
-/* ══ CTA ══ */
-.s-cta{padding:96px 0;background:var(--card);}
+#log-cta{padding:96px 0;background:var(--card);}
 .cta-box{background:var(--bg);border:2px solid var(--orange-border);border-radius:var(--r-xl);padding:48px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(249,115,22,.08);}
 .cta-box h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:10px;}
 .cta-box p{font-size:13.5px;color:var(--t5);line-height:1.65;max-width:440px;}
@@ -123,169 +149,223 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <body>
 <div id="hdr-ph"></div>
 
-<!-- ══ HERO ══ -->
 <section id="log-hero">
   <div class="wrap">
     <div class="hero-grid">
-
-      <!-- GAUCHE : camion minimaliste -->
       <div class="hero-visual">
-        <svg class="hero-icon" viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Cargo box -->
-          <rect x="4" y="10" width="58" height="40" rx="3"/>
-          <!-- Cabin body -->
-          <path d="M62 22h18l14 16v12H62V22z"/>
-          <!-- Wheels -->
-          <circle cx="28" cy="64" r="8"/>
-          <circle cx="28" cy="64" r="3"/>
-          <circle cx="78" cy="64" r="8"/>
-          <circle cx="78" cy="64" r="3"/>
-        </svg>
+        <svg class="hero-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="30" width="50" height="35" rx="3"/>
+          <path d="M58 42h18l12 14v9H58V42z"/>
+          <circle cx="24" cy="72" r="7"/><circle cx="72" cy="72" r="7"/>
+          <line x1="31" y1="72" x2="65" y2="72"/>
         </svg>
       </div>
-
-      <!-- DROITE : texte -->
       <div class="hero-right">
-        <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 10V7l2-4h8l2 4v3"/><path d="M1 10h14"/><circle cx="4.5" cy="12.5" r="1.5"/><circle cx="11.5" cy="12.5" r="1.5"/></svg>Logistique</div>
-        <h1>Chaque colis génère des données.<br><span class="o">Chaque minute compte.</span></h1>
-        <p>iD4Connect unifie vos flux logistiques en temps réel : flotte, entrepôt, transporteurs, sans entrepôt de données central. Détection d'anomalies, optimisation des flux, traçabilité complète.</p>
-        <div class="hero-ctas">
-          <a href="contact.html" class="btn-p">Demander une démo →</a>
-          <a href="positionnement.html" class="btn-g">Voir le positionnement</a>
-        </div>
+        <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="5" width="9" height="6" rx="1"/><path d="M10 7h3l2 2.5V11h-5V7z"/><circle cx="4" cy="12.5" r="1.5"/><circle cx="12" cy="12.5" r="1.5"/></svg>Logistique</div>
+        <h1>Vos flux génèrent de la data.<br><span class="o">Transformez-la en avantage.</span></h1>
+        <p>iD4Connect orchestre vos flux transport, entrepôt et dernière ligne en temps réel. Tracking, optimisation de remplissage, performance opérationnelle, directement sur votre infrastructure.</p>
+        <div class="hero-ctas"><a href="contact.html" class="btn-p">Demander une démo →</a><a href="positionnement.html" class="btn-g">Voir le positionnement</a></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══ CAS D'USAGE ══ -->
-<section class="s-uc reveal">
+<section id="cas-usage" class="reveal">
   <div class="wrap">
     <div class="section-head">
       <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>Cas d'usage</div>
-      <h2>Ce qu'iD4Connect fait concrètement<br><span class="o">sur votre chaîne logistique.</span></h2>
+      <h2>Ce qu'iD4Connect fait concrètement<br><span class="o">dans votre chaîne logistique.</span></h2>
     </div>
     <div class="uc-grid" id="uc-grid"></div>
-    <p class="section-hint">Cliquez sur une DataCell pour la mettre en avant</p>
+    <p class="section-hint">Cliquez sur une DataCell pour explorer le détail</p>
   </div>
 </section>
 
-<!-- ══ AVANTAGES CLÉS ══ -->
-<section class="s-bloc reveal">
+<div class="md-overlay" id="md-overlay">
+  <div class="md-modal">
+    <div class="md-header">
+      <div class="md-top">
+        <div class="md-title-area"><div class="md-icon" id="md-icon"></div><div><div class="md-badge">DataCell</div><h2 id="md-title"></h2></div></div>
+        <button class="md-close" onclick="closeModal()">✕</button>
+      </div>
+      <p class="md-desc" id="md-desc"></p>
+      <div class="md-tabs" id="md-tabs"></div>
+    </div>
+    <div class="md-body" id="md-body"></div>
+  </div>
+</div>
+
+<section id="archi-log" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>Avantages clés</div>
-      <h2>La supply chain en temps réel,<br><span class="o">sans refondre votre SI.</span></h2>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg>Architecture</div>
+      <h2>S'intègre dans votre TMS existant.<br><span class="o">Sans tout refaire.</span></h2>
     </div>
     <div class="conf-grid">
-      <div class="conf-card" style="border-top-color:#2563EB;">
-        <div class="conf-ico" style="background:rgba(37,99,235,.1);"><svg viewBox="0 0 20 20" fill="none" stroke="#2563EB" stroke-width="1.5"><path d="M4 8h12M4 12h8"/><circle cx="5" cy="17" r="2"/><circle cx="13" cy="17" r="2"/><path d="M3 5h10l2 7H3z"/><path d="M15 12h2l2 5H5"/></svg></div>
-        <div class="conf-title">Connexion native à vos systèmes</div>
-        <div class="conf-desc">TMS, WMS, ERP, API transporteurs, GPS : iD4Connect s'intègre à vos outils existants sans développement custom ni middleware supplémentaire.</div>
-      </div>
-      <div class="conf-card" style="border-top-color:#F97316;">
-        <div class="conf-ico" style="background:rgba(249,115,22,.1);"><svg viewBox="0 0 20 20" fill="none" stroke="#F97316" stroke-width="1.5"><path d="M10 2L4 8h4v8h4V8h4L10 2z"/></svg></div>
-        <div class="conf-title">Réactivité opérationnelle immédiate</div>
-        <div class="conf-desc">Les anomalies sont détectées et notifiées en moins d'une seconde. Vos équipes ops agissent avant que le retard ne se propage à toute la chaîne.</div>
-      </div>
-      <div class="conf-card" style="border-top-color:#10B981;">
-        <div class="conf-ico" style="background:rgba(16,185,129,.1);"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><rect x="3" y="3" width="16" height="12" rx="1.5"/><path d="M3 8h16"/><path d="M8 3v5M14 3v5"/><path d="M7 13l2 2 4-4 2 2"/></svg></div>
-        <div class="conf-title">Vision unifiée multi-sites</div>
-        <div class="conf-desc">Un DataGraph orchestre l'ensemble de vos flux : entrepôts, transporteurs, clients finaux, sans centraliser les données brutes dans un seul système.</div>
-      </div>
+      <div class="conf-card" style="border-top-color:#F97316;"><div class="conf-ico" style="background:var(--orange-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#F97316" stroke-width="1.5"><circle cx="10" cy="8" r="3"/><path d="M10 2C6.7 2 4 4.7 4 8c0 4 6 9 6 9s6-5 6-9c0-3.3-2.7-6-6-6z"/></svg></div><div class="conf-title">Visibilité de bout en bout</div><div class="conf-desc">Du premier au dernier kilomètre, chaque colis, chaque véhicule, chaque quai est suivi en temps réel. Aucun angle mort dans votre chaîne logistique.</div></div>
+      <div class="conf-card" style="border-top-color:#2563EB;"><div class="conf-ico" style="background:var(--blue-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#2563EB" stroke-width="1.5"><rect x="3" y="2" width="14" height="16" rx="1.5"/><path d="M7 6h6M7 9h6M7 12h4"/></svg></div><div class="conf-title">Données restent dans votre SI</div><div class="conf-desc">Les DataCells se déploient sur votre infrastructure TMS/WMS existante. Aucune donnée de transport ou d'entrepôt ne transite vers un cloud externe.</div></div>
+      <div class="conf-card" style="border-top-color:#10B981;"><div class="conf-ico" style="background:var(--green-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><polyline points="3,15 7,10 10,13 14,7 19,10"/><path d="M17 5h4v4"/></svg></div><div class="conf-title">Interopérabilité native multi-transporteurs</div><div class="conf-desc">GPS, TMS, WMS, EDI, API transporteurs : iD4Connect agrège tous les formats sans passerelle supplémentaire ni conversion manuelle.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ CTA ══ -->
-<section class="s-cta reveal">
+<section id="log-cta" class="reveal">
   <div class="wrap">
     <div class="cta-box">
-      <div>
-        <h2>Votre chaîne logistique mérite<br>une visibilité totale.</h2>
-        <p>Connectez vos TMS, WMS et transporteurs en quelques jours. Pas de migration, pas de refonte, vos flux deviennent intelligents.</p>
-      </div>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-primary">Demander une démo →</a>
-        <a href="#" class="btn-secondary">Télécharger la fiche</a>
-      </div>
+      <div><h2>Votre supply chain est déjà connectée.<br>Il manque juste l'intelligence.</h2><p>Connectez vos TMS, WMS et GPS existants en quelques jours. Pas de remplacement, pas de migration, juste des insights en plus.</p></div>
+      <div class="cta-btns"><a href="contact.html" class="btn-primary">Demander une démo →</a><a href="#" class="btn-secondary">Télécharger la fiche</a></div>
     </div>
   </div>
 </section>
 
 <div id="ftr-ph"></div>
+
 <script>
 const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-document.documentElement.setAttribute('data-theme',t0);
-document.body.setAttribute('data-theme',t0);
+document.documentElement.setAttribute('data-theme',t0);document.body.setAttribute('data-theme',t0);
 
-function initPage(DATA){
-  let active=null;
-  function render(){
-    document.getElementById('uc-grid').innerHTML=DATA.map(uc=>`
-      <div class="uc-card ${active===uc.id?'active':''}" onclick="toggleUC('${uc.id}')">
-        <div class="uc-head">
-          <div class="uc-head-left"><span class="uc-head-ico">${uc.ico}</span><span class="uc-head-lbl">DataCell</span></div>
-          <div class="uc-dot"></div>
-        </div>
-        <div class="uc-body">
-          <div class="uc-title">${uc.title}</div>
-          <div class="uc-slbl">Sources</div>
-          <div class="uc-sources">${uc.sources.map(s=>`<span class="uc-src">${s}</span>`).join('')}</div>
-          <div class="uc-slbl">Traitement</div>
-          <div class="uc-ops">${uc.ops.map(op=>`<div class="uc-op" style="border-left-color:${op.c};background:${op.c}10;"><div class="uc-op-name">${op.n}</div><div class="uc-op-desc">${op.d}</div></div>`).join('')}</div>
-          <div class="uc-arrow"><div style="background:${uc.oc};height:12px;width:2px;opacity:.75;"></div><div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.oc};opacity:.75;"></div></div>
-          <div class="uc-output" style="background:${uc.oc}14;border:1.5px solid ${uc.oc}40;">
-            <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="${uc.oc}" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg>
-            <span class="uc-output-lbl">${uc.out}</span>
-          </div>
-        </div>
-      </div>`).join('');
+const TAB_ICONS={
+  sources:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 2v2M8 12v2M2 8h2M12 8h2"/></svg>',
+  traitement:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.5"/></svg>',
+  sortie:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2v12M9 6l4 4-4 4"/><line x1="6" y1="10" x2="13" y2="10"/></svg>',
+  technique:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>'
+};
+const KPI_ICONS={
+  money:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="8" y1="1" x2="8" y2="15"/><path d="M11.5 4.5H6.5a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4H4.5"/></svg>',
+  users:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="5" r="2.5"/><path d="M1 14c0-2.8 2.2-5 5-5s5 2.2 5 5"/><circle cx="12" cy="5.5" r="1.8"/><path d="M12 9c1.7 0 3 1.3 3 3"/></svg>',
+  search:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>',
+  leaf:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14C2 14 3 4 14 2c0 0-2 10-12 12z"/><path d="M2 14l5.5-5.5"/></svg>',
+  bolt:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg>',
+  target:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.5"/><circle cx="8" cy="8" r=".8" fill="currentColor"/></svg>',
+  wrench:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>',
+  check:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8l2 2 3.5-3.5"/></svg>',
+const USE_CASES=[
+  {id:'tracking',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="9" r="3"/><path d="M11 2C7.1 2 4 5.1 4 9c0 5.3 7 11 7 11s7-5.7 7-11c0-3.9-3.1-7-7-7z"/></svg>',
+    title:'Tracking temps réel',sources:['GPS flotte','API transporteurs','WMS entrepôt'],
+    ops:[{label:'Agrégation',desc:'Position et statut unifiés de toute la flotte',color:'#F97316'},{label:'Détection écart',desc:'Retard, déviation ou arrêt anormal identifiés',color:'#EF4444'},{label:'Alertes',desc:'Client et équipe ops notifiés instantanément',color:'#2563EB'}],
+    output:'Visibilité flotte en temps réel',outColor:'#F97316'},
+  {id:'flux',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="5" height="4" rx="1"/><rect x="15" y="11" width="5" height="4" rx="1"/><path d="M7 9h4l4 2M15 13H11l-4-2"/></svg>',
+    title:'Optimisation des flux',sources:['TMS','Données trafic API','Capteurs quai'],
+    ops:[{label:'Corrélation',desc:'Croisement capacité disponible et demande live',color:'#8B5CF6'},{label:'Prédiction',desc:'IA embarquée sur délais et taux de remplissage',color:'#10B981'},{label:'Planification',desc:'Réallocation dynamique des ressources',color:'#F97316'}],
+    output:'Taux de remplissage optimisé',outColor:'#8B5CF6'},
+  {id:'entrepot',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 19h18M4 19V9l7-5 7 5v10"/><rect x="8" y="13" width="6" height="6" rx="1"/></svg>',
+    title:"Performance entrepôt",sources:['WMS','Scanners codes-barres','Convoyeurs IoT'],
+    ops:[{label:'Monitoring',desc:'Suivi cadence et productivité par zone en temps réel',color:'#F59E0B'},{label:'Détection goulot',desc:'Identification des ralentissements sur la chaîne',color:'#EF4444'},{label:'Traçabilité',desc:'Historique complet de chaque colis à chaque étape',color:'#10B981'}],
+    output:"Entrepôt sans goulot d'étranglement",outColor:'#F59E0B'}
+];
+
+const POPUP_DATA={
+  tracking:{
+    desc:"DataCell de tracking temps réel multi-transporteurs. Agrège les positions GPS de la flotte propre et sous-traitée, les statuts des API transporteurs et les données WMS pour fournir une visibilité de bout en bout sur chaque expédition, avec détection proactive des retards et alertes automatisées.",
+    sources:[
+      {name:'GPS flotte',format:'MQTT / REST API / FMS',desc:"Collecte temps réel des positions et télématiques de la flotte propre et sous-traitée : position, vitesse, cap, distance restante, temps de conduite, niveau carburant. Intégration des boîtiers télématiques (Webfleet, Masternaut, Trimble, Geotab).",protocols:['MQTT v5.0','REST API FMS','FMS Standard (FMS4)','OBD-II / CAN bus'],color:'#F97316'},
+      {name:'API transporteurs',format:'REST API / EDI / Webhook',desc:"Intégration des statuts d'acheminement depuis les transporteurs partenaires : Chronopost, DHL, UPS, FedEx, Geodis, DB Schenker, messagerie régionale. Statuts de prise en charge, transit, livraison, incident, retour.",protocols:['REST API transporteur','EDI EDIFACT','Webhook événement','AS2 / SFTP'],color:'#2563EB'},
+      {name:'WMS entrepôt',format:'REST API / JDBC / EDI',desc:"Données de préparation et d'expédition depuis le WMS : statut commande, heure de mise à quai, numéro de tracking, poids/volume, zone de destination. Corrélation entre la sortie entrepôt et la prise en charge transporteur.",protocols:['REST API WMS','JDBC / ODBC','EDI (DESADV)','Webhook expédition'],color:'#10B981'},
+      {name:'Données client / ERP',format:'REST API / OData',desc:"Enrichissement avec les données commande du SI client : promesse de livraison, créneau demandé, adresse, priorité, SLA contractuel. Permet de qualifier chaque écart en impact business.",protocols:['REST API / OData','JDBC / ODBC','Webhook commande','CSV / SFTP'],color:'#8B5CF6'}
+    ],
+    traitements:[
+      {name:'Agrégation',color:'#F97316',desc:'Position et statut unifiés de toute la flotte',details:['Agrégation multi-sources : GPS flotte propre + statuts API transporteurs + données WMS dans une vue unique','Normalisation des statuts hétérogènes : chaque transporteur a ses propres codes, mappés vers un référentiel unifié','Calcul automatique de l\'ETA (Estimated Time of Arrival) intégrant position, trafic et historique','Géofencing dynamique : détection automatique de l\'arrivée/départ des zones (entrepôt, client, hub)','Suivi multi-modal : route, rail, air, maritime dans le même flux','Consolidation par expédition : un même envoi peut impliquer plusieurs transporteurs successifs']},
+      {name:'Détection écart',color:'#EF4444',desc:'Retard, déviation ou arrêt anormal identifiés',details:['Détection de retard prédictive : l\'ETA recalculée dépasse la promesse de livraison','Identification des déviations d\'itinéraire : le véhicule s\'écarte de plus de X km de la route prévue','Détection d\'arrêt anormal : stationnement prolongé hors zone de livraison ou de repos réglementaire','Scoring d\'impact par écart : retard de 15 min sur une livraison standard vs retard sur un SLA critique','Détection des patterns récurrents : un transporteur ou une zone génère systématiquement des retards','Corrélation avec les données trafic : distinguer un retard exogène (bouchon) d\'un retard opérationnel']},
+      {name:'Alertes',color:'#2563EB',desc:'Client et équipe ops notifiés instantanément',details:['Notification multicanal en temps réel : email, SMS, push app, webhook, Teams/Slack','Alertes différenciées par rôle : le client reçoit un ETA mis à jour, l\'exploitant reçoit le détail opérationnel','Escalade automatique : info (dispatcheur) vers warning (responsable transport) vers critique (direction ops)','Alertes proactives : notification avant que le retard ne soit constaté par le client','Tableau de bord des exceptions : vue consolidée de tous les écarts en cours avec priorisation','Historisation des alertes avec action corrective tracée pour amélioration continue']},
+      {name:'Preuve de livraison',color:'#10B981',desc:'Confirmation et traçabilité de bout en bout',details:['Horodatage précis de chaque étape : prise en charge, transit, hub, dernière ligne, livraison','Géolocalisation de la livraison effective : coordonnées GPS au moment de la remise','Intégration des preuves digitales : signature, photo, code de confirmation','Rapprochement automatique avec la promesse de livraison : respect SLA calculé','Export des données de traçabilité pour le reporting client et les litiges','Conformité réglementaire : lettre de voiture électronique (e-CMR) intégrée']}
+    ],
+    sortie:{desc:"Les équipes transport et les clients disposent d'une visibilité temps réel sur chaque expédition, avec ETA prédictive, alertes proactives de retard et preuve de livraison digitale.",
+      destinations:[{name:'TMS / Dispatching',protocol:'REST API / Webhook',format:'ETA enrichie'},{name:'Portail client',protocol:'WebSocket / REST',format:'Tracking live'},{name:'Alerte ops',protocol:'Webhook / SMS / Teams',format:'Notification écart'},{name:'ERP / Facturation',protocol:'REST / OData',format:'Preuve livraison'},{name:'BI / Reporting',protocol:'REST API / JDBC',format:'KPIs transport'}],
+      kpis:[{label:'Visibilité flotte',value:'100%',icon:'target'},{label:'Retards anticipés',value:'85%',icon:'shield'},{label:'Litiges livraison',value:'-60%',icon:'chart'},{label:'Latence tracking',value:'< 10s',icon:'bolt'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Stream processing géospatial'},{label:'IA embarquée',value:'ETA prédictive, détection anomalies'},{label:'Protocoles',value:'MQTT, REST, EDI, FMS, Webhook'},{label:'Déploiement',value:'Cloud / Edge véhicule / Hybride'},{label:'Mode',value:'Stateless, temps réel continu'},{label:'Scalabilité',value:'1 DataCell par flux / zone'}],
+      callout:{title:'Du suivi réactif à la visibilité prédictive',text:'Cette DataCell transforme le tracking logistique. En corrélant les <strong>positions GPS temps réel</strong> avec les <strong>statuts transporteurs</strong> et les <strong>données trafic</strong>, elle calcule une ETA prédictive fiable et détecte les écarts <strong>avant qu\'ils n\'impactent le client</strong>. Le modèle stateless garantit <strong>zéro donnée stockée</strong> dans iD4Connect.'}}
+  },
+  flux:{
+    desc:"DataCell d'optimisation des flux logistiques. Corrèle les données TMS, trafic et capteurs de quai pour maximiser le taux de remplissage, prédire les délais par IA embarquée et réallouer dynamiquement les ressources transport en fonction de la demande réelle.",
+    sources:[
+      {name:'TMS',format:'REST API / EDI / SQL',desc:"Intégration des systèmes de gestion du transport (Oracle TMS, SAP TM, Transporeon, Alpega, Shippeo). Données : ordres de transport, capacités disponibles, tarifs négociés, plans de chargement, historique de performance par transporteur.",protocols:['REST API TMS','EDI (IFTMIN/IFTSTA)','JDBC / ODBC','AS2 / SFTP'],color:'#8B5CF6'},
+      {name:'Données trafic API',format:'REST API / JSON',desc:"Enrichissement temps réel avec les conditions de trafic et de route : temps de parcours estimé, incidents, travaux, restrictions (poids, hauteur, zones ZFE). Sources : TomTom, HERE, Google Maps Platform, Waze for Cities.",protocols:['REST API trafic','JSON / GeoJSON','Webhook incidents','MQTT bridge'],color:'#2563EB'},
+      {name:'Capteurs quai',format:'MQTT / OPC-UA / REST',desc:"Données temps réel des quais de chargement/déchargement : occupation des portes, temps de chargement, poids chargé, température (chaîne du froid), statut véhicule à quai. Capteurs IoT et systèmes de gestion de cour (YMS).",protocols:['MQTT v5.0','OPC-UA','REST API YMS','LoRaWAN'],color:'#10B981'}
+    ],
+    traitements:[
+      {name:'Corrélation',color:'#8B5CF6',desc:'Croisement capacité disponible et demande live',details:['Corrélation temps réel entre les ordres de transport TMS et les capacités disponibles','Matching intelligent : affecter le bon véhicule au bon chargement en fonction de poids, volume, destination','Intégration des contraintes réglementaires : temps de conduite, zones ZFE, restrictions véhicule','Corrélation avec les données de quai : synchroniser l\'arrivée du véhicule avec la disponibilité du quai','Analyse du coût réel par expédition : tarif + carburant + péages + temps d\'attente','Détection des trajets à vide ou sous-remplis pour proposer du groupage']},
+      {name:'Prédiction',color:'#10B981',desc:'IA embarquée sur délais et taux de remplissage',details:['Prévision du taux de remplissage par tournée à J+1/J+3 basée sur l\'historique et la saisonnalité','Prédiction des délais de livraison intégrant trafic temps réel, météo et historique par zone','Anticipation des pics de demande : soldes, Black Friday, fêtes, rentrée','Modèle de consolidation : identifier les expéditions groupables pour optimiser le remplissage','Scoring de fiabilité transporteur : probabilité de respect du créneau par prestataire','Simulation what-if : impact d\'un nouveau hub, d\'un changement de transporteur sur les coûts']},
+      {name:'Planification',color:'#F97316',desc:'Réallocation dynamique des ressources',details:['Réallocation en temps réel : un véhicule se libère plus tôt, un nouveau chargement lui est proposé','Optimisation des tournées : séquencement des livraisons pour minimiser distance et temps','Gestion des aléas : réaffectation automatique en cas de panne, retard ou annulation','Équilibrage de charge entre transporteurs : éviter la surcharge d\'un prestataire','Planification des créneaux de quai : réduire les temps d\'attente à la réception','Alertes de capacité : notification quand la capacité disponible passe sous le seuil critique']}
+    ],
+    sortie:{desc:"Les équipes transport disposent d'une vue temps réel sur la capacité, le remplissage et les délais, avec des recommandations d'optimisation IA et une réallocation dynamique des ressources.",
+      destinations:[{name:'TMS / Dispatching',protocol:'REST API / Webhook',format:'Recommandations tournée'},{name:'Dashboard transport',protocol:'WebSocket / REST',format:'KPIs remplissage live'},{name:'Transporteurs',protocol:'EDI / REST API',format:'Ordres optimisés'},{name:'YMS / Gestion de cour',protocol:'REST / MQTT',format:'Créneaux quai'},{name:'BI / Reporting',protocol:'REST API / JDBC',format:'Coûts & performance'}],
+      kpis:[{label:'Taux remplissage',value:'+18%',icon:'chart'},{label:'Coût par expédition',value:'-22%',icon:'money'},{label:'Trajets à vide',value:'-35%',icon:'target'},{label:'Latence décision',value:'< 30s',icon:'bolt'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Optimisation combinatoire + ML'},{label:'IA embarquée',value:'Prévision demande, optimisation tournées'},{label:'Protocoles',value:'REST, EDI, MQTT, OPC-UA, Webhook'},{label:'Déploiement',value:'Cloud / Edge hub / Hybride'},{label:'Mode',value:'Stateless, temps réel continu'},{label:'Scalabilité',value:'1 DataCell par zone / hub'}],
+      callout:{title:'De la logistique subie à la logistique optimisée',text:'Cette DataCell transforme la gestion des flux transport. En corrélant les <strong>capacités TMS</strong> avec les <strong>données trafic temps réel</strong> et les <strong>capteurs de quai</strong>, elle maximise le taux de remplissage (+18%), réduit les trajets à vide (-35%) et réalloue dynamiquement les ressources en cas d\'aléa. Le modèle stateless garantit <strong>zéro donnée stockée</strong> dans iD4Connect.'}}
+  },
+  entrepot:{
+    desc:"DataCell de pilotage de la performance entrepôt en temps réel. Agrège les données WMS, scanners et convoyeurs IoT pour monitorer la cadence par zone, détecter les goulots d'étranglement et garantir la traçabilité complète de chaque colis à chaque étape.",
+    sources:[
+      {name:'WMS',format:'REST API / JDBC / EDI',desc:"Intégration des systèmes de gestion d'entrepôt (Manhattan, Reflex, SAP EWM, Generix, Hardis). Données : ordres de préparation, statuts picking/packing/shipping, taux de service, productivité par opérateur, taux d'erreur.",protocols:['REST API WMS','JDBC / ODBC','EDI (DESADV/RECADV)','Webhook événement'],color:'#F59E0B'},
+      {name:'Scanners codes-barres',format:'TCP / REST / MQTT',desc:"Collecte temps réel des scans à chaque étape : réception, mise en stock, picking, contrôle, expédition. Chaque scan horodaté et géolocalisé dans l'entrepôt. Support codes-barres 1D/2D, RFID, vision industrielle.",protocols:['TCP/IP scanner','REST API middleware','MQTT v5.0','RFID EPC Gen2'],color:'#EF4444'},
+      {name:'Convoyeurs IoT',format:'OPC-UA / MQTT / Modbus',desc:"Données temps réel des systèmes de manutention automatisée : vitesse convoyeur, taux d'occupation, nombre de colis traités, arrêts/redémarrages, température (chaîne du froid). Intégration des trieurs, AGV et systèmes goods-to-person.",protocols:['OPC-UA','MQTT / Sparkplug B','Modbus TCP','REST API AGV'],color:'#10B981'}
+    ],
+    traitements:[
+      {name:'Monitoring',color:'#F59E0B',desc:'Suivi cadence et productivité par zone en temps réel',details:['Cadence temps réel par zone (réception, stockage, picking, packing, expédition) avec objectif affiché','Productivité par opérateur : lignes/heure, colis/heure avec benchmark par poste et par shift','Taux de service temps réel : commandes préparées dans les délais / commandes totales','Suivi des SLA par client : chaque commande tracée vs la promesse de préparation','Tableau de bord multi-zone avec drill-down : entrepôt vers zone vers allée vers opérateur','Comparaison shift/équipe avec identification automatique des meilleures pratiques']},
+      {name:'Détection goulot',color:'#EF4444',desc:'Identification des ralentissements sur la chaîne',details:['Détection de ralentissement en temps réel : une zone dont la cadence chute vs sa moyenne','Identification de la cause racine : convoyeur en panne, zone saturée, manque d\'opérateurs, picking complexe','Alertes prédictives : le flux amont va saturer la zone aval dans les prochaines minutes','Corrélation entre les zones : un goulot en packing impacte-t-il le shipping en cascade','Recommandation de réallocation : suggérer le déplacement d\'opérateurs vers la zone critique','Historisation des goulots pour identifier les patterns récurrents et adapter le dimensionnement']},
+      {name:'Traçabilité',color:'#10B981',desc:'Historique complet de chaque colis à chaque étape',details:['Traçabilité unitaire : chaque colis suivi de la réception fournisseur à l\'expédition client','Horodatage précis (seconde) de chaque scan/événement avec localisation dans l\'entrepôt','Reconstitution du parcours complet : réception vers mise en stock vers picking vers contrôle vers expédition','Détection d\'anomalies de parcours : colis scanné dans une zone inattendue','Lien avec le tracking transport : continuité de la traçabilité entrepôt vers livraison','Export des données pour les réclamations client et l\'analyse qualité']}
+    ],
+    sortie:{desc:"Les responsables entrepôt disposent d'une vision temps réel de la cadence, des goulots et de la traçabilité par colis. Les décisions de réallocation sont prises en quelques secondes.",
+      destinations:[{name:'WMS (réallocation)',protocol:'REST API / Webhook',format:'Consignes opérateur'},{name:'Dashboard entrepôt',protocol:'WebSocket / REST',format:'KPIs cadence live'},{name:'Alerte chef d\'équipe',protocol:'Webhook / SMS / App',format:'Goulot détecté'},{name:'TMS (expédition)',protocol:'REST / EDI',format:'Colis prêt à quai'},{name:'BI / Reporting',protocol:'REST API / JDBC',format:'Performance ops'}],
+      kpis:[{label:'Cadence picking',value:'+25%',icon:'bolt'},{label:'Goulots détectés',value:'< 2 min',icon:'clock'},{label:'Taux de service',value:'99.2%',icon:'target'},{label:'Erreurs préparation',value:'-40%',icon:'shield'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Stream processing + ML anomalies'},{label:'IA embarquée',value:'Détection goulots, prédiction cadence'},{label:'Protocoles',value:'OPC-UA, MQTT, REST, RFID, Modbus'},{label:'Déploiement',value:'Edge entrepôt / Cloud hybride'},{label:'Mode',value:'Stateless, temps réel continu'},{label:'Scalabilité',value:'1 DataCell par entrepôt / zone'}],
+      callout:{title:'De l\'entrepôt réactif à l\'entrepôt intelligent',text:'Cette DataCell transforme la performance entrepôt. En corrélant les <strong>données WMS</strong> avec les <strong>scans temps réel</strong> et les <strong>capteurs de convoyeurs</strong>, elle détecte les goulots en moins de 2 minutes, optimise la cadence de picking de 25% et garantit une traçabilité unitaire de bout en bout. Le modèle stateless assure <strong>zéro donnée stockée</strong> dans iD4Connect.'}}
   }
-  window.toggleUC=function(id){active=active===id?null:id;render();};
-  render();
+};
+
+function renderUC(){
+  document.getElementById('uc-grid').innerHTML=USE_CASES.map(uc=>`
+    <div class="uc-card" onclick="openModal('${uc.id}')">
+      <div class="uc-head"><div class="uc-head-left"><span class="uc-head-ico">${uc.icon}</span><span class="uc-head-lbl">DataCell</span></div><div class="uc-dot"></div></div>
+      <div class="uc-body">
+        <div class="uc-title">${uc.title}</div>
+        <div class="uc-slbl">Sources</div>
+        <div class="uc-sources">${uc.sources.map(s=>'<span class="uc-src">'+s+'</span>').join('')}</div>
+        <div class="uc-slbl">Traitement</div>
+        <div class="uc-ops">${uc.ops.map(op=>'<div class="uc-op" style="border-left-color:'+op.color+';background:'+op.color+'08;"><div class="uc-op-name">'+op.label+'</div><div class="uc-op-desc">'+op.desc+'</div></div>').join('')}</div>
+        <div class="uc-arrow"><div style="background:${uc.outColor};height:12px;width:2px;opacity:.75;"></div><div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.outColor};opacity:.75;"></div></div>
+        <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;"><svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg><span class="uc-output-lbl">${uc.output}</span></div>
+      </div>
+    </div>`).join('');
 }
 
-initPage([
-  {id:'tracking',
-   ico:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="9" r="3"/><path d="M11 2C7.1 2 4 5.1 4 9c0 5.3 7 11 7 11s7-5.7 7-11c0-3.9-3.1-7-7-7z"/></svg>`,
-   title:'Tracking temps réel',
-   sources:['GPS flotte','API transporteurs','WMS entrepôt'],
-   ops:[
-     {n:'Agrégation',d:'Position et statut unifiés de toute la flotte',c:'#F97316'},
-     {n:'Détection écart',d:'Retard, déviation ou arrêt anormal identifiés',c:'#EF4444'},
-     {n:'Alertes',d:'Client et équipe ops notifiés instantanément',c:'#2563EB'},
-   ],
-   out:'Visibilité flotte en temps réel',oc:'#F97316'},
-  {id:'flux',
-   ico:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="5" height="4" rx="1"/><rect x="15" y="11" width="5" height="4" rx="1"/><path d="M7 9h4l4 2M15 13H11l-4-2"/></svg>`,
-   title:'Optimisation des flux',
-   sources:['TMS','Données trafic API','Capteurs quai'],
-   ops:[
-     {n:'Corrélation',d:'Croisement capacité disponible et demande live',c:'#8B5CF6'},
-     {n:'Prédiction',d:'IA embarquée sur délais et taux de remplissage',c:'#10B981'},
-     {n:'Planification',d:'Réallocation dynamique des ressources',c:'#F97316'},
-   ],
-   out:'Taux de remplissage optimisé',oc:'#8B5CF6'},
-  {id:'entrepot',
-   ico:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 19h18M4 19V9l7-5 7 5v10"/><rect x="8" y="13" width="6" height="6" rx="1"/></svg>`,
-   title:'Performance entrepôt',
-   sources:['WMS','Scanners codes-barres','Convoyeurs IoT'],
-   ops:[
-     {n:'Monitoring',d:'Suivi cadence et productivité par zone en temps réel',c:'#F59E0B'},
-     {n:'Détection goulot',d:'Identification des ralentissements sur la chaîne',c:'#EF4444'},
-     {n:'Traçabilité',d:'Historique complet de chaque colis à chaque étape',c:'#10B981'},
-   ],
-   out:"Entrepôt sans goulot d'étranglement",oc:'#F59E0B'},
-]);
+let currentPopup=null,currentTab='sources';
+function openModal(id){currentPopup=id;currentTab='sources';const ov=document.getElementById('md-overlay');ov.classList.add('open');renderModal();requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('active')));document.body.style.overflow='hidden';}
+function closeModal(){const ov=document.getElementById('md-overlay');ov.classList.remove('active');setTimeout(()=>{ov.classList.remove('open');document.body.style.overflow='';},280);}
+document.getElementById('md-overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
 
+function renderModal(){
+  const uc=USE_CASES.find(u=>u.id===currentPopup),data=POPUP_DATA[currentPopup];
+  if(!uc||!data)return;
+  document.getElementById('md-icon').innerHTML=uc.icon.replace('stroke="currentColor"','stroke="white"');
+  document.getElementById('md-title').textContent=uc.title;
+  document.getElementById('md-desc').textContent=data.desc;
+  const tabs=['sources','traitement','sortie','technique'],labels={sources:'Sources',traitement:'Traitement',sortie:'Sortie',technique:'Technique'};
+  document.getElementById('md-tabs').innerHTML=tabs.map(t=>'<button class="md-tab'+(currentTab===t?' active':'')+'" onclick="switchTab(\''+t+'\')">'+TAB_ICONS[t]+labels[t]+'</button>').join('');
+  renderTabContent();
+}
+function switchTab(t){currentTab=t;renderModal();}
+function renderTabContent(){
+  const data=POPUP_DATA[currentPopup],body=document.getElementById('md-body');
+  if(currentTab==='sources'){
+    body.innerHTML=data.sources.map(s=>'<div class="md-card"><div class="md-card-head"><div class="md-dot" style="background:'+s.color+'"></div><span class="md-card-name">'+s.name+'</span><span class="md-tag">'+s.format+'</span></div><p>'+s.desc+'</p><div class="md-protos">'+s.protocols.map(p=>'<span class="md-proto">'+p+'</span>').join('')+'</div></div>').join('');
+  }else if(currentTab==='traitement'){
+    body.innerHTML=data.traitements.map(t=>'<div class="md-tcard" style="border-left-color:'+t.color+'"><div class="md-tcard-name">'+t.name+'</div><p>'+t.desc+'</p>'+t.details.map(d=>'<div class="md-detail"><span class="md-bullet" style="color:'+t.color+'">›</span><span>'+d+'</span></div>').join('')+'</div>').join('');
+  }else if(currentTab==='sortie'){
+    const s=data.sortie;
+    body.innerHTML='<div class="md-kpis">'+s.kpis.map(k=>'<div class="md-kpi"><div class="md-kpi-ico">'+(KPI_ICONS[k.icon]||KPI_ICONS.target)+'</div><div class="md-kpi-val">'+k.value+'</div><div class="md-kpi-lbl">'+k.label+'</div></div>').join('')+'</div><p style="font-size:12.5px;color:var(--t5);line-height:1.65;margin-bottom:16px;">'+s.desc+'</p><span class="md-slbl">Destinations & intégrations</span>'+s.destinations.map(d=>'<div class="md-dest"><span class="md-dest-name">'+d.name+'</span><span class="md-tag">'+d.protocol+'</span><span class="md-dest-fmt">'+d.format+'</span></div>').join('');
+  }else if(currentTab==='technique'){
+    const t=data.technique;
+    body.innerHTML='<span class="md-slbl">Architecture DataCell</span>'+t.architecture.map(a=>'<div class="md-arch"><span class="md-arch-lbl">'+a.label+'</span><span class="md-arch-val">'+a.value+'</span></div>').join('')+'<div class="md-callout"><div class="md-callout-title"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="5" x2="8" y2="8.5" stroke-linecap="round"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg>'+t.callout.title+'</div><div class="md-callout-text">'+t.callout.text+'</div></div>';
+  }
+}
+
+renderUC();
 async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
 window.addEventListener('load',async()=>{
-  await loadComp('hdr-ph','header.html');
-  await loadComp('ftr-ph','footer.html');
+  await loadComp('hdr-ph','header.html');await loadComp('ftr-ph','footer.html');
   document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
-  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 });
 </script>
