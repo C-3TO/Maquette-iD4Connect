@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--green-em:#10B981;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue:#2563EB;--blue-pale:#EFF6FF;--purple:#8B5CF6;--purple-pale:#F5F3FF;--cyan:#06B6D4;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
+:root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--green-em:#10B981;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue:#2563EB;--blue-pale:#EFF6FF;--purple:#8B5CF6;--purple-pale:#F5F3FF;--cyan:#06B6D4;--amber:#F59E0B;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
 :root,[data-theme="light"]{--bg:#F5F4F0;--card:#FFFFFF;--section:#EEEDEA;--t9:#111827;--t7:#374151;--t5:#6B7280;--t4:#9CA3AF;--border:#E5E3DE;--border-s:#D1CFCA;--sh-sm:0 1px 3px rgba(0,0,0,.07);--sh:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.10);}
 [data-theme="dark"]{--bg:#0C1221;--card:#162032;--section:#0A0E1A;--t9:#F9FAFB;--t7:#D1D5DB;--t5:#6B7280;--t4:#4B5563;--border:#1F2D3D;--border-s:#2D3F52;--sh-sm:0 1px 3px rgba(0,0,0,.3);--sh:0 4px 16px rgba(0,0,0,.3);--sh-lg:0 12px 40px rgba(0,0,0,.4);--orange-pale:rgba(249,115,22,.09);--orange-border:rgba(249,115,22,.22);--green-pale:rgba(22,163,74,.09);--green-border:rgba(22,163,74,.22);--red-pale:rgba(220,38,38,.09);--red-border:rgba(220,38,38,.22);--blue-pale:rgba(37,99,235,.09);--purple-pale:rgba(139,92,246,.09);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -19,66 +19,36 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .pill svg{width:12px;height:12px;}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
-
-/* ══ HERO ══ */
 #sante-hero{padding:64px 0 72px;background:var(--card);position:relative;overflow:hidden;}
 #sante-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
-
 .hero-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center;}
-
-.hero-visual{
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-  min-height:320px;
-}
-.hero-visual::before{
-  content:'';position:absolute;
-  width:240px;height:240px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 70%);
-  pointer-events:none;
-}
-
-.hero-icon{
-  width:160px;height:160px;
-  color:var(--orange);
-  position:relative;z-index:1;
-  animation:iconFloat 3s ease-in-out infinite alternate;
-}
+.hero-visual{display:flex;align-items:center;justify-content:center;position:relative;min-height:320px;}
+.hero-visual::before{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;}
+.hero-icon{width:160px;height:160px;color:var(--orange);position:relative;z-index:1;animation:iconFloat 3s ease-in-out infinite alternate;}
 @keyframes iconFloat{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
-
 .hero-right .pill{margin-bottom:14px;}
 .hero-right h1{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin-bottom:16px;}
 .hero-right h1 .o{color:var(--orange);}
 .hero-right>p{font-size:15px;color:var(--t5);line-height:1.75;max-width:480px;margin-bottom:28px;}
-
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
 .btn-p{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
 .btn-p:hover{background:var(--orange-d);transform:translateY(-1px);}
 .btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
 .btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
-
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:200px;}}
 @media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}}
-
-/* ══ CAS D'USAGE ══ */
 #cas-usage{padding:96px 0;background:var(--bg);}
 .section-head{text-align:center;margin-bottom:44px;}
 .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
 .section-head h2 .o{color:var(--orange);}
 .section-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
-
 .uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;}
-.uc-card:hover{border-color:var(--orange-border);box-shadow:var(--sh);transform:translateY(-2px);}
-.uc-card.active{border-color:var(--orange);box-shadow:0 8px 28px rgba(249,115,22,.15);}
+.uc-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.12),0 8px 28px rgba(249,115,22,.10);transform:translateY(-3px);}
 .uc-head{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;border-bottom:1px solid var(--border);background:var(--section);}
-.uc-card.active .uc-head{background:var(--orange-pale);border-color:var(--orange-border);}
 .uc-head-left{display:flex;align-items:center;gap:8px;}
 .uc-head-ico{width:22px;height:22px;color:var(--t5);}
-.uc-card.active .uc-head-ico{color:var(--orange);}
 .uc-head-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t4);}
-.uc-card.active .uc-head-lbl{color:var(--orange);}
 .uc-dot{width:8px;height:8px;border-radius:50%;background:var(--green-em);box-shadow:0 0 0 3px rgba(16,185,129,.2);}
 .uc-body{padding:14px;}
 .uc-title{font-size:13.5px;font-weight:800;color:var(--t9);margin-bottom:11px;}
@@ -93,12 +63,70 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .uc-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
 .uc-output svg{width:11px;height:11px;flex-shrink:0;}
 .uc-output-lbl{font-size:11.5px;font-weight:700;color:var(--t9);}
-
 @media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.uc-grid{grid-template-columns:1fr;}}
-
-/* ══ PROTECTION ══ */
-#protection{padding:96px 0;background:var(--card);}
+.md-overlay{position:fixed;inset:0;background:rgba(15,23,42,0);display:none;align-items:center;justify-content:center;z-index:1000;padding:16px;transition:background .3s ease;}
+.md-overlay.open{display:flex;}
+.md-overlay.active{background:rgba(15,23,42,.55);backdrop-filter:blur(6px);}
+.md-modal{background:var(--card);border-radius:var(--r-xl);width:100%;max-width:760px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;transform:scale(.93) translateY(24px);opacity:0;transition:all .28s cubic-bezier(.4,0,.2,1);box-shadow:var(--sh-lg);}
+.md-overlay.active .md-modal{transform:scale(1) translateY(0);opacity:1;}
+.md-header{padding:24px 28px 0;flex-shrink:0;}
+.md-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:12px;}
+.md-title-area{display:flex;align-items:center;gap:14px;}
+.md-icon{width:46px;height:46px;border-radius:var(--r);background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.md-icon svg{width:22px;height:22px;color:white;}
+.md-badge{font-size:10px;font-weight:700;color:var(--orange);letter-spacing:1px;text-transform:uppercase;}
+.md-modal h2{font-size:20px;font-weight:800;color:var(--t9);margin:2px 0 0;}
+.md-desc{font-size:13.5px;color:var(--t5);line-height:1.65;margin:0 0 16px;}
+.md-close{width:36px;height:36px;border-radius:50%;border:none;background:var(--section);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--t5);transition:all .2s;flex-shrink:0;font-family:var(--font);}
+.md-close:hover{background:var(--red-pale);color:var(--red);}
+.md-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.md-tabs::-webkit-scrollbar{display:none;}
+.md-tab{padding:10px 16px;border:none;background:transparent;cursor:pointer;font-family:var(--font);font-weight:600;font-size:12.5px;color:var(--t4);border-bottom:2px solid transparent;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0;}
+.md-tab:hover{color:var(--t7);}
+.md-tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+.md-tab svg{width:13px;height:13px;}
+.md-body{overflow-y:auto;flex:1;padding:20px 28px 28px;}
+.md-body::-webkit-scrollbar{width:5px;}
+.md-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+.md-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;transition:border-color .2s;}
+.md-card:hover{border-color:var(--orange-border);}
+.md-card:last-child{margin-bottom:0;}
+.md-card-head{display:flex;align-items:center;gap:9px;margin-bottom:7px;flex-wrap:wrap;}
+.md-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.md-card-name{font-size:14px;font-weight:700;color:var(--t9);}
+.md-tag{display:inline-flex;padding:2px 9px;border-radius:var(--r-pill);font-size:10px;font-weight:600;background:var(--section);color:var(--t5);border:1px solid var(--border);}
+.md-card p{font-size:12.5px;color:var(--t5);line-height:1.6;margin:0 0 8px;}
+.md-protos{display:flex;flex-wrap:wrap;gap:5px;}
+.md-proto{font-size:10px;padding:2px 7px;border-radius:var(--r-xs);background:var(--card);border:1px solid var(--border);color:var(--t5);font-weight:500;}
+.md-tcard{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;border-left:3px solid;}
+.md-tcard:last-child{margin-bottom:0;}
+.md-tcard:hover{border-color:var(--orange-border);border-left-color:inherit;}
+.md-tcard-name{font-size:14px;font-weight:700;color:var(--t9);margin-bottom:4px;}
+.md-tcard p{font-size:12px;color:var(--t5);margin:0 0 8px;}
+.md-detail{display:flex;align-items:flex-start;gap:7px;font-size:11.5px;color:var(--t7);line-height:1.5;margin-bottom:3px;}
+.md-bullet{font-weight:700;flex-shrink:0;margin-top:1px;}
+.md-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+.md-kpi{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center;}
+.md-kpi-ico{width:28px;height:28px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;background:var(--orange-pale);border-radius:var(--r-sm);border:1px solid var(--orange-border);}
+.md-kpi-ico svg{width:14px;height:14px;color:var(--orange);}
+.md-kpi-val{font-size:18px;font-weight:900;color:var(--orange);line-height:1;}
+.md-kpi-lbl{font-size:10px;font-weight:600;color:var(--t4);margin-top:3px;}
+.md-dest{display:flex;align-items:center;padding:9px 13px;border-radius:var(--r-sm);background:var(--bg);border:1px solid var(--border);gap:9px;margin-bottom:6px;flex-wrap:wrap;transition:border-color .2s;}
+.md-dest:hover{border-color:var(--orange-border);}
+.md-dest-name{font-weight:700;font-size:13px;color:var(--t9);min-width:90px;}
+.md-dest-fmt{font-size:10px;font-weight:600;color:var(--t4);margin-left:auto;}
+.md-arch{display:flex;align-items:center;padding:9px 13px;border-radius:var(--r-sm);background:var(--bg);border:1px solid var(--border);gap:8px;margin-bottom:6px;}
+.md-arch-lbl{font-weight:600;font-size:12px;color:var(--t5);min-width:110px;}
+.md-arch-val{font-weight:700;font-size:12px;color:var(--t9);}
+.md-slbl{font-size:10px;font-weight:700;color:var(--t4);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:block;}
+.md-callout{padding:14px 18px;border-radius:var(--r);background:var(--orange-pale);border:1px solid var(--orange-border);margin-top:18px;}
+.md-callout-title{font-weight:700;font-size:12px;color:var(--orange-d);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.md-callout-title svg{width:14px;height:14px;color:var(--orange);}
+.md-callout-text{font-size:12px;color:var(--t7);line-height:1.7;}
+.md-callout-text strong{color:var(--t9);}
+@media(max-width:600px){.md-modal{max-height:95vh;border-radius:var(--r-lg);}.md-header{padding:16px 16px 0;}.md-body{padding:14px 16px 20px;}.md-kpis{grid-template-columns:1fr;}}
+#archi{padding:96px 0;background:var(--card);}
 .conf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .conf-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:24px;border-top-width:3px;transition:box-shadow .2s,transform .2s;}
 .conf-card:hover{box-shadow:var(--sh);transform:translateY(-2px);}
@@ -106,10 +134,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conf-ico svg{width:20px;height:20px;}
 .conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
 .conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
-
 @media(max-width:900px){.conf-grid{grid-template-columns:1fr;}}
-
-/* ══ CTA ══ */
 #sante-cta{padding:96px 0;background:var(--card);}
 .cta-box{background:var(--bg);border:2px solid var(--orange-border);border-radius:var(--r-xl);padding:48px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(249,115,22,.08);}
 .cta-box h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:10px;}
@@ -124,93 +149,68 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <body>
 <div id="hdr-ph"></div>
 
-<!-- ══ HERO ══ -->
 <section id="sante-hero">
   <div class="wrap">
     <div class="hero-grid">
-
-      <!-- GAUCHE : croix médicale minimaliste -->
       <div class="hero-visual">
         <svg class="hero-icon" viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 40h24l8-20 10 40 10-30 8 10h52"/>
         </svg>
       </div>
-
-      <!-- DROITE : texte -->
       <div class="hero-right">
-        <div class="pill">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 14s-5.5-3.8-5.5-8a5 5 0 0 1 5.5-1.5A5 5 0 0 1 13.5 6c0 4.2-5.5 8-5.5 8z"/><path d="M6 8h4M8 6v4"/></svg>
-          Santé
-        </div>
+        <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 14s-5.5-3.8-5.5-8a5 5 0 0 1 5.5-1.5A5 5 0 0 1 13.5 6c0 4.2-5.5 8-5.5 8z"/><path d="M6 8h4M8 6v4"/></svg>Santé</div>
         <h1>Les données de santé sont sensibles.<br><span class="o">Traitez-les sans les exposer.</span></h1>
         <p>iD4Connect traite les données médicales en transit, sans les centraliser. Dossier patient, qualité des soins, coordination : tout en temps réel, avec une protection des données personnelles by design.</p>
-        <div class="hero-ctas">
-          <a href="contact.html" class="btn-p">Demander une démo →</a>
-          <a href="positionnement.html" class="btn-g">Voir le positionnement</a>
-        </div>
+        <div class="hero-ctas"><a href="contact.html" class="btn-p">Demander une démo →</a><a href="positionnement.html" class="btn-g">Voir le positionnement</a></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══ CAS D'USAGE ══ -->
 <section id="cas-usage" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>
-        Cas d'usage
-      </div>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>Cas d'usage</div>
       <h2>Ce qu'iD4Connect fait concrètement<br><span class="o">dans votre établissement de santé.</span></h2>
     </div>
     <div class="uc-grid" id="uc-grid"></div>
-    <p class="section-hint">Cliquez sur une DataCell pour la mettre en avant</p>
+    <p class="section-hint">Cliquez sur une DataCell pour explorer le détail</p>
   </div>
 </section>
 
-<!-- ══ PROTECTION ══ -->
+<div class="md-overlay" id="md-overlay">
+  <div class="md-modal">
+    <div class="md-header">
+      <div class="md-top">
+        <div class="md-title-area"><div class="md-icon" id="md-icon"></div><div><div class="md-badge">DataCell</div><h2 id="md-title"></h2></div></div>
+        <button class="md-close" onclick="closeModal()">✕</button>
+      </div>
+      <p class="md-desc" id="md-desc"></p>
+      <div class="md-tabs" id="md-tabs"></div>
+    </div>
+    <div class="md-body" id="md-body"></div>
+  </div>
+</div>
+
 <section id="protection" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/><path d="M5.5 8l2 2 3-3"/></svg>
-        Protection des données
-      </div>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/><path d="M5.5 8l2 2 3-3"/></svg>Protection des données</div>
       <h2>La protection des patients<br><span class="o">gravée dans l'architecture.</span></h2>
     </div>
     <div class="conf-grid">
-      <div class="conf-card" style="border-top-color:#8B5CF6;">
-        <div class="conf-ico" style="background:var(--purple-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#8B5CF6" stroke-width="1.5"><rect x="4" y="8" width="12" height="10" rx="1.5"/><path d="M7 8V6a3 3 0 0 1 6 0v2"/><circle cx="10" cy="13" r="1.5"/></svg></div>
-        <div class="conf-title">Données de santé jamais exposées</div>
-        <div class="conf-desc">Les données patients transitent sans être copiées ni centralisées. Pas de base intermédiaire, pas d'exposition supplémentaire, conformité structurelle.</div>
-      </div>
-      <div class="conf-card" style="border-top-color:#06B6D4;">
-        <div class="conf-ico" style="background:rgba(6,182,212,.09);"><svg viewBox="0 0 20 20" fill="none" stroke="#06B6D4" stroke-width="1.5"><path d="M10 2a8 8 0 1 0 0 16A8 8 0 0 0 10 2z"/><path d="M10 6v4l2.5 2"/></svg></div>
-        <div class="conf-title">Anonymisation à la source</div>
-        <div class="conf-desc">La pseudonymisation et l'anonymisation s'appliquent dès la collecte, avant tout traitement. Vos équipes travaillent sur des données protégées dès le départ.</div>
-      </div>
-      <div class="conf-card" style="border-top-color:#10B981;">
-        <div class="conf-ico" style="background:var(--green-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><path d="M3 4h14M3 9h14M3 14h8"/><path d="M15 12l2 2 3-2.5"/></svg></div>
-        <div class="conf-title">Hébergement sur votre infrastructure</div>
-        <div class="conf-desc">iD4Connect se déploie dans votre environnement hospitalier, sur site ou sur votre cloud privé. Aucune donnée de santé ne quitte votre périmètre de contrôle.</div>
-      </div>
+      <div class="conf-card" style="border-top-color:#8B5CF6;"><div class="conf-ico" style="background:var(--purple-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#8B5CF6" stroke-width="1.5"><rect x="4" y="8" width="12" height="10" rx="1.5"/><path d="M7 8V6a3 3 0 0 1 6 0v2"/><circle cx="10" cy="13" r="1.5"/></svg></div><div class="conf-title">Données de santé jamais exposées</div><div class="conf-desc">Les données patients transitent sans être copiées ni centralisées. Pas de base intermédiaire, pas d'exposition supplémentaire, conformité structurelle.</div></div>
+      <div class="conf-card" style="border-top-color:#06B6D4;"><div class="conf-ico" style="background:rgba(6,182,212,.09);"><svg viewBox="0 0 20 20" fill="none" stroke="#06B6D4" stroke-width="1.5"><path d="M10 2a8 8 0 1 0 0 16A8 8 0 0 0 10 2z"/><path d="M10 6v4l2.5 2"/></svg></div><div class="conf-title">Anonymisation à la source</div><div class="conf-desc">La pseudonymisation et l'anonymisation s'appliquent dès la collecte, avant tout traitement. Vos équipes travaillent sur des données protégées dès le départ.</div></div>
+      <div class="conf-card" style="border-top-color:#10B981;"><div class="conf-ico" style="background:var(--green-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><path d="M3 4h14M3 9h14M3 14h8"/><path d="M15 12l2 2 3-2.5"/></svg></div><div class="conf-title">Hébergement sur votre infrastructure</div><div class="conf-desc">iD4Connect se déploie dans votre environnement hospitalier, sur site ou sur votre cloud privé. Aucune donnée de santé ne quitte votre périmètre de contrôle.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ CTA ══ -->
 <section id="sante-cta" class="reveal">
   <div class="wrap">
     <div class="cta-box">
-      <div>
-        <h2>Vos données de santé méritent<br>une architecture à leur hauteur.</h2>
-        <p>Déployez iD4Connect dans votre SI hospitalier sans migration. Protection des données patients garantie dès le premier flux.</p>
-      </div>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-primary">Demander une démo →</a>
-        <a href="#" class="btn-secondary">Télécharger la fiche</a>
-      </div>
+      <div><h2>Vos données de santé méritent<br>une architecture à leur hauteur.</h2><p>Déployez iD4Connect dans votre SI hospitalier sans migration. Protection des données patients garantie dès le premier flux.</p></div>
+      <div class="cta-btns"><a href="contact.html" class="btn-primary">Demander une démo →</a><a href="#" class="btn-secondary">Télécharger la fiche</a></div>
     </div>
   </div>
 </section>
@@ -219,90 +219,158 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 <script>
 const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-document.documentElement.setAttribute('data-theme',t0);
-document.body.setAttribute('data-theme',t0);
+document.documentElement.setAttribute('data-theme',t0);document.body.setAttribute('data-theme',t0);
+
+const TAB_ICONS={
+  sources:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 2v2M8 12v2M2 8h2M12 8h2"/></svg>',
+  traitement:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.5"/></svg>',
+  sortie:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2v12M9 6l4 4-4 4"/><line x1="6" y1="10" x2="13" y2="10"/></svg>',
+  technique:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>'
+};
+const KPI_ICONS={
+  money:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="8" y1="1" x2="8" y2="15"/><path d="M11.5 4.5H6.5a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4H4.5"/></svg>',
+  users:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="5" r="2.5"/><path d="M1 14c0-2.8 2.2-5 5-5s5 2.2 5 5"/><circle cx="12" cy="5.5" r="1.8"/><path d="M12 9c1.7 0 3 1.3 3 3"/></svg>',
+  search:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>',
+  leaf:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14C2 14 3 4 14 2c0 0-2 10-12 12z"/><path d="M2 14l5.5-5.5"/></svg>',
+  bolt:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg>',
+  target:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.5"/><circle cx="8" cy="8" r=".8" fill="currentColor"/></svg>',
+  wrench:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>',
+  clock:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 1.5"/></svg>',
+  check:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8l2 2 3.5-3.5"/></svg>',
+  wind:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8a2 2 0 1 0-2-2"/><path d="M2 10h10a2 2 0 1 1-2 2"/><path d="M2 8h6a1.5 1.5 0 1 1-1.5 1.5"/></svg>'
+};
 
 const USE_CASES=[
-  {
-    id:'dossier',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="16" height="18" rx="1.5"/><path d="M7 7h8M7 10.5h8M7 14h5"/><path d="M14 13l1.5 1.5L18 12"/></svg>`,
-    title:'Dossier patient unifié',
-    sources:['SIH / DPI','Données labo','Imagerie médicale'],
-    ops:[
-      {label:'Anonymisation', desc:'Pseudonymisation des données personnelles à la source', color:'#8B5CF6'},
-      {label:'Normalisation', desc:'Unification des formats hétérogènes entre systèmes', color:'#3B82F6'},
-      {label:'Enrichissement', desc:'Croisement résultats labo et antécédents patient', color:'#10B981'},
-    ],
-    output:'Vue 360° patient sécurisée', outColor:'#8B5CF6',
-  },
-  {
-    id:'qualite',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="16" height="16" rx="1.5"/><path d="M7 11l3 3 5-5"/><path d="M3 8h16"/></svg>`,
-    title:'Indicateurs qualité & performance',
-    sources:['DMP / DPI','Données bloc opératoire','Fichiers RH soignants'],
-    ops:[
-      {label:'Agrégation', desc:'Consolidation indicateurs par service et par période', color:'#F97316'},
-      {label:'Calculs métier', desc:'Taux d\'occupation, DMS, taux de réadmission', color:'#3B82F6'},
-      {label:'Alertes', desc:'Seuils qualité dépassés notifiés en temps réel', color:'#EF4444'},
-    ],
-    output:'Tableau de bord qualité live', outColor:'#3B82F6',
-  },
-  {
-    id:'flux',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="3"/><path d="M11 4v4M11 14v4M4 11h4M14 11h4"/></svg>`,
-    title:'Coordination des soins',
-    sources:['Prescriptions','Résultats examens','Agenda soignants'],
-    ops:[
-      {label:'Corrélation', desc:'Croisement prescriptions et résultats en temps réel', color:'#06B6D4'},
-      {label:'Détection', desc:'Identification des délais critiques de prise en charge', color:'#EF4444'},
-      {label:'Traçabilité', desc:'Audit complet du parcours patient', color:'#10B981'},
-    ],
-    output:'Alerte parcours patient', outColor:'#06B6D4',
-  },
+  {id:'dossier',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="16" height="18" rx="1.5"/><path d="M7 7h8M7 10.5h8M7 14h5"/><path d="M14 13l1.5 1.5L18 12"/></svg>',
+    title:'Dossier patient unifié',sources:['SIH / DPI','Données labo','Imagerie médicale'],
+    ops:[{label:'Anonymisation',desc:'Pseudonymisation des données personnelles à la source',color:'#8B5CF6'},{label:'Normalisation',desc:'Unification des formats hétérogènes entre systèmes',color:'#3B82F6'},{label:'Enrichissement',desc:'Croisement résultats labo et antécédents patient',color:'#10B981'}],
+    output:'Vue 360° patient sécurisée',outColor:'#8B5CF6'},
+  {id:'qualite',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="16" height="16" rx="1.5"/><path d="M7 11l3 3 5-5"/><path d="M3 8h16"/></svg>',
+    title:'Indicateurs qualité & performance',sources:['DMP / DPI','Données bloc opératoire','Fichiers RH soignants'],
+    ops:[{label:'Agrégation',desc:'Consolidation indicateurs par service et par période',color:'#F97316'},{label:'Calculs métier',desc:"Taux d'occupation, DMS, taux de réadmission",color:'#3B82F6'},{label:'Alertes',desc:'Seuils qualité dépassés notifiés en temps réel',color:'#EF4444'}],
+    output:'Tableau de bord qualité live',outColor:'#3B82F6'},
+  {id:'flux',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="3"/><path d="M11 4v4M11 14v4M4 11h4M14 11h4"/></svg>',
+    title:'Coordination des soins',sources:['Prescriptions','Résultats examens','Agenda soignants'],
+    ops:[{label:'Corrélation',desc:'Croisement prescriptions et résultats en temps réel',color:'#06B6D4'},{label:'Détection',desc:'Identification des délais critiques de prise en charge',color:'#EF4444'},{label:'Traçabilité',desc:'Audit complet du parcours patient',color:'#10B981'}],
+    output:'Alerte parcours patient',outColor:'#06B6D4'}
 ];
 
-let activeUC=null;
+const POPUP_DATA={
+  dossier:{
+    desc:"DataCell santé dédiée à l'unification du dossier patient. Agrège en temps réel les données du SIH/DPI, du laboratoire et de l'imagerie médicale, les pseudonymise à la source, les normalise vers les standards modernes et les enrichit avec le contexte clinique, offrant une vue 360° patient sécurisée sans duplication de données nominatives.",
+    sources:[
+      {name:'SIH / DPI',format:'HL7 v2 / FHIR R4 / SQL',desc:"Connexion au Système d'Information Hospitalier et au Dossier Patient Informatisé (DxCare, Orbis, Easily, Crossway). Extraction des données administratives, séjours, actes, diagnostics, prescriptions, comptes rendus et courriers médicaux.",protocols:['HL7 v2.x ADT/ORM/ORU','FHIR R4 REST API','JDBC/ODBC','CDA R2'],color:'#8B5CF6'},
+      {name:'Données labo',format:'HL7 / HPRIM / FHIR',desc:"Intégration des résultats de biologie médicale depuis les SGL : biochimie, hématologie, microbiologie, sérologie, anatomopathologie. Réception structurée avec antériorités, normes et interprétations automatiques.",protocols:['HL7 ORU/OUL','HPRIM Santé','FHIR DiagnosticReport','IHE XD-LAB'],color:'#0EA5E9'},
+      {name:'Imagerie médicale',format:'DICOM / WADO / XDS-I',desc:"Accès aux examens d'imagerie depuis le PACS : radiologie, scanner, IRM, échographie. Métadonnées structurées et lien vers les images DICOM via WADO-RS sans duplication.",protocols:['DICOM Query/Retrieve','WADO-RS / DICOMweb','IHE XDS-I.b','FHIR ImagingStudy'],color:'#10B981'},
+      {name:'Dispositifs médicaux / IoMT',format:'IEEE 11073 / MQTT / HL7',desc:"Collecte temps réel des données issues des dispositifs médicaux connectés : moniteurs de surveillance, pompes à perfusion, ventilateurs, capteurs de signes vitaux.",protocols:['IEEE 11073 SDC','MQTT','HL7 v2 ORU','FHIR Observation'],color:'#F59E0B'}
+    ],
+    traitements:[
+      {name:'Anonymisation',color:'#8B5CF6',desc:'Pseudonymisation des données personnelles à la source',details:['Pseudonymisation réversible (clé séquestrée) ou anonymisation irréversible selon le cas d\'usage','Application automatique des règles de protection : noms, prénoms, identifiants, dates de naissance, adresses','Tokenisation des identifiants patients : remplacement par pseudo-identifiants uniques et cohérents','Traitement stateless : les données nominatives ne sont jamais stockées, uniquement traitées à la volée','Chaque règle de pseudonymisation est traçable et auditable','Support des exceptions cliniques : levée de la pseudonymisation en contexte de soin (break the glass)']},
+      {name:'Normalisation',color:'#3B82F6',desc:'Unification des formats hétérogènes entre systèmes',details:['Mapping automatique HL7 v2 vers FHIR R4 : transformation bidirectionnelle entre formats legacy et modernes','Normalisation des terminologies : CIM-10, CCAM, LOINC, SNOMED CT, ATC avec dictionnaires intégrés','Réconciliation des identités patient multi-source vers identifiant unique via algorithme de matching','Conversion des unités de mesure laboratoire selon les normes SI avec gestion des antériorités','Structuration des données non structurées : extraction d\'informations clés depuis les comptes rendus','Gestion du versionning : chaque donnée conserve sa version source et sa version normalisée']},
+      {name:'Enrichissement',color:'#10B981',desc:'Croisement résultats labo et antécédents patient',details:['Corrélation automatique résultats labo × historique diagnostics : détection d\'évolutions significatives','Enrichissement avec antécédents : allergies connues, traitements en cours, pathologies chroniques','Alertes cliniques contextualisées : interaction médicamenteuse, résultat hors norme, doublon d\'examen','Timeline patient unifiée : chronologie complète séjours + actes + résultats + imagerie','Calcul automatique des scores cliniques : Charlson, SOFA, NEWS, Glasgow, mis à jour en temps réel','Lien imagerie vers biologie vers clinique : chaque examen contextualisé avec les données contemporaines']},
+      {name:'Contrôle d\'intégrité',color:'#EF4444',desc:'Vérification exhaustive de la qualité des données patient',details:['Validation structurelle : champs obligatoires, formats de date, cohérence identifiants, doublons','Contrôle sémantique : codes validés contre les référentiels officiels en vigueur','Détection de données aberrantes : résultat labo physiquement impossible, incohérence âge/diagnostic','Vérification de complétude : pourcentage de remplissage du dossier par catégorie','Alerte qualité en temps réel : chaque anomalie signalée avec classification de gravité','Scoring qualité DPI : indice par dossier, par service et par établissement avec benchmark']}
+    ],
+    sortie:{desc:"Chaque professionnel de santé accède à une vue patient unifiée, contextualisée et conforme, agrégeant en temps réel les données du SIH, du laboratoire et de l'imagerie, sans duplication, avec pseudonymisation native et traçabilité complète.",
+      destinations:[{name:'DPI / Portail clinique',protocol:'FHIR R4 / REST',format:'Vue patient unifiée'},{name:'Entrepôt de données santé',protocol:'FHIR Bulk / SQL',format:'Données pseudonymisées'},{name:'BI santé / PMSI',protocol:'REST / CSV / OData',format:'Indicateurs activité'},{name:'Recherche clinique',protocol:'FHIR / REDCap API',format:'Cohortes anonymisées'},{name:'Mon Espace Santé / DMP',protocol:'DMP API / XDS.b',format:'Documents CDA'}],
+      kpis:[{label:'Complétude dossier',value:'+40%',icon:'chart'},{label:'Temps accès données',value:'÷ 5',icon:'bolt'},{label:'Doublons éliminés',value:'99.2%',icon:'target'},{label:'Conformité',value:'100%',icon:'shield'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Stream processing + NLP léger'},{label:'Interopérabilité',value:'HL7 v2, FHIR R4, DICOM, HPRIM'},{label:'Anonymisation',value:'Pseudo/anonymisation native à la volée'},{label:'Déploiement',value:'On-premise / Cloud souverain'},{label:'Mode',value:'Stateless, zéro stockage nominatif'},{label:'Scalabilité',value:'1 DataCell par établissement ou GHT'}],
+      callout:{title:"L'interopérabilité au service du soin",text:'Cette DataCell résout le défi majeur des SI de santé : <strong>l\'interopérabilité</strong>. En transformant les flux HL7 v2 legacy en FHIR R4, en pseudonymisant à la source sans stockage, et en enrichissant chaque donnée avec le contexte clinique complet, elle offre aux professionnels une <strong>vue 360° patient</strong> en temps réel. Le modèle stateless est idéal pour la santé : <strong>zéro donnée nominative stockée = zéro risque de fuite</strong>.'}}
+  },
+  qualite:{
+    desc:"DataCell de pilotage qualité et performance hospitalière. Agrège les données DPI, bloc opératoire et RH soignants pour calculer en temps réel les indicateurs de qualité, DMS, taux d'occupation et de réadmission, avec alertes proactives et benchmark automatique inter-services.",
+    sources:[
+      {name:'DMP / DPI',format:'HL7 v2 / FHIR R4 / SQL',desc:"Extraction des données du Dossier Patient Informatisé : séjours (RSS/RUM), diagnostics, actes, GHM/GHS, durées de séjour, modes d'entrée/sortie, ré-hospitalisations.",protocols:['HL7 v2.x ADT/DFT','FHIR R4 Encounter/Claim','JDBC/ODBC (SIH)','PMSI fichiers RSA/RSS'],color:'#0EA5E9'},
+      {name:'Données bloc opératoire',format:'HL7 / REST API / SQL',desc:"Activité du bloc : plannings opératoires, durées d'intervention, temps de vacation, annulations, reports, taux d'occupation des salles, débordements.",protocols:['HL7 SIU/ORM','REST API','JDBC/ODBC','CSV temps réel'],color:'#8B5CF6'},
+      {name:'Fichiers RH soignants',format:'REST API / CSV / SIRH',desc:"Données RH des personnels soignants : effectifs par service, taux d'absentéisme, ratios soignants/patients, qualifications, formations obligatoires.",protocols:['REST API SIRH','CSV/SFTP','JDBC (Paie/RH)','FHIR Practitioner'],color:'#F97316'},
+      {name:'Enquêtes satisfaction / EIG',format:'REST API / CSV / FHIR',desc:"Résultats d'enquêtes patients (e-Satis, questionnaires internes), déclarations d'événements indésirables graves (EIG) et signalements qualité.",protocols:['REST API','CSV/SFTP','FHIR QuestionnaireResponse','Webhook'],color:'#10B981'}
+    ],
+    traitements:[
+      {name:'Agrégation',color:'#F59E0B',desc:'Consolidation indicateurs par service et par période',details:['Agrégation multi-sources temps réel : données DPI + bloc + RH + satisfaction fusionnées','Consolidation hiérarchique : lit vers unité vers service vers pôle vers établissement avec drill-down','Périodes configurables : temps réel, journalier, hebdomadaire, mensuel, trimestriel, annuel glissant','Dédoublonnage intelligent des séjours multi-source','Gestion des corrections : intégration des retours de contrôle et mise à jour rétrospective','Snapshots automatiques pour comparaison inter-périodes et détection de tendances']},
+      {name:'Calculs métier',color:'#3B82F6',desc:"Taux d'occupation, DMS, taux de réadmission",details:['Taux d\'occupation temps réel par service, unité, lit avec projection à 24h/48h','DMS par GHM avec comparaison aux références nationales et à l\'historique','Taux de réadmission à J+30 par pathologie : détection proactive des ré-hospitalisations évitables','IPDMS : ratio DMS observée / DMS attendue par case-mix, benchmark automatique','Indicateurs bloc : taux d\'occupation salle, taux de débordement, délai premier patient','Ratios RH qualité : soignants/patients par service, corrélation absentéisme × EIG × satisfaction']},
+      {name:'Alertes',color:'#EF4444',desc:'Seuils qualité dépassés notifiés en temps réel',details:['Alertes temps réel sur dépassement de seuils : taux d\'occupation > 95%, DMS > 120% référence','Notification multicanal : email direction qualité, SMS cadre de santé, Teams/Slack','Détection précoce de dégradation des indicateurs avant la campagne de certification','Escalade automatique : info vers warning (24h) vers critique (72h) vers direction','Alertes prédictives : « Le service X va dépasser 100% d\'occupation dans 6h »','Tableau de bord des alertes actives avec historique, acquittement et plan d\'action']},
+      {name:'Scoring & Benchmark',color:'#10B981',desc:'Évaluation comparative inter-services et inter-établissements',details:['Score qualité composite par service : pondération configurable des indicateurs','Benchmark intra-établissement : classement des services par performance','Benchmark inter-établissements : comparaison anonymisée au sein du groupement','Comparaison aux données nationales : positionnement par rapport aux références','Détection automatique des outliers positifs (bonnes pratiques) et négatifs','Évolution temporelle : courbes de tendance avec détection de rupture et saisonnalité']}
+    ],
+    sortie:{desc:"La direction qualité, les chefs de pôle et les cadres de santé disposent d'un tableau de bord temps réel avec les indicateurs clés, des alertes proactives et un benchmark automatique.",
+      destinations:[{name:'Dashboard direction',protocol:'WebSocket / REST',format:'KPIs live'},{name:'Plateforme qualité',protocol:'REST / CSV',format:'Indicateurs certification'},{name:'ATIH / e-PMSI',protocol:'Fichiers RSA / REST',format:'Données PMSI'},{name:'BI santé / Décisionnel',protocol:'REST / OData / SQL',format:'Cubes analytiques'},{name:'Rapport CME / COPIL',protocol:'PDF / REST API',format:'Rapport automatisé'}],
+      kpis:[{label:'Temps reporting',value:'÷ 10',icon:'bolt'},{label:'DMS optimisée',value:'-1.2j',icon:'chart'},{label:'Score qualité',value:'+15pts',icon:'target'},{label:'Réadmissions évitables',value:'-22%',icon:'shield'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Agrégation temps réel + scoring'},{label:'Interopérabilité',value:'HL7 v2, FHIR R4, PMSI, HPRIM'},{label:'Anonymisation',value:'Pseudonymisation native à la volée'},{label:'Déploiement',value:'On-premise / Cloud souverain'},{label:'Mode',value:'Stateless, zéro stockage nominatif'},{label:'Scalabilité',value:'1 DataCell par établissement ou GHT'}],
+      callout:{title:'Du reporting subi au pilotage proactif',text:'Cette DataCell transforme le pilotage qualité hospitalier. Au lieu de tableaux compilés manuellement, les indicateurs sont calculés <strong>en temps réel</strong> : taux d\'occupation, DMS, IPDMS, réadmissions, satisfaction. Les <strong>alertes prédictives</strong> anticipent les dégradations. Le <strong>benchmark automatique</strong> inter-services identifie les bonnes pratiques à diffuser. Le tout sans stockage nominatif.'}}
+  },
+  flux:{
+    desc:"DataCell de coordination du parcours de soins en temps réel. Corrèle les prescriptions, résultats d'examens et agendas soignants pour détecter les délais critiques de prise en charge, les ruptures de parcours et les prescriptions sans résultat, générant des alertes proactives pour chaque professionnel impliqué.",
+    sources:[
+      {name:'Prescriptions',format:'HL7 v2 / FHIR R4 / SQL',desc:"Collecte en temps réel des prescriptions médicamenteuses, d'examens et de soins. Données structurées : molécule/DCI, posologie, voie d'administration, fréquence, durée, prescripteur.",protocols:['HL7 v2 OMP/RDE','FHIR MedicationRequest','FHIR ServiceRequest','JDBC/ODBC'],color:'#06B6D4'},
+      {name:'Résultats examens',format:'HL7 ORU / FHIR / HPRIM',desc:"Intégration des résultats de biologie, anatomopathologie et imagerie avec horodatage précis. Détection du délai entre prescription et disponibilité du résultat.",protocols:['HL7 ORU/OUL','FHIR DiagnosticReport','FHIR Observation','HPRIM Santé'],color:'#6366F1'},
+      {name:'Agenda soignants',format:'FHIR / iCal / REST API',desc:"Synchronisation avec les plannings soignants et les agendas de RDV patient. Détection des créneaux disponibles et des ruptures dans le parcours de soins.",protocols:['FHIR Schedule/Slot','iCalendar / CalDAV','REST API','JDBC planning'],color:'#F97316'},
+      {name:'Dossier de soins infirmiers',format:'HL7 / FHIR / Formulaires',desc:"Collecte des transmissions ciblées (DAR), plans de soins, évaluations cliniques et actes infirmiers réalisés. Suivi de la complétude des soins prescrits vs réalisés.",protocols:['FHIR CarePlan','FHIR Procedure','HL7 v2 PPR','REST API DSI'],color:'#10B981'}
+    ],
+    traitements:[
+      {name:'Corrélation',color:'#F59E0B',desc:'Croisement prescriptions et résultats en temps réel',details:['Corrélation automatique prescription vers examen vers résultat','Détection des prescriptions sans résultat : examen non réalisé, résultat non parvenu après délai attendu','Corrélation résultat labo × prescription médicamenteuse : adaptation posologique nécessaire','Croisement multi-professionnel : prescription médicale × plan de soins IDE × agenda kiné','Identification des redondances : même examen prescrit par deux services différents','Timeline unifiée des événements de soins avec jalons automatiques']},
+      {name:'Détection',color:'#EF4444',desc:'Identification des délais critiques de prise en charge',details:['Détection temps réel des délais critiques : temps entre prescription et administration','Suivi door-to-needle / door-to-balloon pour les urgences avec chronomètre automatique','Identification des résultats critiques non vus : résultat de panique sans acquittement après 30 min','Détection de rupture dans le parcours patient : gap > seuil entre deux étapes du protocole','Suivi des prescriptions conditionnelles non déclenchées','Monitoring des temps d\'attente par étape du parcours']},
+      {name:'Traçabilité',color:'#10B981',desc:'Audit complet du parcours patient',details:['Traçabilité complète du parcours : chaque étape horodatée, chaque intervenant identifié','Chaîne de responsabilité : qui a prescrit, validé, administré, supervisé','Vérification automatique du respect des recommandations par pathologie','Calcul automatique des indicateurs de parcours : délais de prise en charge, taux de conformité','Génération automatique du compte rendu de parcours pour la lettre de liaison','Archivage conforme : audit trail conservé selon les exigences réglementaires']},
+      {name:'Coordination inter-professionnelle',color:'#8B5CF6',desc:"Synchronisation des interventions de l'équipe soignante",details:['Vue partagée du plan de soins : chaque professionnel voit les actions des autres en temps réel','Alertes de coordination : notification quand une action d\'un professionnel impacte un autre','Détection des conflits d\'agenda : deux actes incompatibles planifiés au même moment','Checklist de sortie automatisée : vérification que toutes les conditions de sortie sont remplies','Handover structuré : transmission inter-équipes automatisée avec points de vigilance','Scoring de coordination par patient : indice de fluidité basé sur les délais et la complétude']}
+    ],
+    sortie:{desc:"Chaque professionnel de santé reçoit en temps réel les alertes de coordination pertinentes pour son rôle : délai critique, résultat non vu, prescription en attente, conflit d'agenda. Le parcours patient est tracé de bout en bout.",
+      destinations:[{name:'DPI / Poste de soins',protocol:'FHIR R4 / REST',format:'Alertes contextuelles'},{name:'Messagerie soignante',protocol:'Webhook / REST',format:'Notification ciblée'},{name:'Tableau de bord cadre',protocol:'WebSocket / REST',format:'Indicateurs parcours'},{name:'Mon Espace Santé / DMP',protocol:'DMP API / XDS.b',format:'Lettre de liaison'},{name:'Direction qualité',protocol:'REST / CSV',format:'Indicateurs automatisés'}],
+      kpis:[{label:'Délais prise en charge',value:'-35%',icon:'clock'},{label:'Prescriptions sans résultat',value:'-80%',icon:'chart'},{label:'Conformité protocoles',value:'94%',icon:'check'},{label:'Satisfaction soignants',value:'+28%',icon:'users'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Corrélation temps réel multi-flux'},{label:'Interopérabilité',value:'HL7 v2, FHIR R4, HPRIM, iCal'},{label:'Anonymisation',value:'Pseudonymisation native à la volée'},{label:'Déploiement',value:'On-premise / Cloud souverain'},{label:'Mode',value:'Stateless, zéro stockage nominatif'},{label:'Scalabilité',value:'1 DataCell par service ou par parcours'}],
+      callout:{title:'Du parcours subi au parcours piloté',text:'Cette DataCell transforme la coordination des soins. Au lieu d\'une coordination basée sur le téléphone et les transmissions orales, chaque étape du parcours patient est <strong>tracée, corrélée et surveillée en temps réel</strong>. Les délais critiques sont chronométrés automatiquement. Les <strong>prescriptions sans résultat</strong> sont détectées avant qu\'elles ne retardent la prise en charge. Aucune donnée nominative n\'est jamais stockée dans iD4Connect.'}}
+  }
+};
+
 function renderUC(){
   document.getElementById('uc-grid').innerHTML=USE_CASES.map(uc=>`
-    <div class="uc-card ${activeUC===uc.id?'active':''}" onclick="toggleUC('${uc.id}')">
-      <div class="uc-head">
-        <div class="uc-head-left">
-          <span class="uc-head-ico">${uc.svgIcon}</span>
-          <span class="uc-head-lbl">DataCell</span>
-        </div>
-        <div class="uc-dot"></div>
-      </div>
+    <div class="uc-card" onclick="openModal('${uc.id}')">
+      <div class="uc-head"><div class="uc-head-left"><span class="uc-head-ico">${uc.icon}</span><span class="uc-head-lbl">DataCell</span></div><div class="uc-dot"></div></div>
       <div class="uc-body">
         <div class="uc-title">${uc.title}</div>
         <div class="uc-slbl">Sources</div>
-        <div class="uc-sources">${uc.sources.map(s=>`<span class="uc-src">${s}</span>`).join('')}</div>
+        <div class="uc-sources">${uc.sources.map(s=>'<span class="uc-src">'+s+'</span>').join('')}</div>
         <div class="uc-slbl">Traitement</div>
-        <div class="uc-ops">${uc.ops.map(op=>`
-          <div class="uc-op" style="border-left-color:${op.color};background:${op.color}08;">
-            <div class="uc-op-name">${op.label}</div>
-            <div class="uc-op-desc">${op.desc}</div>
-          </div>`).join('')}
-        </div>
-        <div class="uc-arrow">
-          <div style="background:${uc.outColor};height:12px;width:2px;opacity:.75;"></div>
-          <div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.outColor};opacity:.75;"></div>
-        </div>
-        <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;">
-          <svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg>
-          <span class="uc-output-lbl">${uc.output}</span>
-        </div>
+        <div class="uc-ops">${uc.ops.map(op=>'<div class="uc-op" style="border-left-color:'+op.color+';background:'+op.color+'08;"><div class="uc-op-name">'+op.label+'</div><div class="uc-op-desc">'+op.desc+'</div></div>').join('')}</div>
+        <div class="uc-arrow"><div style="background:${uc.outColor};height:12px;width:2px;opacity:.75;"></div><div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.outColor};opacity:.75;"></div></div>
+        <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;"><svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg><span class="uc-output-lbl">${uc.output}</span></div>
       </div>
     </div>`).join('');
 }
-function toggleUC(id){activeUC=activeUC===id?null:id;renderUC();}
-renderUC();
 
+let currentPopup=null,currentTab='sources';
+function openModal(id){currentPopup=id;currentTab='sources';const ov=document.getElementById('md-overlay');ov.classList.add('open');renderModal();requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('active')));document.body.style.overflow='hidden';}
+function closeModal(){const ov=document.getElementById('md-overlay');ov.classList.remove('active');setTimeout(()=>{ov.classList.remove('open');document.body.style.overflow='';},280);}
+document.getElementById('md-overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+function renderModal(){
+  const uc=USE_CASES.find(u=>u.id===currentPopup),data=POPUP_DATA[currentPopup];
+  if(!uc||!data)return;
+  document.getElementById('md-icon').innerHTML=uc.icon.replace('stroke="currentColor"','stroke="white"');
+  document.getElementById('md-title').textContent=uc.title;
+  document.getElementById('md-desc').textContent=data.desc;
+  const tabs=['sources','traitement','sortie','technique'],labels={sources:'Sources',traitement:'Traitement',sortie:'Sortie',technique:'Technique'};
+  document.getElementById('md-tabs').innerHTML=tabs.map(t=>'<button class="md-tab'+(currentTab===t?' active':'')+'" onclick="switchTab(\''+t+'\')">'+TAB_ICONS[t]+labels[t]+'</button>').join('');
+  renderTabContent();
+}
+function switchTab(t){currentTab=t;renderModal();}
+function renderTabContent(){
+  const data=POPUP_DATA[currentPopup],body=document.getElementById('md-body');
+  if(currentTab==='sources'){
+    body.innerHTML=data.sources.map(s=>'<div class="md-card"><div class="md-card-head"><div class="md-dot" style="background:'+s.color+'"></div><span class="md-card-name">'+s.name+'</span><span class="md-tag">'+s.format+'</span></div><p>'+s.desc+'</p><div class="md-protos">'+s.protocols.map(p=>'<span class="md-proto">'+p+'</span>').join('')+'</div></div>').join('');
+  }else if(currentTab==='traitement'){
+    body.innerHTML=data.traitements.map(t=>'<div class="md-tcard" style="border-left-color:'+t.color+'"><div class="md-tcard-name">'+t.name+'</div><p>'+t.desc+'</p>'+t.details.map(d=>'<div class="md-detail"><span class="md-bullet" style="color:'+t.color+'">›</span><span>'+d+'</span></div>').join('')+'</div>').join('');
+  }else if(currentTab==='sortie'){
+    const s=data.sortie;
+    body.innerHTML='<div class="md-kpis">'+s.kpis.map(k=>'<div class="md-kpi"><div class="md-kpi-ico">'+(KPI_ICONS[k.icon]||KPI_ICONS.target)+'</div><div class="md-kpi-val">'+k.value+'</div><div class="md-kpi-lbl">'+k.label+'</div></div>').join('')+'</div><p style="font-size:12.5px;color:var(--t5);line-height:1.65;margin-bottom:16px;">'+s.desc+'</p><span class="md-slbl">Destinations & intégrations</span>'+s.destinations.map(d=>'<div class="md-dest"><span class="md-dest-name">'+d.name+'</span><span class="md-tag">'+d.protocol+'</span><span class="md-dest-fmt">'+d.format+'</span></div>').join('');
+  }else if(currentTab==='technique'){
+    const t=data.technique;
+    body.innerHTML='<span class="md-slbl">Architecture DataCell</span>'+t.architecture.map(a=>'<div class="md-arch"><span class="md-arch-lbl">'+a.label+'</span><span class="md-arch-val">'+a.value+'</span></div>').join('')+'<div class="md-callout"><div class="md-callout-title"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="5" x2="8" y2="8.5" stroke-linecap="round"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg>'+t.callout.title+'</div><div class="md-callout-text">'+t.callout.text+'</div></div>';
+  }
+}
+
+renderUC();
 async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
 window.addEventListener('load',async()=>{
-  await loadComp('hdr-ph','header.html');
-  await loadComp('ftr-ph','footer.html');
+  await loadComp('hdr-ph','header.html');await loadComp('ftr-ph','footer.html');
   document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
-  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 });
 </script>
