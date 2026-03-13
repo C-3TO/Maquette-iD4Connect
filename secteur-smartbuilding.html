@@ -19,66 +19,36 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .pill svg{width:12px;height:12px;}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
-
-/* ══ HERO ══ */
 #sb-hero{padding:64px 0 72px;background:var(--card);position:relative;overflow:hidden;}
 #sb-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
-
 .hero-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center;}
-
-.hero-visual{
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-  min-height:320px;
-}
-.hero-visual::before{
-  content:'';position:absolute;
-  width:240px;height:240px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(249,115,22,.08) 0%, transparent 70%);
-  pointer-events:none;
-}
-
-.hero-icon{
-  width:160px;height:160px;
-  color:var(--orange);
-  position:relative;z-index:1;
-  animation:iconFloat 3s ease-in-out infinite alternate;
-}
+.hero-visual{display:flex;align-items:center;justify-content:center;position:relative;min-height:320px;}
+.hero-visual::before{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;}
+.hero-icon{width:160px;height:160px;color:var(--orange);position:relative;z-index:1;animation:iconFloat 3s ease-in-out infinite alternate;}
 @keyframes iconFloat{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
-
 .hero-right .pill{margin-bottom:14px;}
 .hero-right h1{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin-bottom:16px;}
 .hero-right h1 .o{color:var(--orange);}
 .hero-right>p{font-size:15px;color:var(--t5);line-height:1.75;max-width:480px;margin-bottom:28px;}
-
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
 .btn-p{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--orange);color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);}
 .btn-p:hover{background:var(--orange-d);transform:translateY(-1px);}
 .btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
 .btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
-
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:200px;}}
 @media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}}
-
-/* ══ CAS D'USAGE ══ */
 #cas-usage{padding:96px 0;background:var(--bg);}
 .section-head{text-align:center;margin-bottom:44px;}
 .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
 .section-head h2 .o{color:var(--orange);}
 .section-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
-
 .uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;}
-.uc-card:hover{border-color:var(--orange-border);box-shadow:var(--sh);transform:translateY(-2px);}
-.uc-card.active{border-color:var(--orange);box-shadow:0 8px 28px rgba(249,115,22,.15);}
+.uc-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.12),0 8px 28px rgba(249,115,22,.10);transform:translateY(-3px);}
 .uc-head{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;border-bottom:1px solid var(--border);background:var(--section);}
-.uc-card.active .uc-head{background:var(--orange-pale);border-color:var(--orange-border);}
 .uc-head-left{display:flex;align-items:center;gap:8px;}
 .uc-head-ico{width:22px;height:22px;color:var(--t5);}
-.uc-card.active .uc-head-ico{color:var(--orange);}
 .uc-head-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t4);}
-.uc-card.active .uc-head-lbl{color:var(--orange);}
 .uc-dot{width:8px;height:8px;border-radius:50%;background:var(--green-em);box-shadow:0 0 0 3px rgba(16,185,129,.2);}
 .uc-body{padding:14px;}
 .uc-title{font-size:13.5px;font-weight:800;color:var(--t9);margin-bottom:11px;}
@@ -93,11 +63,69 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .uc-output{border-radius:var(--r-sm);padding:8px 11px;display:flex;align-items:center;gap:7px;}
 .uc-output svg{width:11px;height:11px;flex-shrink:0;}
 .uc-output-lbl{font-size:11.5px;font-weight:700;color:var(--t9);}
-
 @media(max-width:900px){.uc-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.uc-grid{grid-template-columns:1fr;}}
-
-/* ══ ARCHITECTURE ══ */
+.md-overlay{position:fixed;inset:0;background:rgba(15,23,42,0);display:none;align-items:center;justify-content:center;z-index:1000;padding:16px;transition:background .3s ease;}
+.md-overlay.open{display:flex;}
+.md-overlay.active{background:rgba(15,23,42,.55);backdrop-filter:blur(6px);}
+.md-modal{background:var(--card);border-radius:var(--r-xl);width:100%;max-width:760px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;transform:scale(.93) translateY(24px);opacity:0;transition:all .28s cubic-bezier(.4,0,.2,1);box-shadow:var(--sh-lg);}
+.md-overlay.active .md-modal{transform:scale(1) translateY(0);opacity:1;}
+.md-header{padding:24px 28px 0;flex-shrink:0;}
+.md-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:12px;}
+.md-title-area{display:flex;align-items:center;gap:14px;}
+.md-icon{width:46px;height:46px;border-radius:var(--r);background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.md-icon svg{width:22px;height:22px;color:white;}
+.md-badge{font-size:10px;font-weight:700;color:var(--orange);letter-spacing:1px;text-transform:uppercase;}
+.md-modal h2{font-size:20px;font-weight:800;color:var(--t9);margin:2px 0 0;}
+.md-desc{font-size:13.5px;color:var(--t5);line-height:1.65;margin:0 0 16px;}
+.md-close{width:36px;height:36px;border-radius:50%;border:none;background:var(--section);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--t5);transition:all .2s;flex-shrink:0;font-family:var(--font);}
+.md-close:hover{background:var(--red-pale);color:var(--red);}
+.md-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.md-tabs::-webkit-scrollbar{display:none;}
+.md-tab{padding:10px 16px;border:none;background:transparent;cursor:pointer;font-family:var(--font);font-weight:600;font-size:12.5px;color:var(--t4);border-bottom:2px solid transparent;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0;}
+.md-tab:hover{color:var(--t7);}
+.md-tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+.md-tab svg{width:13px;height:13px;}
+.md-body{overflow-y:auto;flex:1;padding:20px 28px 28px;}
+.md-body::-webkit-scrollbar{width:5px;}
+.md-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+.md-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;transition:border-color .2s;}
+.md-card:hover{border-color:var(--orange-border);}
+.md-card:last-child{margin-bottom:0;}
+.md-card-head{display:flex;align-items:center;gap:9px;margin-bottom:7px;flex-wrap:wrap;}
+.md-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.md-card-name{font-size:14px;font-weight:700;color:var(--t9);}
+.md-tag{display:inline-flex;padding:2px 9px;border-radius:var(--r-pill);font-size:10px;font-weight:600;background:var(--section);color:var(--t5);border:1px solid var(--border);}
+.md-card p{font-size:12.5px;color:var(--t5);line-height:1.6;margin:0 0 8px;}
+.md-protos{display:flex;flex-wrap:wrap;gap:5px;}
+.md-proto{font-size:10px;padding:2px 7px;border-radius:var(--r-xs);background:var(--card);border:1px solid var(--border);color:var(--t5);font-weight:500;}
+.md-tcard{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;border-left:3px solid;}
+.md-tcard:last-child{margin-bottom:0;}
+.md-tcard:hover{border-color:var(--orange-border);border-left-color:inherit;}
+.md-tcard-name{font-size:14px;font-weight:700;color:var(--t9);margin-bottom:4px;}
+.md-tcard p{font-size:12px;color:var(--t5);margin:0 0 8px;}
+.md-detail{display:flex;align-items:flex-start;gap:7px;font-size:11.5px;color:var(--t7);line-height:1.5;margin-bottom:3px;}
+.md-bullet{font-weight:700;flex-shrink:0;margin-top:1px;}
+.md-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+.md-kpi{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center;}
+.md-kpi-ico{width:28px;height:28px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;background:var(--orange-pale);border-radius:var(--r-sm);border:1px solid var(--orange-border);}
+.md-kpi-ico svg{width:14px;height:14px;color:var(--orange);}
+.md-kpi-val{font-size:18px;font-weight:900;color:var(--orange);line-height:1;}
+.md-kpi-lbl{font-size:10px;font-weight:600;color:var(--t4);margin-top:3px;}
+.md-dest{display:flex;align-items:center;padding:9px 13px;border-radius:var(--r-sm);background:var(--bg);border:1px solid var(--border);gap:9px;margin-bottom:6px;flex-wrap:wrap;transition:border-color .2s;}
+.md-dest:hover{border-color:var(--orange-border);}
+.md-dest-name{font-weight:700;font-size:13px;color:var(--t9);min-width:90px;}
+.md-dest-fmt{font-size:10px;font-weight:600;color:var(--t4);margin-left:auto;}
+.md-arch{display:flex;align-items:center;padding:9px 13px;border-radius:var(--r-sm);background:var(--bg);border:1px solid var(--border);gap:8px;margin-bottom:6px;}
+.md-arch-lbl{font-weight:600;font-size:12px;color:var(--t5);min-width:110px;}
+.md-arch-val{font-weight:700;font-size:12px;color:var(--t9);}
+.md-slbl{font-size:10px;font-weight:700;color:var(--t4);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:block;}
+.md-callout{padding:14px 18px;border-radius:var(--r);background:var(--orange-pale);border:1px solid var(--orange-border);margin-top:18px;}
+.md-callout-title{font-weight:700;font-size:12px;color:var(--orange-d);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.md-callout-title svg{width:14px;height:14px;color:var(--orange);}
+.md-callout-text{font-size:12px;color:var(--t7);line-height:1.7;}
+.md-callout-text strong{color:var(--t9);}
+@media(max-width:600px){.md-modal{max-height:95vh;border-radius:var(--r-lg);}.md-header{padding:16px 16px 0;}.md-body{padding:14px 16px 20px;}.md-kpis{grid-template-columns:1fr;}}
 #archi{padding:96px 0;background:var(--card);}
 .conf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .conf-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:24px;border-top-width:3px;transition:box-shadow .2s,transform .2s;}
@@ -106,10 +134,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conf-ico svg{width:20px;height:20px;}
 .conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
 .conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
-
 @media(max-width:900px){.conf-grid{grid-template-columns:1fr;}}
-
-/* ══ CTA ══ */
 #sb-cta{padding:96px 0;background:var(--card);}
 .cta-box{background:var(--bg);border:2px solid var(--orange-border);border-radius:var(--r-xl);padding:48px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(249,115,22,.08);}
 .cta-box h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:10px;}
@@ -124,113 +149,73 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <body>
 <div id="hdr-ph"></div>
 
-<!-- ══ HERO ══ -->
 <section id="sb-hero">
   <div class="wrap">
     <div class="hero-grid">
-
-      <!-- GAUCHE : immeuble avec signal wifi -->
       <div class="hero-visual">
         <svg class="hero-icon" viewBox="0 0 100 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Bâtiment principal -->
           <rect x="20" y="20" width="44" height="86" rx="2"/>
-          <!-- Toit -->
           <line x1="20" y1="20" x2="64" y2="20"/>
-          <!-- Fenêtres col 1 -->
-          <rect x="28" y="30" width="6" height="8" rx="1"/>
-          <rect x="28" y="46" width="6" height="8" rx="1"/>
-          <rect x="28" y="62" width="6" height="8" rx="1"/>
-          <rect x="28" y="78" width="6" height="8" rx="1"/>
-          <!-- Fenêtres col 2 -->
-          <rect x="50" y="30" width="6" height="8" rx="1"/>
-          <rect x="50" y="46" width="6" height="8" rx="1"/>
-          <rect x="50" y="62" width="6" height="8" rx="1"/>
-          <rect x="50" y="78" width="6" height="8" rx="1"/>
-          <!-- Porte -->
+          <rect x="28" y="30" width="6" height="8" rx="1"/><rect x="28" y="46" width="6" height="8" rx="1"/><rect x="28" y="62" width="6" height="8" rx="1"/><rect x="28" y="78" width="6" height="8" rx="1"/>
+          <rect x="50" y="30" width="6" height="8" rx="1"/><rect x="50" y="46" width="6" height="8" rx="1"/><rect x="50" y="62" width="6" height="8" rx="1"/><rect x="50" y="78" width="6" height="8" rx="1"/>
           <path d="M37 106V94a5 5 0 0 1 10 0v12"/>
-          <!-- Ondes wifi -->
-          <path d="M72 28a8 8 0 0 1 0 12" stroke-width="2"/>
-          <path d="M78 24a14 14 0 0 1 0 20" stroke-width="2"/>
-          <path d="M84 20a20 20 0 0 1 0 28" stroke-width="2"/>
-        </svg>
+          <path d="M72 28a8 8 0 0 1 0 12" stroke-width="2"/><path d="M78 24a14 14 0 0 1 0 20" stroke-width="2"/><path d="M84 20a20 20 0 0 1 0 28" stroke-width="2"/>
         </svg>
       </div>
-
-      <!-- DROITE : texte -->
       <div class="hero-right">
-        <div class="pill">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="10" height="13" rx="1"/><line x1="6" y1="5" x2="6" y2="6"/><line x1="10" y1="5" x2="10" y2="6"/><line x1="6" y1="8" x2="6" y2="9"/><line x1="10" y1="8" x2="10" y2="9"/><rect x="6" y="11" width="4" height="4"/></svg>
-          Smart Building
-        </div>
+        <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="10" height="13" rx="1"/><line x1="6" y1="5" x2="6" y2="6"/><line x1="10" y1="5" x2="10" y2="6"/><line x1="6" y1="8" x2="6" y2="9"/><line x1="10" y1="8" x2="10" y2="9"/><rect x="6" y="11" width="4" height="4"/></svg>Smart Building</div>
         <h1>Vos bâtiments génèrent des données.<br><span class="o">Faites-en une intelligence.</span></h1>
         <p>iD4Connect connecte tous vos équipements (CVC, compteurs, capteurs) et en extrait des insights en temps réel, directement sur site, sans infrastructure cloud supplémentaire.</p>
-        <div class="hero-ctas">
-          <a href="contact.html" class="btn-p">Demander une démo →</a>
-          <a href="positionnement.html" class="btn-g">Voir le positionnement</a>
-        </div>
+        <div class="hero-ctas"><a href="contact.html" class="btn-p">Demander une démo →</a><a href="positionnement.html" class="btn-g">Voir le positionnement</a></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══ CAS D'USAGE ══ -->
 <section id="cas-usage" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>
-        Cas d'usage
-      </div>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5"/><circle cx="8" cy="8" r="2"/></svg>Cas d'usage</div>
       <h2>Ce qu'iD4Connect fait concrètement<br><span class="o">dans votre parc immobilier.</span></h2>
     </div>
     <div class="uc-grid" id="uc-grid"></div>
-    <p class="section-hint">Cliquez sur une DataCell pour la mettre en avant</p>
+    <p class="section-hint">Cliquez sur une DataCell pour explorer le détail</p>
   </div>
 </section>
 
-<!-- ══ ARCHITECTURE ══ -->
+<div class="md-overlay" id="md-overlay">
+  <div class="md-modal">
+    <div class="md-header">
+      <div class="md-top">
+        <div class="md-title-area"><div class="md-icon" id="md-icon"></div><div><div class="md-badge">DataCell</div><h2 id="md-title"></h2></div></div>
+        <button class="md-close" onclick="closeModal()">✕</button>
+      </div>
+      <p class="md-desc" id="md-desc"></p>
+      <div class="md-tabs" id="md-tabs"></div>
+    </div>
+    <div class="md-body" id="md-body"></div>
+  </div>
+</div>
+
 <section id="archi" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="pill">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
-        Architecture
-      </div>
+      <div class="pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>Architecture</div>
       <h2>S'intègre dans votre GTB existante.<br><span class="o">Sans tout refaire.</span></h2>
     </div>
     <div class="conf-grid">
-      <div class="conf-card" style="border-top-color:#F97316;">
-        <div class="conf-ico" style="background:var(--orange-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#F97316" stroke-width="1.5"><circle cx="10" cy="10" r="3"/><path d="M10 2v3M10 15v3M2 10h3M15 10h3"/><path d="M4.9 4.9l2.1 2.1M12.9 12.9l2.1 2.1M4.9 15.1l2.1-2.1M12.9 7.1l2.1-2.1"/></svg></div>
-        <div class="conf-title">Multi-protocoles natif</div>
-        <div class="conf-desc">BACnet, KNX, Modbus, MQTT, M-Bus : iD4Connect agrège tous les équipements du bâtiment sans passerelle supplémentaire ni conversion manuelle.</div>
-      </div>
-      <div class="conf-card" style="border-top-color:#2563EB;">
-        <div class="conf-ico" style="background:var(--blue-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#2563EB" stroke-width="1.5"><rect x="3" y="2" width="14" height="16" rx="1.5"/><path d="M7 6h6M7 9h6M7 12h4"/></svg></div>
-        <div class="conf-title">Données restent dans le bâtiment</div>
-        <div class="conf-desc">Les DataCells se déploient sur site, dans votre infrastructure GTB existante. Aucune donnée de bâtiment ne transite vers un cloud externe.</div>
-      </div>
-      <div class="conf-card" style="border-top-color:#10B981;">
-        <div class="conf-ico" style="background:var(--green-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><rect x="2" y="3" width="7" height="14" rx="1"/><rect x="11" y="3" width="7" height="7" rx="1"/><rect x="11" y="12" width="7" height="5" rx="1"/><path d="M9 6h2M9 10h2M9 14h2"/></svg></div>
-        <div class="conf-title">Vue unifiée multi-sites</div>
-        <div class="conf-desc">Un DataGraph orchestre l'ensemble de votre parc immobilier. Comparaison de performance entre bâtiments, sans centraliser les données brutes.</div>
-      </div>
+      <div class="conf-card" style="border-top-color:#F97316;"><div class="conf-ico" style="background:var(--orange-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#F97316" stroke-width="1.5"><circle cx="10" cy="10" r="3"/><path d="M10 2v3M10 15v3M2 10h3M15 10h3"/><path d="M4.9 4.9l2.1 2.1M12.9 12.9l2.1 2.1M4.9 15.1l2.1-2.1M12.9 7.1l2.1-2.1"/></svg></div><div class="conf-title">Multi-protocoles natif</div><div class="conf-desc">BACnet, KNX, Modbus, MQTT, M-Bus : iD4Connect agrège tous les équipements du bâtiment sans passerelle supplémentaire ni conversion manuelle.</div></div>
+      <div class="conf-card" style="border-top-color:#2563EB;"><div class="conf-ico" style="background:var(--blue-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#2563EB" stroke-width="1.5"><rect x="3" y="2" width="14" height="16" rx="1.5"/><path d="M7 6h6M7 9h6M7 12h4"/></svg></div><div class="conf-title">Données restent dans le bâtiment</div><div class="conf-desc">Les DataCells se déploient sur site, dans votre infrastructure GTB existante. Aucune donnée de bâtiment ne transite vers un cloud externe.</div></div>
+      <div class="conf-card" style="border-top-color:#10B981;"><div class="conf-ico" style="background:var(--green-pale);"><svg viewBox="0 0 20 20" fill="none" stroke="#10B981" stroke-width="1.5"><rect x="2" y="3" width="7" height="14" rx="1"/><rect x="11" y="3" width="7" height="7" rx="1"/><rect x="11" y="12" width="7" height="5" rx="1"/><path d="M9 6h2M9 10h2M9 14h2"/></svg></div><div class="conf-title">Vue unifiée multi-sites</div><div class="conf-desc">Un DataGraph orchestre l'ensemble de votre parc immobilier. Comparaison de performance entre bâtiments, sans centraliser les données brutes.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ CTA ══ -->
 <section id="sb-cta" class="reveal">
   <div class="wrap">
     <div class="cta-box">
-      <div>
-        <h2>Votre bâtiment est déjà intelligent.<br>Il manque juste l'interprète.</h2>
-        <p>Connectez vos équipements existants en quelques jours. Pas de remplacement, pas de nouveau middleware.</p>
-      </div>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-primary">Demander une démo →</a>
-        <a href="#" class="btn-secondary">Télécharger la fiche</a>
-      </div>
+      <div><h2>Votre bâtiment est déjà intelligent.<br>Il manque juste l'interprète.</h2><p>Connectez vos équipements existants en quelques jours. Pas de remplacement, pas de nouveau middleware.</p></div>
+      <div class="cta-btns"><a href="contact.html" class="btn-primary">Demander une démo →</a><a href="#" class="btn-secondary">Télécharger la fiche</a></div>
     </div>
   </div>
 </section>
@@ -239,90 +224,155 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 <script>
 const t0=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-document.documentElement.setAttribute('data-theme',t0);
-document.body.setAttribute('data-theme',t0);
+document.documentElement.setAttribute('data-theme',t0);document.body.setAttribute('data-theme',t0);
+
+const TAB_ICONS={
+  sources:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 2v2M8 12v2M2 8h2M12 8h2"/></svg>',
+  traitement:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.5"/></svg>',
+  sortie:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2v12M9 6l4 4-4 4"/><line x1="6" y1="10" x2="13" y2="10"/></svg>',
+  technique:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>'
+};
+const KPI_ICONS={
+  money:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="8" y1="1" x2="8" y2="15"/><path d="M11.5 4.5H6.5a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4H4.5"/></svg>',
+  users:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="5" r="2.5"/><path d="M1 14c0-2.8 2.2-5 5-5s5 2.2 5 5"/><circle cx="12" cy="5.5" r="1.8"/><path d="M12 9c1.7 0 3 1.3 3 3"/></svg>',
+  search:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>',
+  leaf:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14C2 14 3 4 14 2c0 0-2 10-12 12z"/><path d="M2 14l5.5-5.5"/></svg>',
+  bolt:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg>',
+  target:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.5"/><circle cx="8" cy="8" r=".8" fill="currentColor"/></svg>',
+  wrench:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>',
+  check:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8l2 2 3.5-3.5"/></svg>',
+  wind:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8a2 2 0 1 0-2-2"/><path d="M2 10h10a2 2 0 1 1-2 2"/><path d="M2 8h6a1.5 1.5 0 1 1-1.5 1.5"/></svg>'
+};
 
 const USE_CASES=[
-  {
-    id:'energie',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L6 12h6l-2 8 8-10h-6l2-8z" stroke-linejoin="round"/></svg>`,
-    title:'Pilotage énergétique',
-    sources:['Compteurs GTB','Capteurs IoT','BACnet / KNX'],
-    ops:[
-      {label:'Consolidation', desc:'Agrégation consommation par zone et par usage', color:'#F97316'},
-      {label:'Détection dérive', desc:'Identification des anomalies de consommation', color:'#EF4444'},
-      {label:'Prédiction', desc:'IA embarquée sur courbes de charge', color:'#8B5CF6'},
-    ],
-    output:'Optimisation consommation', outColor:'#F97316',
-  },
-  {
-    id:'confort',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3a8 8 0 1 0 0 16A8 8 0 0 0 11 3z"/><path d="M11 7v4l3 2"/></svg>`,
-    title:'Confort & qualité d\'air',
-    sources:['Capteurs CVC','Sondes CO2 / humidité','Données occupation'],
-    ops:[
-      {label:'Corrélation', desc:'Croisement occupation réelle et paramètres air', color:'#06B6D4'},
-      {label:'Ajustement', desc:'Règles métier par zone et par plage horaire', color:'#10B981'},
-      {label:'Alertes', desc:'Dépassement seuil qualité d\'air en temps réel', color:'#F97316'},
-    ],
-    output:'Confort occupants garanti', outColor:'#06B6D4',
-  },
-  {
-    id:'maintenance',
-    svgIcon:`<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 3.5a3 3 0 0 1 0 4.24L6 16.24 2 18l1.76-4L12.26 5.5a3 3 0 0 1 2.24-2z"/><path d="M12.26 5.5l4.24 4.24"/></svg>`,
-    title:'Maintenance prédictive',
-    sources:['Capteurs vibration','Logs équipements','GMAO bâtiment'],
-    ops:[
-      {label:'Surveillance', desc:'Monitoring continu des équipements critiques', color:'#F59E0B'},
-      {label:'Scoring usure', desc:'Calcul état de santé par équipement', color:'#EF4444'},
-      {label:'Traçabilité', desc:'Historique complet pour audits et assurances', color:'#8B5CF6'},
-    ],
-    output:'Alerte maintenance anticipée', outColor:'#F59E0B',
-  },
+  {id:'energie',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L6 12h6l-2 8 8-10h-6l2-8z" stroke-linejoin="round"/></svg>',
+    title:'Pilotage énergétique',sources:['Compteurs GTB','Capteurs IoT','BACnet / KNX'],
+    ops:[{label:'Consolidation',desc:'Agrégation consommation par zone et par usage',color:'#F97316'},{label:'Détection dérive',desc:'Identification des anomalies de consommation',color:'#EF4444'},{label:'Prédiction',desc:'IA embarquée sur courbes de charge',color:'#8B5CF6'}],
+    output:'Optimisation consommation',outColor:'#F97316'},
+  {id:'confort',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3a8 8 0 1 0 0 16A8 8 0 0 0 11 3z"/><path d="M11 7v4l3 2"/></svg>',
+    title:"Confort & qualité d'air",sources:['Capteurs CVC','Sondes CO2 / humidité','Données occupation'],
+    ops:[{label:'Corrélation',desc:'Croisement occupation réelle et paramètres air',color:'#06B6D4'},{label:'Ajustement',desc:"Règles métier par zone et par plage horaire",color:'#10B981'},{label:'Alertes',desc:"Dépassement seuil qualité d'air en temps réel",color:'#F97316'}],
+    output:'Confort occupants garanti',outColor:'#06B6D4'},
+  {id:'maintenance',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 3.5a3 3 0 0 1 0 4.24L6 16.24 2 18l1.76-4L12.26 5.5a3 3 0 0 1 2.24-2z"/><path d="M12.26 5.5l4.24 4.24"/></svg>',
+    title:'Maintenance prédictive',sources:['Capteurs vibration','Logs équipements','GMAO bâtiment'],
+    ops:[{label:'Surveillance',desc:'Monitoring continu des équipements critiques',color:'#F59E0B'},{label:'Scoring usure',desc:'Calcul état de santé par équipement',color:'#EF4444'},{label:'Traçabilité',desc:'Historique complet pour audits et assurances',color:'#8B5CF6'}],
+    output:'Alerte maintenance anticipée',outColor:'#F59E0B'}
 ];
 
-let activeUC=null;
+const POPUP_DATA={
+  energie:{
+    desc:"DataCell de pilotage énergétique du bâtiment intelligent. Agrège les compteurs GTB, capteurs IoT et automates BACnet/KNX pour consolider la consommation par zone et par usage, détecter les dérives en temps réel et prédire la charge par IA, permettant 20 à 30% d'économie tout en maintenant le confort des occupants.",
+    sources:[
+      {name:'Compteurs GTB',format:'Modbus / DLMS-COSEM / M-Bus',desc:"Collecte temps réel des compteurs d'énergie intégrés à la GTB : électricité par usage (CVC, éclairage, prises, ascenseurs), gaz, eau. Sous-comptage par étage, zone et locataire pour répartition analytique.",protocols:['Modbus TCP/RTU','DLMS-COSEM','M-Bus / wM-Bus','Pulse (impulsion)'],color:'#F59E0B'},
+      {name:'Capteurs IoT',format:'MQTT / LoRaWAN / Zigbee',desc:"Capteurs de confort et d'environnement : température ambiante, humidité, CO2, COV, luminosité, présence/occupation. Corrélation consommation énergétique et conditions réelles d'usage.",protocols:['MQTT v5.0','LoRaWAN','Zigbee 3.0','EnOcean'],color:'#8B5CF6'},
+      {name:'BACnet / KNX',format:'BACnet/IP / KNX/IP / LON',desc:"Connexion directe aux automates GTB/GTC : régulation CVC, éclairage, stores, contrôle d'accès. Lecture des consignes, états de fonctionnement, alarmes techniques.",protocols:['BACnet/IP','KNX/IP','LonWorks / LON','DALI (éclairage)'],color:'#10B981'},
+      {name:'Données météo / Tarifs',format:'REST API / JSON',desc:"Enrichissement avec conditions extérieures : météo temps réel et prévisions J+7, tarifs électricité dynamiques (heures pleines/creuses), calendrier d'occupation.",protocols:['REST API (Open-Meteo)','API tarifs dynamiques','iCalendar / CalDAV','Webhook push'],color:'#0EA5E9'}
+    ],
+    traitements:[
+      {name:'Consolidation',color:'#F59E0B',desc:'Agrégation consommation par zone et par usage',details:['Agrégation multi-compteurs en temps réel : électricité + gaz + eau + calories dans un tableau de bord unifié','Ventilation par usage : CVC, éclairage, prises de courant, ascenseurs, cuisine, parkings','Consolidation hiérarchique : pièce vers étage vers zone vers bâtiment vers campus avec drill-down instantané','Répartition locataire : calcul automatique de la quote-part énergétique selon surface et usage réel','Normalisation climatique (DJU) pour comparaison inter-périodes','Indicateurs surfaciques : kWh/m2/an par usage, benchmark automatique vs références réglementaires']},
+      {name:'Détection dérive',color:'#EF4444',desc:'Identification des anomalies de consommation',details:['Détection de surconsommation : écart significatif entre réel et modèle prédictif','Identification du talon énergétique : consommation hors occupation anormalement élevée','Détection de dérive CVC : régulation hors consigne, simultanéité chauffage/climatisation','Anomalie de courbe de charge : pic inexplicable, compteur bloqué, profil atypique','Corrélation occupation × consommation : bâtiment vide mais consommation nominale','Scoring de performance énergétique par zone (0-100)']},
+      {name:'Prédiction',color:'#6366F1',desc:'IA embarquée sur courbes de charge',details:['Prévision de consommation J+1/J+7 par zone et par usage','Estimation de la facture mensuelle en cours avec projection','Anticipation des pics de puissance : alerte préventive sur dépassement','Simulation de scénarios d\'optimisation : changement consigne, passage LED, PV toiture','Prédiction de confort : estimation température intérieure selon conditions et réglage','Optimisation tarifaire : recommandation de décalage de charges selon tarif dynamique']},
+      {name:'Pilotage confort-énergie',color:'#10B981',desc:'Équilibre automatique entre confort des occupants et sobriété',details:['Régulation adaptative : consignes CVC ajustées à l\'occupation réelle et à la météo','Gestion par zones : traitement différencié selon usage (bureau, salle de réunion, hall)','Scénarios de confort : profils prédéfinis (confort, éco, absent, hors-gel) activables automatiquement','Pilotage éclairage : extinction zones inoccupées, gradation selon luminosité naturelle','Intégration production locale : autoconsommation PV, stockage batterie, charges flexibles','Indice de confort temps réel par zone : température, humidité, CO2, luminosité']}
+    ],
+    sortie:{desc:"Le gestionnaire immobilier dispose d'un pilotage énergétique complet : consommation par zone et par usage, détection de dérives, prédiction IA et recommandations d'optimisation, en maintenant le confort des occupants.",
+      destinations:[{name:'GTB / Supervision',protocol:'BACnet / REST',format:'Consignes adaptatives'},{name:'Dashboard énergie',protocol:'WebSocket / REST',format:'KPIs live bâtiment'},{name:'Plateforme reporting',protocol:'CSV / REST API',format:'Déclarations réglementaires'},{name:'ERP / Comptabilité',protocol:'REST / OData',format:'Répartition locataires'},{name:'Reporting RSE',protocol:'PDF / REST',format:'Bilan carbone bâtiment'}],
+      kpis:[{label:'Économie énergie',value:'20-30%',icon:'money'},{label:'Confort occupants',value:'95%',icon:'users'},{label:'Dérives détectées',value:'92%',icon:'search'},{label:'Empreinte carbone',value:'-25%',icon:'leaf'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Stream processing + ML prédictif'},{label:'IA embarquée',value:'Prévision conso, détection anomalies'},{label:'Protocoles',value:'BACnet, KNX, Modbus, MQTT, LoRa'},{label:'Déploiement',value:'Edge bâtiment / Cloud hybride'},{label:'Mode',value:'Stateless, temps réel continu'},{label:'Scalabilité',value:'1 DataCell par bâtiment ou campus'}],
+      callout:{title:'Du bâtiment énergivore au bâtiment intelligent',text:'Cette DataCell transforme le pilotage énergétique. En corrélant les <strong>compteurs GTB</strong> avec les <strong>capteurs d\'occupation</strong>, la <strong>météo</strong> et les <strong>tarifs dynamiques</strong>, elle identifie les gaspillages invisibles (talon énergétique, simultanéité chauffage/clim), prédit la consommation et ajuste les consignes CVC en temps réel. Résultat : 20 à 30% d\'économie et confort maintenu à 95%.'}}
+  },
+  confort:{
+    desc:"DataCell de pilotage du confort et de la qualité d'air intérieur. Corrèle les capteurs CVC, sondes CO2/humidité et données d'occupation pour ajuster automatiquement la ventilation par zone, détecter les dépassements de seuils en temps réel et garantir le confort des occupants.",
+    sources:[
+      {name:'Capteurs CVC',format:'BACnet / Modbus / OPC-UA',desc:"Collecte temps réel des paramètres CVC : température soufflage/reprise/ambiante, débit d'air neuf, pression gaine, position vannes et registres, état ventilateurs.",protocols:['BACnet/IP','Modbus TCP/RTU','OPC-UA','API constructeur CVC'],color:'#0EA5E9'},
+      {name:'Sondes CO2 / humidité',format:'MQTT / LoRaWAN / BLE',desc:"Sondes de qualité d'air intérieur : CO2 (ppm), humidité relative (%), température, COV (ppb), particules fines PM2.5/PM10. Capteurs Airthings, Netatmo, Elsys, Nexelec.",protocols:['MQTT v5.0','LoRaWAN','BLE','Zigbee 3.0'],color:'#10B981'},
+      {name:'Données occupation',format:'REST API / MQTT / BLE',desc:"Données d'occupation réelle : capteurs de présence PIR/radar, comptage de personnes, badges d'accès, réservation de salles. Corrélation clé entre occupation et qualité d'air.",protocols:['REST API booking','MQTT capteurs','BLE Beacons','iCalendar / CalDAV'],color:'#8B5CF6'},
+      {name:'Météo extérieure',format:'REST API / JSON',desc:"Conditions extérieures : température, humidité, pollution (indice ATMO, PM2.5, ozone), pollen. Variables essentielles pour adapter la ventilation selon la qualité de l'air extérieur.",protocols:['REST API (Open-Meteo)','API ATMO France','API pollens','Webhook push'],color:'#F59E0B'}
+    ],
+    traitements:[
+      {name:'Corrélation',color:'#3B82F6',desc:'Croisement occupation réelle et paramètres air',details:['Corrélation temps réel occupation × CO2 × température × débit air neuf par zone','Détection de sous-ventilation : CO2 en hausse alors que le débit est insuffisant pour le nombre d\'occupants','Corrélation qualité air extérieur × intérieur : pollution élevée = filtration renforcée recommandée','Analyse des patterns par zone : salle surchargée vs bureau vide = redistribution intelligente','Croisement données CVC × confort réel : consigne 21°C mais zone à 24°C = diagnostic dysfonctionnement','Indice de confort composite par zone : score 0-100 (température, humidité, CO2, luminosité)']},
+      {name:'Ajustement',color:'#10B981',desc:'Règles métier par zone et par plage horaire',details:['Régulation demand-controlled ventilation : débit d\'air neuf ajusté au taux de CO2 réel','Consignes différenciées par zone : bureau (21°C, 800 ppm), salle de réunion (ventilation renforcée)','Programmation horaire intelligente : pré-conditionnement 30 min avant arrivée, réduction quand la zone se vide','Mode événementiel : réunion non planifiée détectée (présence + CO2 en hausse) = ventilation boost','Free cooling automatisé : température extérieure favorable = arrêt climatisation, surventilation naturelle','Équilibre confort-énergie : chaque ajustement optimisé pour minimiser la consommation']},
+      {name:'Alertes',color:'#EF4444',desc:"Dépassement seuil qualité d'air en temps réel",details:['Alerte CO2 : notification immédiate quand le taux dépasse 1 000 ppm (seuil réglementaire) ou 1 500 ppm (critique)','Alerte température inconfort : zone hors plage de confort (18-26°C) pendant plus de 15 minutes','Alerte humidité : taux inférieur à 30% (sécheresse) ou supérieur à 65% (risque moisissure)','Alerte pollution intérieure : COV ou PM2.5 au-dessus des seuils = recommandation d\'aération ou maintenance filtre','Notification multicanal : email facility manager, affichage écran dans la zone, app occupant, Teams/Slack','Escalade automatique : alerte info vers facility manager (15 min) vers prestataire CVC (1h) vers direction (4h)']},
+      {name:'Analytique bien-être',color:'#8B5CF6',desc:'Indicateurs de confort et santé au travail',details:['Score de bien-être par zone et par bâtiment : indice agrégé multi-paramètres','Suivi automatique des indicateurs requis pour le maintien des certifications bâtiment','Corrélation QAI × absentéisme : analyse statistique entre qualité d\'air et taux de présence (anonymisé)','Rapport QAI réglementaire : génération automatique du rapport de surveillance obligatoire','Historique et tendances : courbes de suivi avec détection de saisonnalité et dégradation progressive','Feedback occupants intégré : collecte satisfaction ressentie via app, corrélée aux mesures objectives']}
+    ],
+    sortie:{desc:"Le facility manager et les occupants bénéficient d'un environnement intérieur optimal : qualité d'air contrôlée en continu, température ajustée à l'occupation réelle et alertes immédiates en cas de dépassement.",
+      destinations:[{name:'GTB / Régulation CVC',protocol:'BACnet / REST',format:'Consignes adaptatives'},{name:'Dashboard QAI',protocol:'WebSocket / REST',format:'KPIs confort live'},{name:'App occupants',protocol:'REST / Push',format:'Score confort zone'},{name:'Rapport QAI réglementaire',protocol:'PDF / REST API',format:'Surveillance ERP'},{name:'Certification bâtiment',protocol:'CSV / REST',format:'Indicateurs audit'}],
+      kpis:[{label:'Confort occupants',value:'96%',icon:'users'},{label:'CO2 hors seuil',value:'-75%',icon:'wind'},{label:'Énergie CVC',value:'-20%',icon:'bolt'},{label:'Conformité QAI',value:'100%',icon:'check'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Corrélation temps réel + règles'},{label:'IA embarquée',value:'Prédiction QAI, optimisation CVC'},{label:'Protocoles',value:'BACnet, KNX, MQTT, LoRa, Modbus'},{label:'Déploiement',value:'Edge bâtiment / Cloud hybride'},{label:'Mode',value:'Stateless, temps réel continu'},{label:'Scalabilité',value:'1 DataCell par bâtiment / zone'}],
+      callout:{title:"De l'air subi à l'air piloté",text:'Cette DataCell transforme la gestion de la qualité d\'air. Au lieu de ventiler à débit constant, la <strong>ventilation demand-controlled</strong> ajuste l\'air neuf en fonction du CO2 réel et de l\'occupation. Les <strong>dépassements de seuils</strong> sont détectés en temps réel avec notification immédiate. Le <strong>free cooling</strong> est activé automatiquement quand les conditions le permettent. Résultat : 96% de confort occupants, -20% d\'énergie CVC.'}}
+  },
+  maintenance:{
+    desc:"DataCell de maintenance prédictive pour le Smart Building. Corrèle les capteurs vibratoires, les logs équipements CVC et l'historique GMAO pour détecter l'usure, calculer un score de santé par équipement et générer des alertes de maintenance anticipées avec diagnostic et recommandation, réduisant les arrêts non planifiés de 45% et les coûts FM de 30%.",
+    sources:[
+      {name:'Capteurs vibration',format:'MQTT / Modbus / BACnet',desc:"Mesures vibratoires (accéléromètres, vélocimètres) sur les équipements critiques : CTA, groupes froids, pompes, ascenseurs, surpresseurs. Analyse spectrale embarquée pour détection précoce.",protocols:['MQTT v5.0','Modbus TCP/RTU','BACnet/IP','LoRaWAN'],color:'#F97316'},
+      {name:'Logs équipements',format:'Syslog / OPC-UA / REST',desc:"Journaux machines et automates CVC (Siemens Desigo, Schneider EcoStruxure, Honeywell Niagara, Johnson Controls Metasys). Alarmes, défauts, heures de fonctionnement, cycles de démarrage/arrêt.",protocols:['OPC-UA','Syslog TCP/UDP','REST API','SNMP v3'],color:'#F59E0B'},
+      {name:'GMAO bâtiment',format:'REST API / JDBC / CSV',desc:"Connexion aux logiciels GMAO (Carl Source, Maximo, Planon, Facilitysoft). Historique interventions, bons de travail, pièces détachées, coûts et fréquences de remplacement.",protocols:['REST API / OData','JDBC/ODBC','CSV / SFTP','Webhook'],color:'#EF4444'}
+    ],
+    traitements:[
+      {name:'Surveillance',color:'#F97316',desc:'Monitoring continu des équipements critiques',details:['Suivi en temps réel des seuils vibratoires par classe d\'équipement','Détection automatique de dérive des paramètres CVC : température de soufflage, pression, débit','Corrélation multi-capteurs par zone et par système','Alertes contextuelles selon criticité de l\'équipement','Baseline auto-apprise sur 30 jours : détection d\'écarts significatifs','Monitoring des heures de fonctionnement cumulées vs préconisations constructeur']},
+      {name:'Scoring usure',color:'#EF4444',desc:'Calcul état de santé par équipement',details:['Score de santé 0-100 mis à jour en continu pour chaque équipement','Modèle ML de dégradation basé sur vibrations + historique GMAO + heures de fonctionnement','Estimation de la durée de vie résiduelle (RUL) avec intervalle de confiance','Priorisation automatique des interventions par criticité métier','Détection de modes de défaillance spécifiques : balourd, défaut roulement, désalignement','Apprentissage continu : intègre les retours techniciens pour affiner les prédictions']},
+      {name:'Traçabilité',color:'#8B5CF6',desc:'Historique complet pour audits et assurances',details:['Journal immuable de chaque événement et alerte : horodatage, capteur source, valeur, seuil franchi','Chaîne de causalité complète : mesure vers détection vers alerte vers bon de travail vers intervention','Rapports automatiques pour conformité réglementaire','Export audit-trail formaté pour assurances et certifications','Conservation configurable de 1 à 10 ans selon obligation','Preuve de maintenance préventive pour réduction de prime d\'assurance']}
+    ],
+    sortie:{desc:"L'équipe Facility Management reçoit des alertes de maintenance anticipées et contextualisées, avec score de santé équipement, diagnostic probable et recommandation d'intervention. Les arrêts non planifiés sont réduits de 45%, le coût de maintenance de 30%.",
+      destinations:[{name:'GMAO, Bon de travail',protocol:'REST API / Webhook',format:'Ordre maintenance'},{name:'Dashboard FM',protocol:'WebSocket / REST',format:'Cartographie santé'},{name:'Alerte équipe terrain',protocol:'Webhook / Email / SMS',format:'Notification priorité'},{name:'Rapport assurance / audit',protocol:'PDF / API',format:'Audit-trail certifié'},{name:'Jumeaux numériques BIM',protocol:'MQTT / REST API',format:'Score santé 3D'}],
+      kpis:[{label:'Arrêts non planifiés',value:'-45%',icon:'wrench'},{label:'Précision RUL',value:'92%',icon:'target'},{label:'Latence',value:'< 2s',icon:'bolt'},{label:'Coûts FM',value:'-30%',icon:'money'}]},
+    technique:{architecture:[{label:'Type',value:'DataCell autonome'},{label:'Moteur',value:'Stream processing + ML embarqué'},{label:'IA embarquée',value:'Random Forest + LSTM'},{label:'Protocoles',value:'MQTT, Modbus, BACnet, OPC-UA'},{label:'Déploiement',value:'Docker / On-premise GTB'},{label:'Mode',value:'Stateless, buffer circulaire 72h'},{label:'Scalabilité',value:'1 DataCell par bâtiment / zone'}],
+      callout:{title:'De la maintenance curative à la maintenance prédictive',text:'Cette DataCell transforme la gestion technique du bâtiment. Au lieu d\'interventions curatives coûteuses, le <strong>scoring ML d\'usure</strong> apprend le profil de dégradation de chaque équipement et prédit les défaillances avec 92% de précision. La <strong>corrélation multi-capteurs</strong> croise vibrations, températures et logs CVC pour identifier les causes racines. Chaque alerte arrive <strong>qualifiée</strong> avec diagnostic, pièces probables et fenêtre d\'intervention optimale.'}}
+  }
+};
+
 function renderUC(){
   document.getElementById('uc-grid').innerHTML=USE_CASES.map(uc=>`
-    <div class="uc-card ${activeUC===uc.id?'active':''}" onclick="toggleUC('${uc.id}')">
-      <div class="uc-head">
-        <div class="uc-head-left">
-          <span class="uc-head-ico">${uc.svgIcon}</span>
-          <span class="uc-head-lbl">DataCell</span>
-        </div>
-        <div class="uc-dot"></div>
-      </div>
+    <div class="uc-card" onclick="openModal('${uc.id}')">
+      <div class="uc-head"><div class="uc-head-left"><span class="uc-head-ico">${uc.icon}</span><span class="uc-head-lbl">DataCell</span></div><div class="uc-dot"></div></div>
       <div class="uc-body">
         <div class="uc-title">${uc.title}</div>
         <div class="uc-slbl">Sources</div>
-        <div class="uc-sources">${uc.sources.map(s=>`<span class="uc-src">${s}</span>`).join('')}</div>
+        <div class="uc-sources">${uc.sources.map(s=>'<span class="uc-src">'+s+'</span>').join('')}</div>
         <div class="uc-slbl">Traitement</div>
-        <div class="uc-ops">${uc.ops.map(op=>`
-          <div class="uc-op" style="border-left-color:${op.color};background:${op.color}08;">
-            <div class="uc-op-name">${op.label}</div>
-            <div class="uc-op-desc">${op.desc}</div>
-          </div>`).join('')}
-        </div>
-        <div class="uc-arrow">
-          <div style="background:${uc.outColor};height:12px;width:2px;opacity:.75;"></div>
-          <div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.outColor};opacity:.75;"></div>
-        </div>
-        <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;">
-          <svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg>
-          <span class="uc-output-lbl">${uc.output}</span>
-        </div>
+        <div class="uc-ops">${uc.ops.map(op=>'<div class="uc-op" style="border-left-color:'+op.color+';background:'+op.color+'08;"><div class="uc-op-name">'+op.label+'</div><div class="uc-op-desc">'+op.desc+'</div></div>').join('')}</div>
+        <div class="uc-arrow"><div style="background:${uc.outColor};height:12px;width:2px;opacity:.75;"></div><div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid ${uc.outColor};opacity:.75;"></div></div>
+        <div class="uc-output" style="background:${uc.outColor}12;border:1.5px solid ${uc.outColor}40;"><svg style="color:${uc.outColor}" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l3 3 5-5"/></svg><span class="uc-output-lbl">${uc.output}</span></div>
       </div>
     </div>`).join('');
 }
-function toggleUC(id){activeUC=activeUC===id?null:id;renderUC();}
-renderUC();
 
+let currentPopup=null,currentTab='sources';
+function openModal(id){currentPopup=id;currentTab='sources';const ov=document.getElementById('md-overlay');ov.classList.add('open');renderModal();requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('active')));document.body.style.overflow='hidden';}
+function closeModal(){const ov=document.getElementById('md-overlay');ov.classList.remove('active');setTimeout(()=>{ov.classList.remove('open');document.body.style.overflow='';},280);}
+document.getElementById('md-overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+function renderModal(){
+  const uc=USE_CASES.find(u=>u.id===currentPopup),data=POPUP_DATA[currentPopup];
+  if(!uc||!data)return;
+  document.getElementById('md-icon').innerHTML=uc.icon.replace('stroke="currentColor"','stroke="white"');
+  document.getElementById('md-title').textContent=uc.title;
+  document.getElementById('md-desc').textContent=data.desc;
+  const tabs=['sources','traitement','sortie','technique'],labels={sources:'Sources',traitement:'Traitement',sortie:'Sortie',technique:'Technique'};
+  document.getElementById('md-tabs').innerHTML=tabs.map(t=>'<button class="md-tab'+(currentTab===t?' active':'')+'" onclick="switchTab(\''+t+'\')">'+TAB_ICONS[t]+labels[t]+'</button>').join('');
+  renderTabContent();
+}
+function switchTab(t){currentTab=t;renderModal();}
+function renderTabContent(){
+  const data=POPUP_DATA[currentPopup],body=document.getElementById('md-body');
+  if(currentTab==='sources'){
+    body.innerHTML=data.sources.map(s=>'<div class="md-card"><div class="md-card-head"><div class="md-dot" style="background:'+s.color+'"></div><span class="md-card-name">'+s.name+'</span><span class="md-tag">'+s.format+'</span></div><p>'+s.desc+'</p><div class="md-protos">'+s.protocols.map(p=>'<span class="md-proto">'+p+'</span>').join('')+'</div></div>').join('');
+  }else if(currentTab==='traitement'){
+    body.innerHTML=data.traitements.map(t=>'<div class="md-tcard" style="border-left-color:'+t.color+'"><div class="md-tcard-name">'+t.name+'</div><p>'+t.desc+'</p>'+t.details.map(d=>'<div class="md-detail"><span class="md-bullet" style="color:'+t.color+'">›</span><span>'+d+'</span></div>').join('')+'</div>').join('');
+  }else if(currentTab==='sortie'){
+    const s=data.sortie;
+    body.innerHTML='<div class="md-kpis">'+s.kpis.map(k=>'<div class="md-kpi"><div class="md-kpi-ico">'+(KPI_ICONS[k.icon]||KPI_ICONS.target)+'</div><div class="md-kpi-val">'+k.value+'</div><div class="md-kpi-lbl">'+k.label+'</div></div>').join('')+'</div><p style="font-size:12.5px;color:var(--t5);line-height:1.65;margin-bottom:16px;">'+s.desc+'</p><span class="md-slbl">Destinations & intégrations</span>'+s.destinations.map(d=>'<div class="md-dest"><span class="md-dest-name">'+d.name+'</span><span class="md-tag">'+d.protocol+'</span><span class="md-dest-fmt">'+d.format+'</span></div>').join('');
+  }else if(currentTab==='technique'){
+    const t=data.technique;
+    body.innerHTML='<span class="md-slbl">Architecture DataCell</span>'+t.architecture.map(a=>'<div class="md-arch"><span class="md-arch-lbl">'+a.label+'</span><span class="md-arch-val">'+a.value+'</span></div>').join('')+'<div class="md-callout"><div class="md-callout-title"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="5" x2="8" y2="8.5" stroke-linecap="round"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg>'+t.callout.title+'</div><div class="md-callout-text">'+t.callout.text+'</div></div>';
+  }
+}
+
+renderUC();
 async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
 window.addEventListener('load',async()=>{
-  await loadComp('hdr-ph','header.html');
-  await loadComp('ftr-ph','footer.html');
+  await loadComp('hdr-ph','header.html');await loadComp('ftr-ph','footer.html');
   document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
-  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 });
 </script>
