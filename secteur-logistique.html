@@ -135,6 +135,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .conf-title{font-size:14px;font-weight:800;color:var(--t9);margin-bottom:8px;}
 .conf-desc{font-size:12.5px;color:var(--t5);line-height:1.65;}
 @media(max-width:900px){.conf-grid{grid-template-columns:1fr;}}
+#archi-log{padding:96px 0;background:var(--card);}
 #log-cta{padding:96px 0;background:var(--card);}
 .cta-box{background:var(--bg);border:2px solid var(--orange-border);border-radius:var(--r-xl);padding:48px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(249,115,22,.08);}
 .cta-box h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;line-height:1.2;color:var(--t9);margin-bottom:10px;}
@@ -238,7 +239,8 @@ const KPI_ICONS={
   bolt:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg>',
   target:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.5"/><circle cx="8" cy="8" r=".8" fill="currentColor"/></svg>',
   wrench:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>',
-  check:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8l2 2 3.5-3.5"/></svg>',
+  check:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8l2 2 3.5-3.5"/></svg>'
+};
 const USE_CASES=[
   {id:'tracking',icon:'<svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="9" r="3"/><path d="M11 2C7.1 2 4 5.1 4 9c0 5.3 7 11 7 11s7-5.7 7-11c0-3.9-3.1-7-7-7z"/></svg>',
     title:'Tracking temps réel',sources:['GPS flotte','API transporteurs','WMS entrepôt'],
