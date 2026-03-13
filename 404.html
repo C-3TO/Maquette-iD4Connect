@@ -37,20 +37,18 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .num-wrap{position:relative;margin-bottom:8px;overflow:hidden;}
 .num{font-family:var(--mono);font-size:clamp(6rem,18vw,9rem);font-weight:700;line-height:.9;letter-spacing:-6px;color:var(--orange);user-select:none;}
 .num span{display:inline-block;opacity:0;animation:pop .5s cubic-bezier(.16,1,.3,1) forwards;}
-.num span:nth-child(1){animation-delay:.1s;}
-.num span:nth-child(2){animation-delay:.2s;}
-.num span:nth-child(3){animation-delay:.3s;}
+.num span:nth-child(1){animation-delay:0s;}
+.num span:nth-child(2){animation-delay:.08s;}
+.num span:nth-child(3){animation-delay:.16s;}
 @keyframes pop{from{opacity:0;transform:translateY(30px) scale(.8);filter:blur(8px);}to{opacity:1;transform:none;filter:blur(0);}}
-.scan-line{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:.6;animation:scan 2.5s ease-in-out infinite;pointer-events:none;}
-@keyframes scan{0%{top:0;opacity:0;}10%{opacity:.6;}90%{opacity:.6;}100%{top:100%;opacity:0;}}
 
 /* Terminal */
 .term{margin:20px auto 28px;max-width:380px;background:var(--section);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-align:left;}
 .term-row{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--t5);opacity:0;animation:tfade .4s ease forwards;}
-.term-row:nth-child(1){animation-delay:.5s;}
-.term-row:nth-child(2){animation-delay:.9s;}
-.term-row:nth-child(3){animation-delay:1.3s;}
-.term-row:nth-child(4){animation-delay:1.7s;}
+.term-row:nth-child(1){animation-delay:.25s;}
+.term-row:nth-child(2){animation-delay:.45s;}
+.term-row:nth-child(3){animation-delay:.65s;}
+.term-row:nth-child(4){animation-delay:.85s;}
 @keyframes tfade{from{opacity:0;transform:translateX(-8px);}to{opacity:1;transform:none;}}
 .tp{color:var(--orange);font-weight:600;flex-shrink:0;}
 .tok{color:#10B981;}.terr{color:#EF4444;}
@@ -58,20 +56,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
 
 /* Message */
-.msg{opacity:0;animation:fadein .6s ease forwards;animation-delay:2s;}
+.msg{opacity:0;animation:fadein .6s ease forwards;animation-delay:1s;}
 @keyframes fadein{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
 .msg h1{font-size:clamp(1.1rem,2.8vw,1.5rem);font-weight:800;line-height:1.3;color:var(--t9);margin-bottom:8px;letter-spacing:-.3px;}
 .msg h1 .o{color:var(--orange);}
 .msg p{font-size:13px;color:var(--t5);line-height:1.7;max-width:360px;margin:0 auto 24px;}
 
 /* Links */
-.links{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:20px;opacity:0;animation:fadein .5s ease forwards;animation-delay:2.2s;}
+.links{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:20px;opacity:0;animation:fadein .5s ease forwards;animation-delay:1.1s;}
 .lk{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;font-size:11.5px;font-weight:600;color:var(--t7);text-decoration:none;transition:all .2s;}
 .lk:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px);box-shadow:0 4px 16px rgba(249,115,22,.12);}
 .lk svg{width:11px;height:11px;flex-shrink:0;}
 
 /* CTA */
-.cta-wrap{opacity:0;animation:fadein .5s ease forwards;animation-delay:2.4s;}
+.cta-wrap{opacity:0;animation:fadein .5s ease forwards;animation-delay:1.2s;}
 .btn-back{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--orange);color:white;font-size:13.5px;font-weight:700;font-family:var(--font);border-radius:8px;text-decoration:none;transition:all .16s ease;}
 .btn-back:hover{background:var(--orange-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,115,22,.3);}
 
@@ -129,7 +127,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
     <div class="dc-body">
       <div class="num-wrap">
         <div class="num"><span>4</span><span>0</span><span>4</span></div>
-        <div class="scan-line"></div>
       </div>
 
       <div class="term">
@@ -181,8 +178,8 @@ document.documentElement.setAttribute('data-theme',t0);document.body.setAttribut
 const urlEl=document.getElementById('typed-url');
 const path=window.location.pathname||'/unknown';
 let i=0;
-function typeUrl(){if(i<path.length){urlEl.textContent+=path[i];i++;setTimeout(typeUrl,40);}}
-setTimeout(typeUrl,500);
+function typeUrl(){if(i<path.length){urlEl.textContent+=path[i];i++;setTimeout(typeUrl,20);}}
+setTimeout(typeUrl,200);
 
 // Live timestamp
 function tick(){document.getElementById('ts').textContent=new Date().toISOString().replace('T',' ').substring(0,19)+' UTC';}
