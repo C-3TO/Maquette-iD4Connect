@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demander une démo — iD4Connect</title>
+<title>Demander une démo · iD4Connect</title>
 <meta name="description" content="Prenez 30 minutes avec notre équipe pour voir iD4Connect en action sur vos cas d'usage.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-em:#10B981;--blue:#2563EB;--blue-pale:#EFF6FF;--purple:#8B5CF6;--purple-pale:#F5F3FF;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
@@ -110,7 +111,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
         Démo & Contact
       </div>
       <h1>Voyez iD4Connect<br><span>sur vos données.</span></h1>
-      <p>30 minutes suffisent pour comprendre ce que le traitement en transit peut changer dans votre organisation. Pas de slideshow — une démo sur votre cas d'usage réel.</p>
+      <p>30 minutes suffisent pour comprendre ce que le traitement en transit peut changer dans votre organisation. Pas de slideshow, une démo sur votre cas d'usage réel.</p>
     </div>
   </div>
 </section>
@@ -207,7 +208,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
             </div>
             <div>
               <div class="info-text-lbl">Email</div>
-              <div class="info-text-val"><a href="mailto:contact@id4connect.com">contact@id4connect.com</a></div>
+              <div class="info-text-val"><a href="/cdn-cgi/l/email-protection#e3808c8d97828097a38a87d7808c8d8d868097cd808c8e"><span class="__cf_email__" data-cfemail="5e3d31302a3f3d2a1e373a6a3d3130303b3d2a703d3133">[email&#160;protected]</span></a></div>
             </div>
           </div>
 
@@ -246,7 +247,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
             <div class="step-num">2</div>
             <div class="step-body">
               <div class="step-title">Démo live sur votre cas d'usage</div>
-              <div class="step-desc">Pas de slideshow générique — on configure une DataCell sur un scénario concret de votre secteur.</div>
+              <div class="step-desc">Pas de slideshow générique, on configure une DataCell sur un scénario concret de votre secteur.</div>
             </div>
           </div>
           <div class="step">
@@ -288,7 +289,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 <div id="ftr-ph"></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function submitForm() {
   const prenom = document.getElementById('f-prenom').value.trim();
   const nom = document.getElementById('f-nom').value.trim();
@@ -327,8 +328,10 @@ function submitForm() {
 async function loadComp(id, file) {
   try {
     const r = await fetch(file);
+    if (!r.ok) return;
     const html = await r.text();
     const el = document.getElementById(id);
+    if (!el) return;
     el.innerHTML = html;
     el.querySelectorAll('script').forEach(s => {
       const ns = document.createElement('script');
@@ -342,6 +345,9 @@ async function loadComp(id, file) {
 window.addEventListener('load', async () => {
   await loadComp('hdr-ph', 'header.html');
   await loadComp('ftr-ph', 'footer.html');
+  const t = localStorage.getItem('id4-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+  document.body.setAttribute('data-theme', t);
   document.addEventListener('themeChange', e => {
     document.documentElement.setAttribute('data-theme', e.detail);
     document.body.setAttribute('data-theme', e.detail);
