@@ -6,6 +6,7 @@
 <title>iD4Connect · En transit. En temps réel. Jamais stockées.</title>
 <meta name="description" content="iD4Connect traite vos données en transit, sans les stocker. Deep Tech européen, TRL 9.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue-pale:#EFF6FF;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
@@ -29,7 +30,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
 .btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
 
-/* ══ HEADER (copié depuis header.html) ══ */
+/* ══ HEADER ══ */
 #hdr{position:fixed;top:0;left:0;right:0;height:var(--hh);background:var(--card);border-bottom:1px solid var(--border);z-index:1000;transition:background .25s,border-color .25s;}
 #hdr.scrolled{box-shadow:var(--sh-sm);}
 .hdr-in{max-width:1160px;margin:0 auto;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:8px;}
@@ -84,13 +85,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 @media(max-width:600px){.hdr-in{padding:0 20px;}}
 
 /* ═══ HERO ═══ */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 900px 700px at 10% 15%, rgba(249,115,22,.18) 0%, transparent 65%),radial-gradient(ellipse 700px 600px at 90% 75%, rgba(249,115,22,.12) 0%, transparent 65%);animation:amb-shift 10s ease-in-out infinite alternate;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;will-change:transform,opacity;background:radial-gradient(ellipse 900px 700px at 10% 15%, rgba(249,115,22,.18) 0%, transparent 65%),radial-gradient(ellipse 700px 600px at 90% 75%, rgba(249,115,22,.12) 0%, transparent 65%);animation:amb-shift 10s ease-in-out infinite alternate;}
 [data-theme="light"] body::before{background:radial-gradient(ellipse 900px 700px at 10% 15%, rgba(249,115,22,.15) 0%, transparent 65%),radial-gradient(ellipse 700px 600px at 90% 75%, rgba(249,115,22,.10) 0%, transparent 65%);animation:amb-shift 10s ease-in-out infinite alternate;}
 @keyframes amb-shift{0%{opacity:.7;transform:scale(1) translate(0,0);}50%{opacity:1;transform:scale(1.08) translate(20px,-10px);}100%{opacity:.75;transform:scale(.97) translate(-10px,15px);}}
 #hero{padding:96px 0 88px;background:transparent;position:relative;overflow:hidden;}
 #hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,var(--bg));pointer-events:none;}
 #hero .hero-inner > div:last-child{position:relative;}
-#hero .hero-inner > div:last-child::before{content:'';position:absolute;inset:-60px;background:radial-gradient(ellipse 85% 85% at 50% 50%, rgba(249,115,22,.22) 0%, transparent 70%);pointer-events:none;z-index:0;animation:halo-pulse 4s ease-in-out infinite alternate;}
+#hero .hero-inner > div:last-child::before{content:'';position:absolute;inset:-60px;background:radial-gradient(ellipse 85% 85% at 50% 50%, rgba(249,115,22,.22) 0%, transparent 70%);pointer-events:none;z-index:0;will-change:transform,opacity;animation:halo-pulse 4s ease-in-out infinite alternate;}
 @keyframes halo-pulse{0%{opacity:.5;transform:scale(.92);}100%{opacity:1;transform:scale(1.08);}}
 .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;}
 .hero-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 13px 5px 8px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-pill);font-size:12px;font-weight:600;color:var(--t7);margin-bottom:28px;box-shadow:var(--sh-sm);}
@@ -113,8 +114,8 @@ h1.hero-h1 .line{display:block;}
 .f-node.cell{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);padding:8px 16px;}
 .f-node.out{background:var(--green-pale);color:var(--green);border:1px solid var(--green-border);}
 .f-conn{flex:1;height:2px;position:relative;overflow:hidden;background:var(--border);margin:0 4px;}
-.f-conn::after{content:'';position:absolute;top:-1px;width:55%;height:4px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--orange),transparent);animation:flow-fwd 2.2s ease-in-out infinite;}
-.f-conn::before{content:'';position:absolute;top:-1px;width:40%;height:4px;border-radius:2px;background:linear-gradient(270deg,transparent,rgba(249,115,22,.6),transparent);animation:flow-bwd 2.2s ease-in-out infinite;animation-delay:1.1s;}
+.f-conn::after{content:'';position:absolute;top:-1px;width:55%;height:4px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--orange),transparent);will-change:left;animation:flow-fwd 2.2s ease-in-out infinite;}
+.f-conn::before{content:'';position:absolute;top:-1px;width:40%;height:4px;border-radius:2px;background:linear-gradient(270deg,transparent,rgba(249,115,22,.6),transparent);will-change:right;animation:flow-bwd 2.2s ease-in-out infinite;animation-delay:1.1s;}
 .flow-row:nth-child(2) .f-conn::after{animation-delay:.7s;}
 .flow-row:nth-child(2) .f-conn::before{animation-delay:1.8s;}
 .flow-row:nth-child(3) .f-conn::after{animation-delay:1.4s;}
@@ -125,7 +126,7 @@ h1.hero-h1 .line{display:block;}
 @media(max-width:1020px){.hero-inner{grid-template-columns:1fr;gap:44px;}.flow-card{max-width:480px;}}
 @media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}.hero-ctas a{justify-content:center;}}
 
-/* ═══ SOV — NOUVEAU ═══ */
+/* ═══ SOV ═══ */
 #sov{padding:96px 0;background:var(--card);}
 
 /* ═══ SOV MANIFESTE ÉDITORIAL ═══ */
@@ -142,6 +143,7 @@ h1.hero-h1 .line{display:block;}
   grid-template-columns:160px 1px 1fr;
   align-items:center;
   transition:background var(--tr);
+  contain:layout style;
 }
 .sov-ligne + .sov-ligne{ border-top:1px solid var(--border); }
 .sov-ligne:hover{ background:var(--section); }
@@ -266,7 +268,7 @@ h1.hero-h1 .line{display:block;}
 .dt-head h2 .o{color:var(--orange);}
 .dt-head p{font-size:15px;color:var(--t5);max-width:540px;margin:0 auto;line-height:1.7;}
 .dt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
-.dt-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);cursor:pointer;}
+.dt-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);cursor:pointer;contain:layout style;}
 .dt-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.12),0 8px 28px rgba(249,115,22,.10);transform:translateY(-3px);}
 .dt-card-top{padding:20px 18px 16px;}
 .dt-card-meta{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--t4);margin-bottom:14px;}
@@ -557,7 +559,7 @@ h1.hero-h1 .line{display:block;}
       <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="12" rx="2"/><rect x="6" y="26" width="36" height="12" rx="2"/><circle cx="37" cy="16" r="2.5" fill="currentColor" stroke="none"/><circle cx="37" cy="32" r="2.5" fill="currentColor" stroke="none"/></svg><p>Données 100% dans<br>votre périmètre</p></div></div>
     </div>
     <div class="cs" style="justify-content:center;margin-top:24px;">
-      <span class="cs-item r">✗ Zéro dépendance externe</span><span class="cs-item g">✓ Compatible votre stack</span><span class="cs-item o">✓ Déploiement en jours</span>
+      <span class="cs-item g">✓ Zéro dépendance externe</span><span class="cs-item g">✓ Compatible votre stack</span><span class="cs-item o">✓ Déploiement en jours</span>
     </div>
   </div>
 </section>
@@ -610,7 +612,7 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
-<!-- ═══ SOV — REVU ═══ -->
+<!-- ═══ SOV ═══ -->
 <section id="sov" class="reveal">
   <div class="wrap">
 
@@ -783,7 +785,7 @@ function toggleMob(){document.getElementById('mob-menu').classList.toggle('open'
 function toggleSub(id){document.getElementById(id).classList.toggle('open');}
 applyTheme(theme);
 setLang(lang);
-window.addEventListener('scroll',()=>document.getElementById('hdr')?.classList.toggle('scrolled',scrollY>20));
+window.addEventListener('scroll',()=>{document.getElementById('hdr')?.classList.toggle('scrolled',scrollY>20);},{passive:true});
 
 document.querySelectorAll('.tab-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -795,7 +797,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
 });
 
 async function loadComp(id,file){
-  try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}
+  try{const r=await fetch(file);if(!r.ok)return;const html=await r.text();const el=document.getElementById(id);if(!el)return;el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}
 }
 
 window.addEventListener('load',async()=>{
