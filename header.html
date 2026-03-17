@@ -180,7 +180,7 @@ navItems.forEach(function(item,idx){
   });
   item.addEventListener('mouseleave',function(){
     if(item.classList.contains('open')){
-      closeTimers[idx]=setTimeout(function(){item.classList.remove('open');closeTimers[idx]=null;},400);
+      closeTimers[idx]=setTimeout(function(){item.classList.remove('open');closeTimers[idx]=null;},800);
     }
   });
 });
