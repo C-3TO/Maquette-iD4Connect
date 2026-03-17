@@ -519,6 +519,97 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
+<!-- ═══ AGNOSTIC ═══ -->
+<section id="agnostic" class="reveal">
+  <div class="wrap">
+    <div class="center-head">
+      <div class="pill">Déploiement Agnostique</div>
+      <h2 class="sec-title">Installez-le là où vous êtes déjà.</h2>
+      <p class="sec-sub">On-premise, cloud privé, multi-cloud : iD4Connect s'adapte à votre infrastructure sans migration ni refonte.</p>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="cloud"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12.5 10a3 3 0 0 0-2.9-3.8 5 5 0 0 0-9.1 2.3A2.5 2.5 0 0 0 2 13.5h10.5a2 2 0 0 0 0-3.5z"/></svg>Cloud</button>
+      <button class="tab-btn" data-tab="hybrid"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>Hybride</button>
+      <button class="tab-btn" data-tab="onprem"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="4" rx="1"/><rect x="2" y="9" width="12" height="4" rx="1"/><circle cx="12.5" cy="5" r=".8" fill="currentColor" stroke="none"/><circle cx="12.5" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>On-Premise</button>
+    </div>
+    <div class="tab-panel active" id="tab-cloud">
+      <div class="panel-left">
+        <h3>Déploiement Cloud</h3>
+        <p>Compatible avec les principaux cloud providers, en mode souverain. Vos DataCells s'exécutent dans votre tenant, pas dans le nôtre.</p>
+        <div class="pfeats"><div class="pf">Multi-cloud natif (AWS, Azure, GCP)</div><div class="pf">Pas de vendor lock-in</div><div class="pf">Scalabilité instantanée</div><div class="pf">SLA 99,9% garanti</div></div>
+      </div>
+      <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M38 30a9 9 0 0 0-8.7-11.4 15 15 0 0 0-27.3 6.9A7.5 7.5 0 0 0 6 40.5h31.5a6 6 0 0 0 .5-10.5z"/></svg><p>Infrastructure cloud<br>Données dans votre tenant</p></div></div>
+    </div>
+    <div class="tab-panel" id="tab-hybrid">
+      <div class="panel-left">
+        <h3>Architecture Hybride</h3>
+        <p>Combinez on-premise et cloud selon la sensibilité de vos données. Une seule orchestration via DataGraph, plusieurs environnements.</p>
+        <div class="pfeats"><div class="pf">DataGraph unifié sur tous les environnements</div><div class="pf">Politique de données granulaire</div><div class="pf">Migration progressive, sans coupure</div><div class="pf">Données sensibles on-premise, flux légers en cloud</div></div>
+      </div>
+      <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 14a5 5 0 0 0-4.9-4 8 8 0 0 0-15 2.5A4 4 0 0 0 12 17h22a3.5 3.5 0 0 0 0-3z"/><rect x="8" y="32" width="14" height="8" rx="1.5"/><rect x="26" y="32" width="14" height="8" rx="1.5"/><circle cx="37" cy="36" r="1.2" fill="currentColor" stroke="none"/><path d="M15 24v8" stroke-dasharray="2 2"/><path d="M33 24v8" stroke-dasharray="2 2"/><path d="M22 36h4"/><path d="M24 17v3M20 20l4 3 4-3"/></svg><p>Cloud + On-Premise<br>Orchestration unifiée</p></div></div>
+    </div>
+    <div class="tab-panel" id="tab-onprem">
+      <div class="panel-left">
+        <h3>Déploiement On-Premise</h3>
+        <p>Installation complète dans vos datacenters. Données 100% sous contrôle, jamais exposées à l'extérieur. Idéal pour le secteur public et la santé.</p>
+        <div class="pfeats"><div class="pf">Isolation réseau totale</div><div class="pf">Isolation applicative totale</div><div class="pf">Zéro dépendance externe</div><div class="pf">Déploiement en jours</div></div>
+      </div>
+      <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="12" rx="2"/><rect x="6" y="26" width="36" height="12" rx="2"/><circle cx="37" cy="16" r="2.5" fill="currentColor" stroke="none"/><circle cx="37" cy="32" r="2.5" fill="currentColor" stroke="none"/></svg><p>Données 100% dans<br>votre périmètre</p></div></div>
+    </div>
+    <div class="cs" style="justify-content:center;margin-top:24px;">
+      <span class="cs-item r">✗ Zéro dépendance externe</span><span class="cs-item g">✓ Compatible votre stack</span><span class="cs-item o">✓ Déploiement en jours</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DT ═══ -->
+<section id="dt" class="reveal">
+  <div class="wrap">
+    <div class="dt-head">
+      <div class="pill">Complémentarité</div>
+      <h2>iD4Connect ne remplace pas vos outils.<br><span class="o">Il les rend meilleurs.</span></h2>
+      <p>Vous avez déjà une infrastructure en place. iD4Connect s'y insère sans tout réarchitecturer, sans formation longue, sans migration de données.</p>
+    </div>
+    <div class="dt-grid">
+      <div class="dt-card reveal" onclick="openCompModal('bi')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/><path d="M2 9L6 6l4 1 4-4"/></svg></div><div><div class="dt-tool-name">Votre outil BI</div><div class="dt-tool-sub">Tableaux de bord alimentés en batch</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">BI temps réel</div><div class="dt-result-sub">Dashboards live, sans DWH ni pipeline à maintenir en amont</div></div>
+      </div>
+      <div class="dt-card reveal" onclick="openCompModal('siem')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg></div><div><div class="dt-tool-name">Votre SIEM / EDR</div><div class="dt-tool-sub">Logs bruts, corrélation limitée</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Détection enrichie</div><div class="dt-result-sub">Contexte métier sur chaque alerte, corrélation cross-sources en transit</div></div>
+      </div>
+      <div class="dt-card reveal" onclick="openCompModal('crm')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="5" height="4" rx="1"/><rect x="9" y="3" width="5" height="4" rx="1"/><rect x="2" y="9" width="5" height="4" rx="1"/><rect x="9" y="9" width="5" height="4" rx="1"/><path d="M4.5 7v2M11.5 7v2M7 5h2M7 11h2"/></svg></div><div><div class="dt-tool-name">Votre CRM / ERP</div><div class="dt-tool-sub">Données cloisonnées par outil</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Vision unifiée</div><div class="dt-result-sub">Croisement multi-sources instantané, sans duplication ni migration</div></div>
+      </div>
+      <div class="dt-card reveal" onclick="openCompModal('etl')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h3v8H2zM7 2h3v12H7zM12 6h2v6h-2z"/></svg></div><div><div class="dt-tool-name">Votre ETL</div><div class="dt-tool-sub">Batch, staging, latence accumulée</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Pipeline allégé</div><div class="dt-result-sub">iD4Connect absorbe les flux temps réel, votre ETL garde les traitements batch complexes</div></div>
+      </div>
+      <div class="dt-card reveal" onclick="openCompModal('dwh')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="8" cy="4" rx="5" ry="1.8"/><path d="M3 4v3c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V4"/><path d="M3 7v3c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V7"/><path d="M3 10v2c0 1 2.2 1.8 5 1.8s5-.8 5-1.8v-2"/></svg></div><div><div class="dt-tool-name">Votre Data Warehouse</div><div class="dt-tool-sub">Données centralisées, schéma figé</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Insights à la source</div><div class="dt-result-sub">Données vivantes interrogées directement, sans centralisation</div></div>
+      </div>
+      <div class="dt-card reveal" onclick="openCompModal('esb')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="6" width="4" height="4" rx="1"/><rect x="11" y="6" width="4" height="4" rx="1"/><rect x="6" y="3" width="4" height="4" rx="1"/><rect x="6" y="9" width="4" height="4" rx="1"/><path d="M5 8h1M10 8h1M8 7V5M8 9v2"/></svg></div><div><div class="dt-tool-name">Votre ESB / Middleware</div><div class="dt-tool-sub">Transport applicatif, sans intelligence data</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Transport intelligent</div><div class="dt-result-sub">Transformation sémantique en transit, logique métier embarquée</div></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:12px;font-size:11px;color:var(--t4);">Cliquez sur un outil pour découvrir le détail</p>
+    <div class="dt-note">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="7" x2="8" y2="11" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
+      <span><strong>Votre équipe garde ses outils.</strong> iD4Connect s'intègre en quelques jours, sans migration de données, sans formation longue, sans risque.</span>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ SOV — REVU ═══ -->
 <section id="sov" class="reveal">
   <div class="wrap">
@@ -613,97 +704,6 @@ h1.hero-h1 .line{display:block;}
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ═══ AGNOSTIC ═══ -->
-<section id="agnostic" class="reveal">
-  <div class="wrap">
-    <div class="center-head">
-      <div class="pill">Déploiement Agnostique</div>
-      <h2 class="sec-title">Installez-le là où vous êtes déjà.</h2>
-      <p class="sec-sub">On-premise, cloud privé, multi-cloud : iD4Connect s'adapte à votre infrastructure sans migration ni refonte.</p>
-    </div>
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="cloud"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12.5 10a3 3 0 0 0-2.9-3.8 5 5 0 0 0-9.1 2.3A2.5 2.5 0 0 0 2 13.5h10.5a2 2 0 0 0 0-3.5z"/></svg>Cloud</button>
-      <button class="tab-btn" data-tab="hybrid"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>Hybride</button>
-      <button class="tab-btn" data-tab="onprem"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="4" rx="1"/><rect x="2" y="9" width="12" height="4" rx="1"/><circle cx="12.5" cy="5" r=".8" fill="currentColor" stroke="none"/><circle cx="12.5" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>On-Premise</button>
-    </div>
-    <div class="tab-panel active" id="tab-cloud">
-      <div class="panel-left">
-        <h3>Déploiement Cloud</h3>
-        <p>Compatible avec les principaux cloud providers, en mode souverain. Vos DataCells s'exécutent dans votre tenant, pas dans le nôtre.</p>
-        <div class="pfeats"><div class="pf">Multi-cloud natif (AWS, Azure, GCP)</div><div class="pf">Pas de vendor lock-in</div><div class="pf">Scalabilité instantanée</div><div class="pf">SLA 99,9% garanti</div></div>
-      </div>
-      <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M38 30a9 9 0 0 0-8.7-11.4 15 15 0 0 0-27.3 6.9A7.5 7.5 0 0 0 6 40.5h31.5a6 6 0 0 0 .5-10.5z"/></svg><p>Infrastructure cloud<br>Données dans votre tenant</p></div></div>
-    </div>
-    <div class="tab-panel" id="tab-hybrid">
-      <div class="panel-left">
-        <h3>Architecture Hybride</h3>
-        <p>Combinez on-premise et cloud selon la sensibilité de vos données. Une seule orchestration via DataGraph, plusieurs environnements.</p>
-        <div class="pfeats"><div class="pf">DataGraph unifié sur tous les environnements</div><div class="pf">Politique de données granulaire</div><div class="pf">Migration progressive, sans coupure</div><div class="pf">Données sensibles on-premise, flux légers en cloud</div></div>
-      </div>
-      <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 14a5 5 0 0 0-4.9-4 8 8 0 0 0-15 2.5A4 4 0 0 0 12 17h22a3.5 3.5 0 0 0 0-3z"/><rect x="8" y="32" width="14" height="8" rx="1.5"/><rect x="26" y="32" width="14" height="8" rx="1.5"/><circle cx="37" cy="36" r="1.2" fill="currentColor" stroke="none"/><path d="M15 24v8" stroke-dasharray="2 2"/><path d="M33 24v8" stroke-dasharray="2 2"/><path d="M22 36h4"/><path d="M24 17v3M20 20l4 3 4-3"/></svg><p>Cloud + On-Premise<br>Orchestration unifiée</p></div></div>
-    </div>
-    <div class="tab-panel" id="tab-onprem">
-      <div class="panel-left">
-        <h3>Déploiement On-Premise</h3>
-        <p>Installation complète dans vos datacenters. Données 100% sous contrôle, jamais exposées à l'extérieur. Idéal pour le secteur public et la santé.</p>
-        <div class="pfeats"><div class="pf">Isolation réseau totale</div><div class="pf">Isolation applicative totale</div><div class="pf">Zéro dépendance externe</div><div class="pf">Déploiement en jours</div></div>
-      </div>
-      <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="12" rx="2"/><rect x="6" y="26" width="36" height="12" rx="2"/><circle cx="37" cy="16" r="2.5" fill="currentColor" stroke="none"/><circle cx="37" cy="32" r="2.5" fill="currentColor" stroke="none"/></svg><p>Données 100% dans<br>votre périmètre</p></div></div>
-    </div>
-    <div class="cs" style="justify-content:center;margin-top:24px;">
-      <span class="cs-item r">✗ Zéro dépendance externe</span><span class="cs-item g">✓ Compatible votre stack</span><span class="cs-item o">✓ Déploiement en jours</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ DT ═══ -->
-<section id="dt" class="reveal">
-  <div class="wrap">
-    <div class="dt-head">
-      <div class="pill">Complémentarité</div>
-      <h2>iD4Connect ne remplace pas vos outils.<br><span class="o">Il les rend meilleurs.</span></h2>
-      <p>Vous avez déjà une infrastructure en place. iD4Connect s'y insère sans tout réarchitecturer, sans formation longue, sans migration de données.</p>
-    </div>
-    <div class="dt-grid">
-      <div class="dt-card reveal" onclick="openCompModal('bi')">
-        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/><path d="M2 9L6 6l4 1 4-4"/></svg></div><div><div class="dt-tool-name">Votre outil BI</div><div class="dt-tool-sub">Tableaux de bord alimentés en batch</div></div></div></div>
-        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
-        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">BI temps réel</div><div class="dt-result-sub">Dashboards live, sans DWH ni pipeline à maintenir en amont</div></div>
-      </div>
-      <div class="dt-card reveal" onclick="openCompModal('siem')">
-        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg></div><div><div class="dt-tool-name">Votre SIEM / EDR</div><div class="dt-tool-sub">Logs bruts, corrélation limitée</div></div></div></div>
-        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
-        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Détection enrichie</div><div class="dt-result-sub">Contexte métier sur chaque alerte, corrélation cross-sources en transit</div></div>
-      </div>
-      <div class="dt-card reveal" onclick="openCompModal('crm')">
-        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="5" height="4" rx="1"/><rect x="9" y="3" width="5" height="4" rx="1"/><rect x="2" y="9" width="5" height="4" rx="1"/><rect x="9" y="9" width="5" height="4" rx="1"/><path d="M4.5 7v2M11.5 7v2M7 5h2M7 11h2"/></svg></div><div><div class="dt-tool-name">Votre CRM / ERP</div><div class="dt-tool-sub">Données cloisonnées par outil</div></div></div></div>
-        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
-        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Vision unifiée</div><div class="dt-result-sub">Croisement multi-sources instantané, sans duplication ni migration</div></div>
-      </div>
-      <div class="dt-card reveal" onclick="openCompModal('etl')">
-        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h3v8H2zM7 2h3v12H7zM12 6h2v6h-2z"/></svg></div><div><div class="dt-tool-name">Votre ETL</div><div class="dt-tool-sub">Batch, staging, latence accumulée</div></div></div></div>
-        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
-        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Pipeline allégé</div><div class="dt-result-sub">iD4Connect absorbe les flux temps réel, votre ETL garde les traitements batch complexes</div></div>
-      </div>
-      <div class="dt-card reveal" onclick="openCompModal('dwh')">
-        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="8" cy="4" rx="5" ry="1.8"/><path d="M3 4v3c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V4"/><path d="M3 7v3c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V7"/><path d="M3 10v2c0 1 2.2 1.8 5 1.8s5-.8 5-1.8v-2"/></svg></div><div><div class="dt-tool-name">Votre Data Warehouse</div><div class="dt-tool-sub">Données centralisées, schéma figé</div></div></div></div>
-        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
-        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Insights à la source</div><div class="dt-result-sub">Données vivantes interrogées directement, sans centralisation</div></div>
-      </div>
-      <div class="dt-card reveal" onclick="openCompModal('esb')">
-        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="6" width="4" height="4" rx="1"/><rect x="11" y="6" width="4" height="4" rx="1"/><rect x="6" y="3" width="4" height="4" rx="1"/><rect x="6" y="9" width="4" height="4" rx="1"/><path d="M5 8h1M10 8h1M8 7V5M8 9v2"/></svg></div><div><div class="dt-tool-name">Votre ESB / Middleware</div><div class="dt-tool-sub">Transport applicatif, sans intelligence data</div></div></div></div>
-        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
-        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Transport intelligent</div><div class="dt-result-sub">Transformation sémantique en transit, logique métier embarquée</div></div>
-      </div>
-    </div>
-    <p style="text-align:center;margin-top:12px;font-size:11px;color:var(--t4);">Cliquez sur un outil pour découvrir le détail</p>
-    <div class="dt-note">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="7" x2="8" y2="11" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
-      <span><strong>Votre équipe garde ses outils.</strong> iD4Connect s'intègre en quelques jours, sans migration de données, sans formation longue, sans risque.</span>
-    </div>
   </div>
 </section>
 
