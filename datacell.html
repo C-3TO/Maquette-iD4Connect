@@ -180,7 +180,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <section id="dc-hero">
   <div class="hero-text">
     <div class="pill">DataCell</div>
-    <h1>Une unité de traitement autonome.<br><span class="o" id="feat-count">201+</span> fonctionnalités intégrées.</h1>
+    <h1>Une unité de traitement autonome.<br><span class="o" id="feat-count">200+</span> fonctionnalités intégrées.</h1>
     <p>Posée dans votre infrastructure, les données <strong>transitent</strong>, ne sont jamais copiées ni stockées.</p>
   </div>
 </section>
@@ -222,7 +222,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
     <div class="dc-card">
       <div class="dc-header"><span>DataCell</span></div>
       <div class="dc-stats">
-        <div class="dc-stat"><div class="sv" id="dc-counter">201+</div><div class="sl">Fonctionnalités</div></div>
+        <div class="dc-stat"><div class="sv" id="dc-counter">200+</div><div class="sl">Fonctionnalités</div></div>
         <div class="dc-stat"><div class="sv dim">0</div><div class="sl dim">Stockage</div></div>
       </div>
       <div class="dc-grid" id="dc-grid"></div>
@@ -397,11 +397,9 @@ function renderGrid() {
     const div = document.createElement('div');
     div.className = 'cat-card' + (isActive?' active':'');
     div.style.cssText = `background:${isActive?catBg(cat):cardBg()};border-color:${isActive?cat.color:'var(--border)'};`;
+    const displayItems = cat.items.slice(0, -1);
     const itemsHtml = isActive
-      ? cat.items.map((item,j)=>{
-          const isMore = j===cat.items.length-1;
-          return `<div class="cat-item${isMore?' more':''}">${!isMore?`<span class="cat-ck">✓</span>`:''}${item}</div>`;
-        }).join('')
+      ? displayItems.map(item=>`<div class="cat-item"><span class="cat-ck">✓</span>${item}</div>`).join('') + '<div class="cat-item more">...</div>'
       : `<div class="cat-preview">${cat.items[0]} · ${cat.items[1]}…</div>`;
     div.innerHTML = `
       <div class="cat-top">
@@ -409,7 +407,6 @@ function renderGrid() {
           <span class="cat-ico">${cat.icon}</span>
           <span class="cat-name">${cat.label}</span>
         </div>
-        <span class="cat-badge" style="background:${cat.color}">${cat.count}</span>
       </div>
       ${isActive?`<div class="cat-items">${itemsHtml}</div>`:itemsHtml}`;
     div.addEventListener('click', ()=>{ active = active===i ? null : i; renderGrid(); });
@@ -428,8 +425,8 @@ window.addEventListener('load', async ()=>{
   document.documentElement.setAttribute('data-theme',t);
   document.body.setAttribute('data-theme',t);
   document.addEventListener('themeChange', e=>{ document.documentElement.setAttribute('data-theme',e.detail); document.body.setAttribute('data-theme',e.detail); renderGrid(); });
-  animCount(document.getElementById('dc-counter'), total, '+');
-  animCount(document.getElementById('feat-count'), total, '+');
+  animCount(document.getElementById('dc-counter'), 200, '+');
+  animCount(document.getElementById('feat-count'), 200, '+');
   renderGrid();
   const io = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);} }); },{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
