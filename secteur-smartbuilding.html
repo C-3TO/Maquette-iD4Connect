@@ -6,6 +6,7 @@
 <title>Smart Building · iD4Connect</title>
 <meta name="description" content="iD4Connect connecte tous vos équipements bâtiment et en extrait des insights en temps réel, directement sur site.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--green-em:#10B981;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue:#2563EB;--blue-pale:#EFF6FF;--purple:#8B5CF6;--purple-pale:#F5F3FF;--cyan:#06B6D4;--amber:#F59E0B;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
@@ -24,7 +25,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .hero-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center;}
 .hero-visual{display:flex;align-items:center;justify-content:center;position:relative;min-height:320px;}
 .hero-visual::before{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;}
-.hero-icon{width:160px;height:160px;color:var(--orange);position:relative;z-index:1;animation:iconFloat 3s ease-in-out infinite alternate;}
+.hero-icon{width:160px;height:160px;color:var(--orange);position:relative;z-index:1;will-change:transform;animation:iconFloat 3s ease-in-out infinite alternate;}
 @keyframes iconFloat{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
 .hero-right .pill{margin-bottom:14px;}
 .hero-right h1{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:var(--t9);margin-bottom:16px;}
@@ -36,14 +37,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-g{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:transparent;color:var(--t7);font-family:var(--font);font-size:14px;font-weight:500;border-radius:var(--r-sm);text-decoration:none;border:1px solid var(--border-s);cursor:pointer;transition:all var(--tr);}
 .btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero-visual{min-height:200px;}}
-@media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}}
+@media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}.hero-ctas a{justify-content:center;}.cta-btns{flex-direction:column;}.cta-btns a{justify-content:center;}}
 #cas-usage{padding:96px 0;background:var(--bg);}
 .section-head{text-align:center;margin-bottom:44px;}
 .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);}
 .section-head h2 .o{color:var(--orange);}
 .section-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
 .uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;}
+.uc-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s;contain:layout style;}
 .uc-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.12),0 8px 28px rgba(249,115,22,.10);transform:translateY(-3px);}
 .uc-head{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;border-bottom:1px solid var(--border);background:var(--section);}
 .uc-head-left{display:flex;align-items:center;gap:8px;}
@@ -179,7 +180,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <h2>Ce qu'iD4Connect fait concrètement<br><span class="o">dans votre parc immobilier.</span></h2>
     </div>
     <div class="uc-grid" id="uc-grid"></div>
-    <p class="section-hint">Cliquez sur une DataCell pour explorer le détail</p>
+
   </div>
 </section>
 
@@ -215,7 +216,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   <div class="wrap">
     <div class="cta-box">
       <div><h2>Votre bâtiment est déjà intelligent.<br>Il manque juste l'interprète.</h2><p>Connectez vos équipements existants en quelques jours. Pas de remplacement, pas de nouveau middleware.</p></div>
-      <div class="cta-btns"><a href="contact.html" class="btn-primary">Demander une démo →</a><a href="#" class="btn-secondary">Télécharger la fiche</a></div>
+      <div class="cta-btns"><a href="contact.html" class="btn-primary">Demander une démo →</a></div>
     </div>
   </div>
 </section>
@@ -321,7 +322,8 @@ const POPUP_DATA={
 };
 
 function renderUC(){
-  document.getElementById('uc-grid').innerHTML=USE_CASES.map(uc=>`
+  const grid=document.getElementById('uc-grid');if(!grid)return;
+  grid.innerHTML=USE_CASES.map(uc=>`
     <div class="uc-card" onclick="openModal('${uc.id}')">
       <div class="uc-head"><div class="uc-head-left"><span class="uc-head-ico">${uc.icon}</span><span class="uc-head-lbl">DataCell</span></div><div class="uc-dot"></div></div>
       <div class="uc-body">
@@ -340,6 +342,7 @@ let currentPopup=null,currentTab='sources';
 function openModal(id){currentPopup=id;currentTab='sources';const ov=document.getElementById('md-overlay');ov.classList.add('open');renderModal();requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('active')));document.body.style.overflow='hidden';}
 function closeModal(){const ov=document.getElementById('md-overlay');ov.classList.remove('active');setTimeout(()=>{ov.classList.remove('open');document.body.style.overflow='';},280);}
 document.getElementById('md-overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('md-overlay').classList.contains('open'))closeModal();});
 
 function renderModal(){
   const uc=USE_CASES.find(u=>u.id===currentPopup),data=POPUP_DATA[currentPopup];
@@ -368,7 +371,7 @@ function renderTabContent(){
 }
 
 renderUC();
-async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
+async function loadComp(id,file){try{const r=await fetch(file);if(!r.ok)return;const html=await r.text();const el=document.getElementById(id);if(!el)return;el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
 window.addEventListener('load',async()=>{
   await loadComp('hdr-ph','header.html');await loadComp('ftr-ph','footer.html');
   document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
