@@ -38,7 +38,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .cmp-tab.active{background:var(--orange);color:white;border-color:var(--orange);box-shadow:0 4px 14px rgba(249,115,22,.3);}
 .cmp-tab.active svg{color:white;}
 
-.cmp-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);animation:cmpFade .22s ease;}
+.cmp-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);animation:cmpFade .22s ease;max-width:640px;margin:0 auto;}
 @keyframes cmpFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 .cmp-cat-head{padding:28px 32px 20px;text-align:center;border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:center;gap:8px;}
 .cmp-cat-ico{width:40px;height:40px;border-radius:var(--r);background:var(--section);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;}
@@ -46,13 +46,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .cmp-cat-name{font-size:18px;font-weight:800;color:var(--t9);}
 .cmp-cat-tag{font-size:12.5px;color:var(--t4);font-style:italic;}
 
-.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
-.cmp-col{padding:24px 28px;}
-.cmp-col.us{background:rgba(249,115,22,.03);border-left:1px solid var(--border);}
-[data-theme="dark"] .cmp-col.us{background:rgba(249,115,22,.05);}
-.cmp-col-lbl{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;}
-.cmp-col-lbl.them{color:var(--t4);}
-.cmp-col-lbl.us{color:var(--orange);}
+.cmp-section{padding:20px 28px;}
+.cmp-section-lbl{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.cmp-section-lbl.them{color:var(--red);}
+.cmp-section-lbl.them::before{content:'';width:18px;height:2px;background:var(--red);border-radius:2px;opacity:.5;}
+.cmp-section-lbl.us{color:var(--green);}
+.cmp-section-lbl.us::before{content:'';width:18px;height:2px;background:var(--green);border-radius:2px;opacity:.5;}
 
 .cmp-item{display:flex;align-items:flex-start;gap:9px;padding:8px 11px;border-radius:var(--r-sm);margin-bottom:6px;}
 .cmp-item.bad{background:var(--red-pale);border:1px solid var(--red-border);}
@@ -63,6 +62,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .cmp-item.good svg{color:var(--green-em);}
 .cmp-item.neutral svg{color:var(--t4);}
 .cmp-item-text{font-size:12.5px;color:var(--t7);line-height:1.45;}
+
+.cmp-transition{display:flex;align-items:center;justify-content:center;gap:10px;padding:6px 28px;background:var(--section);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.cmp-transition-line{flex:1;height:1px;background:var(--border);}
+.cmp-transition-badge{display:inline-flex;align-items:center;gap:6px;background:var(--orange);color:white;font-size:10px;font-weight:800;padding:5px 14px;border-radius:var(--r-pill);letter-spacing:.5px;white-space:nowrap;box-shadow:0 2px 8px rgba(249,115,22,.25);}
+.cmp-transition-badge svg{width:12px;height:12px;}
 
 .cmp-verdict{margin:0 24px 24px;padding:14px 18px;background:var(--orange-pale);border:1.5px solid var(--orange-border);border-radius:var(--r);display:flex;align-items:flex-start;gap:12px;}
 .cmp-verdict-ico{width:16px;height:16px;flex-shrink:0;margin-top:1px;color:var(--orange);}
@@ -75,9 +79,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .sp:last-child{border-right:none;}
 
 @media(max-width:600px){
-  .cmp-grid{grid-template-columns:1fr;}
-  .cmp-col.us{border-left:none;border-top:1px solid var(--border);}
-  .cmp-col{padding:18px 20px;}
+  .cmp-section{padding:16px 18px;}
   .strip{border-radius:var(--r);flex-direction:column;}
   .sp{border-right:none;border-bottom:1px solid var(--green-border);text-align:center;}
   .sp:last-child{border-bottom:none;}
@@ -319,7 +321,7 @@ const SVG_CHECK=`<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stro
 const SVG_CROSS=`<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg>`;
 const SVG_ARR=`<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>`;
 function iconSvg(type){if(type==='bad')return SVG_CROSS;if(type==='good')return SVG_CHECK;return SVG_ARR;}
-function renderCat(id){const cat=CATS[id];const p=document.getElementById('cmp-panel');if(!p)return;p.innerHTML=`<div class="cmp-card"><div class="cmp-cat-head"><div class="cmp-cat-ico">${CAT_ICONS[id]}</div><div class="cmp-cat-name">${cat.label}</div><div class="cmp-cat-tag">${cat.tag}</div></div><div class="cmp-grid"><div class="cmp-col them"><div class="cmp-col-lbl them">${cat.label}</div>${cat.them.map(i=>`<div class="cmp-item ${i.type}">${iconSvg(i.type)}<span class="cmp-item-text">${i.text}</span></div>`).join('')}</div><div class="cmp-col us"><div class="cmp-col-lbl us">iD4Connect</div>${cat.us.map(i=>`<div class="cmp-item ${i.type}">${iconSvg(i.type)}<span class="cmp-item-text">${i.text}</span></div>`).join('')}</div></div><div class="cmp-verdict"><svg class="cmp-verdict-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2a4 4 0 0 1 2.5 7.1V11a.5.5 0 0 1-.5.5h-4A.5.5 0 0 1 5.5 11V9.1A4 4 0 0 1 8 2z"/><path d="M6 13h4M6.5 14.5h3"/></svg><span class="cmp-verdict-text">${cat.verdict}</span></div></div>`;}
+function renderCat(id){const cat=CATS[id];const p=document.getElementById('cmp-panel');if(!p)return;p.innerHTML=`<div class="cmp-card"><div class="cmp-cat-head"><div class="cmp-cat-ico">${CAT_ICONS[id]}</div><div class="cmp-cat-name">${cat.label}</div><div class="cmp-cat-tag">${cat.tag}</div></div><div class="cmp-section"><div class="cmp-section-lbl them">Limites</div>${cat.them.map(i=>`<div class="cmp-item ${i.type}">${iconSvg(i.type)}<span class="cmp-item-text">${i.text}</span></div>`).join('')}</div><div class="cmp-transition"><div class="cmp-transition-line"></div><div class="cmp-transition-badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M3 7l3 3 3-3"/></svg>Avec iD4Connect</div><div class="cmp-transition-line"></div></div><div class="cmp-section"><div class="cmp-section-lbl us">Résultat</div>${cat.us.map(i=>`<div class="cmp-item ${i.type}">${iconSvg(i.type)}<span class="cmp-item-text">${i.text}</span></div>`).join('')}</div><div class="cmp-verdict"><svg class="cmp-verdict-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2a4 4 0 0 1 2.5 7.1V11a.5.5 0 0 1-.5.5h-4A.5.5 0 0 1 5.5 11V9.1A4 4 0 0 1 8 2z"/><path d="M6 13h4M6.5 14.5h3"/></svg><span class="cmp-verdict-text">${cat.verdict}</span></div></div>`;}
 document.querySelectorAll('.cmp-tab').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.cmp-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderCat(btn.dataset.cat);});});
 renderCat('etl');
 
