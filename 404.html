@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>404 · Page introuvable · iD4Connect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--font:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--hh:64px;}
@@ -132,13 +133,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <div class="term">
         <div class="term-row"><span class="tp">$</span> datacell --route <span id="typed-url"></span></div>
         <div class="term-row"><span class="tok">~</span> Scanning flux entrants...</div>
-        <div class="term-row"><span class="tok">~</span> 847 routes actives analysees</div>
+        <div class="term-row"><span class="tok">~</span> 847 routes actives analysées</div>
         <div class="term-row"><span class="terr">x</span> ERR_NOT_FOUND : aucune route<span class="cur"></span></div>
       </div>
 
       <div class="msg">
         <h1>Ce flux n'existe pas.<br><span class="o">Mais les autres, oui.</span></h1>
-        <p>La page demandee ne fait pas partie de nos routes actives. Voici les chemins que nos DataCells connaissent.</p>
+        <p>La page demandée ne fait pas partie de nos routes actives. Voici les chemins que nos DataCells connaissent.</p>
       </div>
 
       <div class="links">
@@ -152,7 +153,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
       <div class="cta-wrap">
         <a href="index.html" class="btn-back">
           <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 12L6 8l4-4"/></svg>
-          Retour a l'accueil
+          Retour à l'accueil
         </a>
       </div>
     </div>
@@ -186,7 +187,7 @@ function tick(){document.getElementById('ts').textContent=new Date().toISOString
 tick();setInterval(tick,1000);
 
 // Header/footer
-async function loadComp(id,file){try{const r=await fetch(file);const html=await r.text();const el=document.getElementById(id);el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
+async function loadComp(id,file){try{const r=await fetch(file);if(!r.ok)return;const html=await r.text();const el=document.getElementById(id);if(!el)return;el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}}
 window.addEventListener('load',async()=>{
   await loadComp('hdr-ph','header.html');
   await loadComp('ftr-ph','footer.html');
