@@ -30,37 +30,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-g:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
 
 /* ═══ HERO ═══ */
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:
-    radial-gradient(ellipse 900px 700px at 10% 15%, rgba(249,115,22,.18) 0%, transparent 65%),
-    radial-gradient(ellipse 700px 600px at 90% 75%, rgba(249,115,22,.12) 0%, transparent 65%);
-  animation:amb-shift 10s ease-in-out infinite alternate;
-}
-[data-theme="light"] body::before{
-  background:
-    radial-gradient(ellipse 900px 700px at 10% 15%, rgba(249,115,22,.15) 0%, transparent 65%),
-    radial-gradient(ellipse 700px 600px at 90% 75%, rgba(249,115,22,.10) 0%, transparent 65%);
-  animation:amb-shift 10s ease-in-out infinite alternate;
-}
-@keyframes amb-shift{
-  0%{opacity:.7;transform:scale(1) translate(0,0);}
-  50%{opacity:1;transform:scale(1.08) translate(20px,-10px);}
-  100%{opacity:.75;transform:scale(.97) translate(-10px,15px);}
-}
-
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 900px 700px at 10% 15%, rgba(249,115,22,.18) 0%, transparent 65%),radial-gradient(ellipse 700px 600px at 90% 75%, rgba(249,115,22,.12) 0%, transparent 65%);animation:amb-shift 10s ease-in-out infinite alternate;}
+[data-theme="light"] body::before{background:radial-gradient(ellipse 900px 700px at 10% 15%, rgba(249,115,22,.15) 0%, transparent 65%),radial-gradient(ellipse 700px 600px at 90% 75%, rgba(249,115,22,.10) 0%, transparent 65%);animation:amb-shift 10s ease-in-out infinite alternate;}
+@keyframes amb-shift{0%{opacity:.7;transform:scale(1) translate(0,0);}50%{opacity:1;transform:scale(1.08) translate(20px,-10px);}100%{opacity:.75;transform:scale(.97) translate(-10px,15px);}}
 #hero{padding:96px 0 88px;background:transparent;position:relative;overflow:hidden;}
 #hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,var(--bg));pointer-events:none;}
-
 #hero .hero-inner > div:last-child{position:relative;}
-#hero .hero-inner > div:last-child::before{
-  content:'';position:absolute;inset:-60px;
-  background:radial-gradient(ellipse 85% 85% at 50% 50%, rgba(249,115,22,.22) 0%, transparent 70%);
-  pointer-events:none;z-index:0;
-  animation:halo-pulse 4s ease-in-out infinite alternate;
-}
+#hero .hero-inner > div:last-child::before{content:'';position:absolute;inset:-60px;background:radial-gradient(ellipse 85% 85% at 50% 50%, rgba(249,115,22,.22) 0%, transparent 70%);pointer-events:none;z-index:0;animation:halo-pulse 4s ease-in-out infinite alternate;}
 @keyframes halo-pulse{0%{opacity:.5;transform:scale(.92);}100%{opacity:1;transform:scale(1.08);}}
-
 .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;}
 .hero-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 13px 5px 8px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-pill);font-size:12px;font-weight:600;color:var(--t7);margin-bottom:28px;box-shadow:var(--sh-sm);}
 .hero-badge .live-dot{width:7px;height:7px;background:var(--orange);border-radius:50%;animation:blink 2s ease-in-out infinite;}
@@ -82,112 +59,111 @@ h1.hero-h1 .line{display:block;}
 .f-node.cell{background:var(--orange-pale);color:var(--orange);border:1px solid var(--orange-border);padding:8px 16px;}
 .f-node.out{background:var(--green-pale);color:var(--green);border:1px solid var(--green-border);}
 .f-conn{flex:1;height:2px;position:relative;overflow:hidden;background:var(--border);margin:0 4px;}
-
-.f-conn::after{
-  content:'';position:absolute;top:-1px;width:55%;height:4px;border-radius:2px;
-  background:linear-gradient(90deg,transparent,var(--orange),transparent);
-  animation:flow-fwd 2.2s ease-in-out infinite;
-}
-.f-conn::before{
-  content:'';position:absolute;top:-1px;width:40%;height:4px;border-radius:2px;
-  background:linear-gradient(270deg,transparent,rgba(249,115,22,.6),transparent);
-  animation:flow-bwd 2.2s ease-in-out infinite;
-  animation-delay:1.1s;
-}
+.f-conn::after{content:'';position:absolute;top:-1px;width:55%;height:4px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--orange),transparent);animation:flow-fwd 2.2s ease-in-out infinite;}
+.f-conn::before{content:'';position:absolute;top:-1px;width:40%;height:4px;border-radius:2px;background:linear-gradient(270deg,transparent,rgba(249,115,22,.6),transparent);animation:flow-bwd 2.2s ease-in-out infinite;animation-delay:1.1s;}
 .flow-row:nth-child(2) .f-conn::after{animation-delay:.7s;}
 .flow-row:nth-child(2) .f-conn::before{animation-delay:1.8s;}
 .flow-row:nth-child(3) .f-conn::after{animation-delay:1.4s;}
 .flow-row:nth-child(3) .f-conn::before{animation-delay:2.5s;}
-
 @keyframes flow-fwd{0%{left:-55%;opacity:0;}10%{opacity:1;}90%{opacity:1;}100%{left:100%;opacity:0;}}
 @keyframes flow-bwd{0%{right:-40%;left:auto;opacity:0;}10%{opacity:.8;}90%{opacity:.8;}100%{right:100%;left:auto;opacity:0;}}
-
 .flow-card-foot{padding:11px 16px;border-top:1px solid var(--border);background:var(--green-pale);font-size:12px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:6px;}
 @media(max-width:1020px){.hero-inner{grid-template-columns:1fr;gap:44px;}.flow-card{max-width:480px;}}
 @media(max-width:600px){.wrap{padding:0 20px;}.hero-ctas{flex-direction:column;}.hero-ctas a{justify-content:center;}}
 
+/* ═══ SOV — NOUVEAU ═══ */
 #sov{padding:96px 0;background:var(--card);}
-.sov-layout{display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:stretch;}
-.sov-left{display:flex;flex-direction:column;}
-.sov-left .pill{margin-bottom:14px;align-self:flex-start;}
-.sov-left h2{font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.12;margin-bottom:10px;color:var(--t9);}
-.sov-left .sov-intro{font-size:14px;color:var(--t5);line-height:1.7;margin-bottom:20px;max-width:480px;}
-.sov-args{display:flex;flex-direction:column;gap:10px;flex:1;}
-.sov-arg{
-  display:flex;align-items:flex-start;gap:16px;
-  padding:20px;
+
+.sov-args-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-bottom:32px;
+}
+.sov-arg2{
   background:var(--bg);
   border:1.5px solid var(--border);
-  border-radius:var(--r);
-  flex:1;
-  transition:border-color var(--tr),box-shadow var(--tr),background var(--tr);
+  border-radius:var(--r-lg);
+  padding:28px 24px;
+  display:flex;flex-direction:column;gap:6px;
+  transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);
+  position:relative;overflow:hidden;
 }
-.sov-arg:hover{
-  border-color:var(--orange);
-  background:var(--card);
-  box-shadow:0 0 0 4px rgba(249,115,22,.08), 0 8px 28px rgba(249,115,22,.12);
+.sov-arg2::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--orange),var(--orange-d));
+  opacity:0;transition:opacity var(--tr);
 }
-
-.sov-arg-ico{
-  width:36px;height:36px;flex-shrink:0;
-  background:var(--orange-pale);border:1px solid var(--orange-border);border-radius:var(--r-sm);
-  display:flex;align-items:center;justify-content:center;
-  margin-top:1px;
+.sov-arg2:hover{
+  border-color:var(--orange-border);
+  box-shadow:0 8px 32px rgba(249,115,22,.10);
+  transform:translateY(-3px);
 }
-.sov-arg-ico svg{width:16px;height:16px;color:var(--orange);}
-
-.sov-arg-body{flex:1;}
-.sov-arg-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--t4);margin-bottom:4px;display:block;}
-.sov-arg-title{font-size:14px;font-weight:700;color:var(--t9);margin-bottom:4px;line-height:1.3;}
-.sov-arg-desc{font-size:12.5px;color:var(--t5);line-height:1.55;}
-
-.sov-arg-stat{
-  text-align:right;flex-shrink:0;width:80px;padding-top:2px;
-}
-.sov-arg-stat .n{display:block;font-size:1.5rem;font-weight:900;letter-spacing:-1px;line-height:1;color:var(--orange);}
-.sov-arg-stat .l{display:block;font-size:10px;font-weight:600;color:var(--t4);line-height:1.4;margin-top:3px;}
-
-.sov-right{display:flex;flex-direction:column;gap:8px;}
-.sov-alert{
-  background:var(--red-pale);border:1px solid var(--red-border);
-  border-radius:var(--r);padding:16px;
-  flex:1;display:flex;flex-direction:column;
-}
-.sov-alert-head{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
-.sov-alert-head svg{width:13px;height:13px;color:var(--red);flex-shrink:0;}
-.sov-alert-head span{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--red);}
-.sov-alert-body{font-size:12.5px;color:var(--t7);line-height:1.65;margin-bottom:14px;}
-.sov-alert-body strong{color:var(--red);}
-.sov-sources{display:flex;flex-direction:column;gap:5px;flex:1;justify-content:space-between;}
-.sov-src{
-  display:flex;align-items:center;gap:10px;
-  padding:12px 14px;
-  background:rgba(220,38,38,.05);border:1px solid var(--red-border);
+.sov-arg2:hover::before{opacity:1;}
+.sov-arg2-ico{
+  width:38px;height:38px;
+  background:var(--orange-pale);border:1px solid var(--orange-border);
   border-radius:var(--r-sm);
-  text-decoration:none;
-  transition:background .2s,border-color .2s;
-  cursor:pointer;
-  flex:1;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:8px;flex-shrink:0;
 }
-.sov-src:hover{background:rgba(220,38,38,.1);border-color:rgba(220,38,38,.4);}
-.sov-src-ico{width:26px;height:26px;flex-shrink:0;background:rgba(220,38,38,.1);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;}
-.sov-src-ico svg{width:13px;height:13px;color:var(--red);}
-.sov-src-text{flex:1;min-width:0;}
-.sov-src-name{display:block;font-size:12.5px;font-weight:700;color:var(--red);line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.sov-src-ref{display:block;font-size:11px;color:rgba(220,38,38,.6);line-height:1.35;margin-top:2px;}
-.sov-src-arrow{color:rgba(220,38,38,.4);flex-shrink:0;}
-.sov-src-arrow svg{width:10px;height:10px;}
-.sov-comply{
-  padding:12px 14px;background:var(--bg);border:1px solid var(--border);
-  border-radius:var(--r);
+.sov-arg2-ico svg{width:17px;height:17px;color:var(--orange);}
+.sov-arg2-stat{font-size:2.4rem;font-weight:900;letter-spacing:-2px;line-height:1;color:var(--orange);}
+.sov-arg2-unit{font-size:11px;color:var(--t4);font-weight:500;line-height:1.4;margin-bottom:10px;}
+.sov-arg2-title{font-size:14px;font-weight:800;color:var(--t9);line-height:1.3;}
+.sov-arg2-desc{font-size:12.5px;color:var(--t5);line-height:1.6;flex:1;}
+.sov-arg2-label{display:inline-block;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);opacity:.7;}
+
+.sov-risk-band{
+  background:var(--bg);
+  border:1.5px solid var(--border);
+  border-radius:var(--r-lg);
+  display:grid;grid-template-columns:1fr 300px;
+  overflow:hidden;
 }
-.sov-comply-lbl{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--t4);display:block;margin-bottom:8px;}
-.sov-comply-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.sov-risk-left{
+  padding:28px 32px;
+  border-right:1px solid var(--border);
+}
+.sov-risk-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--red-pale);border:1px solid var(--red-border);
+  color:var(--red);
+  font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  padding:5px 12px;border-radius:var(--r-pill);
+  margin-bottom:14px;
+}
+.sov-risk-text{font-size:13.5px;color:var(--t7);line-height:1.7;}
+.sov-risk-text strong{color:var(--red);}
+.sov-comply-tags{display:flex;flex-wrap:wrap;gap:6px;}
 .ctag{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:var(--r-pill);font-size:11.5px;font-weight:600;background:var(--green-pale);border:1px solid var(--green-border);color:var(--green);}
 
-@media(max-width:960px){.sov-layout{grid-template-columns:1fr;gap:40px;}.sov-right{position:static;}}
-@media(max-width:600px){.sov-arg{gap:12px;}.sov-arg-stat{width:60px;}}
+.sov-risk-sources{padding:20px;display:flex;flex-direction:column;gap:8px;}
+.sov-risk-sources-lbl{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--t4);margin-bottom:4px;}
+.sov-src2{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;
+  background:rgba(220,38,38,.04);
+  border:1px solid var(--red-border);
+  border-radius:var(--r-sm);
+  text-decoration:none;
+  transition:background .18s,border-color .18s;
+}
+.sov-src2:hover{background:rgba(220,38,38,.09);border-color:rgba(220,38,38,.4);}
+.sov-src2-ico{width:24px;height:24px;flex-shrink:0;background:rgba(220,38,38,.08);border-radius:var(--r-xs);display:flex;align-items:center;justify-content:center;}
+.sov-src2-ico svg{width:12px;height:12px;color:var(--red);}
+.sov-src2-name{font-size:11.5px;font-weight:700;color:var(--red);line-height:1.2;}
+.sov-src2-ref{font-size:10px;color:rgba(220,38,38,.55);margin-top:1px;}
+.sov-src2-arr{width:10px;height:10px;color:rgba(220,38,38,.35);margin-left:auto;flex-shrink:0;}
 
+@media(max-width:960px){
+  .sov-args-row{grid-template-columns:1fr 1fr;}
+  .sov-risk-band{grid-template-columns:1fr;}
+  .sov-risk-left{border-right:none;border-bottom:1px solid var(--border);}
+}
+@media(max-width:600px){.sov-args-row{grid-template-columns:1fr;}}
+
+/* ═══ AGNOSTIC ═══ */
 #agnostic{padding:96px 0;background:var(--bg);}
 .center-head{text-align:center;margin-bottom:48px;}
 .center-head .sec-sub{margin:10px auto 0;max-width:520px;}
@@ -210,16 +186,15 @@ h1.hero-h1 .line{display:block;}
 .pv p{font-size:13px;color:var(--t5);line-height:1.6;}
 @media(max-width:760px){.tab-panel.active{grid-template-columns:1fr;}.panel-visual{min-height:120px;padding:24px;}}
 
-
-
+/* ═══ DT ═══ */
 #dt{padding:96px 0;background:var(--card);}
 .dt-head{text-align:center;margin-bottom:56px;}
 .dt-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--t9);margin-bottom:10px;}
 .dt-head h2 .o{color:var(--orange);}
 .dt-head p{font-size:15px;color:var(--t5);max-width:540px;margin:0 auto;line-height:1.7;}
 .dt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
-.dt-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);}
-.dt-card:hover{border-color:var(--orange-border);box-shadow:0 8px 28px rgba(249,115,22,.09);transform:translateY(-2px);}
+.dt-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);cursor:pointer;}
+.dt-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.12),0 8px 28px rgba(249,115,22,.10);transform:translateY(-3px);}
 .dt-card-top{padding:20px 18px 16px;}
 .dt-card-meta{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--t4);margin-bottom:14px;}
 .dt-tool{display:flex;align-items:center;gap:10px;margin-bottom:0;}
@@ -237,8 +212,10 @@ h1.hero-h1 .line{display:block;}
 .dt-note{background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 18px;font-size:13px;color:var(--t5);display:flex;align-items:center;gap:10px;line-height:1.6;}
 .dt-note svg{flex-shrink:0;color:var(--t4);width:14px;height:14px;}
 .dt-note strong{color:var(--t9);}
+@media(max-width:900px){.dt-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:540px){.dt-grid{grid-template-columns:1fr;}}
 
-/* MODAL COMP */
+/* ═══ MODAL COMP ═══ */
 .cm-overlay{position:fixed;inset:0;background:rgba(15,23,42,0);display:none;align-items:center;justify-content:center;z-index:1000;padding:16px;transition:background .3s ease;}
 .cm-overlay.open{display:flex;}
 .cm-overlay.active{background:rgba(15,23,42,.55);backdrop-filter:blur(6px);}
@@ -308,16 +285,9 @@ h1.hero-h1 .line{display:block;}
 [data-theme="dark"] .cm-callout-title{color:var(--orange);}
 .cm-callout-text{font-size:11.5px;color:var(--t7);line-height:1.65;}
 .cm-callout-text strong{color:var(--t9);}
-.comp-card{cursor:pointer;}
-.comp-hint{text-align:center;margin-top:12px;font-size:11px;color:var(--t4);}
 @media(max-width:600px){.cm-modal{max-height:95vh;border-radius:var(--r-lg);}.cm-header{padding:16px 16px 0;}.cm-body{padding:14px 16px 20px;}.cm-kpis,.cm-cg{grid-template-columns:1fr;}}
 
-.dt-card{cursor:pointer;}
-.dt-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.12),0 8px 28px rgba(249,115,22,.10);transform:translateY(-3px);}
-
-@media(max-width:900px){.dt-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:540px){.dt-grid{grid-template-columns:1fr;}}
-
+/* ═══ PARTNERS ═══ */
 #partners{padding:80px 0;background:var(--bg);}
 .pt-head{text-align:center;margin-bottom:52px;}
 .pt-head h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;letter-spacing:-.5px;color:var(--t9);margin-bottom:8px;}
@@ -332,6 +302,7 @@ h1.hero-h1 .line{display:block;}
 .pt-name{font-size:14px;font-weight:700;color:var(--t9);}
 .pt-tag{font-size:11px;color:var(--t4);margin-top:1px;}
 
+/* ═══ CTA ═══ */
 #cta{padding:88px 0;background:var(--orange);text-align:center;position:relative;overflow:hidden;}
 #cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px;}
 #cta .wrap{position:relative;z-index:1;}
@@ -351,6 +322,7 @@ h1.hero-h1 .line{display:block;}
 <body>
 <div id="hdr-ph"></div>
 
+<!-- ═══ HERO ═══ -->
 <section id="hero">
   <div class="wrap">
     <div class="hero-inner">
@@ -363,8 +335,8 @@ h1.hero-h1 .line{display:block;}
         </h1>
         <p class="hero-desc">iD4Connect traite vos données pendant leur transit, sans les stocker, sans les dupliquer. Insights en temps réel, souveraineté garantie.</p>
         <div class="hero-ctas">
-          <a href="/contact" class="btn-p">Demander une démo →</a>
-          <a href="/architecture" class="btn-g">Voir l'architecture</a>
+          <a href="contact.html" class="btn-p">Demander une démo →</a>
+          <a href="architecture.html" class="btn-g">Voir l'architecture</a>
         </div>
       </div>
       <div>
@@ -388,117 +360,99 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
+<!-- ═══ SOV — REVU ═══ -->
 <section id="sov" class="reveal">
   <div class="wrap">
-    <div class="sov-layout">
-      <div class="sov-left">
-        <div class="pill">Souveraineté & Gouvernance</div>
-        <h2>Vos données ne quittent<br>jamais votre infrastructure.</h2>
-        <p class="sov-intro">Dans un monde soumis aux lois d'accès extraterritorial, l'hébergement chez des acteurs soumis au droit américain crée un risque juridique réel, même si leurs serveurs sont physiquement en Europe.</p>
-        <div class="sov-args">
-          <div class="sov-arg">
-            <div class="sov-arg-ico">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div class="sov-arg-body">
-              <span class="sov-arg-label">Données à la source</span>
-              <div class="sov-arg-title">Restent dans votre périmètre.</div>
-              <div class="sov-arg-desc">Les DataCells se déploient directement dans votre infrastructure. Vos données transitent exclusivement dans votre environnement, jamais dans le nôtre.</div>
-            </div>
-            <div class="sov-arg-stat">
-              <span class="n">0</span>
-              <span class="l">octet stocké hors de votre SI</span>
-            </div>
-          </div>
-          <div class="sov-arg">
-            <div class="sov-arg-ico">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            </div>
-            <div class="sov-arg-body">
-              <span class="sov-arg-label">Conformité by design</span>
-              <div class="sov-arg-title">La conformité est l'architecture.</div>
-              <div class="sov-arg-desc">Aucune copie, aucun stockage intermédiaire. La conformité n'est pas une couche ajoutée, elle est structurelle, renforcée par des modèles API à chaque transformation.</div>
-            </div>
-            <div class="sov-arg-stat">
-              <span class="n">5×</span>
-              <span class="l">moins cher qu'une plateforme data classique</span>
-            </div>
-          </div>
-          <div class="sov-arg">
-            <div class="sov-arg-ico">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <div class="sov-arg-body">
-              <span class="sov-arg-label">Alternative européenne</span>
-              <div class="sov-arg-title">100% européen, sans compromis.</div>
-              <div class="sov-arg-desc">15 ans de R&amp;D européenne. Aucune dépendance à une juridiction étrangère. Les exigences réglementaires des secteurs les plus contraints sont couvertes nativement dès le premier déploiement.</div>
-            </div>
-            <div class="sov-arg-stat">
-              <span class="n">TRL9</span>
-              <span class="l">maturité industrielle maximale</span>
-            </div>
-          </div>
+
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="pill">Souveraineté & Gouvernance</div>
+      <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;letter-spacing:-.5px;line-height:1.1;color:var(--t9);margin-bottom:12px;">
+        Vos données ne quittent<br>jamais votre infrastructure.
+      </h2>
+      <p style="font-size:15px;color:var(--t5);max-width:560px;margin:0 auto;line-height:1.7;">
+        Dans un monde soumis aux lois d'accès extraterritorial, l'hébergement chez des acteurs soumis au droit américain crée un risque juridique réel — même si leurs serveurs sont physiquement en Europe.
+      </p>
+    </div>
+
+    <div class="sov-args-row">
+      <div class="sov-arg2">
+        <div class="sov-arg2-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
+        <div class="sov-arg2-stat">0</div>
+        <div class="sov-arg2-unit">octet stocké hors de votre SI</div>
+        <div class="sov-arg2-title">Restent dans votre périmètre</div>
+        <div class="sov-arg2-desc">Les DataCells se déploient directement dans votre infrastructure. Vos données transitent exclusivement dans votre environnement, jamais dans le nôtre.</div>
+        <div class="sov-arg2-label">Données à la source</div>
       </div>
-      <div class="sov-right">
-        <div class="sov-alert">
-          <div class="sov-alert-head">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2L1.5 13.5h13L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="8" y1="7" x2="8" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="12" r=".8" fill="currentColor"/></svg>
-            <span>Risque juridique réel</span>
-          </div>
-          <p class="sov-alert-body">
-            Les données hébergées chez des acteurs soumis au droit américain sont <strong>juridiquement accessibles par les autorités américaines sans notification préalable</strong>, même si les serveurs sont physiquement en Europe.
-          </p>
-          <div class="sov-sources">
-            <a class="sov-src" href="https://www.justice.gov/d9/pages/attachments/2019/04/09/cloud_act.pdf" target="_blank" rel="noopener">
-              <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 1h6l4 4v10H4V1z"/><polyline points="10 1 10 5 14 5"/></svg></div>
-              <div class="sov-src-text">
-                <span class="sov-src-name">CLOUD Act (2018)</span>
-                <span class="sov-src-ref">Pub.L. 115-141, Div. V · justice.gov</span>
-              </div>
-              <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
-            </a>
-            <a class="sov-src" href="https://www.law.cornell.edu/uscode/text/50/1881a" target="_blank" rel="noopener">
-              <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="1" width="12" height="14" rx="1"/><line x1="5" y1="6" x2="11" y2="6"/><line x1="5" y1="9" x2="9" y2="9"/></svg></div>
-              <div class="sov-src-text">
-                <span class="sov-src-name">FISA Section 702</span>
-                <span class="sov-src-ref">50 U.S.C. § 1881a · law.cornell.edu</span>
-              </div>
-              <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
-            </a>
-            <a class="sov-src" href="https://curia.europa.eu/juris/document/document.jsf?text=&docid=228677&pageIndex=0&doclang=FR" target="_blank" rel="noopener">
-              <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><line x1="5" y1="8" x2="11" y2="8"/><line x1="8" y1="5" x2="8" y2="11"/></svg></div>
-              <div class="sov-src-text">
-                <span class="sov-src-name">Arrêt Schrems II</span>
-                <span class="sov-src-ref">CJUE, C-311/18 · 16 juillet 2020</span>
-              </div>
-              <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
-            </a>
-            <a class="sov-src" href="https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2025/12/cloud-act-gutachten.html" target="_blank" rel="noopener">
-              <div class="sov-src-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5z"/></svg></div>
-              <div class="sov-src-text">
-                <span class="sov-src-name">Rapport BMI · déc. 2025</span>
-                <span class="sov-src-ref">Bundesministerium des Innern · bmi.bund.de</span>
-              </div>
-              <div class="sov-src-arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg></div>
-            </a>
-          </div>
+      <div class="sov-arg2">
+        <div class="sov-arg2-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
-        <div class="sov-comply">
-          <span class="sov-comply-lbl">Conformité couverte</span>
-          <div class="sov-comply-tags">
-            <span class="ctag">✓ Protection des données personnelles</span>
-            <span class="ctag">✓ Résilience des infrastructures critiques</span>
-            <span class="ctag">✓ Secteur financier</span>
-            <span class="ctag">✓ Données de santé</span>
-            <span class="ctag">✓ Sécurité de l'information</span>
-          </div>
+        <div class="sov-arg2-stat">5×</div>
+        <div class="sov-arg2-unit">moins cher qu'une plateforme data classique</div>
+        <div class="sov-arg2-title">La conformité est l'architecture</div>
+        <div class="sov-arg2-desc">Aucune copie, aucun stockage intermédiaire. La conformité n'est pas une couche ajoutée, elle est structurelle, renforcée par des modèles API à chaque transformation.</div>
+        <div class="sov-arg2-label">Conformité by design</div>
+      </div>
+      <div class="sov-arg2">
+        <div class="sov-arg2-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
+        <div class="sov-arg2-stat">TRL9</div>
+        <div class="sov-arg2-unit">maturité industrielle maximale</div>
+        <div class="sov-arg2-title">100% européen, sans compromis</div>
+        <div class="sov-arg2-desc">15 ans de R&D européenne. Aucune dépendance à une juridiction étrangère. Les exigences réglementaires des secteurs les plus contraints sont couvertes nativement.</div>
+        <div class="sov-arg2-label">Alternative européenne</div>
       </div>
     </div>
+
+    <div class="sov-risk-band">
+      <div class="sov-risk-left">
+        <div class="sov-risk-badge">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 2L1.5 13.5h13L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="8" y1="7" x2="8" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="12" r=".8" fill="currentColor"/></svg>
+          Risque juridique réel
+        </div>
+        <p class="sov-risk-text">
+          Les données hébergées chez des acteurs soumis au droit américain sont <strong>juridiquement accessibles par les autorités américaines sans notification préalable</strong>, même si les serveurs sont physiquement en Europe.
+        </p>
+        <div class="sov-comply-tags" style="margin-top:16px;">
+          <span class="ctag">✓ RGPD / Protection des données</span>
+          <span class="ctag">✓ NIS2 / Infrastructures critiques</span>
+          <span class="ctag">✓ DORA / Secteur financier</span>
+          <span class="ctag">✓ HDS / Données de santé</span>
+          <span class="ctag">✓ ISO 27001</span>
+        </div>
+      </div>
+      <div class="sov-risk-sources">
+        <div class="sov-risk-sources-lbl">Sources juridiques</div>
+        <a class="sov-src2" href="https://www.justice.gov/d9/pages/attachments/2019/04/09/cloud_act.pdf" target="_blank" rel="noopener">
+          <div class="sov-src2-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 1h6l4 4v10H4V1z"/><polyline points="10 1 10 5 14 5"/></svg></div>
+          <div><div class="sov-src2-name">CLOUD Act (2018)</div><div class="sov-src2-ref">Pub.L. 115-141 · justice.gov</div></div>
+          <svg class="sov-src2-arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg>
+        </a>
+        <a class="sov-src2" href="https://www.law.cornell.edu/uscode/text/50/1881a" target="_blank" rel="noopener">
+          <div class="sov-src2-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="1" width="12" height="14" rx="1"/><line x1="5" y1="6" x2="11" y2="6"/><line x1="5" y1="9" x2="9" y2="9"/></svg></div>
+          <div><div class="sov-src2-name">FISA Section 702</div><div class="sov-src2-ref">50 U.S.C. § 1881a · law.cornell.edu</div></div>
+          <svg class="sov-src2-arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg>
+        </a>
+        <a class="sov-src2" href="https://curia.europa.eu/juris/document/document.jsf?text=&docid=228677" target="_blank" rel="noopener">
+          <div class="sov-src2-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><line x1="5" y1="8" x2="11" y2="8"/><line x1="8" y1="5" x2="8" y2="11"/></svg></div>
+          <div><div class="sov-src2-name">Arrêt Schrems II</div><div class="sov-src2-ref">CJUE C-311/18 · 16 juillet 2020</div></div>
+          <svg class="sov-src2-arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg>
+        </a>
+        <a class="sov-src2" href="https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2025/12/cloud-act-gutachten.html" target="_blank" rel="noopener">
+          <div class="sov-src2-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5z"/></svg></div>
+          <div><div class="sov-src2-name">Rapport BMI · déc. 2025</div><div class="sov-src2-ref">Bundesministerium · bmi.bund.de</div></div>
+          <svg class="sov-src2-arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- ═══ AGNOSTIC ═══ -->
 <section id="agnostic" class="reveal">
   <div class="wrap">
     <div class="center-head">
@@ -525,7 +479,7 @@ h1.hero-h1 .line{display:block;}
         <p>Combinez on-premise et cloud selon la sensibilité de vos données. Une seule orchestration via DataGraph, plusieurs environnements.</p>
         <div class="pfeats"><div class="pf">DataGraph unifié sur tous les environnements</div><div class="pf">Politique de données granulaire</div><div class="pf">Migration progressive, sans coupure</div><div class="pf">Données sensibles on-premise, flux légers en cloud</div></div>
       </div>
-      <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 14a5 5 0 0 0-4.9-4 8 8 0 0 0-15 2.5A4 4 0 0 0 12 17h22a3.5 3.5 0 0 0 0-3z"/><rect x="8" y="32" width="14" height="8" rx="1.5"/><rect x="26" y="32" width="14" height="8" rx="1.5"/><circle cx="37" cy="36" r="1.2" fill="currentColor" stroke="none"/><circle cx="37" cy="38" r=".6" fill="currentColor" stroke="none"/><path d="M15 24v8" stroke-dasharray="2 2"/><path d="M33 24v8" stroke-dasharray="2 2"/><path d="M22 36h4"/><path d="M24 17v3M20 20l4 3 4-3"/></svg><p>Cloud + On-Premise<br>Orchestration unifiée</p></div></div>
+      <div class="panel-visual"><div class="pv"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 14a5 5 0 0 0-4.9-4 8 8 0 0 0-15 2.5A4 4 0 0 0 12 17h22a3.5 3.5 0 0 0 0-3z"/><rect x="8" y="32" width="14" height="8" rx="1.5"/><rect x="26" y="32" width="14" height="8" rx="1.5"/><circle cx="37" cy="36" r="1.2" fill="currentColor" stroke="none"/><path d="M15 24v8" stroke-dasharray="2 2"/><path d="M33 24v8" stroke-dasharray="2 2"/><path d="M22 36h4"/><path d="M24 17v3M20 20l4 3 4-3"/></svg><p>Cloud + On-Premise<br>Orchestration unifiée</p></div></div>
     </div>
     <div class="tab-panel" id="tab-onprem">
       <div class="panel-left">
@@ -541,6 +495,7 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
+<!-- ═══ DT ═══ -->
 <section id="dt" class="reveal">
   <div class="wrap">
     <div class="dt-head">
@@ -579,8 +534,8 @@ h1.hero-h1 .line{display:block;}
         <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
         <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Transport intelligent</div><div class="dt-result-sub">Transformation sémantique en transit, logique métier embarquée</div></div>
       </div>
-    <p style="text-align:center;margin-top:12px;font-size:11px;color:var(--t4);">Cliquez sur un outil pour decouvrir le detail</p>
     </div>
+    <p style="text-align:center;margin-top:12px;font-size:11px;color:var(--t4);">Cliquez sur un outil pour découvrir le détail</p>
     <div class="dt-note">
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="7" x2="8" y2="11" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
       <span><strong>Votre équipe garde ses outils.</strong> iD4Connect s'intègre en quelques jours, sans migration de données, sans formation longue, sans risque.</span>
@@ -588,6 +543,7 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
+<!-- ═══ PARTNERS ═══ -->
 <section id="partners" class="reveal">
   <div class="wrap">
     <div class="pt-head">
@@ -596,7 +552,7 @@ h1.hero-h1 .line{display:block;}
       <p>Des organisations qui transforment leur approche de la data</p>
     </div>
     <div class="pt-logos">
-      <a href="/cybersecurite" class="pt-chip">
+      <a href="secteur-cyber.html" class="pt-chip">
         <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg></div>
         <div><div class="pt-name">HELIAQ</div><div class="pt-tag">Cybersécurité · France</div></div>
       </a>
@@ -608,11 +564,11 @@ h1.hero-h1 .line{display:block;}
         <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8.5l2 2 3-4"/></svg></div>
         <div><div class="pt-name">RevBits</div><div class="pt-tag">Cybersécurité · PAM/EDR</div></div>
       </a>
-      <a href="/notre-histoire" class="pt-chip">
+      <a href="histoire.html" class="pt-chip">
         <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5L5 11M11 5l1.5-1.5"/></svg></div>
         <div><div class="pt-name">CETIC</div><div class="pt-tag">Centre R&D · Origine technologique</div></div>
       </a>
-      <a href="/cybersecurite" class="pt-chip">
+      <a href="secteur-cyber.html" class="pt-chip">
         <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="12" height="8" rx="1"/><path d="M5 5V3.5a3 3 0 0 1 6 0V5"/></svg></div>
         <div><div class="pt-name">Seclab Security</div><div class="pt-tag">Hardware Security · OT/IT</div></div>
       </a>
@@ -620,17 +576,17 @@ h1.hero-h1 .line{display:block;}
   </div>
 </section>
 
+<!-- ═══ CTA ═══ -->
 <section id="cta">
   <div class="wrap">
     <h2>Prêt à reprendre le contrôle de vos données ?</h2>
     <p>Découvrez comment iD4Connect s'intègre à votre infrastructure en 30 minutes.</p>
     <div class="cta-btns">
-      <a href="/contact" class="btn-w">Demander une démo →</a>
-      <a href="/architecture" class="btn-wo">Explorer l'architecture</a>
+      <a href="contact.html" class="btn-w">Demander une démo →</a>
+      <a href="architecture.html" class="btn-wo">Explorer l'architecture</a>
     </div>
   </div>
 </section>
-
 
 <!-- MODAL COMPLEMENTARITE -->
 <div class="cm-overlay" id="cm-overlay">
@@ -678,87 +634,15 @@ window.addEventListener('load',async()=>{
   },{threshold:0.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 });
-/* ══ COMP TAB ICONS ══ */
+
 const CM_TAB_ICONS={
   compare:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M8 2v12"/></svg>',
   integration:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="8" r="3"/><circle cx="11" cy="8" r="3"/></svg>',
   benefices:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2 12 6 6 10 9 14 3"/><polyline points="11 3 14 3 14 6"/></svg>',
   technique:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>'
 };
-const COMP_DATA={
-  bi:{title:'BI temps reel',color:'#3B82F6',
-    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="8" width="4" height="13"/><rect x="17" y="4" width="4" height="17"/></svg>',
-    desc:"iD4Connect ne remplace pas votre outil BI, il le rend temps reel. Vos dashboards Power BI, Tableau ou Qlik accedent directement aux sources via les DataCells, avec des donnees fraiches a la seconde pres.",
-    avant:[{l:'Donnees en batch',d:'Rafraichissement nocturne ou toutes les heures'},{l:'DWH a maintenir',d:'Infrastructure lourde, licences elevees'},{l:'Pipelines ETL lourds',d:'Dizaines de jobs a maintenir et debugger'},{l:'Latence decisionnelle',d:'Decisions basees sur des donnees decalees'}],
-    apres:[{l:'Temps reel natif',d:'Chaque evenement visible en moins de 2 secondes'},{l:'Zero DWH',d:'Interrogation des sources a la volee'},{l:'Zero pipeline',d:'Transformation a la source, dans le flux'},{l:'Decision instantanee',d:'KPIs a jour en continu'}],
-    integrations:[{name:'Power BI',format:'DirectQuery / REST',desc:'Connexion native via DirectQuery, visuels mis a jour en temps reel.',protocols:['DirectQuery','REST API','Push Dataset'],color:'#F59E0B'},{name:'Tableau',format:'Live Connection / JDBC',desc:'Connexion live, les extraits .hyper deviennent optionnels.',protocols:['JDBC Live','Hyper API','REST API'],color:'#1E40AF'},{name:'Qlik Sense',format:'Direct Access / REST',desc:'Donnees temps reel sans rechargement d\'app.',protocols:['ODBC Direct','REST connector','QVD streaming'],color:'#059669'},{name:'Grafana / Superset',format:'SQL / Plugin',desc:'Connexion native pour le monitoring temps reel et l\'IoT.',protocols:['PostgreSQL wire','Plugin Grafana','REST API'],color:'#E11D48'}],
-    kpis:[{label:'Latence donnees',value:'\u00f7100',detail:'De heures a secondes'},{label:'Cout DWH',value:'-100%',detail:'Zero infra a maintenir'},{label:'Pipelines ETL',value:'-0',detail:'Plus aucun job'},{label:'Time to insight',value:'<2s',detail:'Evenement vers dashboard'}],
-    gains:[{t:'Reduction TCO de 60-80%',d:'Suppression des licences DWH et ETL.'},{t:'Deploiement 10x plus rapide',d:'Nouveau dashboard en heures, pas en semaines.'},{t:'Donnees toujours fraiches',d:'Etat reel a la seconde.'},{t:'Autonomie des metiers',d:'Les equipes creent sans dependre de l\'IT.'}],
-    archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Federation SQL + cache intelligent'},{l:'Exposition',v:'SQL endpoint, REST API, OData'},{l:'Protocoles',v:'JDBC, ODBC, REST, WebSocket'},{l:'Mode',v:'Stateless, zero copie'},{l:'Scalabilite',v:'1 DataCell par domaine'}],
-    outils:[{name:'Power BI',compat:'Desktop, Service, Embedded'},{name:'Tableau',compat:'Desktop, Server, Cloud'},{name:'Qlik Sense',compat:'Enterprise, Cloud'},{name:'Grafana',compat:'OSS, Cloud, Enterprise'},{name:'Superset',compat:'Self-hosted, Preset Cloud'},{name:'Looker / Metabase',compat:'Cloud, Self-hosted'}],
-    compliance:['Zero-copy','Chiffrement TLS/mTLS','OAuth2 / SSO','Audit trail natif','Souverainete europeenne'],
-    callout:{title:'Votre BI, sans les contraintes',text:'iD4Connect agit comme une <strong>couche de federation intelligente</strong> entre vos sources et votre outil BI. <strong>Power BI, Tableau ou Qlik</strong> continuent comme avant, mais les donnees arrivent en temps reel.'}},
-  siem:{title:'Detection enrichie',color:'#64748B',
-    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>',
-    desc:"iD4Connect ne remplace pas votre SIEM, il le rend intelligent. En enrichissant chaque alerte avec le contexte metier, vos analystes SOC passent de 80% de faux positifs a des alertes qualifiees.",
-    avant:[{l:'Logs bruts non contextualises',d:'Millions de logs sans contexte metier'},{l:'Correlation limitee',d:'Impossible de croiser securite et donnees metier'},{l:'80% de faux positifs',d:'Les analystes trient au lieu d\'investiguer'},{l:'Investigation lente',d:'45 min par dossier en moyenne'}],
-    apres:[{l:'Alertes contextualisees',d:'Identite, application, donnees, impact business'},{l:'Correlation cross-sources',d:'Securite + flux metier + acces applicatifs'},{l:'Faux positifs \u00f7 5',d:'Le contexte elimine 80% du bruit'},{l:'Investigation en 10 min',d:'Dossier pre-assemble automatiquement'}],
-    integrations:[{name:'Splunk',format:'HEC / REST / Syslog',desc:'Enrichissement via HTTP Event Collector. Compatible Enterprise, Cloud et SOAR.',protocols:['HEC','REST API','Syslog CEF'],color:'#65A30D'},{name:'Microsoft Sentinel',format:'Log Analytics / CEF',desc:'Integration native Azure Sentinel. Compatible playbooks Logic Apps.',protocols:['Log Analytics API','CEF / Syslog','Event Hub'],color:'#2563EB'},{name:'QRadar (IBM)',format:'Syslog / REST / STIX',desc:'Enrichissement des offenses avec contexte metier.',protocols:['Syslog CEF','REST API','STIX/TAXII'],color:'#1E40AF'},{name:'Elastic Security',format:'REST / Beats / Logstash',desc:'Enrichissement des documents ECS avant indexation.',protocols:['Elasticsearch API','Logstash filter','Filebeat'],color:'#E11D48'}],
-    kpis:[{label:'Faux positifs',value:'\u00f7 5',detail:'De 80% a 15%'},{label:'Investigation',value:'\u00f7 4.5',detail:'De 45 min a 10 min'},{label:'MTTR',value:'-60%',detail:'Temps de resolution'},{label:'Couverture',value:'+100%',detail:'Donnees + reseau'}],
-    gains:[{t:'SOC plus efficace',d:'Les analystes se concentrent sur les vraies menaces.'},{t:'Menaces invisibles detectees',d:'Exfiltration, insider threat, mouvements lateraux.'},{t:'Conformite reglementaire',d:'Tracabilite complete des acces aux donnees.'},{t:'ROI en 3 mois',d:'Reduction immediate du volume d\'alertes.'}],
-    archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Enrichissement streaming + correlation'},{l:'IA embarquee',v:'Scoring menace, graphe comportemental'},{l:'Protocoles',v:'Syslog, CEF, STIX, REST, Kafka'},{l:'Mode',v:'Stateless, zero donnee nominative'},{l:'Scalabilite',v:'1 DataCell par domaine / source'}],
-    outils:[{name:'Splunk',compat:'Enterprise, Cloud, SOAR'},{name:'Sentinel',compat:'Azure, Logic Apps'},{name:'QRadar',compat:'CE, Enterprise, Cloud'},{name:'Elastic',compat:'Cloud, Self-managed'},{name:'Chronicle',compat:'SecOps, Cloud'},{name:'Wazuh',compat:'Open Source'}],
-    compliance:['Haute disponibilite','Chiffrement TLS/mTLS','Zero Trust','Audit trail natif','Souverainete europeenne'],
-    callout:{title:'Votre SIEM, avec la vision donnees',text:'iD4Connect agit comme une <strong>couche d\'enrichissement contextuel</strong> entre vos sources metier et votre SIEM. <strong>Splunk, Sentinel ou QRadar</strong> continuent comme avant, mais chaque alerte arrive enrichie.'}},
-  etl:{title:'Zero staging',color:'#0D9488',
-    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="4" y="4" width="4" height="16" rx="1"/><rect x="10" y="4" width="4" height="16" rx="1"/><rect x="16" y="4" width="4" height="16" rx="1"/></svg>',
-    desc:"iD4Connect ne remplace pas votre ETL du jour au lendemain, il le rend obsolete progressivement. En traitant les donnees en transit, chaque job batch migre vers une DataCell temps reel.",
-    avant:[{l:'Traitements batch',d:'Extraction, transformation, chargement par lots la nuit'},{l:'Zone de staging obligatoire',d:'Copie temporaire avant chaque transformation'},{l:'Copie systematique',d:'Source vers staging vers cible, cout croissant'},{l:'Maintenance lourde',d:'Centaines de jobs a monitorer et debugger'}],
-    apres:[{l:'Traitement en transit',d:'Transformation a la volee, resultat en millisecondes'},{l:'Zero staging',d:'Jamais copiees ni stockees temporairement'},{l:'Zero copie',d:'Donnees restent a la source'},{l:'Zero maintenance',d:'Adaptation automatique aux changements de schema'}],
-    integrations:[{name:'Talend',format:'REST / JDBC / Kafka',desc:'Coexistence avec les jobs Talend. Migration progressive possible.',protocols:['REST API','JDBC','Kafka bridge'],color:'#0D9488'},{name:'Informatica',format:'REST / JDBC / PowerCenter',desc:'Complement pour le temps reel. Migration progressive des mappings.',protocols:['REST API IDMC','JDBC/ODBC','Webhook'],color:'#1E40AF'},{name:'SSIS / Azure Data Factory',format:'REST / SQL / Azure',desc:'Memes destinations que SSIS/ADF mais en temps reel.',protocols:['REST API','SQL Server','Azure Event Hub'],color:'#7C3AED'},{name:'Apache NiFi / Airflow',format:'REST / Kafka / S3',desc:'Remplace les processors NiFi lourds par des DataCells legeres.',protocols:['REST API trigger','Kafka Connect','S3'],color:'#EA580C'}],
-    kpis:[{label:'Latence',value:'\u00f7 360',detail:'De heures a secondes'},{label:'Staging',value:'-100%',detail:'Zero zone tampon'},{label:'Jobs',value:'-0',detail:'Zero pipeline'},{label:'Conformite',value:'Native',detail:'Zero copie de donnees'}],
-    gains:[{t:'TCO divise par 5',d:'Suppression des licences ETL, du stockage staging et des equipes pipeline.'},{t:'Liberation des equipes data',d:'De 70% de maintenance a 80% de creation de valeur.'},{t:'Conformite by architecture',d:'Zero copie = zero surface supplementaire.'},{t:'Migration progressive',d:'Chaque job remplace individuellement, zero risque.'}],
-    archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Stream processing a la volee'},{l:'Transformations',v:'Map, filter, join, aggregate, enrich'},{l:'Protocoles',v:'JDBC, REST, Kafka, MQTT, fichiers'},{l:'Mode',v:'Stateless, zero staging'},{l:'Scalabilite',v:'1 DataCell par flux / domaine'}],
-    outils:[{name:'Talend',compat:'Open Studio, Cloud, DI'},{name:'Informatica',compat:'PowerCenter, IDMC'},{name:'SSIS',compat:'SQL Server, Azure ADF'},{name:'NiFi',compat:'OSS, HDF, Cloud'},{name:'Airflow',compat:'OSS, MWAA, Composer'},{name:'Matillion / Fivetran',compat:'Cloud-native ELT'}],
-    compliance:['Zero-staging','Zero-copie','Chiffrement TLS/mTLS','Lineage automatique','Souverainete europeenne'],
-    callout:{title:'Votre ETL, sans les contraintes',text:'Chaque <strong>DataCell</strong> prend en charge un flux : elle transforme, enrichit et route en transit, sans jamais copier. Migration <strong>un job a la fois</strong>, sans big bang.'}},
-  crm:{title:'Vision unifiee',color:'#7C3AED',
-    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>',
-    desc:"iD4Connect ne remplace pas votre CRM ni votre ERP, il les fait dialoguer. En federant vos SI en temps reel sans copier les donnees, vos equipes accedent a une vision unifiee.",
-    avant:[{l:'Donnees isolees en silos',d:'CRM ignore les commandes ERP, ERP ignore le CRM'},{l:'Aucun croisement natif',d:'Export CSV + Excel + prieres'},{l:'Donnees dupliquees',d:'Meme client avec 4 orthographes differentes'},{l:'Integrations point-a-point',d:'N x (N-1)/2 connecteurs a maintenir'}],
-    apres:[{l:'Vision unifiee instantanee',d:'DataGraph federe CRM, ERP, facturation en une vue unique'},{l:'Croisement multi-sources',d:'Une requete interroge tous les SI simultanement'},{l:'Golden record virtuel',d:'Reconciliation automatique sans MDM lourd'},{l:'Architecture en etoile legere',d:'1 point de connexion au lieu de N x (N-1)/2'}],
-    integrations:[{name:'Salesforce',format:'REST / SOQL / CDC',desc:'Connexion native via REST API et Change Data Capture.',protocols:['REST API / SOQL','Bulk API 2.0','CDC','Platform Events'],color:'#0EA5E9'},{name:'SAP',format:'RFC / OData / BAPI',desc:'Integration profonde ECC, S/4HANA, CRM, BW.',protocols:['RFC / BAPI','OData','IDOC','CDS Views'],color:'#2563EB'},{name:'Microsoft Dynamics',format:'REST / OData / Dataverse',desc:'Connexion native Dynamics 365 et Dataverse.',protocols:['Web API OData v4','Dataverse SDK','Azure Service Bus'],color:'#7C3AED'},{name:'HubSpot / Zoho / Pipedrive',format:'REST / Webhook / GraphQL',desc:'Integration CRM mid-market et PME.',protocols:['REST API v3','GraphQL','Webhook','OAuth2'],color:'#EA580C'}],
-    kpis:[{label:'Vue client 360',value:'< 2s',detail:'Assemblage cross-SI'},{label:'Integrations',value:'\u00f7 N',detail:'1 connecteur vs N(N-1)/2'},{label:'Donnees dupliquees',value:'-0',detail:'Zero copie, zero MDM'},{label:'Time to value',value:'3 sem.',detail:'Premiere vue unifiee'}],
-    gains:[{t:'Fin des silos sans big bang',d:'iD4Connect federe les SI existants en 3 semaines, pas en 18 mois.'},{t:'Productivite commerciale +30%',d:'Fiche client complete en 1 clic au lieu de 4 applications.'},{t:'Qualite de donnees sans effort',d:'Golden record virtuel, incoherences detectees en temps reel.'},{t:'Scalabilite sans dette technique',d:'Ajouter un SI = 1 connecteur, pas N integrations.'}],
-    archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Federation SQL + golden record virtuel'},{l:'IA embarquee',v:'Reconciliation, deduplication, matching'},{l:'Protocoles',v:'REST, OData, RFC, JDBC, GraphQL'},{l:'Mode',v:'Stateless, zero copie'},{l:'Scalabilite',v:'1 DataCell par domaine metier'}],
-    outils:[{name:'Salesforce',compat:'Sales, Service, Platform'},{name:'SAP',compat:'ECC, S/4HANA, CRM'},{name:'Dynamics',compat:'365, Dataverse, Power Platform'},{name:'HubSpot',compat:'CRM, Marketing, Service'},{name:'Oracle',compat:'NetSuite, ERP Cloud'},{name:'Sage / Cegid',compat:'X3, 100c, Y2'}],
-    compliance:['Zero-copie','Zero-duplication','Chiffrement TLS/mTLS','OAuth2 / SSO / SAML','Souverainete europeenne'],
-    callout:{title:'Vos SI, enfin connectes',text:'iD4Connect agit comme un <strong>tissu connectif intelligent</strong>. Le <strong>DataGraph</strong> federe CRM, ERP, facturation et support en une vue unifiee temps reel.'}},
-  dwh:{title:'Insights a la source',color:'#D97706',
-    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>',
-    desc:"iD4Connect ne remplace pas votre Data Warehouse du jour au lendemain, il le rend optionnel. En interrogeant les sources directement, chaque cas d\'usage DWH couteux migre vers une DataCell temps reel.",
-    avant:[{l:'Donnees centralisees, copiees',d:'Chaque copie coute du stockage et desynchronise'},{l:'Schema fige et rigide',d:'Chaque nouvelle question = modification du schema'},{l:'Couts exponentiels',d:'La facture croit avec le volume, meme sans usage'},{l:'Donnees decalees',d:'Au minimum quelques heures de retard'}],
-    apres:[{l:'Donnees vivantes a la source',d:'Chaque requete accede a la derniere version'},{l:'Schema flexible a la volee',d:'Nouvelle question = configurer une DataCell'},{l:'Couts previsibles et bas',d:'Zero stockage, cout proportionnel aux requetes'},{l:'Insights temps reel',d:'Resultats calcules a la demande sur donnees vivantes'}],
-    integrations:[{name:'Snowflake',format:'SQL / REST / Iceberg',desc:'Coexistence : iD4Connect gere le temps reel, Snowflake conserve l\'historique.',protocols:['SQL endpoint','Apache Iceberg','REST API'],color:'#0EA5E9'},{name:'Google BigQuery',format:'SQL / REST / Storage API',desc:'Evite les full table scans couteux. Facture GCP reduite de 60-90%.',protocols:['BigQuery SQL','Storage Read API','Pub/Sub'],color:'#2563EB'},{name:'Amazon Redshift',format:'SQL / Spectrum / REST',desc:'Remplace Redshift Spectrum a moindre cout.',protocols:['Redshift SQL','S3 / Parquet','Kinesis'],color:'#EA580C'},{name:'Databricks / Delta Lake',format:'SQL / Delta Sharing',desc:'Federe le temps reel, Databricks conserve ML et analyses massives.',protocols:['Databricks SQL','Delta Sharing','Unity Catalog'],color:'#EF4444'}],
-    kpis:[{label:'Cout stockage',value:'-100%',detail:'Zero donnee dupliquee'},{label:'Fraicheur',value:'Temps reel',detail:'vs heures de decalage'},{label:'Time to insight',value:'\u00f7 10',detail:'Nouvelle question = minutes'},{label:'Surface donnees',value:'-0',detail:'Zero copie nominative'}],
-    gains:[{t:'Facture Cloud \u00f7 3 a 10',d:'Elimination du stockage et reduction du compute en federant a la source.'},{t:'Agilite metier retrouvee',d:'Une DataCell en heures, pas 3 semaines de modelisation.'},{t:'Donnees toujours a jour',d:'Insights calcules sur donnees vivantes.'},{t:'Migration progressive',d:'Le DWH reste en place. Chaque cas d\'usage migre individuellement.'}],
-    archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Federation SQL + query pushdown'},{l:'Optimisation',v:'Cache intelligent, prediction requetes'},{l:'Protocoles',v:'JDBC, ODBC, REST, OData, Parquet'},{l:'Mode',v:'Stateless, zero stockage'},{l:'Scalabilite',v:'1 DataCell par domaine / cas d\'usage'}],
-    outils:[{name:'Snowflake',compat:'Standard, Enterprise, VPS'},{name:'BigQuery',compat:'Standard, Enterprise'},{name:'Redshift',compat:'Provisioned, Serverless'},{name:'Databricks',compat:'SQL, Runtime, Unity'},{name:'Synapse',compat:'Dedicated, Serverless'},{name:'PostgreSQL / DuckDB',compat:'OSS, Cloud managed'}],
-    compliance:['Zero-copy','Zero-storage','Chiffrement TLS/mTLS','Query audit trail','Souverainete europeenne'],
-    callout:{title:'Votre DWH, sans le cout ni la rigidite',text:'Chaque <strong>DataCell</strong> interroge directement les sources. <strong>Snowflake, BigQuery ou Redshift</strong> reste pour l\'historique profond, les cas temps reel migrent progressivement. Facture <strong>\u00f73 a \u00f710</strong>.'}},
-  esb:{title:'Transport intelligent',color:'#A855F7',
-    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3m0 12v3m-6.36-2.64l2.12-2.12m8.48-8.48l2.12-2.12M3 12h3m12 0h3M5.64 5.64l2.12 2.12m8.48 8.48l2.12 2.12"/></svg>',
-    desc:"iD4Connect ne remplace pas votre ESB, il le rend intelligent. En ajoutant la transformation semantique, l\'enrichissement contextuel et la logique metier directement dans le flux.",
-    avant:[{l:'Transport applicatif brut',d:'L\'ESB route sans comprendre le contenu'},{l:'Zero intelligence data',d:'Pas de transformation, pas de scoring'},{l:'Architecture SPOF',d:'Point unique de defaillance'},{l:'Couplage fort entre SI',d:'Chaque changement de contrat casse les flux en aval'}],
-    apres:[{l:'Transport + intelligence',d:'Transformation, enrichissement et analyse en transit'},{l:'Logique metier embarquee',d:'Regles, calculs, scoring, anonymisation dans le flux'},{l:'Architecture distribuee',d:'Chaque DataCell autonome, zero SPOF'},{l:'Decouplage total',d:'Le DataGraph abstrait les formats sources'}],
-    integrations:[{name:'MuleSoft',format:'REST / AMQP / JMS',desc:'Coexistence avec Anypoint. Les API Experience consomment les DataCells.',protocols:['REST API / RAML','AMQP / JMS','Anypoint MQ'],color:'#00A2E0'},{name:'IBM ACE / MQ',format:'MQ / REST / SOAP',desc:'Enrichissement des messages MQ/JMS en transit avec contexte metier.',protocols:['IBM MQ (JMS)','REST API','SOAP / WSDL'],color:'#1E40AF'},{name:'Talend ESB / ServiceMix',format:'REST / JMS / CXF',desc:'Remplace les mediations Camel/CXF lourdes par des DataCells legeres.',protocols:['REST / CXF','JMS (ActiveMQ)','Camel route'],color:'#059669'},{name:'WSO2 / TIBCO / SAG',format:'REST / SOAP / JMS / Kafka',desc:'Complementarite avec les ESB enterprise.',protocols:['REST API','SOAP / WSDL','JMS / Kafka'],color:'#7C3AED'}],
-    kpis:[{label:'Intelligence flux',value:'+100%',detail:'De zero a natif'},{label:'Disponibilite',value:'99.99%',detail:'Zero SPOF'},{label:'Scalabilite',value:'Infinie',detail:'Scale-out horizontal'},{label:'Couplage',value:'-0',detail:'SI totalement decouples'}],
-    gains:[{t:'ESB + cerveau data',d:'Votre ESB route, iD4Connect enrichit. Le transport devient intelligent.'},{t:'Fin du SPOF central',d:'Architecture distribuee, chaque flux autonome et resilient.'},{t:'Agilite d\'integration x10',d:'Nouveau SI = configurer une DataCell, pas ecrire du XSLT.'},{t:'Migration progressive',d:'L\'ESB reste en place, chaque flux migre individuellement.'}],
-    archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Mediation intelligente + enrichissement'},{l:'Transformations',v:'Semantique, normalisation, logique metier'},{l:'Protocoles',v:'REST, SOAP, JMS, AMQP, Kafka, MQ'},{l:'Mode',v:'Stateless, zero persistance'},{l:'Scalabilite',v:'Scale-out horizontal, 1 DC par flux'}],
-    outils:[{name:'MuleSoft',compat:'Anypoint, CloudHub'},{name:'IBM ACE / MQ',compat:'ACE, MQ, DataPower'},{name:'Talend ESB',compat:'Open Studio, Cloud'},{name:'WSO2',compat:'Micro Integrator, APIM'},{name:'TIBCO',compat:'BusinessWorks, EMS'},{name:'Apache Camel / Kafka',compat:'OSS, Confluent'}],
-    compliance:['Haute disponibilite native','Chiffrement TLS/mTLS','Zero Trust par DataCell','Audit trail natif','Souverainete europeenne'],
-    callout:{title:'Votre ESB, avec un cerveau',text:'iD4Connect agit comme une <strong>couche d\'intelligence embarquee</strong> dans vos flux. Votre ESB <strong>MuleSoft, IBM ACE ou WSO2</strong> continue de router, mais chaque message est transforme, enrichi et analyse en transit.'}}
-};
+const COMP_DATA={bi:{title:'BI temps reel',color:'#3B82F6',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="8" width="4" height="13"/><rect x="17" y="4" width="4" height="17"/></svg>',desc:"iD4Connect ne remplace pas votre outil BI, il le rend temps reel. Vos dashboards Power BI, Tableau ou Qlik accedent directement aux sources via les DataCells, avec des donnees fraiches a la seconde pres.",avant:[{l:'Donnees en batch',d:'Rafraichissement nocturne ou toutes les heures'},{l:'DWH a maintenir',d:'Infrastructure lourde, licences elevees'},{l:'Pipelines ETL lourds',d:'Dizaines de jobs a maintenir et debugger'},{l:'Latence decisionnelle',d:'Decisions basees sur des donnees decalees'}],apres:[{l:'Temps reel natif',d:'Chaque evenement visible en moins de 2 secondes'},{l:'Zero DWH',d:'Interrogation des sources a la volee'},{l:'Zero pipeline',d:'Transformation a la source, dans le flux'},{l:'Decision instantanee',d:'KPIs a jour en continu'}],integrations:[{name:'Power BI',format:'DirectQuery / REST',desc:'Connexion native via DirectQuery, visuels mis a jour en temps reel.',protocols:['DirectQuery','REST API','Push Dataset'],color:'#F59E0B'},{name:'Tableau',format:'Live Connection / JDBC',desc:'Connexion live, les extraits .hyper deviennent optionnels.',protocols:['JDBC Live','Hyper API','REST API'],color:'#1E40AF'},{name:'Qlik Sense',format:'Direct Access / REST',desc:"Donnees temps reel sans rechargement d'app.",protocols:['ODBC Direct','REST connector','QVD streaming'],color:'#059669'},{name:'Grafana / Superset',format:'SQL / Plugin',desc:'Connexion native pour le monitoring temps reel et l\'IoT.',protocols:['PostgreSQL wire','Plugin Grafana','REST API'],color:'#E11D48'}],kpis:[{label:'Latence donnees',value:'÷100',detail:'De heures a secondes'},{label:'Cout DWH',value:'-100%',detail:'Zero infra a maintenir'},{label:'Pipelines ETL',value:'-0',detail:'Plus aucun job'},{label:'Time to insight',value:'<2s',detail:'Evenement vers dashboard'}],gains:[{t:'Reduction TCO de 60-80%',d:'Suppression des licences DWH et ETL.'},{t:'Deploiement 10x plus rapide',d:'Nouveau dashboard en heures, pas en semaines.'},{t:'Donnees toujours fraiches',d:'Etat reel a la seconde.'},{t:'Autonomie des metiers',d:"Les equipes creent sans dependre de l'IT."}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Federation SQL + cache intelligent'},{l:'Exposition',v:'SQL endpoint, REST API, OData'},{l:'Protocoles',v:'JDBC, ODBC, REST, WebSocket'},{l:'Mode',v:'Stateless, zero copie'},{l:'Scalabilite',v:'1 DataCell par domaine'}],outils:[{name:'Power BI',compat:'Desktop, Service, Embedded'},{name:'Tableau',compat:'Desktop, Server, Cloud'},{name:'Qlik Sense',compat:'Enterprise, Cloud'},{name:'Grafana',compat:'OSS, Cloud, Enterprise'},{name:'Superset',compat:'Self-hosted, Preset Cloud'},{name:'Looker / Metabase',compat:'Cloud, Self-hosted'}],compliance:['Zero-copy','Chiffrement TLS/mTLS','OAuth2 / SSO','Audit trail natif','Souverainete europeenne'],callout:{title:'Votre BI, sans les contraintes',text:'iD4Connect agit comme une <strong>couche de federation intelligente</strong> entre vos sources et votre outil BI. <strong>Power BI, Tableau ou Qlik</strong> continuent comme avant, mais les donnees arrivent en temps reel.'}},siem:{title:'Detection enrichie',color:'#64748B',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>',desc:"iD4Connect ne remplace pas votre SIEM, il le rend intelligent.",avant:[{l:'Logs bruts non contextualises',d:'Millions de logs sans contexte metier'},{l:'Correlation limitee',d:'Impossible de croiser securite et donnees metier'},{l:'80% de faux positifs',d:"Les analystes trient au lieu d'investiguer"},{l:'Investigation lente',d:'45 min par dossier en moyenne'}],apres:[{l:'Alertes contextualisees',d:'Identite, application, donnees, impact business'},{l:'Correlation cross-sources',d:'Securite + flux metier + acces applicatifs'},{l:'Faux positifs ÷ 5',d:'Le contexte elimine 80% du bruit'},{l:'Investigation en 10 min',d:'Dossier pre-assemble automatiquement'}],integrations:[{name:'Splunk',format:'HEC / REST / Syslog',desc:'Enrichissement via HTTP Event Collector.',protocols:['HEC','REST API','Syslog CEF'],color:'#65A30D'},{name:'Microsoft Sentinel',format:'Log Analytics / CEF',desc:'Integration native Azure Sentinel.',protocols:['Log Analytics API','CEF / Syslog','Event Hub'],color:'#2563EB'},{name:'QRadar (IBM)',format:'Syslog / REST / STIX',desc:'Enrichissement des offenses avec contexte metier.',protocols:['Syslog CEF','REST API','STIX/TAXII'],color:'#1E40AF'},{name:'Elastic Security',format:'REST / Beats / Logstash',desc:'Enrichissement des documents ECS avant indexation.',protocols:['Elasticsearch API','Logstash filter','Filebeat'],color:'#E11D48'}],kpis:[{label:'Faux positifs',value:'÷ 5',detail:'De 80% a 15%'},{label:'Investigation',value:'÷ 4.5',detail:'De 45 min a 10 min'},{label:'MTTR',value:'-60%',detail:'Temps de resolution'},{label:'Couverture',value:'+100%',detail:'Donnees + reseau'}],gains:[{t:'SOC plus efficace',d:'Les analystes se concentrent sur les vraies menaces.'},{t:'Menaces invisibles detectees',d:'Exfiltration, insider threat, mouvements lateraux.'},{t:'Conformite reglementaire',d:'Tracabilite complete des acces aux donnees.'},{t:'ROI en 3 mois',d:"Reduction immediate du volume d'alertes."}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Enrichissement streaming + correlation'},{l:'IA embarquee',v:'Scoring menace, graphe comportemental'},{l:'Protocoles',v:'Syslog, CEF, STIX, REST, Kafka'},{l:'Mode',v:'Stateless, zero donnee nominative'},{l:'Scalabilite',v:'1 DataCell par domaine / source'}],outils:[{name:'Splunk',compat:'Enterprise, Cloud, SOAR'},{name:'Sentinel',compat:'Azure, Logic Apps'},{name:'QRadar',compat:'CE, Enterprise, Cloud'},{name:'Elastic',compat:'Cloud, Self-managed'},{name:'Chronicle',compat:'SecOps, Cloud'},{name:'Wazuh',compat:'Open Source'}],compliance:['Haute disponibilite','Chiffrement TLS/mTLS','Zero Trust','Audit trail natif','Souverainete europeenne'],callout:{title:'Votre SIEM, avec la vision donnees',text:'iD4Connect agit comme une <strong>couche d\'enrichissement contextuel</strong>. <strong>Splunk, Sentinel ou QRadar</strong> continuent comme avant, chaque alerte arrive enrichie.'}},etl:{title:'Zero staging',color:'#0D9488',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="4" y="4" width="4" height="16" rx="1"/><rect x="10" y="4" width="4" height="16" rx="1"/><rect x="16" y="4" width="4" height="16" rx="1"/></svg>',desc:"iD4Connect ne remplace pas votre ETL du jour au lendemain, il le rend obsolete progressivement.",avant:[{l:'Traitements batch',d:'Extraction, transformation, chargement par lots la nuit'},{l:'Zone de staging obligatoire',d:'Copie temporaire avant chaque transformation'},{l:'Copie systematique',d:'Source vers staging vers cible, cout croissant'},{l:'Maintenance lourde',d:'Centaines de jobs a monitorer et debugger'}],apres:[{l:'Traitement en transit',d:'Transformation a la volee, resultat en millisecondes'},{l:'Zero staging',d:'Jamais copiees ni stockees temporairement'},{l:'Zero copie',d:'Donnees restent a la source'},{l:'Zero maintenance',d:'Adaptation automatique aux changements de schema'}],integrations:[{name:'Talend',format:'REST / JDBC / Kafka',desc:'Coexistence avec les jobs Talend. Migration progressive possible.',protocols:['REST API','JDBC','Kafka bridge'],color:'#0D9488'},{name:'Informatica',format:'REST / JDBC / PowerCenter',desc:'Complement pour le temps reel.',protocols:['REST API IDMC','JDBC/ODBC','Webhook'],color:'#1E40AF'},{name:'SSIS / Azure Data Factory',format:'REST / SQL / Azure',desc:'Memes destinations que SSIS/ADF mais en temps reel.',protocols:['REST API','SQL Server','Azure Event Hub'],color:'#7C3AED'},{name:'Apache NiFi / Airflow',format:'REST / Kafka / S3',desc:'Remplace les processors NiFi lourds par des DataCells legeres.',protocols:['REST API trigger','Kafka Connect','S3'],color:'#EA580C'}],kpis:[{label:'Latence',value:'÷ 360',detail:'De heures a secondes'},{label:'Staging',value:'-100%',detail:'Zero zone tampon'},{label:'Jobs',value:'-0',detail:'Zero pipeline'},{label:'Conformite',value:'Native',detail:'Zero copie de donnees'}],gains:[{t:'TCO divise par 5',d:'Suppression des licences ETL, du stockage staging et des equipes pipeline.'},{t:'Liberation des equipes data',d:"De 70% de maintenance a 80% de creation de valeur."},{t:'Conformite by architecture',d:'Zero copie = zero surface supplementaire.'},{t:'Migration progressive',d:'Chaque job remplace individuellement, zero risque.'}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Stream processing a la volee'},{l:'Transformations',v:'Map, filter, join, aggregate, enrich'},{l:'Protocoles',v:'JDBC, REST, Kafka, MQTT, fichiers'},{l:'Mode',v:'Stateless, zero staging'},{l:'Scalabilite',v:'1 DataCell par flux / domaine'}],outils:[{name:'Talend',compat:'Open Studio, Cloud, DI'},{name:'Informatica',compat:'PowerCenter, IDMC'},{name:'SSIS',compat:'SQL Server, Azure ADF'},{name:'NiFi',compat:'OSS, HDF, Cloud'},{name:'Airflow',compat:'OSS, MWAA, Composer'},{name:'Matillion / Fivetran',compat:'Cloud-native ELT'}],compliance:['Zero-staging','Zero-copie','Chiffrement TLS/mTLS','Lineage automatique','Souverainete europeenne'],callout:{title:'Votre ETL, sans les contraintes',text:'Chaque <strong>DataCell</strong> prend en charge un flux : elle transforme, enrichit et route en transit, sans jamais copier. Migration <strong>un job a la fois</strong>, sans big bang.'}},crm:{title:'Vision unifiee',color:'#7C3AED',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>',desc:"iD4Connect ne remplace pas votre CRM ni votre ERP, il les fait dialoguer.",avant:[{l:'Donnees isolees en silos',d:'CRM ignore les commandes ERP, ERP ignore le CRM'},{l:'Aucun croisement natif',d:'Export CSV + Excel + prieres'},{l:'Donnees dupliquees',d:'Meme client avec 4 orthographes differentes'},{l:'Integrations point-a-point',d:'N x (N-1)/2 connecteurs a maintenir'}],apres:[{l:'Vision unifiee instantanee',d:'DataGraph federe CRM, ERP, facturation en une vue unique'},{l:'Croisement multi-sources',d:'Une requete interroge tous les SI simultanement'},{l:'Golden record virtuel',d:'Reconciliation automatique sans MDM lourd'},{l:'Architecture en etoile legere',d:'1 point de connexion au lieu de N x (N-1)/2'}],integrations:[{name:'Salesforce',format:'REST / SOQL / CDC',desc:'Connexion native via REST API et Change Data Capture.',protocols:['REST API / SOQL','Bulk API 2.0','CDC','Platform Events'],color:'#0EA5E9'},{name:'SAP',format:'RFC / OData / BAPI',desc:'Integration profonde ECC, S/4HANA, CRM, BW.',protocols:['RFC / BAPI','OData','IDOC','CDS Views'],color:'#2563EB'},{name:'Microsoft Dynamics',format:'REST / OData / Dataverse',desc:'Connexion native Dynamics 365 et Dataverse.',protocols:['Web API OData v4','Dataverse SDK','Azure Service Bus'],color:'#7C3AED'},{name:'HubSpot / Zoho / Pipedrive',format:'REST / Webhook / GraphQL',desc:'Integration CRM mid-market et PME.',protocols:['REST API v3','GraphQL','Webhook','OAuth2'],color:'#EA580C'}],kpis:[{label:'Vue client 360',value:'< 2s',detail:'Assemblage cross-SI'},{label:'Integrations',value:'÷ N',detail:'1 connecteur vs N(N-1)/2'},{label:'Donnees dupliquees',value:'-0',detail:'Zero copie, zero MDM'},{label:'Time to value',value:'3 sem.',detail:'Premiere vue unifiee'}],gains:[{t:'Fin des silos sans big bang',d:'iD4Connect federe les SI existants en 3 semaines, pas en 18 mois.'},{t:'Productivite commerciale +30%',d:'Fiche client complete en 1 clic au lieu de 4 applications.'},{t:'Qualite de donnees sans effort',d:'Golden record virtuel, incoherences detectees en temps reel.'},{t:'Scalabilite sans dette technique',d:'Ajouter un SI = 1 connecteur, pas N integrations.'}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Federation SQL + golden record virtuel'},{l:'IA embarquee',v:'Reconciliation, deduplication, matching'},{l:'Protocoles',v:'REST, OData, RFC, JDBC, GraphQL'},{l:'Mode',v:'Stateless, zero copie'},{l:'Scalabilite',v:'1 DataCell par domaine metier'}],outils:[{name:'Salesforce',compat:'Sales, Service, Platform'},{name:'SAP',compat:'ECC, S/4HANA, CRM'},{name:'Dynamics',compat:'365, Dataverse, Power Platform'},{name:'HubSpot',compat:'CRM, Marketing, Service'},{name:'Oracle',compat:'NetSuite, ERP Cloud'},{name:'Sage / Cegid',compat:'X3, 100c, Y2'}],compliance:['Zero-copie','Zero-duplication','Chiffrement TLS/mTLS','OAuth2 / SSO / SAML','Souverainete europeenne'],callout:{title:'Vos SI, enfin connectes',text:'iD4Connect agit comme un <strong>tissu connectif intelligent</strong>. Le <strong>DataGraph</strong> federe CRM, ERP, facturation et support en une vue unifiee temps reel.'}},dwh:{title:'Insights a la source',color:'#D97706',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>',desc:"iD4Connect ne remplace pas votre Data Warehouse du jour au lendemain, il le rend optionnel.",avant:[{l:'Donnees centralisees, copiees',d:'Chaque copie coute du stockage et desynchronise'},{l:'Schema fige et rigide',d:'Chaque nouvelle question = modification du schema'},{l:'Couts exponentiels',d:'La facture croit avec le volume, meme sans usage'},{l:'Donnees decalees',d:'Au minimum quelques heures de retard'}],apres:[{l:'Donnees vivantes a la source',d:'Chaque requete accede a la derniere version'},{l:'Schema flexible a la volee',d:'Nouvelle question = configurer une DataCell'},{l:'Couts previsibles et bas',d:'Zero stockage, cout proportionnel aux requetes'},{l:'Insights temps reel',d:'Resultats calcules a la demande sur donnees vivantes'}],integrations:[{name:'Snowflake',format:'SQL / REST / Iceberg',desc:'Coexistence : iD4Connect gere le temps reel, Snowflake conserve l\'historique.',protocols:['SQL endpoint','Apache Iceberg','REST API'],color:'#0EA5E9'},{name:'Google BigQuery',format:'SQL / REST / Storage API',desc:'Evite les full table scans couteux.',protocols:['BigQuery SQL','Storage Read API','Pub/Sub'],color:'#2563EB'},{name:'Amazon Redshift',format:'SQL / Spectrum / REST',desc:'Remplace Redshift Spectrum a moindre cout.',protocols:['Redshift SQL','S3 / Parquet','Kinesis'],color:'#EA580C'},{name:'Databricks / Delta Lake',format:'SQL / Delta Sharing',desc:'Federe le temps reel, Databricks conserve ML et analyses massives.',protocols:['Databricks SQL','Delta Sharing','Unity Catalog'],color:'#EF4444'}],kpis:[{label:'Cout stockage',value:'-100%',detail:'Zero donnee dupliquee'},{label:'Fraicheur',value:'Temps reel',detail:'vs heures de decalage'},{label:'Time to insight',value:'÷ 10',detail:'Nouvelle question = minutes'},{label:'Surface donnees',value:'-0',detail:'Zero copie nominative'}],gains:[{t:'Facture Cloud ÷ 3 a 10',d:'Elimination du stockage et reduction du compute en federant a la source.'},{t:'Agilite metier retrouvee',d:"Une DataCell en heures, pas 3 semaines de modelisation."},{t:'Donnees toujours a jour',d:'Insights calcules sur donnees vivantes.'},{t:'Migration progressive',d:"Le DWH reste en place. Chaque cas d'usage migre individuellement."}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Federation SQL + query pushdown'},{l:'Optimisation',v:'Cache intelligent, prediction requetes'},{l:'Protocoles',v:'JDBC, ODBC, REST, OData, Parquet'},{l:'Mode',v:'Stateless, zero stockage'},{l:'Scalabilite',v:"1 DataCell par domaine / cas d'usage"}],outils:[{name:'Snowflake',compat:'Standard, Enterprise, VPS'},{name:'BigQuery',compat:'Standard, Enterprise'},{name:'Redshift',compat:'Provisioned, Serverless'},{name:'Databricks',compat:'SQL, Runtime, Unity'},{name:'Synapse',compat:'Dedicated, Serverless'},{name:'PostgreSQL / DuckDB',compat:'OSS, Cloud managed'}],compliance:['Zero-copy','Zero-storage','Chiffrement TLS/mTLS','Query audit trail','Souverainete europeenne'],callout:{title:'Votre DWH, sans le cout ni la rigidite',text:'Chaque <strong>DataCell</strong> interroge directement les sources. <strong>Snowflake, BigQuery ou Redshift</strong> reste pour l\'historique profond. Facture <strong>÷3 a ÷10</strong>.'}},esb:{title:'Transport intelligent',color:'#A855F7',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3m0 12v3m-6.36-2.64l2.12-2.12m8.48-8.48l2.12-2.12M3 12h3m12 0h3M5.64 5.64l2.12 2.12m8.48 8.48l2.12 2.12"/></svg>',desc:"iD4Connect ne remplace pas votre ESB, il le rend intelligent.",avant:[{l:'Transport applicatif brut',d:"L'ESB route sans comprendre le contenu"},{l:'Zero intelligence data',d:'Pas de transformation, pas de scoring'},{l:'Architecture SPOF',d:'Point unique de defaillance'},{l:'Couplage fort entre SI',d:'Chaque changement de contrat casse les flux en aval'}],apres:[{l:'Transport + intelligence',d:'Transformation, enrichissement et analyse en transit'},{l:'Logique metier embarquee',d:'Regles, calculs, scoring, anonymisation dans le flux'},{l:'Architecture distribuee',d:'Chaque DataCell autonome, zero SPOF'},{l:'Decouplage total',d:'Le DataGraph abstrait les formats sources'}],integrations:[{name:'MuleSoft',format:'REST / AMQP / JMS',desc:"Coexistence avec Anypoint. Les API Experience consomment les DataCells.",protocols:['REST API / RAML','AMQP / JMS','Anypoint MQ'],color:'#00A2E0'},{name:'IBM ACE / MQ',format:'MQ / REST / SOAP',desc:'Enrichissement des messages MQ/JMS en transit avec contexte metier.',protocols:['IBM MQ (JMS)','REST API','SOAP / WSDL'],color:'#1E40AF'},{name:'Talend ESB / ServiceMix',format:'REST / JMS / CXF',desc:'Remplace les mediations Camel/CXF lourdes par des DataCells legeres.',protocols:['REST / CXF','JMS (ActiveMQ)','Camel route'],color:'#059669'},{name:'WSO2 / TIBCO / SAG',format:'REST / SOAP / JMS / Kafka',desc:'Complementarite avec les ESB enterprise.',protocols:['REST API','SOAP / WSDL','JMS / Kafka'],color:'#7C3AED'}],kpis:[{label:'Intelligence flux',value:'+100%',detail:'De zero a natif'},{label:'Disponibilite',value:'99.99%',detail:'Zero SPOF'},{label:'Scalabilite',value:'Infinie',detail:'Scale-out horizontal'},{label:'Couplage',value:'-0',detail:'SI totalement decouples'}],gains:[{t:'ESB + cerveau data',d:'Votre ESB route, iD4Connect enrichit. Le transport devient intelligent.'},{t:'Fin du SPOF central',d:'Architecture distribuee, chaque flux autonome et resilient.'},{t:"Agilite d'integration x10",d:'Nouveau SI = configurer une DataCell, pas ecrire du XSLT.'},{t:'Migration progressive',d:"L'ESB reste en place, chaque flux migre individuellement."}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Mediation intelligente + enrichissement'},{l:'Transformations',v:'Semantique, normalisation, logique metier'},{l:'Protocoles',v:'REST, SOAP, JMS, AMQP, Kafka, MQ'},{l:'Mode',v:'Stateless, zero persistance'},{l:'Scalabilite',v:'Scale-out horizontal, 1 DC par flux'}],outils:[{name:'MuleSoft',compat:'Anypoint, CloudHub'},{name:'IBM ACE / MQ',compat:'ACE, MQ, DataPower'},{name:'Talend ESB',compat:'Open Studio, Cloud'},{name:'WSO2',compat:'Micro Integrator, APIM'},{name:'TIBCO',compat:'BusinessWorks, EMS'},{name:'Apache Camel / Kafka',compat:'OSS, Confluent'}],compliance:['Haute disponibilite native','Chiffrement TLS/mTLS','Zero Trust par DataCell','Audit trail natif','Souverainete europeenne'],callout:{title:'Votre ESB, avec un cerveau',text:'iD4Connect agit comme une <strong>couche d\'intelligence embarquee</strong> dans vos flux. Votre ESB <strong>MuleSoft, IBM ACE ou WSO2</strong> continue de router, mais chaque message est transforme, enrichi et analyse en transit.'}}};
+
 let cmPopup=null,cmTab='compare';
 function openCompModal(id){cmPopup=id;cmTab='compare';const ov=document.getElementById('cm-overlay');ov.classList.add('open');renderCM();requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('active')));document.body.style.overflow='hidden';}
 function closeCompModal(){const ov=document.getElementById('cm-overlay');ov.classList.remove('active');setTimeout(()=>{ov.classList.remove('open');document.body.style.overflow='';},280);}
@@ -766,11 +650,10 @@ document.getElementById('cm-overlay').addEventListener('click',function(e){if(e.
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('cm-overlay').classList.contains('open'))closeCompModal();});
 function renderCM(){const d=COMP_DATA[cmPopup];if(!d)return;document.getElementById('cm-icon').innerHTML=d.icon;document.getElementById('cm-icon').style.background=d.color;document.getElementById('cm-badge').textContent='Complementarite';document.getElementById('cm-title').textContent=d.title;document.getElementById('cm-desc').textContent=d.desc;const tabs=['compare','integration','benefices','technique'];const labels={compare:'Avant / Apres',integration:'Integration',benefices:'Benefices',technique:'Technique'};document.getElementById('cm-tabs').innerHTML=tabs.map(t=>'<button class="cm-tab'+(cmTab===t?' active':'')+'" onclick="switchCMTab(\''+t+'\')">'+CM_TAB_ICONS[t]+labels[t]+'</button>').join('');renderCMBody();}
 function switchCMTab(t){cmTab=t;renderCM();}
-function renderCMBody(){const d=COMP_DATA[cmPopup],b=document.getElementById('cm-body');if(cmTab==='compare'){b.innerHTML='<div class="cm-cg"><div class="cm-col"><div class="cm-ch bef">Avant</div>'+d.avant.map(a=>'<div class="cm-ci"><div class="cm-ci-ico" style="color:var(--red);">\u2715</div><div><div class="cm-ci-lbl">'+a.l+'</div><div class="cm-ci-d">'+a.d+'</div></div></div>').join('')+'</div><div class="cm-col"><div class="cm-ch aft">Avec iD4Connect</div>'+d.apres.map(a=>'<div class="cm-ci"><div class="cm-ci-ico" style="color:var(--green);">\u2713</div><div><div class="cm-ci-lbl">'+a.l+'</div><div class="cm-ci-d">'+a.d+'</div></div></div>').join('')+'</div></div>';}
+function renderCMBody(){const d=COMP_DATA[cmPopup],b=document.getElementById('cm-body');if(cmTab==='compare'){b.innerHTML='<div class="cm-cg"><div class="cm-col"><div class="cm-ch bef">Avant</div>'+d.avant.map(a=>'<div class="cm-ci"><div class="cm-ci-ico" style="color:var(--red);">✕</div><div><div class="cm-ci-lbl">'+a.l+'</div><div class="cm-ci-d">'+a.d+'</div></div></div>').join('')+'</div><div class="cm-col"><div class="cm-ch aft">Avec iD4Connect</div>'+d.apres.map(a=>'<div class="cm-ci"><div class="cm-ci-ico" style="color:var(--green);">✓</div><div><div class="cm-ci-lbl">'+a.l+'</div><div class="cm-ci-d">'+a.d+'</div></div></div>').join('')+'</div></div>';}
 else if(cmTab==='integration'){b.innerHTML='<span class="cm-slbl">Outils compatibles</span>'+d.integrations.map(t=>'<div class="cm-ic"><div class="cm-ic-hdr"><div class="cm-ic-logo" style="background:'+t.color+'18;border:1px solid '+t.color+'40;color:'+t.color+';">'+t.name.charAt(0)+'</div><span class="cm-ic-name">'+t.name+'</span><span class="cm-tag">'+t.format+'</span></div><p>'+t.desc+'</p><div class="cm-protos">'+t.protocols.map(p=>'<span class="cm-proto">'+p+'</span>').join('')+'</div></div>').join('');}
 else if(cmTab==='benefices'){b.innerHTML='<div class="cm-kpis">'+d.kpis.map(k=>'<div class="cm-kpi"><div class="cm-kpi-val">'+k.value+'</div><div class="cm-kpi-lbl">'+k.label+'</div><div class="cm-kpi-d">'+k.detail+'</div></div>').join('')+'</div><span class="cm-slbl">Gains concrets</span>'+d.gains.map(g=>'<div class="cm-gain"><div class="cm-gain-t">'+g.t+'</div><div class="cm-gain-d">'+g.d+'</div></div>').join('');}
 else if(cmTab==='technique'){b.innerHTML='<span class="cm-slbl">Architecture DataCell</span>'+d.archi.map(a=>'<div class="cm-arch"><span class="cm-arch-lbl">'+a.l+'</span><span class="cm-arch-val">'+a.v+'</span></div>').join('')+'<br><span class="cm-slbl">Outils compatibles</span>'+d.outils.map(u=>'<div class="cm-tool-row"><span class="cm-tool-name">'+u.name+'</span><span class="cm-tool-compat">'+u.compat+'</span></div>').join('')+'<br><span class="cm-slbl">Conformite</span><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">'+d.compliance.map(c=>'<span class="cm-cp">'+c+'</span>').join('')+'</div><div class="cm-callout"><div class="cm-callout-title">'+d.callout.title+'</div><div class="cm-callout-text">'+d.callout.text+'</div></div>';}}
-
 </script>
 </body>
 </html>
