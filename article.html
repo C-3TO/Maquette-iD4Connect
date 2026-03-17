@@ -6,6 +6,7 @@
 <title>DataCell vs ETL : pourquoi le traitement en transit change tout · iD4Connect Blog</title>
 <meta name="description" content="Les ETL classiques copient et centralisent. Les DataCells traitent le flux à la source, sans stocker un seul octet.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 /* tokens fournis par header.html */
@@ -354,8 +355,10 @@ DataCell iD4C  :  Source → [Transform in transit] → Destination</div>
 async function loadComp(id, file, runInit) {
   try {
     const r = await fetch(file);
+    if (!r.ok) return;
     const html = await r.text();
     const el = document.getElementById(id);
+    if (!el) return;
     el.innerHTML = html;
     el.querySelectorAll('script').forEach(s => {
       const ns = document.createElement('script');
