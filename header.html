@@ -26,15 +26,15 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 /* NAV */
 .hdr-nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
 .nav-item{position:relative;}
-.nav-item.open::after{content:'';position:absolute;top:100%;left:-20px;right:-20px;height:400px;z-index:999;}
+
 .nav-btn{display:flex;align-items:center;gap:4px;padding:6px 11px;font-size:13.5px;font-weight:500;font-family:var(--font);color:var(--t7);background:none;border:none;border-radius:var(--r-sm);cursor:pointer;text-decoration:none;white-space:nowrap;transition:all var(--tr);}
 .nav-btn:hover,.nav-item.open>.nav-btn{color:var(--t9);background:var(--section);}
 .chev{width:11px;height:11px;flex-shrink:0;transition:transform var(--tr);color:var(--t4);}
 .nav-item.open .chev{transform:rotate(180deg);}
-.drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-4px);background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:5px;min-width:188px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease;box-shadow:var(--sh);padding-top:11px;margin-top:0;}
-.drop::before{content:'';position:absolute;top:-20px;left:-10px;right:-10px;height:28px;background:transparent;}
-.nav-item.open .drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
-.drop.wide{min-width:300px;display:grid;grid-template-columns:1fr 1fr;gap:0;padding:8px;padding-top:11px;}
+.drop{position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:8px;min-width:188px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease;box-shadow:var(--sh);}
+.drop::before{content:'';position:absolute;top:-8px;left:0;right:0;height:8px;background:transparent;}
+.nav-item.open .drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%);}
+.drop.wide{min-width:300px;display:grid;grid-template-columns:1fr 1fr;gap:0;padding:8px;}
 .drop-lbl{grid-column:1/-1;padding:5px 9px 2px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);opacity:.7;}
 .drop-item{display:flex;align-items:center;gap:7px;padding:7px 9px;font-size:13px;font-weight:500;font-family:var(--font);color:var(--t7);text-decoration:none;border-radius:var(--r-xs);transition:all var(--tr);}
 .drop-item:hover{background:var(--orange-pale);color:var(--orange);}
