@@ -6,6 +6,7 @@
 <title>DataCell · iD4Connect</title>
 <meta name="description" content="DataCell : l'unité de traitement autonome d'iD4Connect. 201+ fonctionnalités, zéro stockage.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--orange:#F97316;--orange-d:#EA6C0A;--orange-pale:#FFF7ED;--orange-border:#FED7AA;--green:#16A34A;--green-pale:#F0FDF4;--green-border:#BBF7D0;--green-em:#10B981;--red:#DC2626;--red-pale:#FEF2F2;--red-border:#FECACA;--blue-pale:#EFF6FF;--font:'Inter',sans-serif;--r-xs:5px;--r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;--r-pill:100px;--tr:0.16s ease;--hh:64px;}
@@ -65,10 +66,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
 .s-flow-line::after{
   content:'';position:absolute;top:-1px;width:60%;height:6px;border-radius:3px;
+  will-change:left;
   animation:dc-flow-fwd 2.2s ease-in-out infinite;
 }
 .s-flow-line::before{
   content:'';position:absolute;top:-1px;width:40%;height:6px;border-radius:3px;
+  will-change:right;
   animation:dc-flow-bwd 2.2s ease-in-out infinite;
   animation-delay:1.1s;
 }
@@ -81,7 +84,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 @keyframes dc-flow-bwd{0%{right:-40%;left:auto;opacity:0;}10%{opacity:.7;}90%{opacity:.7;}100%{right:100%;left:auto;opacity:0;}}
 
 /* ══ DATACELL CENTRAL ══ */
-.dc-card{background:var(--card);border:2px solid var(--orange);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);animation:glowPulse 3s ease-in-out infinite;}
+.dc-card{background:var(--card);border:2px solid var(--orange);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);will-change:box-shadow;animation:glowPulse 3s ease-in-out infinite;}
 @keyframes glowPulse{0%,100%{box-shadow:0 8px 40px rgba(249,115,22,.12);}50%{box-shadow:0 8px 48px rgba(249,115,22,.28);}}
 
 .dc-header{background:var(--orange);padding:11px 16px;text-align:center;}
@@ -95,7 +98,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 [data-theme="dark"] .dc-stat .sl{color:var(--orange-border);}
 
 .dc-grid{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:7px;}
-.cat-card{background:var(--section);border:1.5px solid var(--border);border-radius:var(--r);padding:9px 11px;cursor:pointer;transition:all .2s;}
+.cat-card{background:var(--section);border:1.5px solid var(--border);border-radius:var(--r);padding:9px 11px;cursor:pointer;transition:all .2s;contain:layout style;}
 .cat-card:hover{border-color:var(--border-s);}
 .cat-card.active{transform:scale(1.02);}
 .cat-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
@@ -112,14 +115,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .dc-foot{text-align:center;padding:0 0 11px;font-size:10px;color:var(--t4);font-style:italic;}
 
 .schema-bottom{max-width:1120px;margin:0 auto;padding:0 32px;display:flex;justify-content:center;}
-.s-bottom-pills{display:flex;overflow:hidden;border-radius:var(--r-pill);border:1.5px solid var(--border);box-shadow:var(--sh-sm);}
-.sbp{padding:10px 22px;font-size:11px;font-weight:700;border-right:1.5px solid var(--border);}
+.s-bottom-pills{display:flex;flex-wrap:wrap;justify-content:center;overflow:hidden;border-radius:var(--r-pill);border:1.5px solid var(--green-border);box-shadow:var(--sh-sm);}
+.sbp{padding:10px 22px;font-size:11px;font-weight:700;background:var(--green-pale);color:var(--green);border-right:1.5px solid var(--green-border);}
 .sbp:last-child{border-right:none;}
-.sbp.r{background:var(--red-pale);color:var(--red);}
-.sbp.y{background:#FEF9C3;color:#CA8A04;}
-[data-theme="dark"] .sbp.y{background:rgba(202,138,4,.09);color:#FCD34D;}
-.sbp.g{background:var(--green-pale);color:var(--green);}
-.schema-hint{text-align:center;font-size:11px;color:var(--t4);margin-top:10px;}
 
 @media(max-width:1020px){
   .schema-wrap{grid-template-columns:1fr;gap:0;max-width:420px;}
@@ -128,7 +126,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
   .s-flow-line{width:60px;height:4px;}
   .dc-card{max-width:100%;}
 }
-@media(max-width:600px){.schema-wrap,.schema-bottom{padding:0 16px;}.schema-wrap{max-width:360px;}.s-flow-line{width:48px;}.s-panel{padding:12px;}.dc-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.schema-wrap,.schema-bottom{padding:0 16px;}.schema-wrap{max-width:360px;}.s-flow-line{width:48px;}.s-panel{padding:12px;}.dc-grid{grid-template-columns:1fr;}.s-bottom-pills{border-radius:var(--r);flex-direction:column;}.sbp{border-right:none;border-bottom:1px solid var(--green-border);text-align:center;}.sbp:last-child{border-bottom:none;}}
 
 /* ══ BLOC 2 - 5 PRINCIPES ══ */
 #principes{padding:96px 0;background:var(--card);}
@@ -172,7 +170,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .btn-w:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15);}
 .btn-wo{display:inline-flex;align-items:center;gap:6px;padding:12px 26px;background:transparent;color:white;font-family:var(--font);font-size:14px;font-weight:600;border-radius:var(--r-sm);text-decoration:none;border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:all var(--tr);}
 .btn-wo:hover{border-color:white;background:rgba(255,255,255,.1);}
-@media(max-width:600px){.wrap,.schema-wrap,.schema-bottom{padding:0 20px;}.quote-inner{padding:36px 24px;}}
+@media(max-width:600px){.wrap,.schema-wrap,.schema-bottom{padding:0 20px;}.quote-inner{padding:36px 24px;}.cta-btns{flex-direction:column;}.cta-btns a{justify-content:center;}}
 </style>
 </head>
 <body>
@@ -261,12 +259,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 
   <div class="schema-bottom">
     <div class="s-bottom-pills">
-      <div class="sbp r">✕ Aucun stockage intermédiaire</div>
-      <div class="sbp y">✕ Aucune duplication</div>
-      <div class="sbp g">✕ Aucun pipeline à maintenir</div>
+      <div class="sbp">✓ Aucun stockage intermédiaire</div>
+      <div class="sbp">✓ Aucune duplication</div>
+      <div class="sbp">✓ Aucun pipeline à maintenir</div>
     </div>
   </div>
-  <p class="schema-hint">Cliquez sur une catégorie pour explorer les fonctionnalités</p>
 </section>
 
 <!-- ══ BLOC 2 - 5 PRINCIPES ══ -->
@@ -382,6 +379,7 @@ const total = CATS.reduce((a,c)=>a+c.count,0);
 let active = null;
 
 function animCount(el, target, suffix='') {
+  if(!el) return;
   let v = 0; const step = Math.ceil(target/40);
   const id = setInterval(()=>{ v = Math.min(v+step, target); el.textContent = v + suffix; if(v>=target) clearInterval(id); }, 28);
 }
@@ -392,6 +390,7 @@ function cardBg(){ return isDark() ? 'var(--section)' : '#FAFAFA'; }
 
 function renderGrid() {
   const grid = document.getElementById('dc-grid');
+  if(!grid) return;
   grid.innerHTML = '';
   CATS.forEach((cat, i) => {
     const isActive = active === i;
@@ -419,7 +418,7 @@ function renderGrid() {
 }
 
 async function loadComp(id, file) {
-  try { const r = await fetch(file); const html = await r.text(); const el = document.getElementById(id); el.innerHTML = html; el.querySelectorAll('script').forEach(s=>{ const ns=document.createElement('script'); ns.textContent=s.textContent; document.head.appendChild(ns); }); } catch(e){}
+  try { const r = await fetch(file); if(!r.ok) return; const html = await r.text(); const el = document.getElementById(id); if(!el) return; el.innerHTML = html; el.querySelectorAll('script').forEach(s=>{ const ns=document.createElement('script'); ns.textContent=s.textContent; document.head.appendChild(ns); }); } catch(e){}
 }
 
 window.addEventListener('load', async ()=>{
