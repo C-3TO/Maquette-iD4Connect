@@ -92,9 +92,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 .dc-stats{display:flex;justify-content:space-around;padding:12px 16px;background:var(--orange-pale);border-bottom:1px solid var(--orange-border);}
 .dc-stat{text-align:center;}
 .dc-stat .sv{font-size:22px;font-weight:900;line-height:1;color:var(--orange);}
-.dc-stat .sv.dim{color:var(--t4);}
 .dc-stat .sl{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#92400E;margin-top:2px;}
-.dc-stat .sl.dim{color:var(--t4);}
 [data-theme="dark"] .dc-stat .sl{color:var(--orange-border);}
 
 .dc-grid{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:7px;}
@@ -180,7 +178,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
 <section id="dc-hero">
   <div class="hero-text">
     <div class="pill">DataCell</div>
-    <h1>Une unité de traitement autonome.<br><span class="o" id="feat-count">200+</span> fonctionnalités intégrées.</h1>
+    <h1>Une unité de traitement autonome.<br><span class="o" id="feat-count">200</span> fonctionnalités intégrées.</h1>
     <p>Posée dans votre infrastructure, les données <strong>transitent</strong>, ne sont jamais copiées ni stockées.</p>
   </div>
 </section>
@@ -207,7 +205,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
           <span class="chip"><span class="cdot" style="background:#F97316"></span>SQL/NoSQL</span>
           <span class="chip"><span class="cdot" style="background:#10B981"></span>Fichiers</span>
           <span class="chip"><span class="cdot" style="background:#64748B"></span>Cloud SaaS</span>
-          <span class="chip-more">200+</span>
+          <span class="chip-more">200</span>
         </div>
       </div>
     </div>
@@ -222,8 +220,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--t9);-webkit-font-s
     <div class="dc-card">
       <div class="dc-header"><span>DataCell</span></div>
       <div class="dc-stats">
-        <div class="dc-stat"><div class="sv" id="dc-counter">200+</div><div class="sl">Fonctionnalités</div></div>
-        <div class="dc-stat"><div class="sv dim">0</div><div class="sl dim">Stockage</div></div>
+        <div class="dc-stat"><div class="sv" id="dc-counter">200</div><div class="sl">Fonctionnalités</div></div>
+        <div class="dc-stat"><div class="sv" style="font-size:18px">0 GB</div><div class="sl">Stocké</div></div>
       </div>
       <div class="dc-grid" id="dc-grid"></div>
       <div class="dc-foot">+ modules personnalisés</div>
@@ -425,8 +423,8 @@ window.addEventListener('load', async ()=>{
   document.documentElement.setAttribute('data-theme',t);
   document.body.setAttribute('data-theme',t);
   document.addEventListener('themeChange', e=>{ document.documentElement.setAttribute('data-theme',e.detail); document.body.setAttribute('data-theme',e.detail); renderGrid(); });
-  animCount(document.getElementById('dc-counter'), 200, '+');
-  animCount(document.getElementById('feat-count'), 200, '+');
+  animCount(document.getElementById('dc-counter'), 200, '');
+  animCount(document.getElementById('feat-count'), 200, '');
   renderGrid();
   const io = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);} }); },{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
